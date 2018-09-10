@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/',            'pages.home')->name('home');
+Route::view('/contact',     'pages.contact')->name('contact');
+Route::view('/about',       'pages.about')->name('about');
+
+
+Route::redirect('/home',    '/', 301);
