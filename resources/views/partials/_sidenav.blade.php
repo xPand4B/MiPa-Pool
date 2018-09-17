@@ -1,6 +1,6 @@
 {{-- Data-Colors: purple, azure, green, orange, danger, rose --}}
 {{-- If you want to add another color you need to create as custom css --}}
-<div class="sidebar" data-color="purple" data-background-color="black">
+<div class="sidebar" data-color="primary1" data-background-color="black">
 
         <!-- Brand Name -->
         <div class="logo">
