@@ -1,0 +1,14 @@
+.sidebar[data-color=primary1] li.active>a {
+    background-color: var(--primary1);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(0, 94, 184, .4)
+}
+
+.sidebar[data-color=primary2] li.active>a {
+    background-color: var(--primary2);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(162, 0, 103 .4)
+}
+
+.sidebar[data-color=primary3] li.active>a {
+    background-color: var(--primary3);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(135, 136, 138, .4)
+}
