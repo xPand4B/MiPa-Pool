@@ -19,7 +19,7 @@ Generate an App-Key.
 php artisan key:generate
 ```
 
-Create you database based on your credentials inside the __.env File__ and Migrate all database tables.
+Create your database based on your credentials inside the __.env__ File _(DB_DATABASE)_ and Migrate all database tables.
 ```
 php artisan migrate
 ```
