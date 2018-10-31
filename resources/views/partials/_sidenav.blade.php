@@ -16,13 +16,13 @@
                 <li class="nav-item {{ Nav::isRoute('home') }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="material-icons">home</i>
-                        <p>Home</p>
+                        <p>Bestellungen</p>
                     </a>
                 </li>
     
                 {{-- User Profil --}}
                 <li class="nav-item {{ Nav::isRoute('profile') }}">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('profile') }}" class="nav-link">
                         <i class="material-icons">person</i>
                         <p>Profil</p>
                     </a>

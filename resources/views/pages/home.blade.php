@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('headline', 'Aktuelle Bestellungen')
+@section('headline', 'Bestellungen')
 
 @section('content')
 
@@ -12,10 +12,11 @@
                     {{-- <i class="material-icons">person</i> --}}
                     <img src="{{ asset('img/profile/Fairy Tail.jpg') }}" title="Eric Heinzl" width="64px" height="64px" style="border-radius: 32px">
                 </div>
-                <h4 class="card-title">
-                    <strong>
+                <h4 class="card-title row">
+                    <strong class="col-md-8">
                         Bestellung bei Lieferheld
                     </strong>
+                    <a href="#" class="col-md-3 btn" >Mitbestellen</a>
                 </h4>
             </div>  
             {{-- Card Category --}}
@@ -27,7 +28,7 @@
             {{-- Card Content --}}
             <div class="card-content">
                 <div class="container responsive">
-                    <table class="table table-responsive-sm table-striped table-shopping text-center">
+                    <table class="table table-responsive-sm table-hover table-striped table-shopping text-center">
                         <thead class="thead-light">
                             <tr>
                                 <th class="p-1">#</th>
@@ -40,41 +41,72 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="p-1">5</td>
+                                <td class="p-1">10</td>
                                 <td class="p-1">Eric Heinzl</td>
+                                <td class="p-1">
+                                    Bacon Burger
+                                    <br>
+                                    <hr class="my-0 py-0">
+                                    Pizza
+                                </td>
+                                <td class="p-1">
+                                    1
+                                    <br>
+                                    <hr class="my-0 py-0">
+                                    1
+                                </td>
+                                <td class="p-1"></td>
+                                <td class="p-1">
+                                    9,20 €
+                                    <br>
+                                    <hr class="my-0 py-0">
+                                    6,00 €
+                                </td>
+                            </tr>
+                            {{-- <tr>
+                                <td class="p-1"></td>
+                                <td class="p-1"></td>
+                                <td class="p-1">Kebab Pizza</td>
+                                <td class="p-1">1</td>
+                                <td class="p-1"></td>
+                                <td class="p-1">7,80 €</td>
+                            </tr> --}}
+                            <tr>
+                                <td class="p-1"></td>
+                                <td class="p-1"></td>
                                 <td class="p-1">Kebab Pizza</td>
                                 <td class="p-1">1</td>
                                 <td class="p-1"></td>
                                 <td class="p-1">7,80 €</td>
                             </tr>
                             <tr>
-                                <td class="p-1">4</td>
-                                <td class="p-1">Eric Heinzl</td>
+                                <td class="p-1">9</td>
+                                <td class="p-1">Henning</td>
                                 <td class="p-1">Kebab Pizza</td>
                                 <td class="p-1">1</td>
                                 <td class="p-1"></td>
                                 <td class="p-1">7,80 €</td>
                             </tr>
                             <tr>
-                                <td class="p-1">3</td>
-                                <td class="p-1">Eric Heinzl</td>
+                                <td class="p-1">8</td>
+                                <td class="p-1">Vural</td>
+                                <td class="p-1">Salat</td>
+                                <td class="p-1">1</td>
+                                <td class="p-1"></td>
+                                <td class="p-1">7,80 €</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1">7</td>
+                                <td class="p-1">Marvin</td>
                                 <td class="p-1">Kebab Pizza</td>
                                 <td class="p-1">1</td>
                                 <td class="p-1"></td>
                                 <td class="p-1">7,80 €</td>
                             </tr>
                             <tr>
-                                <td class="p-1">2</td>
-                                <td class="p-1">Eric Heinzl</td>
-                                <td class="p-1">Kebab Pizza</td>
-                                <td class="p-1">1</td>
-                                <td class="p-1"></td>
-                                <td class="p-1">7,80 €</td>
-                            </tr>
-                            <tr>
-                                <td class="p-1">1</td>
-                                <td class="p-1">Eric Heinzl</td>
-                                <td class="p-1">Kebab Pizza</td>
+                                <td class="p-1">6</td>
+                                <td class="p-1">Stuart</td>
+                                <td class="p-1">Bacon Burger</td>
                                 <td class="p-1">1</td>
                                 <td class="p-1"></td>
                                 <td class="p-1">7,80 €</td>
@@ -82,10 +114,10 @@
                             <tr>
                                 <td class="p-1"></td>
                                 <td class="p-1"></td>
+                                <td class="p-1">Kebab Pizza</td>
+                                <td class="p-1">1</td>
                                 <td class="p-1"></td>
-                                <td class="p-1"></td>
-                                <td class="p-1"></td>
-                                <td class="p-1"></td>
+                                <td class="p-1">7,80 €</td>
                             </tr>
                             <tr>
                                 <td class="p-1"></td>
@@ -100,10 +132,10 @@
                 </div>
             </div>
             
-            <hr class="mt-0">
+            {{-- <hr class="mt-0">
                 <div class="container">
                     <a href="#" class="btn btn-block" >Mitbestellen</a>
-                </div>
+                </div> --}}
             <hr class="mb-0">
 
             {{-- Card Footer --}}
