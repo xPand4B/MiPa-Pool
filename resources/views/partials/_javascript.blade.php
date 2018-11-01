@@ -2,7 +2,7 @@
 {{ Html::script('js/jquery-3.3.1.min.js') }}
 {{ Html::script('js/bootstrap/popper.min.js') }}
 {{ Html::script('js/material_dashboard/bootstrap-material-design.min.js') }}
-{{ Html::script('js/material_dashboard/perfect-scrollbar.jquery.min.js') }}
+{{ Html::script('js/plugins/perfect-scrollbar.jquery.min.js') }}
 
 {{-- Chartist Plugin --}}
 {{ Html::script('js/plugins/chartist.min.js') }}
