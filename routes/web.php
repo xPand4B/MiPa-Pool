@@ -22,5 +22,3 @@ Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
 
 Route::redirect('/home',        '/', 301);
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
