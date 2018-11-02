@@ -1,11 +1,13 @@
-{{-- Data-Colors: purple, azure, green, orange, danger, rose --}}
+{{-- Data-Colors: primary, info, success, warning, danger, rose, white --}}
 {{-- If you want to add another color you need to create as custom css --}}
-<div class="sidebar" data-color="primary1" data-background-color="black">
+{{-- Other parameters: data-image="{{ asset('img/<PATH TO IMAGE>') }}" --}}
+<div class="sidebar" data-color="primary" data-background-color="black">
 
         <!-- Brand Name -->
         <div class="logo">
             <a href="{{ route('home') }}" class="simple-text logo-normal">
                 <!-- BRAND LOGO HERE -->
+                <img src="{{ asset('img/brand-icon.jpg') }}" alt="{{ config('app.name', 'MiPa-Pool') }}" width="32px" height="32px" style="border-radius: 16px">
                 {{ config('app.name', 'MiPa-Pool') }}
             </a>
         </div>
