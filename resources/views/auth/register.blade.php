@@ -1,6 +1,6 @@
 @extends('layouts.login')
 
-@section('title', '| Signup')
+@section('title', '| Registrierung')
 
 @section('content')
 <div class="container">
@@ -18,9 +18,9 @@
                         @csrf
 
                         {{-- Name --}}
-                        <div class="form-group row">
+                        <div class="form-group is-focused">
                             <label for="name" class="bmd-label-floating">
-                                Name
+                                Username
                             </label>
 
                             <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -30,6 +30,25 @@
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
+                        </div>
+
+                        <div class="form-row" style="padding-left: 5px">
+                            {{-- Firstname --}}
+                            <div class="form-group col pl-0 pr-3">
+                                <label for="firstname" class="bmd-label-floating">
+                                    Vorname
+                                </label>
+
+                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required>
+                            </div>
+                            {{-- Surname --}}
+                            <div class="form-group col px-0">
+                                <label for="surname" class="bmd-label-floating">
+                                    Nachname
+                                </label>
+
+                                <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ old('surname') }}" required>
+                            </div>
                         </div>
 
                         {{-- Email --}}
@@ -47,34 +66,34 @@
                             @endif
                         </div>
 
-                        {{-- Password --}}
-                        <div class="form-group row">
-                            <label for="password" class="bmd-label-floating">
-                                Passwort
-                            </label>
+                        <div class="form-row" style="padding-left: 5px">
+                            {{-- Password --}}
+                            <div class="form-group col pl-0 pr-3">
+                                <label for="password" class="bmd-label-floating">
+                                    Passwort
+                                </label>
 
-                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                            @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            {{-- Confirm Password --}}
+                            <div class="form-group col px-0">
+                                <label for="password-confirm" class="bmd-label-floating">
+                                    Passwort bestätigen
+                                </label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
                         </div>
-
-                        {{-- Confirm Password --}}
-                        <div class="form-group row">
-                            <label for="password-confirm" class="bmd-label-floating">
-                                Passwort bestätigen
-                            </label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                        </div>
-
 
                         {{-- Submit --}}
                         <div class="form-group row mb-0 mt-4">
                             <button type="submit" class="btn btn-block btn-success">
-                                <i class="fas fa-sign-in-alt"></i> &ensp; Registrieren
+                                <i class="fa fa-sign-in"></i> &ensp; Registrieren
                             </button>
                         </div>
 

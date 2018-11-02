@@ -18,7 +18,7 @@
                         @csrf
 
                         {{-- Email --}}
-                        <div class="form-group">
+                        <div class="form-group is-focused">
                             <label for="email" class="bmd-label-floating">
                                 E-Mail Adresse
                             </label>
@@ -48,7 +48,7 @@
                         </div>
 
                         {{-- Remember Me --}}
-                        <div class="form-group row">
+                        <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label" for="remember">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -65,7 +65,7 @@
                         {{-- Submit --}}
                         <div class="form-group row mb-0 mt-0">
                             <button type="submit" class="btn btn-block btn-success">
-                                <i class="fas fa-sign-in-alt"></i> &ensp; Anmelden
+                                <i class="fa fa-sign-in"></i> &ensp; Anmelden
                             </button>
                         </div>
 
