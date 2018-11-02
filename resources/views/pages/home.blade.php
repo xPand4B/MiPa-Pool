@@ -1,29 +1,40 @@
 @extends('layouts.main')
 
-@section('headline', 'Bestellungen')
+@section('headline')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 p-0 bg-transparent">
+            {{-- <li class="breadcrumb-item"><a href="{{ url('dashboard/posts') }}" class="text-danger">Posts</a></li> --}}
+            <li class="breadcrumb-item active" aria-current="page">Bestellungen</li>
+        </ol>
+    </nav>
+@endsection
 
 @section('content')
 
     <div class="col-md-10 offset-md-1">
         <div class="card card-chart">
             {{-- Card Header --}}
-            <div class="card-header card-header-secondary card-header-icon">
+            <div class="card-header card-header-icon">
+                {{-- User Icon --}}
                 <div class="card-icon p-0 bg-transparent">
-                    {{-- <i class="material-icons">person</i> --}}
                     <img src="{{ asset('img/profile/Fairy Tail.jpg') }}" title="Eric Heinzl" width="64px" height="64px" style="border-radius: 32px">
                 </div>
-                <h4 class="card-title row">
-                    <strong class="col-md-8">
+
+                {{-- Title --}}
+                <h4 class="card-title row mt-0">
+                    <strong class="col-md-8 mt-4">
                         Bestellung bei Lieferheld
                     </strong>
-                    <a href="#" class="col-md-3 btn" >Mitbestellen</a>
+
+                    <div class="col-md-4 mt-2">
+                        <a href="#" class="btn btn-block btn-info">
+                            Mitbestellen
+                        </a>
+                    </div>
                 </h4>
             </div>  
-            {{-- Card Category --}}
-            <div class="card-category text-muted">
-            </div>
 
-            <hr>
+            <hr class="mt-2">
             
             {{-- Card Content --}}
             <div class="card-content">
@@ -140,17 +151,17 @@
 
             {{-- Card Footer --}}
             <div class="card-footer">
-                <div class="col-sm">
+                <div class="col-md">
                     <div class="stats text-danger">
                         <i class="material-icons">access_time</i> 4 min. verbleibend
                     </div>
                 </div>
-                <div class="col-sm text-center">
+                <div class="col-md text-center">
                     <div class="stats">
                         <i class="material-icons pl-1">person</i> Eric Heinzl
                     </div>
                 </div>
-                <div class="col-sm text-right">
+                <div class="col-md text-right">
                     <div class="stats text-success">
                         <i class="material-icons">done</i> 5/10 Personen
                     </div>
