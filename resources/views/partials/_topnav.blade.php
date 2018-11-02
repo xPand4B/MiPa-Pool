@@ -3,7 +3,7 @@
     
             {{-- Navbar Brand --}}
             <div class="navbar-wrapper">
-                <a href="#" class="navbar-brand"></a>
+                <a class="navbar-brand"></a>
                 @yield('headline')
             </div>
     
@@ -45,7 +45,7 @@
                     </li>
                     
                     {{-- Logout --}}
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" title="Logout"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -56,7 +56,7 @@
                         <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display:none;">
                             @csrf
                         </form>
-                    </li> --}}
+                    </li>
 
                 </ul>
             </div>
