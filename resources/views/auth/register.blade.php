@@ -40,6 +40,12 @@
                                 </label>
 
                                 <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required>
+
+                                @if ($errors->has('firstname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             {{-- Surname --}}
                             <div class="form-group col px-0">
@@ -48,6 +54,12 @@
                                 </label>
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ old('surname') }}" required>
+                                
+                                @if ($errors->has('surname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('surname') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
