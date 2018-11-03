@@ -12,11 +12,10 @@
 */
 
 Route::view('/',                'pages.home')->name('home');
-Route::view('/contact',         'pages.contact')->name('contact');
-Route::view('/about',           'pages.about')->name('about');
-
 Route::view('/profile',         'pages.profile')->name('profile');
 
+Route::view('/contact',         'pages.contact')->name('contact');
+Route::view('/about',           'pages.about')->name('about');
 Route::view('/impressum',       'pages.impressum')->name('impressum');
 Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
 
