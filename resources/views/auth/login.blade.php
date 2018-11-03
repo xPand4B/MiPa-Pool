@@ -52,7 +52,7 @@
                             <div class="form-check">
                                 <label class="form-check-label" for="remember">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    Angemeldet bleiben
+                                    Angemeldet bleiben?
                                     <span class="form-check-sign">
                                         <span class="check"></span>
                                     </span>
@@ -72,7 +72,7 @@
                         {{-- Forgot Password --}}
                         <div class="text-center pt-2 pb-0">
                             <a class="btn btn-link text-info py-0" href="{{ route('password.request') }}">
-                                Passwort vergessen?
+                                <i class="material-icons">email</i> Passwort vergessen?
                             </a>
                         </div>
 
