@@ -253,17 +253,19 @@ class SetBrandColor extends Command
     private function Start()
     {
         // Set File Number
-        $fileCount = sizeof($files);
+        $fileCount = sizeof($this->files);
+        $counter = 1;
 
         // Loop for function call
         for($i = 0; $i < $fileCount; $i++){
             // Replace inside File
-            $this->RewriteFiles($files[$i], $content[$i]);
+            $this->RewriteFiles($this->files[$i], $this->content[$i]);
             
             // Output after a file is finished
             $this->line('');
-            $this->info('   ' . $i . '/' . $fileCount . ' files rewriten.');
-            $this->line('      > ' . $files[$i]);
+            $this->info('   ' . $counter . '/' . $fileCount . ' files rewriten.');
+            $this->line('      > ' . $this->files[$i]);
+            $counter++;
         }
     }
 
