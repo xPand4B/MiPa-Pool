@@ -15,7 +15,7 @@
     <div class="col-md">
         <div class="card">
             {{-- Card Header --}}
-            <div class="card-header card-header-danger">
+            <div class="card-header card-header-success">
                 <h4 class="card-title">Impressum</h4>
                 <p class="card-category"></p>
             </div>
