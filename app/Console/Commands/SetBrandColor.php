@@ -214,7 +214,7 @@ class SetBrandColor extends Command
                     // Warning
                     '$orange-400, $orange-600',
                     // Danger
-                    '$red-400 $red-600',
+                    '$red-400, $red-600',
                     // Rose
                     '$pink-400, $pink-600'
                 ],
