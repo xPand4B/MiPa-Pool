@@ -19,8 +19,6 @@
 
 /*     default brand Colors              */
 
-/*     new brand Colors              */
-
 .card {
   font-size: .875rem;
 }
@@ -18783,7 +18781,7 @@ label {
 .card.bg-primary,
 .card.card-rotate.bg-primary .front,
 .card.card-rotate.bg-primary .back {
-  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  background: linear-gradient(60deg, #005eb8, #a20067);
 }
 
 .card .card-header-info .card-icon,
@@ -18792,7 +18790,7 @@ label {
 .card.bg-info,
 .card.card-rotate.bg-info .front,
 .card.card-rotate.bg-info .back {
-  background: linear-gradient(60deg, #26c6da, #00acc1);
+  background: linear-gradient(60deg, #00b1eb, #41c0f0);
 }
 
 .card .card-header-success .card-icon,
@@ -18801,7 +18799,7 @@ label {
 .card.bg-success,
 .card.card-rotate.bg-success .front,
 .card.card-rotate.bg-success .back {
-  background: linear-gradient(60deg, #66bb6a, #43a047);
+  background: linear-gradient(60deg, #95c41f, #aecd60);
 }
 
 .card .card-header-warning .card-icon,
@@ -18810,7 +18808,7 @@ label {
 .card.bg-warning,
 .card.card-rotate.bg-warning .front,
 .card.card-rotate.bg-warning .back {
-  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  background: linear-gradient(60deg, #ec6726, #f7a823);
 }
 
 .card .card-header-danger .card-icon,
@@ -18819,7 +18817,7 @@ label {
 .card.bg-danger,
 .card.card-rotate.bg-danger .front,
 .card.card-rotate.bg-danger .back {
-  background: linear-gradient(60deg, #ef5350, #e53935);
+  background: linear-gradient(60deg, #e50051, #ec5f78);
 }
 
 .card .card-header-rose .card-icon,
@@ -18828,7 +18826,7 @@ label {
 .card.bg-rose,
 .card.card-rotate.bg-rose .front,
 .card.card-rotate.bg-rose .back {
-  background: linear-gradient(60deg, #ec407a, #d81b60);
+  background: linear-gradient(60deg, #e6007e, #e75297);
 }
 
 .card .card-header-primary .card-icon,
