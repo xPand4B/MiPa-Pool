@@ -8,13 +8,15 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
     * [Environment Variables](#environment-variables)
     * [App-Key](#app-key)
     * [Database Migration](#database-migration)
+    * [Node Modules](#node-modules)
+    * [Brand Color](#brand-color)
     * [Start Live Server](#start-live-server)
     
 
 # How to Start
 
 ## Composer
-At first you need a working webserver(php, apache, etc.) and [Composer](https://getcomposer.org) installed on your computer.
+At first you need a working webserver(php, apache, etc.), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
 Open a new __Command Prompt__ inside your project's root folder and type the following command. This will install all required depencies.
 ```
 composer install
@@ -35,16 +37,19 @@ Create your database based on your credentials inside the __.env__ File _(DB_DAT
 php artisan migrate
 ```
 
-If you getting errors try one of the following commands, based on your current situation.
+If you get errors, go to the [Laravel Documentation](https://laravel.com/docs/5.7) and check your PHP packages.
 
-Command             | Description
---------------------|---------------------------------------------
-migrate:fresh       | Drop all tables and re-run all migrations
-migrate:install     | Create the migration repository
-migrate:refresh     | Reset and re-run all migrations
-migrate:reset       | Rollback all database migrations
-migrate:rollback    | Rollback the last database migration
-migrate:status      | Show the status of each migration
+## Node Modules
+Install all node_modules depencies.
+```
+npm install
+```
+
+## Set Brand-Colors
+If you want to change the default [material-dashboard](https://demos.creative-tim.com/material-dashboard/docs/2.0/getting-started/introduction.html) colors.
+```
+php artisan brand:color
+```
 
 ## Start Live Server
 After that, start a __Laravel Live Server__.
