@@ -65,7 +65,7 @@ class SetBrandColor extends Command
         |
         | This Command is for changing the default colors from the "Material-Dashboard".
         | It replaces lines inside .scss files inside the "node_mmodules" folder.
-        | If you want to change my default values search for $content inside the $Replace function.
+        | If you want to change my default values search inside the SetDefaultValues function.
         |
         |
         | Following files are already affected:
@@ -82,32 +82,37 @@ class SetBrandColor extends Command
         
         // Add Values
         // Note that both values, filename AND content must have some content.
-        $this->AddValue(
+        $this->AddValues(
             // FILENAMES
             [
                 // 'node_modules/material-dashboard/assets/scss/material-dashboard/variables/_brand.scss',
             ],
 
             // CONTENT
-            // What you see in the following example will be only for one file.
-            // If you have multiple files call $this->AddValues() again.
             [
+            // FIRST FILE
                 // What should be searched for
                 [
-                    // Example:
                     // '&[data-color="purple"]{',
                 ],
                 // Which content should replace it
                 [
                     // '&[data-color="primary"]{',
+                ],
+
+            // SECOND FILE
+                [
+                    // 
+                ],
+                [
+                    // 
                 ]
             ]
         );
 
         // Start rewriting files
         $this->Start();
-
-        // Finish Message
+        // Finishing Message
         $this->line('');
         $this->info('Rewrite successful. New colors are now available.');
         $this->line('');
@@ -120,7 +125,7 @@ class SetBrandColor extends Command
      * @param array $newContent
      * @return void
      */
-    private function AddValue(array $newFiles = [], array $newContent = [])
+    private function AddValues(array $newFiles = [], array $newContent = [])
     {
         // Add files and content to array
         if(sizeof($newFiles) != 0 && sizeof($newContent)){
@@ -129,7 +134,7 @@ class SetBrandColor extends Command
         }
     }
 
-        /**
+    /**
      * Set default values for MiPa-Pool
      *
      * @return void
