@@ -22,10 +22,9 @@ Route::middleware(['auth'])->group(function(){
     Route::view('/about',           'pages.about')->name('about');
     Route::view('/impressum',       'pages.impressum')->name('impressum');
     Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
+    // Redirect Routes
+    // Route::redirect('/home',        '/', 301);
 });
 
 // Login routes
 Auth::routes();
-
-// Redirect Routes
-// Route::redirect('/home',        '/', 301);
