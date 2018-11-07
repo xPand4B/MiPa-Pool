@@ -29,6 +29,13 @@
     
                 
                 <ul class="navbar-nav">
+                    {{-- Add order --}}
+                    <li class="nav-item">
+                        <a href="{{ route('order.create') }}" class="nav-link" title="Bestellung erstellen">
+                            <i class="fa fa-plus-square-o"></i>
+                            <p class="d-lg-none d-md-block">Bestellung erstellen</p>
+                        </a>
+                    </li>
                     {{-- Notifications --}}
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Benachrichtigungen">
