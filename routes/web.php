@@ -13,7 +13,8 @@
 
 // Auth Routes
 Route::middleware(['auth'])->group(function(){
-    Route::view('/',                'pages.home')->name('home');
+    Route::view('/',                'pages.orders.index')->name('home');
+    Route::view('/order/create',    'pages.orders.create')->name('order.create');
     // Profile
     Route::get('/profile',        'ProfileController@show')->name('profile.show');
     Route::match(['put', 'patch'],      '/profile/update', 'ProfileController@update')->name('profile.update');
