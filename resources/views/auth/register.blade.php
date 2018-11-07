@@ -19,15 +19,15 @@
 
                         {{-- Name --}}
                         <div class="form-group is-focused">
-                            <label for="name" class="bmd-label-floating">
+                            <label for="username" class="bmd-label-floating">
                                 Username
                             </label>
 
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('username'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
+                                    <strong>{{ $errors->first('username') }}</strong>
                                 </span>
                             @endif
                         </div>
