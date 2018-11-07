@@ -11,13 +11,21 @@
 |
 */
 
-Route::view('/',                'pages.home')->name('home');
-Route::view('/profile',         'pages.profile')->name('profile');
+// Auth Routes
+Route::middleware(['auth'])->group(function(){
+    Route::view('/',                'pages.home')->name('home');
+    // Profile
+    Route::get('/profile',        'ProfileController@show')->name('profile.show');
+    Route::match(['put', 'patch'],      '/profile/update', 'ProfileController@update')->name('profile.update');
+    // Footer Links
+    Route::view('/contact',         'pages.contact')->name('contact');
+    Route::view('/about',           'pages.about')->name('about');
+    Route::view('/impressum',       'pages.impressum')->name('impressum');
+    Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
+});
 
-Route::view('/contact',         'pages.contact')->name('contact');
-Route::view('/about',           'pages.about')->name('about');
-Route::view('/impressum',       'pages.impressum')->name('impressum');
-Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
-
-Route::redirect('/home',        '/', 301);
+// Login routes
 Auth::routes();
+
+// Redirect Routes
+// Route::redirect('/home',        '/', 301);
