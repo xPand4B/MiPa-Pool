@@ -15,7 +15,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <!-- Home -->
-                <li class="nav-item {{ Nav::isRoute('home') }}">
+                <li class="nav-item {{ Nav::isRoute('home') }}{{ Nav::hasSegment('order') }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="material-icons">home</i>
                         <p>Bestellungen</p>
