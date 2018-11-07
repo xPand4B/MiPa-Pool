@@ -5,7 +5,7 @@
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">Datenschutz</li>
+            <li class="breadcrumb-item active" aria-current="page">Datenschutzerklärung</li>
         </ol>
     </nav>
 @endsection
@@ -15,7 +15,7 @@
     <div class="col-md">
         <div class="card">
             {{-- Card Header --}}
-            <div class="card-header card-header-success">
+            <div class="card-header card-header-warning">
                 <h4 class="card-title">Datenschutzerklärung</h4>
                 <p class="card-category"></p>
             </div>
