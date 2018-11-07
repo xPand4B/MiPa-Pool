@@ -23,8 +23,8 @@
                 </li>
     
                 {{-- User Profil --}}
-                <li class="nav-item {{ Nav::isRoute('profile') }}">
-                    <a href="{{ route('profile') }}" class="nav-link">
+                <li class="nav-item {{ Nav::hasSegment('profile') }}">
+                    <a href="{{ route('profile.show') }}" class="nav-link">
                         <i class="material-icons">person</i>
                         <p>Profil</p>
                     </a>
