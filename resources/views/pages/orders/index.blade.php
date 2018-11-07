@@ -27,7 +27,8 @@
                     </strong>
 
                     <div class="col-md-4 mt-2">
-                        <a href="#" class="btn btn-block btn-info">
+                        <a href="#" class="btn btn-block btn-info btn-round">
+                            <i class="fa fa-cart-plus"></i>
                             Mitbestellen
                         </a>
                     </div>
