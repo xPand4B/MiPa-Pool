@@ -36,6 +36,7 @@
                             <p class="d-lg-none d-md-block">Bestellung erstellen</p>
                         </a>
                     </li>
+
                     {{-- Notifications --}}
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Benachrichtigungen">
