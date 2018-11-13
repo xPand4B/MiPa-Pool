@@ -11,10 +11,10 @@
 
 @section('content')
     
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-12">
         <div class="row">
             {{-- Profile --}}
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="card">
                     {{-- Card Header --}}
                     {{-- <div class="card-header card-header-primary"></div> --}}
@@ -146,7 +146,7 @@
             </div>
 
             {{-- Stats --}}
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     {{-- Header --}}
                     <div class="card-header card-header-primary"></div>
