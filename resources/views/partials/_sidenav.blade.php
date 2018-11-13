@@ -29,8 +29,18 @@
                         <p>Profil</p>
                     </a>
                 </li>
-    
+
+                
+                <hr class="mx-3 mt-5 mb-0" style="background-color: rgba(180, 180, 180, 0.3);">
+
+                {{-- PayPal --}}
+                <li class="nav-item">
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F8EMZ2C75K4TA" class="nav-link" target="_blank">
+                        <i class="fa fa-paypal"></i>
+                        <p>Unterstützung</p>
+                    </a>
+                </li>
+
             </ul>
-        </div>
-    
+        </div>    
     </div>
