@@ -19,5 +19,8 @@
         "material-dashboard": "^2.1.0",
         "material-icons": "^0.2.3",
         "font-awesome": "^4.7.0"
+    },
+    "dependencies": {
+        "npm": "^6.5.0"
     }
 }
