@@ -25,8 +25,8 @@ Route::middleware(['auth'])->group(function(){
     // Footer Links
     Route::view('/contact',         'pages.contact')->name('contact');
     Route::view('/about',           'pages.about')->name('about');
-    Route::view('/impressum',       'pages.impressum')->name('impressum');
-    Route::view('/datenschutz',     'pages.datenschutz')->name('datenschutz');
+    Route::view('/imprint',         'pages.imprint')->name('imprint');
+    Route::view('/privacy-policy',  'pages.privacy_policy')->name('privacy_policy');
     // Redirect Routes
     // Route::redirect('/home',        '/', 301);
 });
