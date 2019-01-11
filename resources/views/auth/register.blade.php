@@ -1,6 +1,8 @@
 @extends('layouts.login')
 
-@section('title', '| Registrierung')
+@section('title')
+    | @lang('login.signup_title')
+@endsection
 
 @section('content')
 <div class="container">
@@ -11,7 +13,7 @@
 
                     {{-- Header --}}
                     <div class="h2 pb-2">
-                        Registrierung
+                        @lang('login.signup_header')
                     </div>
 
                     <form method="POST" action="{{ route('register') }}">
@@ -20,7 +22,7 @@
                         {{-- Name --}}
                         <div class="form-group is-focused">
                             <label for="username" class="bmd-label-floating">
-                                Username
+                                @lang('login.username')
                             </label>
 
                             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
@@ -36,7 +38,7 @@
                             {{-- Firstname --}}
                             <div class="form-group col pl-0 pr-3">
                                 <label for="firstname" class="bmd-label-floating">
-                                    Vorname
+                                    @lang('login.firstname')
                                 </label>
 
                                 <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required>
@@ -50,7 +52,7 @@
                             {{-- Surname --}}
                             <div class="form-group col px-0">
                                 <label for="surname" class="bmd-label-floating">
-                                    Nachname
+                                    @lang('login.surname')
                                 </label>
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ old('surname') }}" required>
@@ -66,7 +68,7 @@
                         {{-- Email --}}
                         <div class="form-group row">
                             <label for="email" class="bmd-label-floating">
-                                E-Mail Adresse
+                                @lang('login.email')
                             </label>
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -82,7 +84,7 @@
                             {{-- Password --}}
                             <div class="form-group col pl-0 pr-3">
                                 <label for="password" class="bmd-label-floating">
-                                    Passwort
+                                    @lang('login.password')
                                 </label>
 
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -96,7 +98,7 @@
                             {{-- Confirm Password --}}
                             <div class="form-group col px-0">
                                 <label for="password-confirm" class="bmd-label-floating">
-                                    Passwort bestätigen
+                                    @lang('login.confirm_password')
                                 </label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
@@ -105,7 +107,7 @@
                         {{-- Submit --}}
                         <div class="form-group row mb-0 mt-4">
                             <button type="submit" class="btn btn-block btn-success">
-                                <i class="fa fa-sign-in"></i> &ensp; Registrieren
+                                <i class="fa fa-sign-in"></i> &ensp; @lang('login.signup_button')
                             </button>
                         </div>
 
@@ -113,9 +115,9 @@
                         
                         {{-- Already have an account --}}
                         <div class="text-center py-0">
-                            Du hast bereits einen Account?
+                            @lang('login.already_have_account')
                             <a href="{{ route('login') }}" class="btn btn-link py-0 pl-1 pr-0 text-info">
-                                Hier anmelden.
+                                @lang('login.login_here')
                             </a>
                         </div>
 

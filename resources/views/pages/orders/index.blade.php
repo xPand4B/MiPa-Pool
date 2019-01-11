@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
             {{-- <li class="breadcrumb-item"><a href="{{ url('dashboard/posts') }}" class="text-danger">Posts</a></li> --}}
-            <li class="breadcrumb-item active" aria-current="page">Bestellungen</li>
+            <li class="breadcrumb-item active" aria-current="page">@lang('page.orders.breadcrumb.index')</li>
         </ol>
     </nav>
 @endsection
@@ -29,7 +29,7 @@
                     <div class="col-md-4 mt-2">
                         <a href="{{ route('order.participate') }}" class="btn btn-block btn-info btn-round">
                             <i class="fa fa-cart-plus"></i>
-                            Mitbestellen
+                            @lang('table.orders.participate')
                         </a>
                     </div>
                 </h4>
@@ -43,12 +43,12 @@
                     <table class="table table-responsive-sm table-hover table-striped table-shopping text-center">
                         <thead class="thead-light">
                             <tr>
-                                <th class="p-1">#</th>
-                                <th class="p-1">Name</th>
-                                <th class="p-1">Menü</th>
-                                <th class="p-1">Anzahl</th>
-                                <th class="p-1">Kommentar</th>
-                                <th class="p-1">Preis</th>
+                                <th class="p-1">@lang('table.orders.head.count')</th>
+                                <th class="p-1">@lang('table.orders.head.name')</th>
+                                <th class="p-1">@lang('table.orders.head.menu')</th>
+                                <th class="p-1">@lang('table.orders.head.number')</th>
+                                <th class="p-1">@lang('table.orders.head.comment')</th>
+                                <th class="p-1">@lang('table.orders.head.price')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,7 +154,7 @@
             <div class="card-footer">
                 <div class="col-md">
                     <div class="stats text-danger">
-                        <i class="material-icons">access_time</i> 4 min. verbleibend
+                        <i class="material-icons">access_time</i> 4 @lang('table.orders.footer.time_left')
                     </div>
                 </div>
                 <div class="col-md text-center">
@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-md text-right">
                     <div class="stats text-success">
-                        <i class="material-icons">done</i> 5/10 Personen
+                        <i class="material-icons">done</i> 5/10 @lang('table.orders.footer.people_count')
                     </div>
                 </div>
             </div>

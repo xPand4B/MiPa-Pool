@@ -18,7 +18,7 @@
                 <li class="nav-item {{ Nav::isRoute('home') }}{{ Nav::hasSegment('order') }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="material-icons">home</i>
-                        <p>Bestellungen</p>
+                        <p>@lang('menu.side.orders')</p>
                     </a>
                 </li>
     
@@ -26,7 +26,7 @@
                 <li class="nav-item {{ Nav::hasSegment('profile') }}">
                     <a href="{{ route('profile.show') }}" class="nav-link">
                         <i class="material-icons">person</i>
-                        <p>Profil</p>
+                        <p>@lang('menu.side.profile')</p>
                     </a>
                 </li>
 
@@ -37,7 +37,7 @@
                 <li class="nav-item">
                     <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F8EMZ2C75K4TA" class="nav-link" target="_blank">
                         <i class="fa fa-paypal"></i>
-                        <p>Unterstützung</p>
+                        <p>@lang('menu.side.support')</p>
                     </a>
                 </li>
 

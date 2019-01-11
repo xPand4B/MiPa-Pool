@@ -1,5 +1,9 @@
 @extends('layouts.login')
 
+@section('title')
+    | @lang('login.reset_password_title')
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,7 +14,7 @@
 
                     {{-- Header --}}
                     <div class="h2 pb-2">
-                        Passwort zurücksetzten
+                        @lang('login.reset_password_header')
                     </div>
 
                     @if (session('status'))
@@ -25,7 +29,7 @@
                         {{-- Email --}}
                         <div class="form-group is-focused">
                             <label for="email" class="bmd-label-floating">
-                                E-Mail Adresse
+                                @lang('login.email')
                             </label>
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -40,16 +44,16 @@
                         {{-- Submit --}}
                         <div class="form-group row mb-0">
                             <button type="submit" class="btn btn-block btn-success">
-                                <i class="fa fa-paper-plane"></i> &ensp; E-Mail beantragen
+                                <i class="fa fa-paper-plane"></i> &ensp; @lang('login.get_reset_email')
                             </button>
                         </div>
 
                         <hr class="mt-1 mb-4">
 
                         <div class="text-center py-0">
-                            Neu hier?
+                            @lang('login.new_here')
                             <a href="{{ route('register') }}" class="btn btn-link py-0 pl-1 pr-0 text-info">
-                                Erstelle dir einen Account.
+                                @lang('login.create_account')
                             </a>
                         </div>
                         
@@ -57,9 +61,9 @@
 
                         {{-- Already have an account --}}
                         <div class="text-center py-0">
-                            Du hast bereits einen Account?
+                            @lang('login.already_have_account')
                             <a href="{{ route('login') }}" class="btn btn-link py-0 pl-1 pr-0 text-info">
-                                Hier anmelden.
+                                @lang('login.login_here')
                             </a>
                         </div>
                     </form>

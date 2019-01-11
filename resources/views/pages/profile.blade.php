@@ -3,7 +3,7 @@
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">Profil</li>
+            <li class="breadcrumb-item active" aria-current="page">@lang('page.profile.breadcrumb.index')</li>
             <li class="breadcrumb-item active" aria-current="page">{{ Auth::user()->firstname}} {{ Auth::user()->surname}}</li>
         </ol>
     </nav>
@@ -13,8 +13,10 @@
     
     <div class="col-md-12">
         <div class="row">
+            <div class="col-md-1"></div>
+
             {{-- Profile --}}
-            <div class="col-md-7">
+            <div class="col-md-5">
                 <div class="card">
                     {{-- Card Header --}}
                     {{-- <div class="card-header card-header-primary"></div> --}}
@@ -26,7 +28,7 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col mt-4">
-                                Profil bearbeiten
+                                @lang('page.profile.form.headline')
                             </strong>
                         </h4>
                     </div>
@@ -44,7 +46,7 @@
 
                         {{-- Username --}}
                         <div class="form-group">
-                            {{ Form::label('username', 'Username', ['class' => 'bmd-label-floating']) }}
+                            {{ Form::label('username', trans('page.profile.form.username'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username }}" required>
 
@@ -58,7 +60,7 @@
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Firstname --}}
                             <div class="form-group col pl-0 pr-3">
-                                {{ Form::label('firstname', 'Vorname', ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('firstname', trans('page.profile.form.firstname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ $user->firstname }}" required>
 
@@ -70,7 +72,7 @@
                             </div>
                             {{-- Surname --}}
                             <div class="form-group col px-0">
-                                {{ Form::label('surname', 'Nachname', ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('surname', trans('page.profile.form.surname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ $user->surname }}" required>
                                 
@@ -84,7 +86,7 @@
 
                         {{-- Email --}}
                         <div class="form-group">
-                            {{ Form::label('email', 'E-Mail Adresse', ['class' => 'bmd-label-floating']) }}
+                            {{ Form::label('email', trans('page.profile.form.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $user->email }}" required>
 
@@ -98,7 +100,7 @@
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Password --}}
                             <div class="form-group col pl-0 pr-3">
-                                {{ Form::label('password', 'Passwort', ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('password', trans('page.profile.form.password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
@@ -110,7 +112,7 @@
                             </div>
                             {{-- Confirm Password --}}
                             <div class="form-group col px-0">
-                                {{ Form::label('password-confirm', 'Bestätigen', ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('password-confirm', trans('page.profile.form.confirm_password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
@@ -118,7 +120,7 @@
 
                         {{-- About Me --}}
                         <div class="form-group">
-                            {{ Form::label('aboutMe', 'Über mich', ['class' => 'bmd-label-floating']) }}
+                            {{ Form::label('aboutMe', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}
                             {{ Form::textarea('aboutMe', null, [
                                         'class'         => 'form-control',
                                         'rows'          => '5',
@@ -136,7 +138,7 @@
                         {{-- Submit --}}
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary btn-round"> 
-                                <i class="fa fa-refresh"></i> &ensp; Profil aktualisieren
+                                <i class="fa fa-refresh"></i> &ensp; @lang('page.profile.form.submit')
                             </button>
                         </div>
 
@@ -144,6 +146,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-1"></div>
 
             {{-- Stats --}}
             <div class="col-md-5">
@@ -154,7 +158,7 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col mt-4">
-                                Statistiken
+                                @lang('page.profile.stats.headline')
                             </strong>
                         </h4>
                     </div>
@@ -172,7 +176,7 @@
                                         <div class="card-icon">
                                             <i class="fa fa-eur"></i>
                                         </div>
-                                        <p class="card-category">Ausgegeben</p>
+                                        <p class="card-category">@lang('page.profile.stats.spend')</p>
                                         <h3 class="card-title">
                                             20<small>,-€</small>
                                         </h3>
@@ -189,7 +193,7 @@
                                         <div class="card-icon">
                                             <i class="material-icons">store</i>
                                         </div>
-                                        <p class="card-category">Bestellungen</p>
+                                        <p class="card-category">@lang('page.profile.stats.orders')</p>
                                         <h3 class="card-title">
                                             10
                                         </h3>
@@ -206,7 +210,7 @@
                                         <div class="card-icon">
                                             <i class="fa fa-calendar-o"></i>
                                         </div>
-                                        <p class="card-category">Diesen Monat</p>
+                                        <p class="card-category">@lang('page.profile.stats.month')</p>
                                         <h3 class="card-title">
                                             4
                                         </h3>
@@ -217,6 +221,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 

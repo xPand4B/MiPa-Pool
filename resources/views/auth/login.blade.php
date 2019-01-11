@@ -1,6 +1,8 @@
 @extends('layouts.login')
 
-@section('title', '| Login')
+@section('title')
+    | @lang('login.title')
+@endsection
 
 @section('content')
 <div class="container">
@@ -11,7 +13,7 @@
 
                     {{-- Header --}}
                     <div class="h2 pb-2">
-                        Anmeldung
+                        @lang('login.header')
                     </div>
 
                     <form method="POST" action="{{ route('login') }}">
@@ -20,7 +22,7 @@
                         {{-- Email --}}
                         <div class="form-group is-focused">
                             <label for="email" class="bmd-label-floating">
-                                E-Mail Adresse
+                                @lang('login.email')
                             </label>
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -35,7 +37,7 @@
                         {{-- Password --}}
                         <div class="form-group row">
                             <label for="password" class="bmd-label-floating">
-                                Passwort
+                                @lang('login.password')
                             </label>
 
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -52,7 +54,7 @@
                             <div class="form-check">
                                 <label class="form-check-label" for="remember">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    Angemeldet bleiben?
+                                    @lang('login.remember_me')
                                     <span class="form-check-sign">
                                         <span class="check"></span>
                                     </span>
@@ -65,23 +67,23 @@
                         {{-- Submit --}}
                         <div class="form-group row mb-0 mt-0">
                             <button type="submit" class="btn btn-block btn-success">
-                                <i class="fa fa-sign-in"></i> &ensp; Anmelden
+                                <i class="fa fa-sign-in"></i> &ensp; @lang('login.login_button')
                             </button>
                         </div>
 
                         {{-- Forgot Password --}}
                         <div class="text-center pt-2 pb-0">
                             <a class="btn btn-link text-info py-0" href="{{ route('password.request') }}">
-                                <i class="material-icons">email</i> Passwort vergessen?
+                                <i class="material-icons">email</i> @lang('login.forgot_password')
                             </a>
                         </div>
 
                         <hr class="mt-1 mb-4">
 
                         <div class="text-center py-0">
-                            Neu hier?
+                            @lang('login.new_here')
                             <a href="{{ route('register') }}" class="btn btn-link py-0 pl-1 pr-0 text-info">
-                                Erstelle dir einen Account.
+                                @lang('login.create_account')
                             </a>
                         </div>
 

@@ -19,7 +19,7 @@
                 {{-- Search --}}
                 <form class="navbar-form">
                     <div class="input-group no-border">
-                        <input type="text" value="" class="form-control" placeholder="Suche...">
+                        <input type="text" value="" class="form-control" placeholder="{{ trans('menu.top.search') }}">
                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
                             <i class="material-icons">search</i>
                             <div class="ripple-container"></div>
@@ -31,18 +31,18 @@
                 <ul class="navbar-nav">
                     {{-- Add order --}}
                     <li class="nav-item">
-                        <a href="{{ route('order.create') }}" class="nav-link" title="Bestellung erstellen">
+                        <a href="{{ route('order.create') }}" class="nav-link" title="{{ trans('menu.top.create_order') }}">
                             <i class="fa fa-plus-square-o"></i>
-                            <p class="d-lg-none d-md-block">Bestellung erstellen</p>
+                            <p class="d-lg-none d-md-block">@lang('menu.top.create_order')</p>
                         </a>
                     </li>
 
                     {{-- Notifications --}}
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Benachrichtigungen">
+                        <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ trans('menu.top.notifications') }}">
                             <i class="material-icons">notifications</i>
                             <span class="notification">5</span>
-                            <p class="d-lg-none d-md-block">Notifications</p>
+                            <p class="d-lg-none d-md-block">@lang('menu.top.notifications')</p>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                             <a href="#" class="dropdown-item">Test</a>
@@ -54,11 +54,11 @@
                     
                     {{-- Logout --}}
                     <li class="nav-item">
-                        <a href="{{ route('logout') }}" class="nav-link" title="Logout"
+                        <a href="{{ route('logout') }}" class="nav-link" title="{{ trans('menu.top.logout') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             <i class="material-icons">power_settings_new</i>
-                            <p class="d-lg-none d-md-block">{{ __('Logout') }}</p>
+                            <p class="d-lg-none d-md-block">@lang('menu.top.logout')</p>
                         </a>
     
                         <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display:none;">
