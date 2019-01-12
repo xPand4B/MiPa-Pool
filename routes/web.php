@@ -13,11 +13,11 @@
 
 // Auth Routes
 Route::middleware(['auth'])->group(function(){
-    Route::view('/',                'pages.orders.index')->name('home');
-    Route::view('/order/create',    'pages.orders.create')->name('order.create');
-    // Route::view('/order/{id}',      'pages.orders.participate')->name('order.participate');
-    Route::view('/order/1',         'pages.orders.participate')->name('order.participate');
-    
+    Route::get('/',                  'OrderController@index')->name('home');
+    Route::get('/order/create',      'OrderController@create')->name('order.create');
+    Route::post('/order/store',      'OrderController@store')->name('order.store');
+    Route::get('/order/{id}', 'OrderController@show')->name('order.participate');
+
     // Profile
     Route::get('/profile',              'ProfileController@show')->name('profile.show');
     Route::match(['put', 'patch'],      '/profile/update', 'ProfileController@update')->name('profile.update');
