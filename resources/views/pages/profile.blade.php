@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('title')
+    | @lang('page.profile.title')
+@endsection
+
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
@@ -10,7 +14,6 @@
 @endsection
 
 @section('content')
-    
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-1"></div>
@@ -224,5 +227,4 @@
 
         </div>
     </div>
-
 @endsection
