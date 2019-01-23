@@ -1,6 +1,10 @@
 # MiPa-Pool
 Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und kommunizieren.
 
+- **License**: MIT License
+- **[Github Repository](https://github.com/xPand4B/MiPa-Pool)**
+- **[Issue Tracker](https://github.com/xPand4B/MiPa-Pool/issues)**
+- **[ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)**
 
 # Table of Content
 * [How to Start](#how-to-start)
@@ -11,20 +15,19 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
     * [Node Modules](#node-modules)
     * [Brand Color](#brand-color)
     * [Start Live Server](#start-live-server)
-* [ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)
     
 
 # How to Start
 
 ## Composer
-At first you need a working webserver(php, apache, etc.), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
-Open a new __Command Prompt__ inside your project's root folder and type the following command. This will install all required depencies.
+At first you need a working webserver(_php, apache, etc._), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
+Open a new **Command Prompt** inside your project's root folder and type the following command. This will install all required depencies.
 ```
 composer install
 ```
 
 ## Environment Variables
-Copy the __.env.example__ file and fill in your credentials.
+Copy the **.env.example** file and fill in your credentials.
 
 ## App-Key
 Generate an App-Key.
@@ -33,7 +36,7 @@ php artisan key:generate
 ```
 
 ## Database migration
-Create your database based on your credentials inside the __.env__ File _(DB_DATABASE)_ and Migrate all database tables.
+Create your database based on your credentials inside the **.env** File _(DB_DATABASE)_ and Migrate all database tables.
 ```
 php artisan migrate
 ```
@@ -47,13 +50,13 @@ npm install
 ```
 
 ## Set Brand-Colors
-If you want to change the default [material-dashboard](https://demos.creative-tim.com/material-dashboard/docs/2.0/getting-started/introduction.html) colors.
+If you want to change the default **[Material-Dashboard](https://demos.creative-tim.com/material-dashboard/docs/2.0/getting-started/introduction.html)** colors.
 ```
 php artisan brand:color
 ```
 
 ## Start Live Server
-After that, start a __Laravel Live Server__.
+After that, start a **Laravel Live Server**.
 ```
 php artisan serve
 ```
