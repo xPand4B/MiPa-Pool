@@ -11,7 +11,7 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
     * [Node Modules](#node-modules)
     * [Brand Color](#brand-color)
     * [Start Live Server](#start-live-server)
-* [ToDo](#todo)
+* [ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)
     
 
 # How to Start
@@ -62,8 +62,3 @@ Inside your browser, navigate to the displayed URL.
 ```
 Laravel development server started: <http://127.0.0.1:8000>
 ```
-
-## ToDo
-- [ ] Add __broadcast notifications__ using __pusher/socket.io__
-- [ ] Create __Order.Participate__ form
-- [ ] 
