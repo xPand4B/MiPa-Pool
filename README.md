@@ -2,9 +2,9 @@
 Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und kommunizieren.
 
 - **License**: MIT License
-- **[Github Repository](https://github.com/xPand4B/MiPa-Pool)**
-- **[Issue Tracker](https://github.com/xPand4B/MiPa-Pool/issues)**
-- **[ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)**
+- **Github Repository**: <https://github.com/xPand4B/MiPa-Pool>
+- **Issue Tracker**: <https://github.com/xPand4B/MiPa-Pool/issues>
+- **ToDo**: <https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md>
 
 # Table of Content
 * [How to Start](#how-to-start)
