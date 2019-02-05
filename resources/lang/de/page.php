@@ -29,6 +29,8 @@ return [
                 'title' => 'Bestellung erstellen',
             ],
 
+            'mysticModal01' => 'Glückwunsch, du hast ein Easteregg gefunden.',
+
             'form'  => [
                 'order_name'            => 'Name der Bestellung',
                 'deadline'              => 'Laufzeit bis',

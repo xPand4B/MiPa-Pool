@@ -28,10 +28,12 @@ return [
             'card'  => [
                 'title' => 'Create Order',
             ],
+            
+            'mysticModal01' => "Congratulation, you've found an easteregg.",
 
             'form'  => [
-                'order_name'            => 'Name',
-                'deadline'              => 'Laufzeit bis',
+                'order_name'            => 'Order name',
+                'deadline'              => 'Deadline',
                 'time'                  => '',
                 'max_orders'            => 'Participants',
                 'people'                => '',

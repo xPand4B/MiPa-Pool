@@ -26,7 +26,8 @@ return [
         'footer' => [
             'time_left'     => 'min. left',
             'people_count'  => 'People',
-        ]
+        ],
+        'empty' => 'Sorry, but this order seems to be empty. ¯\_(ツ)_/¯'
     ],
 
 ];

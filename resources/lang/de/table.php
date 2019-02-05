@@ -26,7 +26,8 @@ return [
         'footer' => [
             'time_left'     => 'min. verbleibend',
             'people_count'  => 'Personen',
-        ]
+        ],
+        'empty' => 'Tut uns leid, aber diese Bestellung scheint leer zu sein. ¯\_(ツ)_/¯'
     ],
 
 ];
