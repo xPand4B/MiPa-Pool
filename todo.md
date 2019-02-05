@@ -4,3 +4,4 @@
 - [ ] Add menu for closing/deleting orders
 - [ ] Differnt color for own and participated order
 - [ ] Add __broadcast notifications__ using __pusher/socket.io__
+- [ ] Add application updater (?)
