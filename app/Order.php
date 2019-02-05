@@ -13,4 +13,12 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Set to many menus per order
+     */
+    // public function menus()
+    // {
+    //     return $this->hasMany('App\Menu');
+    // }
 }

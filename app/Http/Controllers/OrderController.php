@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('id', 'desc')->get();
+        $orders = Order::orderBy('id', 'desc')->paginate(15);
         
         return view('pages.orders.index', [
             'orders' => $orders
@@ -36,10 +36,16 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $range = range(strtotime("20:00"), strtotime("08:00"), 15 * 60);
+        $range = range(strtotime("08:00"), strtotime("20:00"), 15 * 60);
+        $current = date("H:i");
+
         $timesteps = [];
         foreach($range as $step){
-            array_push($timesteps, date("H:i", $step));
+            $temp = date("H:i", $step);
+
+            if($temp > $current){
+                array_push($timesteps, $temp);
+            }
         }
         
         return view('pages.orders.create', [

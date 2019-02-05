@@ -11,9 +11,9 @@
 
 @section('content')
 
-    @foreach ($orders as $order)
-        <div class="col-md-10 offset-md-1">
-            <div class="card card-chart">
+    <div class="col-md-10 offset-md-1">
+        @foreach ($orders as $order)
+            <div class="card card-chart mb-5">
                 {{-- Card Header --}}
                 <div class="card-header card-header-icon">
                     {{-- User Icon --}}
@@ -64,10 +64,6 @@
                     </div>
                 </div>
                 
-                {{-- <hr class="mt-0">
-                    <div class="container">
-                        <a href="#" class="btn btn-block" >Mitbestellen</a>
-                    </div> --}}
                 <hr class="mb-0">
 
                 {{-- Card Footer --}}
@@ -89,7 +85,12 @@
                     </div>
                 </div>
             </div>{{-- end Card --}}
-        </div>
-    @endforeach
+        @endforeach
+
+        <hr class="mb-5">
+
+        {{ $orders->links('vendor.pagination.bootstrap-4') }}
+    </div>
+
 
 @endsection

@@ -13,10 +13,10 @@
 
 // Auth Routes
 Route::middleware(['auth'])->group(function(){
-    Route::get('/',                  'OrderController@index')->name('home');
-    Route::get('/order/create',      'OrderController@create')->name('order.create');
-    Route::post('/order/store',      'OrderController@store')->name('order.store');
-    Route::get('/order/participate/{id}', 'OrderController@show')->name('order.participate');
+    Route::get( '/',                        'OrderController@index')->name('home');
+    Route::get( '/order/create',            'OrderController@create')->name('order.create');
+    Route::post('/order/store',             'OrderController@store')->name('order.store');
+    Route::get( '/order/participate/{id}',  'OrderController@show')->name('order.participate');
 
     // Profile
     Route::get('/profile',              'ProfileController@show')->name('profile.show');
@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function(){
     Route::view('/imprint',         'pages.imprint')->name('imprint');
     Route::view('/privacy-policy',  'pages.privacy_policy')->name('privacy_policy');
     // Redirect Routes
-    // Route::redirect('/home',        '/', 301);
+    Route::redirect('/home',        '/', 301);
 });
 
 // Login routes
