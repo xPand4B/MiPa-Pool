@@ -12,20 +12,36 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Clear tables
-        App\User::truncate();
-        App\Order::truncate();
+        Eloquent::unguard();
 
+        // Ask for db migration refresh, default is no
+        if ($this->command->confirm('Do you wish to refresh migration before seeding, it will clear all old data ?')) {
 
-        // Create 4 orders per every user
-        factory(App\User::class, 25)->create()->each(function ($user) {
-            for ($i = 0; $i < 4; $i++) {
-                $user->orders()->save(factory(App\Order::class)->make());
-            }
-        });
+            // Call the php artisan migrate:fresh using Artisan
+            $this->command->call('migrate:fresh');
+
+            $this->command->line("Database cleared.");
+        }
 
         $this->call([
-            // 
+            UserOrderSeeder::class,
+            MenuTableSeeder::class
         ]);
+
+        $this->command->info("Database seeded.");
+        
+        $users  = App\User::all();
+        $orders = App\Order::all();
+        $menus  = App\Menu::all();
+        
+        $this->command->info("\nTotal:");
+        $this->command->info("=============");
+        $this->command->info("Users : {$users->count()}");
+        $this->command->info("Orders: {$orders->count()}");
+        $this->command->info("Menus : {$menus->count()} \n");
+        
+
+        // Re Guard model
+        Eloquent::reguard();
     }
 }
