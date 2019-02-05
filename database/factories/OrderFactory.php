@@ -15,10 +15,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Order::class, function (Faker $faker) {
     return [
-        'user_id'    => $faker->numberBetween(1, 25),
+        'user_id'    => function(){
+            return App\User::inRandomOrder()->first()->id;
+        },
         'name'       => $faker->text(20),
         'site_link'  => $faker->url,
         'deadline'   => $faker->time,
-        'max_orders' => $faker->numberBetween(1, 10)
+        'max_orders' => $faker->numberBetween(10, 20)
     ];
 });
