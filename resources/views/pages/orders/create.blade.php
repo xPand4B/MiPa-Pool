@@ -68,19 +68,12 @@
                                     </label>
                                     <select name="deadline" id="deadline" class="form-control">
                                         @for ($i = 0; $i < sizeof($timesteps); $i++)
-                                            @if ($timesteps[$i] == date('H:i'))
+                                            @if ($i == 0)
                                                 <option value="{{ $timesteps[$i] }}" selected>{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
-                                            @endif
-                                            <option value="{{ $timesteps[$i] }}">{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
-                                        @endfor
-
-                                        {{-- @foreach ($timesteps as $time)
-                                            @if ($time == date('H:i'))
-                                                <option value="{{ $time }}" selected>{{ $time }} @lang('page.orders.create.form.time')</option>
                                             @else
-                                                <option value="{{ $time }}">{{ $time }} @lang('page.orders.create.form.time')</option>
+                                                <option value="{{ $timesteps[$i] }}">{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
                                             @endif
-                                        @endforeach --}}
+                                        @endfor
                                     </select>
                                 </div>
 
