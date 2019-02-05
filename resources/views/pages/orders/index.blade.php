@@ -41,20 +41,26 @@
                 {{-- Card Content --}}
                 <div class="card-content">
                     <div class="container responsive">
-                        <table class="table table-responsive-sm table-hover table-striped table-shopping text-center">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th class="p-1">@lang('table.orders.head.count')</th>
-                                    <th class="p-1">@lang('table.orders.head.name')</th>
-                                    <th class="p-1">@lang('table.orders.head.menu')</th>
-                                    <th class="p-1">@lang('table.orders.head.number')</th>
-                                    <th class="p-1">@lang('table.orders.head.comment')</th>
-                                    <th class="p-1">@lang('table.orders.head.price')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                        @if (false)
+                            <table class="table table-responsive-sm table-hover table-striped table-shopping text-center">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="p-1">@lang('table.orders.head.count')</th>
+                                        <th class="p-1">@lang('table.orders.head.name')</th>
+                                        <th class="p-1">@lang('table.orders.head.menu')</th>
+                                        <th class="p-1">@lang('table.orders.head.number')</th>
+                                        <th class="p-1">@lang('table.orders.head.comment')</th>
+                                        <th class="p-1">@lang('table.orders.head.price')</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="text-center">
+                                <h5 class="text-danger"><strong>@lang('table.orders.empty')</strong></h4>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 
