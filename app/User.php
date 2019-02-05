@@ -28,14 +28,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    /**
+     * Set user to many orders.
+     */
     public function orders()
     {
         return $this->hasMany('App\Order');
     }
 
-    // public function menus()
-    // {
-    //     return $this->hasMany('App\Menu');
-    // }
+    /**
+     * Set user to many menus
+     */
+    public function menus()
+    {
+        return $this->hasMany('App\Menu');
+    }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     /**
-     * Get the user that created the order
+     * Get the user that created the order.
      */
     public function user()
     {
@@ -15,10 +15,10 @@ class Order extends Model
     }
 
     /**
-     * Set to many menus per order
+     * Set to many menus per order.
      */
-    // public function menus()
-    // {
-    //     return $this->hasMany('App\Menu');
-    // }
+    public function menus()
+    {
+        return $this->hasMany('App\Menu');
+    }
 }
