@@ -6,3 +6,5 @@
 - [ ] Add __broadcast notifications__ using __pusher/socket.io__
 - [ ] Add application updater (?)
 - [ ] Add unit tests
+- [ ] Add option for uploading profile images
+    - [ ] Set default profile image
