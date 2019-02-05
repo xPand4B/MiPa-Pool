@@ -75,7 +75,9 @@ class OrderController extends Controller
 
         Session::flash('success', 'Order created');
 
-        return redirect()->route('home');
+        return redirect()->route('order.participate', [
+            'id' => $order->id
+        ]);
     }
 
     /**
