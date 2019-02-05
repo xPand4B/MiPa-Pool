@@ -5,6 +5,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 {{ Html::style('css/app.css') }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 @yield('stylesheet')
 
 <title>{{ config('app.name', 'MiPa-Pool') }} @yield('title')</title>
