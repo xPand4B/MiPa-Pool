@@ -25,21 +25,21 @@
                             
                             {{-- Lieferheld --}}
                             <div class="col">
-                                <img src="{{ asset('img/lieferheld_400x400.png') }}" title="" width="82px" height="82px" style="border-radius: 41px">
+                                <img src="{{ asset('img/lieferheld_400x400.png') }}" title="" width="82px" height="82px" style="border-radius: 41px" data-toggle="modal" data-target="#mysticModal01">
                             </div>
 
                             {{-- Pizza.de --}}
                             <div class="col">
-                                <img src="{{ asset('img/pizza.de_1200x1200.png') }}" title="" width="82px" height="82px" style="border-radius: 41px">
+                                <img src="{{ asset('img/pizza.de_1200x1200.png') }}" title="" width="82px" height="82px" style="border-radius: 41px" data-toggle="modal" data-target="#mysticModal01">
                             </div>
 
                             {{-- Lieferando --}}
                             <div class="col">
-                                <img src="{{ asset('img/lieferando_512x512.png') }}" title="" width="82px" height="82px" style="border-radius: 41px">
+                                <img src="{{ asset('img/lieferando_512x512.png') }}" title="" width="82px" height="82px" style="border-radius: 41px" data-toggle="modal" data-target="#mysticModal01">
                             </div>
                         </div>
                     </div>
-
+                    
                     {{-- Card Content --}}
                     <div class="card-body">
                         <form method="POST" action="{{ route('order.store') }}">
@@ -67,13 +67,20 @@
                                         @lang('page.orders.create.form.deadline')
                                     </label>
                                     <select name="deadline" id="deadline" class="form-control">
-                                        @foreach ($timesteps as $time)
-                                            @if ($time == '12:00')
+                                        @for ($i = 0; $i < sizeof($timesteps); $i++)
+                                            @if ($timesteps[$i] == date('H:i'))
+                                                <option value="{{ $timesteps[$i] }}" selected>{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
+                                            @endif
+                                            <option value="{{ $timesteps[$i] }}">{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
+                                        @endfor
+
+                                        {{-- @foreach ($timesteps as $time)
+                                            @if ($time == date('H:i'))
                                                 <option value="{{ $time }}" selected>{{ $time }} @lang('page.orders.create.form.time')</option>
                                             @else
                                                 <option value="{{ $time }}">{{ $time }} @lang('page.orders.create.form.time')</option>
                                             @endif
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
 
@@ -173,4 +180,31 @@
         </div>
     </div>
     
+    <div class="modal fade" id="mysticModal01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="exampleModalLabel">
+                        @lang('page.orders.create.mysticModal01')
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-9">
+                        <strong>
+                        ⠀⠰⡿⠿⠛⠛⠻⠿⣷<br>⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⠀⠀⠀⢀⣀⣀⣤⣄⣀⡀<br>⠀⠀⠀⠀⠀⢸⣿⣿⣷⠀⠀⠀⠀⠛⠛⣿⣿⣿⡛⠿⠷<br>⠀⠀⠀⠀⠀⠘⠿⠿⠋⠀⠀⠀⠀⠀⠀⣿⣿⣿⠇<br>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠁<br>
+                        </strong>
+                    </div>
+                    <div class="col-3">
+                        <strong>
+                            <br>{\__/}<br>(●_●)<br>( >🌮<br>Want a taco?
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
 @endsection
