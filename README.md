@@ -15,6 +15,7 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
     * [Node Modules](#node-modules)
     * [Brand Color](#brand-color)
     * [Start Live Server](#start-live-server)
+* [Generate Fake Data](#generate-fake-data)
 * [ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)
     
 
@@ -65,4 +66,11 @@ php artisan serve
 Inside your browser, navigate to the displayed URL.
 ```
 Laravel development server started: <http://127.0.0.1:8000>
+```
+
+
+# Generate Fake Data
+If you want to test the application you can run the following command to generate fake data.
+```
+php artisan db:seed
 ```
