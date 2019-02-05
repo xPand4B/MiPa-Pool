@@ -16,7 +16,6 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
     * [Brand Color](#brand-color)
     * [Start Live Server](#start-live-server)
 * [Generate Fake Data](#generate-fake-data)
-* [ToDo](https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md)
     
 
 # How to Start
@@ -74,3 +73,8 @@ If you want to test the application you can run the following command to generat
 ```
 php artisan db:seed
 ```
+To login, just copy an email from the **users** table. The default password set for all user is **secret**.
+
+You can change the default password inside the **database/factories/UserFactory**.
+
+Simply set the variable **static $password** to a password of your choice.
