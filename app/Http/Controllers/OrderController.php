@@ -23,6 +23,12 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::orderBy('id', 'desc')->paginate(15);
+
+        for($i = 0; $i < sizeof($orders); $i++){
+            for($j = 0; $j < sizeof($orders[$i]->menus); $j++){
+                $orders[$i]->menus[$j]->price = $orders[$i]->menus[$j]->price * 0.01;
+            }
+        }
         
         return view('pages.orders.index', [
             'orders' => $orders
