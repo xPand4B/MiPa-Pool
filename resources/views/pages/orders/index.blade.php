@@ -41,8 +41,13 @@
                 {{-- Card Content --}}
                 <div class="card-content">
                     <div class="container responsive">
-                        @if (false)
-                            <table class="table table-responsive-sm table-hover table-striped table-shopping text-center">
+                        @php
+                            $sum   = 0;
+                            $count = 0;
+                        @endphp
+
+                        @if ($order->menus->isNotEmpty())
+                            <table class="table table-responsive-sm table-sm table-hover table-shopping text-center">
                                 <thead class="thead-light">
                                     <tr>
                                         <th class="p-1">@lang('table.orders.head.count')</th>
@@ -54,8 +59,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($order->menus as $menu)
+                                        @php
+                                            $sum += $menu->price;
+                                            $count++;
+                                        @endphp
+                                        <tr>
+                                            <td class="p-1">{{ $count }}</td>
+                                            <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
+                                            <td class="p-1">{{ $menu->menu }}</td>
+                                            <td class="p-1">{{ $menu->number }}</td>
+                                            <td class="p-1">{{ $menu->comment }}</td>
+                                            <td class="p-1">{{ $menu->price }} ,-€</td>
+                                        </tr>
+                                    @endforeach
+
+                                    <tr class="table-light">
+                                        <td class="p-1"></td>
+                                        <td class="p-1"></td>
+                                        <td class="p-1"></td>
+                                        <td class="p-1"></td>
+                                        <td class="p-1"></td>
+                                        <th class="p-1">{{ $sum}} ,-€</th>
+                                    </tr>
                                 </tbody>
                             </table>
+                            
                         @else
                             <div class="text-center">
                                 <h5 class="text-danger"><strong>@lang('table.orders.empty')</strong></h4>
@@ -80,7 +109,7 @@
                     </div>
                     <div class="col-md text-right">
                         <div class="stats text-success">
-                            <i class="material-icons">done</i> 0/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                            <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                         </div>
                     </div>
                 </div>
