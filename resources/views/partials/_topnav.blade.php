@@ -17,7 +17,7 @@
     
             <div class="collapse navbar-collapse justify-content-end">
                 {{-- Search --}}
-                <form class="navbar-form">
+                {{-- <form class="navbar-form">
                     <div class="input-group no-border">
                         <input type="text" value="" class="form-control" placeholder="{{ trans('menu.top.search') }}">
                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -25,7 +25,7 @@
                             <div class="ripple-container"></div>
                         </button>
                     </div>
-                </form>
+                </form> --}}
     
                 
                 <ul class="navbar-nav">
@@ -38,7 +38,7 @@
                     </li>
 
                     {{-- Notifications --}}
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ trans('menu.top.notifications') }}">
                             <i class="material-icons">notifications</i>
                             <span class="notification">5</span>
@@ -50,7 +50,7 @@
                             <a href="#" class="dropdown-item">Test</a>
                             <a href="#" class="dropdown-item">Test</a>
                         </div>
-                    </li>
+                    </li> --}}
                     
                     {{-- Logout --}}
                     <li class="nav-item">
