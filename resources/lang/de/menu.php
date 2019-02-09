@@ -14,7 +14,8 @@ return [
 
     // Side Menu
     'side' => [
-        'orders'  => 'Bestellungen',
+        'home'    => 'Startseite',
+        'orders'  => 'Deine Bestellungen',
         'profile' => 'Profil',
         'support' => 'Projektunterstützung',
     ],
