@@ -8,7 +8,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
             <li class="breadcrumb-item active" aria-current="page">@lang('page.profile.breadcrumb.index')</li>
-            <li class="breadcrumb-item active" aria-current="page">{{ Auth::user()->firstname}} {{ Auth::user()->surname}}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $user->firstname}} {{ $user->surname}}</li>
         </ol>
     </nav>
 @endsection
@@ -179,7 +179,7 @@
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.spend')</p>
                                         <h3 class="card-title">
-                                            20<small>,-€</small>
+                                            {{ $money_spend }} <small>,-€</small>
                                         </h3>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.orders')</p>
                                         <h3 class="card-title">
-                                            10
+                                            {{ $order_count }}
                                         </h3>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.month')</p>
                                         <h3 class="card-title">
-                                            4
+                                            {{ $order_count_this_month }}
                                         </h3>
                                     </div>
                                 </div>
