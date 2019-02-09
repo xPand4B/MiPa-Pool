@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Menu;
+use App\Order;
 use App\User;
 use Session;
 use Auth;
@@ -29,7 +31,27 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        return view('pages.profile')->withUser($user);
+        // 22670
+        $money_spend = Menu::where('user_id', '=', $user->id)
+                            ->sum('price');
+        $money_spend = $money_spend * 0.01;
+
+        $order_count = Auth::user()->orders->count();
+
+        $this_month = Order::where('user_id', '=', $user->id)
+                            ->whereMonth('created_at', date('m'))
+                            ->count();
+
+        // echo '<br>' . $this_month;
+
+        // exit();
+
+        return view('pages.profile', [
+            'user' => $user,
+            'order_count' => $order_count,
+            'order_count_this_month' => $this_month,
+            'money_spend' => $money_spend
+        ]);
     }
 
     /**
