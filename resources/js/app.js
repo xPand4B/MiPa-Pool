@@ -16,7 +16,7 @@ window.Vue = require('vue');
     require('../../node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min');
 
     // Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/
-    require('../../node_modules/material-dashboard/assets/js/plugins/bootstrap-notify');
+    require('../../node_modules/material-dashboard/assets/js/plugins/bootstrap-notify.js');
 
     // Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/
     require('../../node_modules/material-dashboard/assets/js/plugins/chartist.min.js');
