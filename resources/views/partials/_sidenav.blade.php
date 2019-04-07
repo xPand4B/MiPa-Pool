@@ -15,7 +15,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 {{-- Home --}}
-                <li class="nav-item {{ Nav::isRoute('home') }}">
+                <li class="nav-item {{ Nav::isRoute('home') }} {{ Nav::hasSegment('order') }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="material-icons">home</i>
                         <p>@lang('menu.side.home')</p>
@@ -23,10 +23,10 @@
                 </li>
 
                 {{-- Manage Orders --}}
-                <li class="nav-item {{ Nav::hasSegment('order') }}">
+                <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="fa fa-shopping-cart"></i>
-                        <p>@lang('menu.side.orders')</p>
+                        <p>@lang('menu.side.manage')</p>
                     </a>
                 </li>
     
