@@ -22,6 +22,13 @@ return [
             'participate' => 'Participate'
         ],
 
+        'index' => [
+            'empty' => [
+                'title' => "Upps, pretty empty here. ¯\_(ツ)_/¯",
+                'message' => 'If you want to create an order click the <i class="fa fa-plus-square-o"></i> icon.',
+            ],
+        ],
+
         'create' => [
             'title' => 'Create Order',
             
@@ -35,7 +42,7 @@ return [
                 'order_name'            => 'Order name',
                 'deadline'              => 'Deadline',
                 'time'                  => '',
-                'max_orders'            => 'Participants',
+                'max_orders'            => 'Max. Participants',
                 'people'                => '',
                 'currency'              => '€',
                 'minimum_order_value'   => 'Minimum Value',
@@ -66,6 +73,10 @@ return [
             'password'          => 'Password',
             'confirm_password'  => 'Confirm password',
             'about_me'          => 'About me',
+            'avatar'            => [
+                'label'  => 'Choose a picture...',
+                'helper' => 'Please upload a valid image file. Size of image should not be more than 2MB.'
+            ],
             'submit'            => 'Update profile'
         ],
         
@@ -80,22 +91,10 @@ return [
     // Imprint Page
     'imprint' => [
         'title'      => 'Imprint',
-
-        'headline'   => 'Imprint',
-        
-        'breadcrumb' => [
-            'index'  => 'Imprint',
-        ]
     ],
     
     // Privacy Policy Page
     'privacy_policy' => [
         'title'      => 'Privacy Policy',
-        
-        'headline'   => 'Privacy Policy',
-        
-        'breadcrumb' => [
-            'index'  => 'Privacy Policy',
-        ]
     ],
 ];

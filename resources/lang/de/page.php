@@ -22,6 +22,13 @@ return [
             'participate' => 'Mitbestellen'
         ],
 
+        'index' => [
+            'empty' => [
+                'title' => 'Upps, ziemlich leer hier. ¯\_(ツ)_/¯',
+                'message' => 'Wenn du eine Bestellung erstellen möchtest klicke auf das <i class="fa fa-plus-square-o"></i> Icon.',
+            ],
+        ],
+
         'create' => [
             'title' => 'Bestellung erstellen',
             
@@ -35,7 +42,7 @@ return [
                 'order_name'            => 'Name der Bestellung',
                 'deadline'              => 'Laufzeit bis',
                 'time'                  => 'Uhr',
-                'max_orders'            => 'Mitbesteller',
+                'max_orders'            => 'Max. Mitbesteller',
                 'people'                => '',
                 'currency'              => '€',
                 'minimum_order_value'   => 'Mindestbestellwert',
@@ -66,6 +73,10 @@ return [
             'password'          => 'Passwort',
             'confirm_password'  => 'Passwort bestätigen',
             'about_me'          => 'Über mich',
+            'avatar'            => [
+                'label'  => 'Wähle ein Bild aus...',
+                'helper' => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
+            ],
             'submit'            => 'Profil aktualisieren'
         ],
         
@@ -80,22 +91,10 @@ return [
     // Imprint Page
     'imprint' => [
         'title'      => 'Impressum',
-
-        'headline'   => 'Impressum',
-        
-        'breadcrumb' => [
-            'index'  => 'Impressum',
-        ]
     ],
     
     // Privacy Policy Page
     'privacy_policy' => [
         'title'      => 'Datenschutzerklärung',
-        
-        'headline'   => 'Datenschutzerklärung',
-        
-        'breadcrumb' => [
-            'index'  => 'Datenschutzerklärung',
-        ]
     ],
 ];

@@ -15,7 +15,7 @@ return [
     // Side Menu
     'side' => [
         'home'    => 'Startseite',
-        'orders'  => 'Deine Bestellungen',
+        'manage'  => 'Bestellungen verwalten',
         'profile' => 'Profil',
         'support' => 'Projektunterstützung',
     ],
