@@ -15,15 +15,15 @@ if [ -z "$input" ];
     git clone "https://github.com/${user}/${repo}" "${user}-${repo}"
     cd "${user}-${repo}"
 else
-    git clone "https://github.com/${user}/${repo}" ${input}
-    cd ${input}
+    git clone "https://github.com/${user}/${repo}" "${input}"
+    cd "${input}"
 fi;
 
 echo ""
 
 cp .env.example .env
-# npm install
-composer install --no-dev -a
+npm install
+composer install
 
 php artisan storage:link
 php artisan key:generate
