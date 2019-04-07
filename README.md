@@ -7,18 +7,23 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 - **ToDo**: <https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md>
 
 # Table of Content
-* [How to Start](#how-to-start)
-    * [Composer](#composer)
-    * [Environment Variables](#environment-variables)
-    * [App-Key](#app-key)
-    * [Database Migration](#database-migration)
-    * [Node Modules](#node-modules)
-    * [Brand Color](#brand-color)
-    * [Start Live Server](#start-live-server)
-* [Generate Fake Data](#generate-fake-data)
+- [MiPa-Pool](#mipa-pool)
+- [Table of Content](#table-of-content)
+- [How to Start](#how-to-start)
+  - [Quick Start](#quick-start)
+  - [Composer](#composer)
+  - [Environment Variables](#environment-variables)
+  - [App-Key](#app-key)
+  - [Database migration](#database-migration)
+  - [Set Brand-Colors](#set-brand-colors)
+  - [Start Live Server](#start-live-server)
+- [Generate Fake Data](#generate-fake-data)
     
 
 # How to Start
+
+## Quick Start
+If you want to launch as soon as possible **and** your are running a linux version that supports bash scripts you can run [this script](https://github.com/xPand4B/MiPa-Pool/blob/master/installer.sh) to install everything.
 
 ## Composer
 At first you need a working webserver(_php, apache, etc._), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
@@ -43,12 +48,6 @@ php artisan migrate
 ```
 
 If you get errors, go to the [Laravel Documentation](https://laravel.com/docs/5.7) and check your PHP packages.
-
-## Node Modules
-Install all node_modules depencies.
-```
-npm install
-```
 
 ## Set Brand-Colors
 If you want to change the default **[Material-Dashboard](https://demos.creative-tim.com/material-dashboard/docs/2.0/getting-started/introduction.html)** colors.
