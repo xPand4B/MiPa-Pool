@@ -26,7 +26,23 @@ class OrderController extends Controller
 
         for($i = 0; $i < sizeof($orders); $i++){
             for($j = 0; $j < sizeof($orders[$i]->menus); $j++){
-                $orders[$i]->menus[$j]->price = $orders[$i]->menus[$j]->price * 0.01;
+                $price = $orders[$i]->menus[$j]->price;
+
+                $price *= 0.01;
+
+                if($price < 10){
+                    $price = '0'.$price;
+                }
+                
+                if(strlen($price) == 4){
+                    $price = $price.'0';
+                }
+
+                if(strlen($price) == 2){
+                    $price = $price.'.00';
+                }
+
+                $orders[$i]->menus[$j]->price = $price;
             }
         }
         
@@ -77,11 +93,11 @@ class OrderController extends Controller
         // ]);
 
         $order = new Order;
-            $order->user_id = $request->user()->id;
-            $order->name = $request->order_name;
-            $order->site_link = $request->site_link;
-            $order->deadline = $request->deadline;
-            $order->max_orders = $request->max_orders;
+            $order->user_id     = $request->user()->id;
+            $order->name        = $request->order_name;
+            $order->site_link   = $request->site_link;
+            $order->deadline    = $request->deadline;
+            $order->max_orders  = $request->max_orders;
 
             $order->save();
 
