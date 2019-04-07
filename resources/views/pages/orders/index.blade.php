@@ -177,7 +177,7 @@
                                     <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                                 </div>
                                 
-                            @elseif($count != 0 && ($count + 1 == $order->max_orders || $count + 1 == $order->max_orders))
+                            @elseif($count != 0 && ($count + 1 == $order->max_orders || $count + 2 == $order->max_orders))
                                 <div class="stats text-warning">
                                     <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                                 </div>
