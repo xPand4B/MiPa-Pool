@@ -67,7 +67,7 @@
                                     </a>
                                 </div>
 
-                            @elseif(sizeof($order->menus) + 1 == $order->max_orders)
+                            @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
                                 <div class="col-md-4 mt-2">
                                     <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-warning btn-round">
                                         <i class="fa fa-cart-plus"></i>
@@ -134,7 +134,7 @@
                                                 <td class="p-1">{{ $menu->menu }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
                                                 <td class="p-1">{{ $menu->comment }}</td>
-                                                <td class="p-1">{{ $menu->price }} ,-€</td>
+                                                <td class="p-1">{{ str_replace('.', ',', $menu->price) }} €</td>
                                             </tr>
                                         @endforeach
 
@@ -144,7 +144,7 @@
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
-                                            <th class="p-1">{{ $sum}} ,-€</th>
+                                            <th class="p-1">{{ str_replace('.', ',', $sum) }} €</th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -177,7 +177,7 @@
                                     <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                                 </div>
                                 
-                            @elseif($count+1 == $order->max_orders)
+                            @elseif($count != 0 && ($count + 1 == $order->max_orders || $count + 1 == $order->max_orders))
                                 <div class="stats text-warning">
                                     <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                                 </div>

@@ -202,7 +202,7 @@
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.spend')</p>
                                         <h3 class="card-title">
-                                            {{ $money_spend }} <small>,-€</small>
+                                            {{ str_replace('.', ',', $money_spend) }} <small>€</small>
                                         </h3>
                                     </div>
                                 </div>
