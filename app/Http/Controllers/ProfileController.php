@@ -144,7 +144,7 @@ class ProfileController extends Controller
         $user->save();
 
         // Create success message
-        Session::flash('success', 'Dein Profil wurde aktualisiert');
+        Session::flash('success', trans('session.profile.updated'));
 
         return redirect()->back();
     }

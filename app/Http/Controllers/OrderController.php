@@ -101,7 +101,7 @@ class OrderController extends Controller
 
             $order->save();
 
-        Session::flash('success', 'Order created');
+        Session::flash('success', trans('session.order.created'));
 
         return redirect()->route('order.participate', [
             'id' => $order->id
