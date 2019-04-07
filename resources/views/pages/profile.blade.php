@@ -14,18 +14,18 @@
 @endsection
 
 @section('content')
-    <div class="col-md-12">
+    <div class="col-lg-12">
         <div class="row">
-            <div class="col-md-1"></div>
+
+            {{-- <div class="col-md-1"></div> --}}
 
             {{-- Profile --}}
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="card">
                     {{-- Card Header --}}
-                    {{-- <div class="card-header card-header-primary"></div> --}}
                     <div class="card-header card-header-transparent card-header-icon">
                         <div class="card-icon p-0 bg-transparent">
-                            <img src="{{ asset('img/profile/Fairy Tail.jpg') }}" title="" width="82px" height="82px" style="border-radius: 41px">
+                            <img class="rounded-circle" src="{{ asset('storage/avatars/'.$user->avatar) }}" title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})" width="82px" height="82px">
                         </div>
 
                         {{-- Title --}}
@@ -36,33 +36,55 @@
                         </h4>
                     </div>
 
+                    {!! Form::model($user, [
+                        'route'  => [
+                            'profile.update'
+                        ],
+                        'method' => 'PUT',
+                        'enctype'=> 'multipart/form-data'
+                    ]) !!}
+
                     <hr>
+
+                    {{-- Avatar --}}
+                    <div class="col-lg pb-0 ">
+                        {{-- <label for="avatar" class="btn btn-block btn-success btn-round">
+                            <i class="fa fa-upload" aria-hidden="true"></i> {{ trans('page.profile.form.avatar.label') }}
+                        </label> --}}
+                        <input id="avatar" type="file" class="form-control-file {{ $errors->has('avatar') ? ' is-invalid' : '' }}" name="avatar" aria-describedby="fileHelp" accept="image/*" size="2048">
+
+                        <small id="fileHelp" class="form-text text-muted">
+                            {{ trans('page.profile.form.avatar.helper') }}
+                        </small>
+
+                        @if ($errors->has('avatar'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('avatar') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    
+                    <hr class="mb-0">
 
                     {{-- Card Content --}}
                     <div class="card-body">
-                        {!! Form::model($user, [
-                            'route'  => [
-                                'profile.update'
-                            ],
-                            'method' => 'PUT'
-                        ]) !!}
 
                         {{-- Username --}}
                         <div class="form-group">
                             {{ Form::label('username', trans('page.profile.form.username'), ['class' => 'bmd-label-floating']) }}
-
+                            
                             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username }}" required>
-
+                            
                             @if ($errors->has('username'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('username') }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('username') }}</strong>
+                            </span>
                             @endif
                         </div>
 
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Firstname --}}
-                            <div class="form-group col pl-0 pr-3">
+                            <div class="form-group col-lg pl-0 pr-3">
                                 {{ Form::label('firstname', trans('page.profile.form.firstname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ $user->firstname }}" required>
@@ -73,8 +95,9 @@
                                     </span>
                                 @endif
                             </div>
+
                             {{-- Surname --}}
-                            <div class="form-group col px-0">
+                            <div class="form-group col-lg px-0">
                                 {{ Form::label('surname', trans('page.profile.form.surname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ $user->surname }}" required>
@@ -102,7 +125,7 @@
 
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Password --}}
-                            <div class="form-group col pl-0 pr-3">
+                            <div class="form-group col-lg pl-0 pr-3">
                                 {{ Form::label('password', trans('page.profile.form.password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
@@ -114,7 +137,7 @@
                                 @endif
                             </div>
                             {{-- Confirm Password --}}
-                            <div class="form-group col px-0">
+                            <div class="form-group col-lg px-0">
                                 {{ Form::label('password-confirm', trans('page.profile.form.confirm_password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
@@ -144,14 +167,14 @@
                                 <i class="fa fa-refresh"></i> &ensp; @lang('page.profile.form.submit')
                             </button>
                         </div>
-
-                        {!! Form::close() !!}
                     </div>
+
+                    {!! Form::close() !!}
                 </div>
             </div>
 
             {{-- Stats --}}
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="card">
                     {{-- Header --}}
                     <div class="card-header card-header-primary"></div>
@@ -223,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="col-md-1"></div>
+            {{-- <div class="col-md-1"></div> --}}
 
         </div>
     </div>
