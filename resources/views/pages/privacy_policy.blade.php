@@ -7,7 +7,7 @@
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">@lang('page.privacy_policy.breadcrumb.index')</li>
+            <li class="breadcrumb-item active" aria-current="page">@lang('page.privacy_policy.title')</li>
         </ol>
     </nav>
 @endsection
@@ -18,7 +18,9 @@
         <div class="card">
             {{-- Card Header --}}
             <div class="card-header card-header-warning">
-                <h4 class="card-title">@lang('page.privacy_policy.headline')</h4>
+                <h4 class="card-title">
+                    @lang('page.privacy_policy.title')
+                </h4>
                 <p class="card-category"></p>
             </div>
 
