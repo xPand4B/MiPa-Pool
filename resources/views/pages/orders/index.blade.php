@@ -56,16 +56,34 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
-                                
                                 {{ $order->name }}
                             </strong>
 
-                            <div class="col-md-4 mt-2">
-                                <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-info btn-round">
-                                    <i class="fa fa-cart-plus"></i>
-                                    @lang('table.orders.participate')
-                                </a>
-                            </div>
+                            @if (sizeof($order->menus) == $order->max_orders)
+                                <div class="col-md-4 mt-2">
+                                    <a href="#" class="btn btn-block btn-round disabled" aria-disabled="false">
+                                        <i class="fa fa-cart-plus"></i>
+                                        @lang('table.orders.participate')
+                                    </a>
+                                </div>
+
+                            @elseif(sizeof($order->menus) + 1 == $order->max_orders)
+                                <div class="col-md-4 mt-2">
+                                    <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-warning btn-round">
+                                        <i class="fa fa-cart-plus"></i>
+                                        @lang('table.orders.participate')
+                                    </a>
+                                </div>
+
+                            @else
+                                <div class="col-md-4 mt-2">
+                                    <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-success btn-round">
+                                        <i class="fa fa-cart-plus"></i>
+                                        @lang('table.orders.participate')
+                                    </a>
+                                </div>
+                            @endif
+
                         </h4>
                     </div>  
 
@@ -83,7 +101,7 @@
                                 <table class="table table-responsive-sm table-sm table-hover table-shopping text-center">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th class="p-1">@lang('table.orders.head.count')</th>
+                                            {{-- <th class="p-1">@lang('table.orders.head.count')</th> --}}
                                             <th class="p-1">@lang('table.orders.head.name')</th>
                                             <th class="p-1">@lang('table.orders.head.menu')</th>
                                             <th class="p-1">@lang('table.orders.head.number')</th>
@@ -111,7 +129,7 @@
                                                 $count++;
                                             @endphp
                                             <tr>
-                                                <td class="p-1">{{ $count }}</td>
+                                                {{-- <td class="p-1">{{ $count }}</td> --}}
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                 <td class="p-1">{{ $menu->menu }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
@@ -121,7 +139,7 @@
                                         @endforeach
 
                                         <tr class="table-light">
-                                            <td class="p-1"></td>
+                                            {{-- <td class="p-1"></td> --}}
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
@@ -154,9 +172,21 @@
                             </div>
                         </div>
                         <div class="col-md text-right">
-                            <div class="stats text-success">
-                                <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
-                            </div>
+                            @if ($count == $order->max_orders)
+                                <div class="stats text-danger">
+                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                </div>
+                                
+                            @elseif($count+1 == $order->max_orders)
+                                <div class="stats text-warning">
+                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                </div>
+
+                            @else
+                                <div class="stats text-success">
+                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>{{-- end Card --}}
