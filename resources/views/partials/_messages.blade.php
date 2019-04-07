@@ -1,4 +1,4 @@
-@if (Session::has('success'))
+@if (Session::has('success') || $message = Session::get('success'))
     <script>
          $.notify({
             title:      '<strong>Erfolgreich:</strong>',
