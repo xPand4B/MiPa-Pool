@@ -1,7 +1,7 @@
 @if (Session::has('success') || $message = Session::get('success'))
     <script>
          $.notify({
-            title:      '<strong>Erfolgreich:</strong>',
+            // title:      '<strong>{{ trans("session.title.success") }}:</strong>',
             message:    '{{ Session::get("success") }}'
         },{
             type:           'success',
@@ -21,7 +21,7 @@
 @if (count($errors) > 0)
     <script>
         $.notify({
-            title:      '<strong>Fehler:</strong>',
+            // title:      '<strong>{{ trans("session.title.error") }}:</strong>',
             message:    '@foreach ($errors->all() as $error) <li>{{$error}}</li> @endforeach'
         },{
             type:           'danger',
