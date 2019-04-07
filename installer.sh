@@ -22,12 +22,12 @@ fi;
 echo ""
 
 cp .env.example .env
-npm install
+# npm install
 composer install
 
 php artisan storage:link
 php artisan key:generate
-php artisan brand:color
+# php artisan brand:color
 
 echo ""
 read -n 1 -p "Do you want to install all database related stuff as well? [y/n] " input2
