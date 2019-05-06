@@ -21,6 +21,6 @@ $factory->define(App\Order::class, function (Faker $faker) {
         'name'       => $faker->text(20),
         'site_link'  => $faker->url,
         'deadline'   => $faker->time,
-        'max_orders' => $faker->numberBetween(10, 20)
+        'max_orders' => $faker->numberBetween(2, 15)
     ];
 });

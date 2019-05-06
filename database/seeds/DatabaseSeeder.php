@@ -15,12 +15,10 @@ class DatabaseSeeder extends Seeder
         Eloquent::unguard();
 
         // Ask for db migration refresh, default is no
-        if ($this->command->confirm('Do you wish to refresh migration before seeding, it will clear all old data ?')) {
+        if ($this->command->confirm('Do you wish to refresh migration before seeding? It will clear all data.')) {
 
             // Call the php artisan migrate:fresh using Artisan
             $this->command->call('migrate:fresh');
-
-            $this->command->line("Database cleared.");
         }
 
         $this->call([
@@ -28,18 +26,17 @@ class DatabaseSeeder extends Seeder
             MenuTableSeeder::class
         ]);
 
-        $this->command->info("Database seeded.");
+        $this->command->info("\nDatabase seeded!\n");
         
-        $users  = App\User::all();
-        $orders = App\Order::all();
-        $menus  = App\Menu::all();
+        $usersCount  = App\User::all()->count();
+        $ordersCount = App\Order::all()->count();
+        $menusCount  = App\Menu::all()->count();
         
         $this->command->info("\nTotal:");
         $this->command->info("=============");
-        $this->command->info("Users : {$users->count()}");
-        $this->command->info("Orders: {$orders->count()}");
-        $this->command->info("Menus : {$menus->count()} \n");
-        
+        $this->command->info("Users : {$usersCount}");
+        $this->command->info("Orders: {$ordersCount}");
+        $this->command->info("Menus : {$menusCount} \n");
 
         // Re Guard model
         Eloquent::reguard();
