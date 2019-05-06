@@ -12,6 +12,7 @@
 @section('content')
 
     <div class="col-md-10 offset-md-1">
+
         {{-- No orders --}}
         @if (sizeof($orders) == 0)
             <div class="card card-chart mb-5">
@@ -46,6 +47,7 @@
         @else
             @foreach ($orders as $order)
                 <div class="card card-chart mb-5">
+
                     {{-- Card Header --}}
                     <div class="card-header card-header-icon">
                         {{-- User Icon --}}
@@ -57,33 +59,34 @@
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
                                 {{ $order->name }}
+                                
+                                <br>
+
+                                <small>
+                                    <u>
+                                        <a href="{{ $order->site_link }}" target="_blank" class="text-muted">
+                                            @lang('table.orders.deliveryService')
+                                        </a>
+                                    </u>
+                                </small>
                             </strong>
 
-                            @if (sizeof($order->menus) == $order->max_orders)
-                                <div class="col-md-4 mt-2">
-                                    <a href="#" class="btn btn-block btn-round disabled" aria-disabled="false">
-                                        <i class="fa fa-cart-plus"></i>
-                                        @lang('table.orders.participate')
-                                    </a>
-                                </div>
+                            <div class="col-md-4 mt-2">
+                            
+                                @if (sizeof($order->menus) == $order->max_orders)
+                                    <a href="#" class="btn btn-block btn-round disabled" disabled>
 
-                            @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
-                                <div class="col-md-4 mt-2">
+                                @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
                                     <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-warning btn-round">
-                                        <i class="fa fa-cart-plus"></i>
-                                        @lang('table.orders.participate')
-                                    </a>
-                                </div>
 
-                            @else
-                                <div class="col-md-4 mt-2">
+                                @else
                                     <a href="{{ route('order.participate', ['id' => $order->id]) }}" class="btn btn-block btn-success btn-round">
-                                        <i class="fa fa-cart-plus"></i>
-                                        @lang('table.orders.participate')
-                                    </a>
-                                </div>
-                            @endif
+                                @endif
 
+                                    <i class="fa fa-cart-plus"></i>
+                                    @lang('table.orders.participate')
+                                </a>
+                            </div>
                         </h4>
                     </div>  
 
@@ -101,7 +104,6 @@
                                 <table class="table table-responsive-sm table-sm table-hover table-shopping text-center">
                                     <thead class="thead-light">
                                         <tr>
-                                            {{-- <th class="p-1">@lang('table.orders.head.count')</th> --}}
                                             <th class="p-1">@lang('table.orders.head.name')</th>
                                             <th class="p-1">@lang('table.orders.head.menu')</th>
                                             <th class="p-1">@lang('table.orders.head.number')</th>
@@ -113,23 +115,8 @@
                                         @foreach ($order->menus as $menu)
                                             @php
                                                 $sum += $menu->price;
-
-                                                if($sum < 10){
-                                                    $sum = '0'.$sum;
-                                                }
-                                                
-                                                if(strlen($sum) == 4){
-                                                    $sum = $sum.'0';
-                                                }
-
-                                                if(strlen($sum) == 2){
-                                                    $sum = $sum.'.00';
-                                                }
-
-                                                $count++;
                                             @endphp
                                             <tr>
-                                                {{-- <td class="p-1">{{ $count }}</td> --}}
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                 <td class="p-1">{{ $menu->menu }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
@@ -138,8 +125,20 @@
                                             </tr>
                                         @endforeach
 
+                                        @php
+                                            if($sum < 10){
+                                                $sum = '0'.$sum;
+                                            }
+                                            
+                                            if(strlen($sum) == 4){
+                                                $sum = $sum.'0';
+
+                                            }else if(strlen($sum) == 2){
+                                                $sum = $sum.'.00';
+                                            }
+                                        @endphp
+
                                         <tr class="table-light">
-                                            {{-- <td class="p-1"></td> --}}
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
@@ -161,16 +160,19 @@
 
                     {{-- Card Footer --}}
                     <div class="card-footer">
+
                         <div class="col-md">
                             <div class="stats text-danger">
                                 <i class="material-icons">access_time</i> 4 @lang('table.orders.footer.time_left')
                             </div>
                         </div>
+
                         <div class="col-md text-center">
                             <div class="stats">
                                 <i class="material-icons pl-1">person</i> {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </div>
+
                         <div class="col-md text-right">
                             @if ($count == $order->max_orders)
                                 <div class="stats text-danger">
@@ -188,8 +190,9 @@
                                 </div>
                             @endif
                         </div>
+
                     </div>
-                </div>{{-- end Card --}}
+                </div>
             @endforeach
 
             <hr class="mb-5">
