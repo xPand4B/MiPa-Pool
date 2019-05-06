@@ -14,9 +14,9 @@ return [
 
     // Order Table
     'orders' => [
-        'participate' => 'Mitbestellen',
+        'participate'     => 'Mitbestellen',
+        'deliveryService' => 'Lieferservice',
         'head' => [
-            'count'     => '#',
             'name'      => 'Name',
             'menu'      => 'Menü',
             'number'    => 'Anzahl',
