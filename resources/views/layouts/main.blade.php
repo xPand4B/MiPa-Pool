@@ -13,7 +13,7 @@
                 @include('partials._topnav')
                 @include('partials._messages')
 
-                <div class="content mt-0 pt-3 pb-0">
+                <div class="content mt-0 pt-3 pb-0 px-0">
                     <div class="container-fluid">
                         <div class="row">
                             @yield('content')

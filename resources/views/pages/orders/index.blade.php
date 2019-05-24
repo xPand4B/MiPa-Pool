@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-10 offset-md-1 px-2">
 
         {{-- No orders --}}
         @if (sizeof($orders) == 0)
