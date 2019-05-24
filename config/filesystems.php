@@ -66,4 +66,15 @@ return [
 
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Brand Icon
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the path and name of the brand icon.
+    |
+    */
+
+    'brand-icon' => 'storage/brand-icon/'. env('BRAND_ICON'),
+
 ];

@@ -6,8 +6,11 @@
         <!-- Brand Name -->
         <div class="logo">
             <a href="{{ route('home') }}" class="simple-text logo-normal">
-                <!-- BRAND LOGO HERE -->
-                <img src="{{ asset('img/brand-icon.jpg') }}" alt="{{ config('app.name', 'MiPa-Pool') }}" width="32px" height="32px" style="border-radius: 16px">
+                {{-- Brand Icon --}}
+                @if (file_exists(public_path(config('filesystems.brand-icon'))))
+                    <img src="{{ asset(config('filesystems.brand-icon')) }}" alt="{{ config('app.name', 'MiPa-Pool') }}" width="32px" height="32px" style="border-radius: 16px">
+                @endif
+
                 {{ config('app.name', 'MiPa-Pool') }}
             </a>
         </div>
