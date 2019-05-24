@@ -22,15 +22,13 @@ fi;
 echo ""
 
 cp .env.example .env
-# npm install
 composer install
 
 php artisan storage:link
 php artisan key:generate
-# php artisan brand:color
 
 echo ""
-read -n 1 -p "Do you want to install all database related stuff as well? [y/n] " input2
+read -n 1 -p "Do you want to do all database related stuff as well? [y/n] " input2
 echo ""
 
 if [ "$input2" == "y" ];
@@ -40,6 +38,7 @@ if [ "$input2" == "y" ];
     echo "${green}Open the .env file and fill in your database credentials.${reset}"
     echo ""
     echo "If you are done press any button to continue..."
+    xdg-open .env
     read -n 1 -s -r -p ""
     echo "Sure?"
     read -n 1 -s -r -p ""
