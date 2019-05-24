@@ -14,11 +14,10 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
   - [Composer](#composer)
   - [Environment Variables](#environment-variables)
   - [App-Key](#app-key)
+  - [Link storage to public directory](#link-storage-to-public-directory)
   - [Database migration](#database-migration)
-  - [Set Brand-Colors](#set-brand-colors)
-  - [Start Live Server](#start-live-server)
 - [Generate Fake Data](#generate-fake-data)
-    
+- [Set custom Brand icon](#set-custom-brand-icon)
 
 # How to Start
 
@@ -41,30 +40,19 @@ Generate an App-Key.
 php artisan key:generate
 ```
 
+## Link storage to public directory
+In order to use profile avatars and a brand icon you need to link the app storage to the public directory.
+```
+php artisan storage:link
+```
+
+
 ## Database migration
 Create your database based on your credentials inside the **.env** File _(DB_DATABASE)_ and Migrate all database tables.
 ```
 php artisan migrate
 ```
-
 If you get errors, go to the [Laravel Documentation](https://laravel.com/docs/5.7) and check your PHP packages.
-
-## Set Brand-Colors
-If you want to change the default **[Material-Dashboard](https://demos.creative-tim.com/material-dashboard/docs/2.0/getting-started/introduction.html)** colors.
-```
-php artisan brand:color
-```
-
-## Start Live Server
-After that, start a **Laravel Live Server**.
-```
-php artisan serve
-```
-
-Inside your browser, navigate to the displayed URL.
-```
-Laravel development server started: <http://127.0.0.1:8000>
-```
 
 
 # Generate Fake Data
@@ -77,3 +65,13 @@ To login, just copy an email from the **users** table. The default password set 
 You can change the default password inside the **database/factories/UserFactory**.
 
 Simply set the variable **static $password** to a password of your choice.
+
+
+# Set custom Brand icon
+In order to add your own brand icon you need to **[link your storage to the public directory](#link-storage-to-public-directory)**.
+
+Now you can place your image inside the **public/storage/brand-icon** directory.
+
+Inside the **.env** file you have to set **BRAND_ICON** to the name of your image (including extension).
+
+To customize the image path you can go to the **filesystem config**.
