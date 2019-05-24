@@ -2,7 +2,7 @@
 name: Feature Request
 about: Suggeest an idea for this project
 title: ''
-labels: 'Type: Enhancement, Status: Available'
+labels: ''
 assignees: xPand4B
 
 ---
