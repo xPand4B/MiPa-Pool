@@ -24,6 +24,7 @@ return [
         'search'        => 'Suchen...',
         'create_order'  => 'Bestellung erstellen',
         'notifications' => 'Benachrichtigungen',
+        'language'      => 'Anzeigesprache',
         'logout'        => 'Abmelden',
     ],
     // Footer
