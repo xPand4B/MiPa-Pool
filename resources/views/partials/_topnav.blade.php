@@ -52,6 +52,18 @@
                         </div>
                     </li> --}}
                     
+                    {{-- Change Language --}}
+                    {{-- <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" id="language-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ trans('menu.top.language') }}">
+                            <i class="fa fa-language"></i>
+                            <p class="d-lg-none d-md-block">{{ trans('menu.top.language') }}</p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language-dropdown">
+                            <a href="#" class="dropdown-item">German</a>
+                            <a href="#" class="dropdown-item">Englisch</a>
+                        </div>
+                    </li> --}}
+
                     {{-- Logout --}}
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" title="{{ trans('menu.top.logout') }}"
