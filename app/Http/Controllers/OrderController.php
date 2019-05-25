@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use App\Order;
-use App\User;
-
 use Session;
-use Auth;
+use App\Order;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -30,17 +24,14 @@ class OrderController extends Controller
 
                 $price *= 0.01;
 
-                if($price < 10){
+                if($price < 10)
                     $price = '0'.$price;
-                }
                 
-                if(strlen($price) == 4){
+                if(strlen($price) == 4)
                     $price = $price.'0';
-                }
 
-                if(strlen($price) == 2){
+                if(strlen($price) == 2)
                     $price = $price.'.00';
-                }
 
                 $orders[$i]->menus[$j]->price = $price;
             }
@@ -65,9 +56,8 @@ class OrderController extends Controller
         foreach($range as $step){
             $temp = date("H:i", $step);
 
-            if($temp > $current){
+            if($temp > $current)
                 array_push($timesteps, $temp);
-            }
         }
         
         return view('pages.orders.create', [
