@@ -57,7 +57,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $range = range(strtotime("08:00"), strtotime("20:00"), 15 * 60);
+        $range = range(strtotime("00:00"), strtotime("24:00"), 15 * 60);
         $current = date("H:i");
 
         $timesteps = [];
