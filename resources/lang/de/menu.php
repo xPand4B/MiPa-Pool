@@ -29,8 +29,7 @@ return [
     ],
     // Footer
     'footer' => [
-        'imprint'        => 'Impressum',
-        'privacy_policy' => 'Datenschutzerklärung',
+        //
     ],
 
 ];

@@ -42,7 +42,7 @@ return [
                 'order_name'            => 'Name der Bestellung',
                 'deadline'              => 'Laufzeit bis',
                 'time'                  => 'Uhr',
-                'max_orders'            => 'Max. Mitbesteller',
+                'max_orders'            => 'Mitbesteller',
                 'people'                => '',
                 'currency'              => '€',
                 'minimum_order_value'   => 'Mindestbestellwert',
@@ -53,9 +53,36 @@ return [
         ],
 
         'participate' => [
-            
+            //
         ],
     ],
+
+    // Manage Orders Page
+    'manage' => [
+        'title' => 'Verwaltung',
+
+        'breadcrumb' => [
+            'index'       => 'Verwaltung',
+        ],
+
+        'index' => [
+            'headline' => 'Verwalte deine Bestellungen',
+
+            'tableHeads' => [
+                'name'              => 'Name',
+                'deliveryService'   => 'Lieferdienst',
+                'deadline'          => 'Laufzeit',
+                'createdAt'         => 'Erstellung'
+            ],
+
+            'tableButtons' => [
+                'edit'      => 'Bestellung bearbeiten',
+                'close'     => 'Bestellung schließen',
+                'delete'    => 'BEstellung löschen'
+            ]
+        ],
+    ],
+
     // Profile Page
     'profile' => [
         'title' => 'Profil',
@@ -77,6 +104,7 @@ return [
                 'label'  => 'Wähle ein Bild aus...',
                 'helper' => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
             ],
+            'reset_avatar'      => 'Profilbild zurücksetzten',
             'submit'            => 'Profil aktualisieren'
         ],
         
@@ -86,15 +114,5 @@ return [
             'orders'    => 'Bestellungen',
             'month'     => 'Diesen Monat',
         ]
-    ],
-    
-    // Imprint Page
-    'imprint' => [
-        'title'      => 'Impressum',
-    ],
-    
-    // Privacy Policy Page
-    'privacy_policy' => [
-        'title'      => 'Datenschutzerklärung',
     ],
 ];

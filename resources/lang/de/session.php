@@ -13,6 +13,7 @@ return [
 
     'title' => [
         'success'   => 'Erfolgreich:',
+        'info'      => 'Information:',
         'error'     => 'Fehler:',
     ],
 
@@ -21,6 +22,7 @@ return [
     ],
     
     'profile' => [
-        'updated' => 'Dein Profil wurde aktualisiert.',
+        'updated'       => 'Dein Profil wurde aktualisiert.',
+        'resetedAvatar' => 'Dein Profilbild wurde zurückgesetzt.'
     ],
 ];

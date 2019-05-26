@@ -17,9 +17,9 @@ return [
         'title' => 'Orders',
 
         'breadcrumb' => [
-            'index'       => 'Orders',
-            'create'      => 'Create',
-            'participate' => 'Participate'
+            'index'         => 'Orders',
+            'create'        => 'Create',
+            'participate'   => 'Participate'
         ],
 
         'index' => [
@@ -42,20 +42,47 @@ return [
                 'order_name'            => 'Order name',
                 'deadline'              => 'Deadline',
                 'time'                  => '',
-                'max_orders'            => 'Max. Participants',
+                'max_orders'            => 'Participants',
                 'people'                => '',
                 'currency'              => '€',
-                'minimum_order_value'   => 'Minimum Value',
+                'minimum_order_value'   => 'Min. Value',
                 'delivery_service'      => 'Delivery Service',
                 'site_link'             => 'Menu-card',
-                'submit'                => 'Create Order',
+                'submit'                => 'Create Order'
             ],
         ],
 
         'participate' => [
-            
+            //
         ],
     ],
+
+    // Manage Orders Page
+    'manage' => [
+        'title' => 'Management',
+
+        'breadcrumb' => [
+            'index'       => 'Management',
+        ],
+
+        'index' => [
+            'headline' => 'Manage your orders',
+
+            'tableHeads' => [
+                'name'              => 'Name',
+                'deliveryService'   => 'Delivery Service',
+                'deadline'          => 'Deadline',
+                'createdAt'         => 'Created'
+            ],
+
+            'tableButtons' => [
+                'edit'      => 'Edit Order',
+                'close'     => 'Close Order',
+                'delete'    => 'Delete Order'
+            ]
+        ],
+    ],
+
     // Profile Page
     'profile' => [
         'title' => 'Profile',
@@ -77,6 +104,7 @@ return [
                 'label'  => 'Choose a picture...',
                 'helper' => 'Please upload a valid image file. Size of image should not be more than 2MB.'
             ],
+            'reset_avatar'      => 'Reset your avatar',
             'submit'            => 'Update profile'
         ],
         
@@ -86,15 +114,5 @@ return [
             'orders'    => 'Orders',
             'month'     => 'This month',
         ]
-    ],
-    
-    // Imprint Page
-    'imprint' => [
-        'title'      => 'Imprint',
-    ],
-    
-    // Privacy Policy Page
-    'privacy_policy' => [
-        'title'      => 'Privacy Policy',
     ],
 ];
