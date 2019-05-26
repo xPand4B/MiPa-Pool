@@ -29,7 +29,7 @@ return [
     ],
     // Footer
     'footer' => [
-        //
+        'sourcecode' => 'Quellcode'
     ],
 
 ];
