@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Order;
+use Auth;
 
 class ManagementController extends Controller
 {
+    /**
+     * Restrict access
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,11 @@ class ManagementController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::where('user_id', '=', Auth::user()->id)->paginate(15);
+
+        return view('pages.manage.index', [
+            'orders' => $orders
+        ]);
     }
 
     /**

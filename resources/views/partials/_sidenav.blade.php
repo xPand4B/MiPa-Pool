@@ -26,8 +26,8 @@
                 </li>
 
                 {{-- Manage Orders --}}
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link">
+                <li class="nav-item {{ Nav::hasSegment('manage') }}">
+                    <a href="{{ route('manage.index') }}" class="nav-link">
                         <i class="fa fa-shopping-cart"></i>
                         <p>@lang('menu.side.manage')</p>
                     </a>
@@ -40,14 +40,13 @@
                         <p>@lang('menu.side.profile')</p>
                     </a>
                 </li>
-
                 
                 <hr class="mx-3 mt-5 mb-0" style="background-color: rgba(180, 180, 180, 0.3);">
 
                 {{-- PayPal --}}
                 <li class="nav-item">
                     <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F8EMZ2C75K4TA" class="nav-link" target="_blank">
-                        <i class="fa fa-paypal"></i>
+                        <i class="fa fa-paypal" style="color: #3b7bbf"></i>
                         <p>@lang('menu.side.support')</p>
                     </a>
                 </li>
