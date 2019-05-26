@@ -2,7 +2,7 @@
 name: Feature Request
 about: Suggeest an idea for this project
 title: ''
-labels: ''
+labels: enhancement
 assignees: xPand4B
 
 ---
