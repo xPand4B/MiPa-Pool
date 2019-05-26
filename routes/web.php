@@ -18,17 +18,16 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/order/store',             'OrderController@store')->name('order.store');
     Route::get( '/order/participate/{id}',  'OrderController@show')->name('order.participate');
 
+    // Order Management
+    Route::get( '/manage',              'ManagementController@index')->name('manage.index');
+    Route::get( '/manage/{id}',         'ManagementController@show')->name('manage.show');
+    Route::get( '/manage/edit{id}',     'ManagementController@edit')->name('manage.edit');
+    Route::get( '/manage/delete/{id}',  'ManagementController@destroy')->name('manage.destroy');
+
     // Profile
     Route::get('/profile',              'ProfileController@show')->name('profile.show');
-    Route::match(['put', 'patch'],      '/profile/update', 'ProfileController@update')->name('profile.update');
-
-    // Footer Links
-    Route::view('/contact',         'pages.contact')->name('contact');
-    Route::view('/about',           'pages.about')->name('about');
-    Route::view('/imprint',         'pages.imprint')->name('imprint');
-    Route::view('/privacy-policy',  'pages.privacy_policy')->name('privacy_policy');
-    // Redirect Routes
-    Route::redirect('/home',        '/', 301);
+    Route::match(['put', 'patch'],      '/profile/update/data',  'ProfileController@updateData')->name('profile.update.data');
+    Route::post('/profile/reset/avatar',  'ProfileController@resetAvatar')->name('profile.reset.avatar');
 });
 
 // Login routes
