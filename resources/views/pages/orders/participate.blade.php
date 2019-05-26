@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    | @lang('page.order.participate.title')
+    | {{ $order->name }}
 @endsection
 
 @section('headline')

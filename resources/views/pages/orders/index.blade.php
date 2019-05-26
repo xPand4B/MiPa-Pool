@@ -94,14 +94,14 @@
                     
                     {{-- Card Content --}}
                     <div class="card-content">
-                        <div class="container responsive">
+                        <div class="container-fluid">
                             @php
                                 $sum   = 0;
                                 $count = 0;
                             @endphp
 
                             @if ($order->menus->isNotEmpty())
-                                <table class="table table-responsive-sm table-sm table-hover table-shopping text-center">
+                                <table class="table table-responsive-sm table-sm table-shopping text-center">
                                     <thead class="thead-light">
                                         <tr>
                                             <th class="p-1">@lang('table.orders.head.name')</th>
@@ -137,13 +137,13 @@
                                                 $sum = $sum.'.00';
                                             }
                                         @endphp
-
-                                        <tr class="table-light">
+                                        
+                                        <tr>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
-                                            <th class="p-1">{{ str_replace('.', ',', $sum) }} €</th>
+                                            <th class="p-1 text-center td-price">{{ str_replace('.', ',', $sum) }} €</th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -176,19 +176,14 @@
                         <div class="col-md text-right">
                             @if ($count == $order->max_orders)
                                 <div class="stats text-danger">
-                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
-                                </div>
-                                
                             @elseif($count != 0 && ($count + 1 == $order->max_orders || $count + 2 == $order->max_orders))
                                 <div class="stats text-warning">
-                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
-                                </div>
-
                             @else
                                 <div class="stats text-success">
-                                    <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
-                                </div>
                             @endif
+
+                                <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                            </div>
                         </div>
 
                     </div>
