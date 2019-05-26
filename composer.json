@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "xPand4B/MiPa-Pool",
+    "description": "A small application to manage lunch orders.",
+    "keywords": ["framework", "MiPa-Pool"],
     "license": "MIT",
     "type": "project",
     "require": {
