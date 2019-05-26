@@ -17,8 +17,6 @@
     <div class="col-lg-12">
         <div class="row">
 
-            {{-- <div class="col-md-1"></div> --}}
-
             {{-- Profile --}}
             <div class="col-md-6">
                 <div class="card">
@@ -36,38 +34,54 @@
                         </h4>
                     </div>
 
-                    {!! Form::model($user, [
-                        'route'  => [
-                            'profile.update'
-                        ],
-                        'method' => 'PUT',
-                        'enctype'=> 'multipart/form-data'
-                    ]) !!}
-
                     <hr>
-
-                    {{-- Avatar --}}
-                    <div class="col-lg pb-0 ">
-                        {{-- <label for="avatar" class="btn btn-block btn-success btn-round">
-                            <i class="fa fa-upload" aria-hidden="true"></i> {{ trans('page.profile.form.avatar.label') }}
-                        </label> --}}
-                        <input id="avatar" type="file" class="form-control-file {{ $errors->has('avatar') ? ' is-invalid' : '' }}" name="avatar" aria-describedby="fileHelp" accept="image/*" size="2048">
-
-                        <small id="fileHelp" class="form-text text-muted">
-                            {{ trans('page.profile.form.avatar.helper') }}
-                        </small>
-
-                        @if ($errors->has('avatar'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('avatar') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    
-                    <hr class="mb-0">
 
                     {{-- Card Content --}}
                     <div class="card-body">
+
+                        <div class="row">
+                            {{-- Reset Avatar --}}
+                            <div class="col my-0 py-0">
+                                {!! Form::open([
+                                    'route' => 'profile.reset.avatar',
+                                    'method' => 'POST'
+                                ]) !!}
+                                    <label for="reset_avatar" class="btn btn-block btn-default btn-round">
+                                        <i class="fa fa-repeat" aria-hidden="true"></i> &ensp; @lang('page.profile.form.reset_avatar')
+                                    </label>
+                                    <button type="submit" id="reset_avatar" hidden></button>
+
+                                {!! Form::close() !!}
+                            </div>
+
+                            {!! Form::model($user, [
+                                'route'  => [
+                                    'profile.update.data'
+                                ],
+                                'method' => 'PUT',
+                                'enctype'=> 'multipart/form-data'
+                            ]) !!}
+
+                            {{-- Avatar --}}
+                            <div class="col my-0 py-0">
+                                <label for="avatar" class="btn btn-block btn-success btn-round">
+                                    <i class="fa fa-upload" aria-hidden="true"></i> &ensp; @lang('page.profile.form.avatar.label')
+                                </label>
+                                <input id="avatar" type="file" name="avatar" accept="image/*" size="2048" hidden>
+                                
+                                <small id="fileHelp" class="form-text text-muted">
+                                    @lang('page.profile.form.avatar.helper')
+                                </small>
+                                
+                                @if ($errors->has('avatar'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('avatar') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr class="mb-0">
 
                         {{-- Username --}}
                         <div class="form-group">
@@ -123,6 +137,7 @@
                             @endif
                         </div>
 
+                        {{-- Password + Confirm --}}
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Password --}}
                             <div class="form-group col-lg pl-0 pr-3">
@@ -167,9 +182,10 @@
                                 <i class="fa fa-refresh"></i> &ensp; @lang('page.profile.form.submit')
                             </button>
                         </div>
-                    </div>
 
-                    {!! Form::close() !!}
+                        {!! Form::close() !!}
+
+                    </div>
                 </div>
             </div>
 
@@ -245,8 +261,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="col-md-1"></div> --}}
 
         </div>
     </div>

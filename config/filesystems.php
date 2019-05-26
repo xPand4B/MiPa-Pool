@@ -77,4 +77,16 @@ return [
 
     'brand-icon' => 'storage/brand-icon/'. env('BRAND_ICON'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Profile Avatars
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the name for the default profile avatar.
+    |
+    */
+
+    'avatar' => [
+        'default' => 'user.svg'
+    ],
 ];

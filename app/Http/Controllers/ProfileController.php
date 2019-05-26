@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Menu;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use App\Order;
-use App\User;
+use App\Menu;
 use Session;
 use Auth;
 
@@ -26,6 +24,7 @@ class ProfileController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -66,13 +65,40 @@ class ProfileController extends Controller
     }
 
     /**
+     * Resets the avatar to the default image.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function resetAvatar(Request $request)
+    {
+        if(Auth::user()->avatar == config('filesystems.avatar.default'))
+            return redirect()->back();
+
+        $user = Auth::user();
+
+        $oldAvatar    = $user->avatar;
+        $user->avatar = $this->defaultAvatar;
+        
+        $this->deleteAvatar($oldAvatar);
+
+        $user->save();
+
+        // Create success message
+        Session::flash('success', trans('session.profile.resetedAvatar'));
+
+        return redirect()->back();
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updateData(Request $request)
     {
         $user = Auth::user();
 
@@ -82,9 +108,8 @@ class ProfileController extends Controller
                 'avatar' => 'image|mimes:jpeg,jpg,png,gif,svg|max:2048'
             ]);
 
-            if($user->avatar != 'user.svg'){
-                Storage::delete('avatars/'.$user->avatar);
-            }
+            if($user->avatar != config('filesystems.avatar.default'))
+                $this->deleteAvatar($user->avatar);
 
             $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
 
@@ -147,5 +172,17 @@ class ProfileController extends Controller
         Session::flash('success', trans('session.profile.updated'));
 
         return redirect()->back();
+    }
+
+    /**
+     * Deletes avatar based on filename.
+     *
+     * @param string $fileToDelete
+     *
+     * @return void
+     */
+    private function deleteAvatar(string $fileToDelete): void
+    {
+        Storage::delete('avatars/' . $fileToDelete);
     }
 }
