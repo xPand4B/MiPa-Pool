@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->string('menu', 100);
             $table->integer('number');
-            $table->text('comment');
+            $table->text('comment')->nullable();
 
             // Instead of 5,65€ + 6,33€ this value is multiplied by 10^-2 or 0,01
             // 5,65 + 6,33 = 14,98
