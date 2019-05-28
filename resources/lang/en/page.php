@@ -36,8 +36,6 @@ return [
                 'title' => 'Create Order',
             ],
             
-            'mysticModal01' => "Congratulation, you've found an easteregg.",
-
             'form'  => [
                 'order_name'            => 'Order name',
                 'deadline'              => 'Deadline',
@@ -53,7 +51,23 @@ return [
         ],
 
         'participate' => [
-            //
+            'title'         => 'Order informations',
+
+            'created_by'        => 'Creator',
+            'people'            => 'Participants',
+            'deadline'          => 'Deadline',
+            'time'              => "o'clock",
+            'delivery_service'  => 'Delivery Service',
+
+            'other_participants' => 'Other participants',
+
+            'form' => [
+                'name'      => 'Menu Name',
+                'number'    => 'How much do you want?',
+                'price'     => 'Total Price (in €)',
+                'comment'   => 'Comment',
+                'submit'    => 'Add to order'
+            ]
         ],
     ],
 
@@ -115,4 +129,6 @@ return [
             'month'     => 'This month',
         ]
     ],
+
+    'mysticModal' => "Congratulation, you've found an easteregg.<br>Can you find all of them?",
 ];

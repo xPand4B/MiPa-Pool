@@ -36,8 +36,6 @@ return [
                 'title' => 'Bestellung erstellen',
             ],
 
-            'mysticModal01' => 'Glückwunsch, du hast ein Easteregg gefunden.',
-
             'form'  => [
                 'order_name'            => 'Name der Bestellung',
                 'deadline'              => 'Laufzeit bis',
@@ -53,7 +51,23 @@ return [
         ],
 
         'participate' => [
-            //
+            'title'         => 'Bestellinformationen',
+
+            'created_by'        => 'Ersteller',
+            'people'            => 'Mitbesteller',
+            'deadline'          => 'Deadline',
+            'time'              => 'Uhr',
+            'delivery_service'  => 'Lieferservice',
+
+            'other_participants' => 'Andere Mitbesteller',
+
+            'form' => [
+                'name'      => 'Menü Name',
+                'number'    => 'Anzahl',
+                'price'     => 'Gesamt Preis (in €)',
+                'comment'   => 'Kommentar',
+                'submit'    => 'Menü bestellen'
+            ]
         ],
     ],
 
@@ -115,4 +129,6 @@ return [
             'month'     => 'Diesen Monat',
         ]
     ],
+
+    'mysticModal' => "Glückwunsch, du hast ein Easteregg gefunden.<br>Schaffst du es sie alle zu finden?",
 ];
