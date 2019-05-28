@@ -79,7 +79,7 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $oldAvatar    = $user->avatar;
-        $user->avatar = $this->defaultAvatar;
+        $user->avatar = config('filesystems.avatar.default');
         
         $this->deleteAvatar($oldAvatar);
 
