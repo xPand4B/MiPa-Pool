@@ -16,7 +16,7 @@
         <div class="row">
 
             {{-- Create Order --}}
-            <div class="col-lg-7">
+            <div class="col-lg-6 offset-md-3">
                 <div class="card">
                     {{-- Card Header --}}
                     <div class="card-header card-header-transparent card-header-icon">
@@ -150,34 +150,15 @@
                 </div>
             </div>
 
-            {{-- Select Menu --}}
-            <div class="col-lg-5">
-                <div class="card">
-                    {{-- Card Header --}}
-                    <div class="card-header card-header-warning">
-                        {{-- Title --}}
-                        <h4 class="card-title row mt-0">
-                            <strong class="col mt-4">
-                                @lang('page.orders.participate.card.title')
-                            </strong>
-                        </h4>
-                    </div>
-
-                    {{-- Card Content --}}
-                    <div class="card-body">
-                        ...
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     
-    <div class="modal fade" id="mysticModal01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="mysticModal01" tabindex="-1" role="dialog" aria-labelledby="mysticModal01" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="exampleModalLabel">
-                        @lang('page.orders.create.mysticModal01')
+                    <h5 class="modal-title text-primary" id="mysticModal01">
+                        @lang('page.mysticModal')
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
