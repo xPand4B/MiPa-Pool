@@ -7,4 +7,7 @@
 - [ ] Add application updater (?)
 - [ ] Add unit tests
 - [x] Add option for uploading profile images
-    - [x] Set default profile image
+  - [x] Set default profile image
+- [ ] Add lightbox for avatar
+  - [ ] order.index
+  - [ ] order.participate
