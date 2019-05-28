@@ -117,7 +117,7 @@
                             @endphp
 
                             @if ($order->menus->isNotEmpty())
-                                <table class="table table-responsive-sm table-sm table-shopping text-center">
+                                <table class="table table-sm table-shopping text-center">
                                     <thead class="thead-light">
                                         <tr>
                                             <th class="p-1">@lang('table.orders.head.name')</th>
