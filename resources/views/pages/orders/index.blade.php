@@ -57,9 +57,27 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
-                                {{ $order->name }}
-                                
-                                <br>
+                                @php
+                                    $hasParticipated = false;
+                                @endphp
+                                @foreach ($order->menus as $menu)
+                                    @if (Auth::user()->id == $menu->user_id)
+                                            @php
+                                                $hasParticipated = true;
+                                            @endphp
+                                        @break    
+                                    @endif
+                                @endforeach
+
+                                @if ($hasParticipated)
+                                    <div class="text-info">
+                                        {{ $order->name }}
+                                    </div>
+                                @else
+                                    <div class="text-dark">
+                                        {{ $order->name }}
+                                    </div>
+                                @endif
 
                                 <small>
                                     <u>
@@ -95,7 +113,6 @@
                     <div class="card-content">
                         <div class="container-fluid">
                             @php
-                                $sum   = 0;
                                 $count = 0;
                             @endphp
 
@@ -113,7 +130,7 @@
                                     <tbody>
                                         @foreach ($order->menus as $menu)
                                             @php
-                                                $sum += $menu->price;
+                                                $count++;
                                             @endphp
                                             <tr>
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
@@ -123,26 +140,13 @@
                                                 <td class="p-1">{{ str_replace('.', ',', $menu->price) }} €</td>
                                             </tr>
                                         @endforeach
-
-                                        @php
-                                            if($sum < 10){
-                                                $sum = '0'.$sum;
-                                            }
-                                            
-                                            if(strlen($sum) == 4){
-                                                $sum = $sum.'0';
-
-                                            }else if(strlen($sum) == 2){
-                                                $sum = $sum.'.00';
-                                            }
-                                        @endphp
                                         
                                         <tr>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
-                                            <th class="p-1 text-center td-price">{{ str_replace('.', ',', $sum) }} €</th>
+                                            <th class="p-1 text-center"><strong>{{ $order->sum }} €</strong></th>
                                         </tr>
                                     </tbody>
                                 </table>
