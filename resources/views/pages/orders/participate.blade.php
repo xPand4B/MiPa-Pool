@@ -22,15 +22,10 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header card-header-icon">
-                        {{-- Order icon --}}
-                        <div class="card-icon p-0 bg-transparent">
-                            <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="64px" height="64px">
-                        </div>
-
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
-                                {{ $order->name }}
+                                <i class="fa fa-cutlery" aria-hidden="true"></i> {{ $order->name }}
                             </strong>
                         </h4>
                     </div>
@@ -147,7 +142,7 @@
                                 <dl class="row">
                                     {{-- Created by --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-user" aria-hidden="true"></i> &ensp; Creator
+                                        <i class="fa fa-sm fa-user" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.created_by')
                                     </dt>
                                     <dd class="col-sm-8 text-muted">
                                         <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
@@ -179,7 +174,7 @@
                                     
                                     {{-- Site link --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.site_link')
+                                        <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.delivery_service')
                                     </dt>
                                     <dd class="col-sm-8 text-link">
                                         <a href="{{ $order->site_link }}">
@@ -202,13 +197,13 @@
                                     {{-- Title --}}
                                     <h4 class="card-title mt-0">
                                         <strong>
-                                            <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; Other menus
+                                            <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.other_participants')
                                         </strong>
                                     </h4>
                                 </div>
 
                                 {{-- Card Content --}}
-                                <div class="card-body px-0 pb-0 pt-3">
+                                <div class="card-body p-0">
                                     <table class="table table-sm text-center m-0 ">
                                         <thead class="thead-light">
                                             <tr>
