@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="col-md-10 offset-md-1 px-2">
+    <div class="col-md-10 offset-md-1 px-0">
 
         {{-- No orders --}}
         @if (sizeof($orders) == 0)
@@ -111,7 +111,7 @@
                     
                     {{-- Card Content --}}
                     <div class="card-content">
-                        <div class="container-fluid">
+                        <div class="container-fluid p-0">
                             @php
                                 $count = 0;
                             @endphp
