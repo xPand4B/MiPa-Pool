@@ -3,7 +3,7 @@
         {{-- Left Sided Items --}}
         <nav class="float-left text-dark">
             <ul>
-                
+                {{-- Links here --}}
             </ul>
         </nav>
 

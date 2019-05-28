@@ -3,7 +3,6 @@
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
-            {{-- <li class="breadcrumb-item"><a href="{{ url('dashboard/posts') }}" class="text-danger">Posts</a></li> --}}
             <li class="breadcrumb-item active" aria-current="page">@lang('page.orders.breadcrumb.index')</li>
         </ol>
     </nav>
