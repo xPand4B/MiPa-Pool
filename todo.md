@@ -1,10 +1,10 @@
 # ToDo
 - [ ] Add __carbon__ for remaining time
-- [ ] Create __Order.Participate__ form
+- [x] Create __Order.Participate__ form
 - [ ] Add menu for closing/deleting orders
-- [ ] Differnt color for own and participated order
+- [x] Differnt color for own and participated order
 - [ ] Add __broadcast notifications__ using __pusher/socket.io__
 - [ ] Add application updater (?)
 - [ ] Add unit tests
-- [X] Add option for uploading profile images
-    - [X] Set default profile image
+- [x] Add option for uploading profile images
+    - [x] Set default profile image
