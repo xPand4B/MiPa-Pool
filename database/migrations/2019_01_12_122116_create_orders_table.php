@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('name');
+            $table->string('delivery_service');
             $table->string('site_link');
             $table->time('deadline');
             $table->integer('max_orders');
