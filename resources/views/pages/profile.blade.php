@@ -191,12 +191,10 @@
             <div class="col-md-6">
                 <div class="card">
                     {{-- Header --}}
-                    <div class="card-header card-header-primary"></div>
-                    <div class="card-header card-header-transparent card-header-icon">
-                        {{-- Title --}}
-                        <h4 class="card-title row mt-0">
-                            <strong class="col mt-4">
-                                @lang('page.profile.stats.headline')
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title mt-0">
+                            <strong>
+                                <i class="fa fa-sm fa-line-chart" aria-hidden="true"></i> &ensp; @lang('page.profile.stats.headline')
                             </strong>
                         </h4>
                     </div>
