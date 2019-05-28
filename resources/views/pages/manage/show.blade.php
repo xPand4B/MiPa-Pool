@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
 @section('title')
-    | 
-@endsection
 
 @section('headline')
     <nav aria-label="breadcrumb">

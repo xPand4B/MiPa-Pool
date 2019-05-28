@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-    | @lang('page.search.title')
-@endsection
+@section('title', trans('page.search.title'))
 
 @section('headline')
     <nav aria-label="breadcrumb">

@@ -13,4 +13,10 @@
 {{ Html::style('css/main.css') }}
 @yield('stylesheet')
 
-<title>{{ config('app.name', 'MiPa-Pool') }} @yield('title')</title>
+<title>
+    {{ config('app.name', 'MiPa-Pool') }} 
+
+    @hasSection ('title')
+        | @yield('title')        
+    @endif
+</title>

@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-    | @lang('page.manage.title')
-@endsection
+@section('title', trans('page.manage.title'))
 
 @section('headline')
     <nav aria-label="breadcrumb">
@@ -95,7 +93,7 @@
 
                 <hr class="mb-5">
             
-                {{-- {{ $orders->links('vendor.pagination.bootstrap-4') }} --}}
+                {{ $orders->links('vendor.pagination.bootstrap-4') }}
 
             </div>
         </div>

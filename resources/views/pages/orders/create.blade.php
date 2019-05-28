@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-    | @lang('page.orders.title')
-@endsection
+@section('title', trans('page.orders.title'))
 
 @section('headline')
     <nav aria-label="breadcrumb">
@@ -16,6 +14,7 @@
 @section('content')
     <div class="col-md-12">
         <div class="row">
+
             {{-- Create Order --}}
             <div class="col-lg-7">
                 <div class="card">
