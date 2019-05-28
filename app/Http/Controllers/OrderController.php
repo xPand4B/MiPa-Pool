@@ -151,7 +151,7 @@ class OrderController extends Controller
             if(strlen($price) == 2)
                 $price = $price.'.00';
 
-            $order->menus[$j]->price = $price;
+            $order->menus[$j]->price = str_replace('.', ',', $price);
         }
 
         if($sum < 10)
