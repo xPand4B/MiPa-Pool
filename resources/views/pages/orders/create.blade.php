@@ -45,9 +45,7 @@
                             @csrf
                             {{-- Order Name --}}
                             <div class="form-group is-focused">
-                                <label for="order_name" class="bmd-label-floating">
-                                    @lang('page.orders.create.form.order_name')
-                                </label>
+                                {{ Form::label('order_name', trans('page.orders.create.form.order_name'), ['class' => 'bmd-label-floating']) }}
             
                                 <input id="order_name" type="text" class="form-control{{ $errors->has('order_name') ? ' is-invalid' : '' }}" name="order_name" value="{{ old('order_name') }}" required autofocus>
             
@@ -62,9 +60,8 @@
                             <div class="form-row" style="padding-left: 5px">
                                 {{-- Deadline --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    <label for="deadline" class="bmd-label-floating">
-                                        @lang('page.orders.create.form.deadline')
-                                    </label>
+                                    {{ Form::label('deadline', trans('page.orders.create.form.deadline'), ['class' => 'bmd-label-floating']) }}
+
                                     <select name="deadline" id="deadline" class="form-control">
                                         @for ($i = 0; $i < sizeof($timesteps); $i++)
                                             @if ($i == 0)
@@ -78,9 +75,8 @@
 
                                 {{-- Max Orders --}}
                                 <div class="form-group col px-0 pr-3">
-                                    <label for="max_orders" class="bmd-label-floating">
-                                        @lang('page.orders.create.form.max_orders')
-                                    </label>
+                                    {{ Form::label('max_orders', trans('page.orders.create.form.max_orders'), ['class' => 'bmd-label-floating']) }}
+
                                     <select name="max_orders" id="max_orders" class="form-control" required>
                                         @for ($i = 2; $i <= 20; $i++)
                                             @if ($i == 2)
@@ -94,9 +90,7 @@
 
                                 {{-- Minimun order value --}}
                                 <div class="form-group col">
-                                    <label for="minimum_order_value" class="bmd-label-floating">
-                                        @lang('page.orders.create.form.minimum_order_value')
-                                    </label>
+                                    {{ Form::label('minimum_order_value', trans('page.orders.create.form.minimum_order_value'), ['class' => 'bmd-label-floating']) }}
 
                                     <select name="minimum_order_value" id="minimum_order_value" class="form-control" required>
                                         @for ($i = 0; $i <= 20; $i++)
@@ -110,9 +104,7 @@
                             <div class="form-row" style="padding-left: 5px">
                                 {{-- Delivery Service --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    <label for="delivery_service" class="bmd-label-floating">
-                                        @lang('page.orders.create.form.delivery_service')
-                                    </label>
+                                    {{ Form::label('delivery_service', trans('page.orders.create.form.delivery_service'), ['class' => 'bmd-label-floating']) }}
             
                                     <input id="delivery_service" type="text" class="form-control{{ $errors->has('delivery_service') ? ' is-invalid' : '' }}" name="delivery_service" value="{{ old('delivery_service') }}" required>
             
@@ -125,9 +117,7 @@
             
                                 {{-- Site Link --}}
                                 <div class="form-group col px-0">
-                                    <label for="site_link" class="bmd-label-floating">
-                                        @lang('page.orders.create.form.site_link')
-                                    </label>
+                                    {{ Form::label('site_link', trans('page.orders.create.form.site_link'), ['class' => 'bmd-label-floating']) }}
             
                                     <input id="site_link" type="text" class="form-control{{ $errors->has('site_link') ? ' is-invalid' : '' }}" name="site_link" value="{{ old('site_link') }}" required>
             

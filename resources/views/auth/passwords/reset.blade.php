@@ -14,7 +14,7 @@
                         {{-- Email --}}
                         <div class="form-group row">
                             <label for="email" class="bmd-label-floating">
-                                {{ __('E-Mail Address') }}a
+                                {{ __('E-Mail Address') }}
                             </label>
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>

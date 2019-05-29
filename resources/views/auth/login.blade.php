@@ -1,8 +1,6 @@
 @extends('layouts.login')
 
-@section('title')
-    | @lang('login.title')
-@endsection
+@section('title', trans('login.title'))
 
 @section('content')
 <div class="container">
@@ -21,9 +19,7 @@
 
                         {{-- Email --}}
                         <div class="form-group is-focused">
-                            <label for="email" class="bmd-label-floating">
-                                @lang('login.email')
-                            </label>
+                            {{ Form::label('email', trans('login.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -36,9 +32,7 @@
 
                         {{-- Password --}}
                         <div class="form-group row">
-                            <label for="password" class="bmd-label-floating">
-                                @lang('login.password')
-                            </label>
+                            {{ Form::label('password', trans('login.password'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
@@ -66,7 +60,7 @@
 
                         {{-- Submit --}}
                         <div class="form-group row mb-0 mt-0">
-                            <button type="submit" class="btn btn-block btn-success">
+                            <button type="submit" class="btn btn-block btn-success btn-round">
                                 <i class="fa fa-sign-in"></i> &ensp; @lang('login.login_button')
                             </button>
                         </div>

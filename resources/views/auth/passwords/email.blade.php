@@ -1,8 +1,6 @@
 @extends('layouts.login')
 
-@section('title')
-    | @lang('login.reset_password_title')
-@endsection
+@section('title', trans('login.reset_password_title'))
 
 @section('content')
 <div class="container">
@@ -28,9 +26,7 @@
 
                         {{-- Email --}}
                         <div class="form-group is-focused">
-                            <label for="email" class="bmd-label-floating">
-                                @lang('login.email')
-                            </label>
+                            {{ Form::label('email', trans('login.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -43,7 +39,7 @@
 
                         {{-- Submit --}}
                         <div class="form-group row mb-0">
-                            <button type="submit" class="btn btn-block btn-success">
+                            <button type="submit" class="btn btn-block btn-success btn-round">
                                 <i class="fa fa-paper-plane"></i> &ensp; @lang('login.get_reset_email')
                             </button>
                         </div>
