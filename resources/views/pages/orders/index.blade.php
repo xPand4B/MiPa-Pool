@@ -19,7 +19,7 @@
                 <div class="card-header card-header-icon">
                     {{-- User Icon --}}
                     <div class="card-icon p-0 bg-transparent">
-                        <img src="{{ asset('storage/avatars/user.svg') }}" width="64px" height="64px">
+                        <img src="{{ asset('storage/avatars/'.config('filesystems.avatar.default')) }}" width="64px" height="64px">
                     </div>
 
                     {{-- Title --}}
@@ -82,7 +82,7 @@
                                 <small>
                                     <u>
                                         <a href="{{ $order->site_link }}" target="_blank" class="text-muted">
-                                            @lang('table.orders.deliveryService')
+                                            {{ $order->delivery_service }}
                                         </a>
                                     </u>
                                 </small>
@@ -106,16 +106,10 @@
                             </div>
                         </h4>
                     </div>  
-
-                    <hr class="mt-2">
                     
                     {{-- Card Content --}}
-                    <div class="card-content">
+                    <div class="card-content mt-2">
                         <div class="container-fluid p-0">
-                            @php
-                                $count = 0;
-                            @endphp
-
                             @if ($order->menus->isNotEmpty())
                                 <table class="table table-sm table-shopping text-center">
                                     <thead class="thead-light">
@@ -129,9 +123,6 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($order->menus as $menu)
-                                            @php
-                                                $count++;
-                                            @endphp
                                             <tr>
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                 <td class="p-1">{{ $menu->menu }}</td>
@@ -177,15 +168,15 @@
                         </div>
 
                         <div class="col-md text-right">
-                            @if ($count == $order->max_orders)
+                            @if (sizeof($order->menus) == $order->max_orders)
                                 <div class="stats text-danger">
-                            @elseif($count != 0 && ($count + 1 == $order->max_orders || $count + 2 == $order->max_orders))
+                            @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
                                 <div class="stats text-warning">
                             @else
                                 <div class="stats text-success">
                             @endif
 
-                                <i class="material-icons">done</i> {{ !empty($count) ? $count : 0 }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                <i class="material-icons">done</i> {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                             </div>
                         </div>
 
