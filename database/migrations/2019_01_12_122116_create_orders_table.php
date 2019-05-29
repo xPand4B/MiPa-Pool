@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('site_link');
             $table->time('deadline');
             $table->integer('max_orders');
-            $table->boolean('full')->default(false);
+            $table->boolean('closed')->default(false);
             $table->timestamps();
         });
     }
