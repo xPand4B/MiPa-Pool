@@ -59,7 +59,7 @@
                                     <td>{{ $order->name }}</td>
                                     <td>
                                         <a href="{{ $order->site_link }}" class="link">
-                                            {{ $order->site_link }}
+                                            {{ $order->delivery_service }}
                                         </a>
                                     </td>
                                     <td>{{ $order->deadline }}</td>
