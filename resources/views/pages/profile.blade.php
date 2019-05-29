@@ -158,7 +158,7 @@
                         </div>
 
                         {{-- About Me --}}
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             {{ Form::label('aboutMe', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}
                             {{ Form::textarea('aboutMe', null, [
                                         'class'         => 'form-control',
@@ -172,7 +172,7 @@
                                     <strong>{{ $errors->first('aboutMe') }}</strong>
                                 </span>
                             @endif
-                        </div>
+                        </div> --}}
 
                         {{-- Submit --}}
                         <div class="form-group row">
