@@ -70,7 +70,7 @@
                                 @endforeach
 
                                 @if ($hasParticipated)
-                                    <div class="text-info">
+                                    <div class="text-primary">
                                         {{ $order->name }}
                                     </div>
                                 @else
@@ -123,7 +123,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($order->menus as $menu)
+                                            @if (Auth::user()->id == $menu->user_id)
+                                            <tr class="text-primary">
+                                            @else
                                             <tr>
+                                            @endif
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                 <td class="p-1">{{ $menu->menu }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
