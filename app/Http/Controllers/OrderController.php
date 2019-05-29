@@ -107,11 +107,12 @@ class OrderController extends Controller
         ]);
 
         $order = new Order;
-            $order->user_id     = $request->user()->id;
-            $order->name        = $request->order_name;
-            $order->site_link   = $request->site_link;
-            $order->deadline    = $request->deadline;
-            $order->max_orders  = $request->max_orders;
+            $order->user_id             = $request->user()->id;
+            $order->name                = $request->order_name;
+            $order->site_link           = $request->site_link;
+            $order->deadline            = $request->deadline;
+            $order->delivery_service    = $request->delivery_service;
+            $order->max_orders          = $request->max_orders;
 
             $order->save();
 
