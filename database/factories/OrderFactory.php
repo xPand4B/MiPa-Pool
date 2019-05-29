@@ -18,9 +18,10 @@ $factory->define(App\Order::class, function (Faker $faker) {
         'user_id'    => function(){
             return App\User::inRandomOrder()->first()->id;
         },
-        'name'       => $faker->text(20),
-        'site_link'  => $faker->url,
-        'deadline'   => $faker->time,
-        'max_orders' => $faker->numberBetween(2, 15)
+        'name'              => $faker->text(20),
+        'delivery_service'  => $faker->name,
+        'site_link'         => $faker->url,
+        'deadline'          => $faker->time,
+        'max_orders'        => $faker->numberBetween(2, 15)
     ];
 });
