@@ -65,7 +65,7 @@
 
                                 <select name="number" id="number" class="form-control" required>
                                     @for ($i = 1; $i <= 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
+                                        <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -145,9 +145,9 @@
                                         <i class="fa fa-sm fa-user" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.created_by')
                                     </dt>
                                     <dd class="col-sm-8 text-muted">
-                                        <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
-                                        &ensp;
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
+                                        &ensp;
+                                        <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
                                     </dd>
 
                                     {{-- Deadline --}}
