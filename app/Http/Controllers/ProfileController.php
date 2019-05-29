@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Menu;
@@ -183,6 +183,6 @@ class ProfileController extends Controller
      */
     private function deleteAvatar(string $fileToDelete): void
     {
-        Storage::delete('avatars/' . $fileToDelete);
+        File::delete(config('filesystems.avatar.path') . $fileToDelete);
     }
 }
