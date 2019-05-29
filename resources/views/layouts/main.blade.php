@@ -4,7 +4,6 @@
         @include('partials._head')
     </head>
     <body>
-        <script src="{{ asset('js/app.js') }}"></script>
         <div class="wrapper">
             
             @include('partials._sidenav')
