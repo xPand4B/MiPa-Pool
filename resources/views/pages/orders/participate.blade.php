@@ -147,7 +147,7 @@
                                     <dd class="col-sm-8 text-muted">
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                                         &ensp;
-                                        <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
+                                        <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
                                     </dd>
 
                                     {{-- Deadline --}}

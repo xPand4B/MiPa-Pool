@@ -21,7 +21,7 @@
                     {{-- Card Header --}}
                     <div class="card-header card-header-transparent card-header-icon">
                         <div class="card-icon p-0 bg-transparent">
-                            <img class="rounded-circle" src="{{ asset('storage/avatars/'.$user->avatar) }}" title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})" width="82px" height="82px">
+                            <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$user->avatar) }}" title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})" width="82px" height="82px">
                         </div>
 
                         {{-- Title --}}

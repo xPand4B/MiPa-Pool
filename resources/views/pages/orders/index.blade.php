@@ -19,7 +19,7 @@
                 <div class="card-header card-header-icon">
                     {{-- User Icon --}}
                     <div class="card-icon p-0 bg-transparent">
-                        <img src="{{ asset('storage/avatars/'.config('filesystems.avatar.default')) }}" width="64px" height="64px">
+                        <img src="{{ asset(config('filesystems.avatar.path').config('filesystems.avatar.default')) }}" width="64px" height="64px">
                     </div>
 
                     {{-- Title --}}
@@ -51,7 +51,7 @@
                     <div class="card-header card-header-icon">
                         {{-- User Icon --}}
                         <div class="card-icon p-0 bg-transparent">
-                            <img class="rounded-circle" src="{{ asset('storage/avatars/'.$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="64px" height="64px">
+                            <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="64px" height="64px">
                         </div>
 
                         {{-- Title --}}
