@@ -11,9 +11,9 @@ window.Vue = require('vue');
 
 // Material Dashboard
     // Core JS Files
-    require('../../node_modules/material-dashboard/assets/js/core/jquery.min');
-    require('../../node_modules/material-dashboard/assets/js/core/popper.min');
-    require('../../node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min');
+    require('../../node_modules/material-dashboard/assets/js/core/jquery.min.js');
+    require('../../node_modules/material-dashboard/assets/js/core/popper.min.js');
+    require('../../node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min.js');
 
     // Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/
     require('../../node_modules/material-dashboard/assets/js/plugins/bootstrap-notify.js');
