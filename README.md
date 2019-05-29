@@ -25,7 +25,7 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 If you want to launch as soon as possible **and** your are running a linux version that supports bash scripts you can run [this script](https://github.com/xPand4B/MiPa-Pool/blob/master/installer.sh) to install everything.
 
 ## Composer
-At first you need a working webserver(_php, apache, etc._), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
+At first you need a working webserver(_php, apache/nginx, etc._), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
 Open a new **Command Prompt** inside your project's root folder and type the following command. This will install all required depencies.
 ```
 composer install
