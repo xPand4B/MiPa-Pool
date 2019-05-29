@@ -20,10 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->text('aboutMe')->nullable();
-            $table->string('avatar')->default('user.svg');
-            $table->string('locale')->default('en');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('avatar')->default(config('filesystems.avatar.default'));
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
