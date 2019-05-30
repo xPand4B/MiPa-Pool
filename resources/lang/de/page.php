@@ -115,10 +115,10 @@ return [
             'confirm_password'  => 'Passwort bestätigen',
             'about_me'          => 'Über mich',
             'avatar'            => [
-                'label'  => 'Wähle ein Bild aus...',
+                'label'  => 'Wähle ein Bild',
                 'helper' => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
             ],
-            'reset_avatar'      => 'Profilbild zurücksetzten',
+            'reset_avatar'      => 'Bild zurücksetzten',
             'submit'            => 'Profil aktualisieren'
         ],
         
