@@ -2,9 +2,7 @@
     <div class="container-fluid">
         {{-- Left Sided Items --}}
         <nav class="float-left text-dark">
-            <ul>
-                {{-- Links here --}}
-            </ul>
+            {!! language()->flags() !!}
         </nav>
 
         {{-- Right Sided Items --}}
