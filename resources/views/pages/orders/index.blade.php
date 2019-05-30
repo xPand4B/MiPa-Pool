@@ -33,8 +33,8 @@
                 <hr class="mt-2">
 
                 {{-- Card Content --}}
-                <div class="card-content ml-4">
-                    <div class="container-responsive">
+                <div class="card-content">
+                    <div class="container">
                         <div class="h3 text-center">
                             @lang('page.orders.index.empty.message')
                         </div>
