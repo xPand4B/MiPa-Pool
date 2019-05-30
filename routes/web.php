@@ -11,25 +11,28 @@
 |
 */
 
-// Auth Routes
-Route::middleware(['auth'])->group(function(){
-    Route::get( '/',                        'OrderController@index')->name('home');
-    Route::get( '/order/create',            'OrderController@create')->name('order.create');
-    Route::post('/order/store',             'OrderController@store')->name('order.store');
-    Route::get( '/order/participate/{id}',  'OrderController@participate')->name('order.participate');
-    Route::post('/order/participate/add',   'OrderController@storeParticipate')->name('order.participate.add');
+Route::middleware(['language'])->group(function(){
 
-    // Order Management
-    Route::get( '/manage',              'ManagementController@index')->name('manage.index');
-    Route::get( '/manage/{id}',         'ManagementController@show')->name('manage.show');
-    Route::get( '/manage/edit{id}',     'ManagementController@edit')->name('manage.edit');
-    Route::get( '/manage/delete/{id}',  'ManagementController@destroy')->name('manage.destroy');
+    // Auth Routes
+    Route::middleware(['auth'])->group(function(){
+        Route::get( '/',                        'OrderController@index')->name('home');
+        Route::get( '/order/create',            'OrderController@create')->name('order.create');
+        Route::post('/order/store',             'OrderController@store')->name('order.store');
+        Route::get( '/order/participate/{id}',  'OrderController@participate')->name('order.participate');
+        Route::post('/order/participate/add',   'OrderController@storeParticipate')->name('order.participate.add');
+        
+        // Order Management
+        Route::get( '/manage',              'ManagementController@index')->name('manage.index');
+        Route::get( '/manage/{id}',         'ManagementController@show')->name('manage.show');
+        Route::get( '/manage/edit{id}',     'ManagementController@edit')->name('manage.edit');
+        Route::get( '/manage/delete/{id}',  'ManagementController@destroy')->name('manage.destroy');
+        
+        // Profile
+        Route::get('/profile',              'ProfileController@show')->name('profile.show');
+        Route::match(['put', 'patch'],      '/profile/update/data',  'ProfileController@updateData')->name('profile.update.data');
+        Route::post('/profile/reset/avatar',  'ProfileController@resetAvatar')->name('profile.reset.avatar');
+    });
 
-    // Profile
-    Route::get('/profile',              'ProfileController@show')->name('profile.show');
-    Route::match(['put', 'patch'],      '/profile/update/data',  'ProfileController@updateData')->name('profile.update.data');
-    Route::post('/profile/reset/avatar',  'ProfileController@resetAvatar')->name('profile.reset.avatar');
+    // Login routes
+    Auth::routes();
 });
-
-// Login routes
-Auth::routes();
