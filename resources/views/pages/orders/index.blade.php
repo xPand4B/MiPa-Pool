@@ -19,7 +19,9 @@
                 <div class="card-header card-header-icon">
                     {{-- User Icon --}}
                     <div class="card-icon p-0 bg-transparent">
-                        <img src="{{ asset(config('filesystems.avatar.path').config('filesystems.avatar.default')) }}" width="64px" height="64px">
+                        @if (file_exists(realpath(config('filesystems.avatar.path').config('filesystems.avatar.default'))))
+                            <img src="{{ asset(config('filesystems.avatar.path').config('filesystems.avatar.default')) }}" width="64px" height="64px">
+                        @endif
                     </div>
 
                     {{-- Title --}}
@@ -51,7 +53,9 @@
                     <div class="card-header card-header-icon">
                         {{-- User Icon --}}
                         <div class="card-icon p-0 bg-transparent">
+                            @if (file_exists(realpath(config('filesystems.avatar.path').$order->user->avatar)))
                             <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="64px" height="64px">
+                            @endif
                         </div>
 
                         {{-- Title --}}

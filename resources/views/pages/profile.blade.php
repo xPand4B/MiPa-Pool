@@ -21,7 +21,9 @@
                     {{-- Card Header --}}
                     <div class="card-header card-header-transparent card-header-icon">
                         <div class="card-icon p-0 bg-transparent">
+                            @if (file_exists(realpath(config('filesystems.avatar.path').$user->avatar)))
                             <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$user->avatar) }}" title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})" width="82px" height="82px">
+                            @endif
                         </div>
 
                         {{-- Title --}}
@@ -158,7 +160,7 @@
                         </div>
 
                         {{-- About Me --}}
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             {{ Form::label('aboutMe', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}
                             {{ Form::textarea('aboutMe', null, [
                                         'class'         => 'form-control',
@@ -172,7 +174,7 @@
                                     <strong>{{ $errors->first('aboutMe') }}</strong>
                                 </span>
                             @endif
-                        </div> --}}
+                        </div>
 
                         {{-- Submit --}}
                         <div class="form-group row">

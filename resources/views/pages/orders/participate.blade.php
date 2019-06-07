@@ -147,7 +147,9 @@
                                     <dd class="col-sm-8 text-muted">
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                                         &ensp;
+                                        @if (file_exists(realpath(config('filesystems.avatar.path').$order->user->avatar)))
                                         <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="26px" height="26px">
+                                        @endif
                                     </dd>
 
                                     {{-- Deadline --}}
