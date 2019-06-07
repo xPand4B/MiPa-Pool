@@ -24,7 +24,7 @@ return [
             'price'     => 'Preis',
         ],
         'footer' => [
-            'time_left'     => 'min. verbleibend',
+            'closed'        => 'Geschlossen',
             'people_count'  => 'Personen',
         ],
         'empty' => 'Tut uns leid, aber diese Bestellung scheint leer zu sein. ¯\_(ツ)_/¯'

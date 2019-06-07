@@ -24,7 +24,7 @@ return [
             'price'     => 'Price'
         ],
         'footer' => [
-            'time_left'     => 'min. left',
+            'closed'        => 'Closed',
             'people_count'  => 'People',
         ],
         'empty' => 'Sorry, but this order seems to be empty. ¯\_(ツ)_/¯'
