@@ -47,8 +47,12 @@
         {{-- Orders found --}}
         @else
             @foreach ($orders as $order)
+                @if (Auth::user()->id == $order->user_id)
+                <div class="card card-chart border border-primary mb-5">    
+                @else
                 <div class="card card-chart mb-5">
-
+                @endif
+                
                     {{-- Card Header --}}
                     <div class="card-header card-header-icon">
                         {{-- User Icon --}}
@@ -61,27 +65,9 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
-                                @php
-                                    $hasParticipated = false;
-                                @endphp
-                                @foreach ($order->menus as $menu)
-                                    @if (Auth::user()->id == $menu->user_id)
-                                            @php
-                                                $hasParticipated = true;
-                                            @endphp
-                                        @break    
-                                    @endif
-                                @endforeach
-
-                                @if ($hasParticipated)
-                                    <div class="text-primary">
-                                        {{ $order->name }}
-                                    </div>
-                                @else
-                                    <div class="text-dark">
-                                        {{ $order->name }}
-                                    </div>
-                                @endif
+                                <div class="text-dark">
+                                    {{ $order->name }}
+                                </div>
 
                                 <small>
                                     <u>
@@ -93,7 +79,6 @@
                             </strong>
 
                             <div class="col-md-4 mt-2">
-                            
                                 @if (sizeof($order->menus) == $order->max_orders)
                                     <a href="#" class="btn btn-block btn-round disabled" disabled>
 
@@ -115,7 +100,7 @@
                     <div class="card-content mt-2">
                         <div class="container-fluid p-0">
                             @if ($order->menus->isNotEmpty())
-                                <table class="table table-sm table-shopping text-center">
+                                <table class="table table-sm table-shopping text-center m-0">
                                     <thead class="thead-light">
                                         <tr>
                                             <th class="p-1">@lang('table.orders.head.name')</th>
@@ -158,23 +143,40 @@
                         </div>
                     </div>
                     
-                    <hr class="mb-0">
+                    <hr class="mt-2 mb-0">
 
                     {{-- Card Footer --}}
                     <div class="card-footer">
-
+                        {{-- Deadline --}}
                         <div class="col-md">
+                            @if ($order->timeLeft_min <= 5)
                             <div class="stats text-danger">
-                                <i class="material-icons">access_time</i> 4 @lang('table.orders.footer.time_left')
+
+                            @elseif($order->timeLeft_min <= 10)
+                            <div class="stats text-warning">
+
+                            @else
+                            <div class="stats text-success">
+                            @endif
+
+                                <i class="material-icons">access_time</i> {{ $order->timeLeft }}
                             </div>
                         </div>
 
+                        {{-- Creator --}}
                         <div class="col-md text-center">
+                            @if (Auth::user()->id == $order->user_id)
+                            <div class="stats text-primary">
+
+                            @else
                             <div class="stats">
+                            @endif
+
                                 <i class="material-icons pl-1">person</i> {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </div>
 
+                        {{-- Participants --}}
                         <div class="col-md text-right">
                             @if (sizeof($order->menus) == $order->max_orders)
                                 <div class="stats text-danger">

@@ -156,8 +156,16 @@
                                     <dt class="col-sm-4">
                                         <i class="fa fa-sm fa-clock-o" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.deadline')
                                     </dt>
-                                    <dd class="col-sm-8 text-muted">
-                                        {{ date("H:i", strtotime($order->deadline)) }} @lang('page.orders.participate.time')
+                                    @if ($order->timeLeft_min <= 5)
+                                    <dd class="col-sm-8 text-danger">
+
+                                    @elseif($order->timeLeft_min <= 10)
+                                    <dd class="col-sm-8 text-warning">
+
+                                    @else
+                                    <dd class="col-sm-8 text-success">
+                                    @endif
+                                        {{ $order->deadline }} @lang('page.orders.participate.time')
                                     </dd>
                                     
                                     {{-- Counter --}}
@@ -179,7 +187,7 @@
                                         <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.delivery_service')
                                     </dt>
                                     <dd class="col-sm-8 text-link">
-                                        <a href="{{ $order->site_link }}">
+                                        <a href="{{ $order->site_link }}" target="_blank">
                                             {{ $order->delivery_service }}
                                         </a>
                                     </dd>
