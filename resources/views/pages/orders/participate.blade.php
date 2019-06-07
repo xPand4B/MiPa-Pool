@@ -230,7 +230,7 @@
                                             <tr>
                                                 <td class="p-1"></td>
                                                 <td class="p-1"></td>
-                                                <th class="p-1 text-center"><strong>{{ $sum }} €</strong></th>
+                                                <th class="p-1 text-center"><strong>{{ $order->sum }} €</strong></th>
                                             </tr>
                                         </tbody>
                                     </table>

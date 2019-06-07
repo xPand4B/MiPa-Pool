@@ -136,7 +136,7 @@
                                                 <td class="p-1">{{ $menu->menu }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
                                                 <td class="p-1">{{ $menu->comment }}</td>
-                                                <td class="p-1">{{ str_replace('.', ',', $menu->price) }} €</td>
+                                                <td class="p-1">{{ $menu->price }} €</td>
                                             </tr>
                                         @endforeach
                                         
