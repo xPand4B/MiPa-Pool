@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Orders\StoreNewOrderRequest;
+use App\Http\Requests\Orders\StoreNewMenuRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Order;
 use App\Menu;
 use Session;
+use App\Events\Orders\NewOrderHasCreatedEvent;
+use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 
 class OrderController extends Controller
 {
@@ -50,8 +54,6 @@ class OrderController extends Controller
         ]);
     }
 
-    
-
     /**
      * Show the form for creating a new resource.
      *
@@ -78,35 +80,16 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Orders\StoreNewOrderRequest  $request
      * 
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreNewOrderRequest $request)
     {
-        $request->validate([
-            'order_name'            => 'required|min:5|max:128',
-            'deadline'              => 'required',
-            'max_orders'            => 'required|integer|between:2,20',
-            'minimum_order_value'   => 'required|integer|between:0,20',
-            'delivery_service'      => 'required|string',
-            'site_link'             => 'required|active_url'
-        ]);
-
-        $order = new Order;
-            $order->user_id             = $request->user()->id;
-            $order->name                = $request->order_name;
-            $order->site_link           = $request->site_link;
-            $order->deadline            = Carbon::createFromTimeString($request->deadline);
-            $order->delivery_service    = $request->delivery_service;
-            $order->max_orders          = $request->max_orders;
-
-            $order->save();
-
-        Session::flash('success', trans('session.order.created'));
+        $orderID = event(new NewOrderHasCreatedEvent($request))[0];
 
         return redirect()->route('order.participate', [
-            'id' => $order->id
+            'id' => $orderID
         ]);
     }
 
@@ -140,38 +123,13 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\Orders\StoreNewMenuRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function storeParticipate(Request $request)
+    public function storeParticipate(StoreNewMenuRequest $request)
     {
-        $request->validate([
-            'name'      => 'required|min:5|max:128',
-            'number'    => 'required|between:1,10',
-            'price'     => 'required|min:0|max:6',
-            'comment'   => 'max:255'
-        ]);
-
-        $price = str_replace(',', '.', $request->price);
-
-        if(!is_numeric($price)){
-            Session::flash('error', trans('session.order.price_is_no_digit'));
-            return redirect()->back();
-        }
-
-        $menu = new Menu;
-            $menu->user_id  = $request->user()->id;
-            $menu->order_id = $request->order_id;
-            $menu->menu     = $request->name;
-            $menu->number   = $request->number;
-            $menu->comment  = $request->comment;
-            $menu->price    = $price * 100;
-            // $menu->price = 10;
-
-            $menu->save();
-
-        Session::flash('success', trans('session.order.participated'));
+        event(new NewMenuHasBeenCreatedEvent($request));
 
         return redirect()->route('home');
     }
