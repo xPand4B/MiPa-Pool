@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Order::class, function (Faker $faker) {
+    $deadline = new Carbon();
+
     return [
         'user_id'    => function(){
             return App\User::inRandomOrder()->first()->id;
@@ -21,7 +24,7 @@ $factory->define(App\Order::class, function (Faker $faker) {
         'name'              => $faker->text(20),
         'delivery_service'  => $faker->name,
         'site_link'         => $faker->url,
-        'deadline'          => $faker->time,
+        'deadline'          => $deadline->addSeconds(rand(600, 86400)), // Between 10min and 24h
         'max_orders'        => $faker->numberBetween(2, 15)
     ];
 });
