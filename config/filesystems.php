@@ -88,6 +88,6 @@ return [
 
     'avatar' => [
         'path'      => 'storage/avatars/',
-        'default'   => 'user.svg'
+        'default'   => 'default.svg'
     ],
 ];
