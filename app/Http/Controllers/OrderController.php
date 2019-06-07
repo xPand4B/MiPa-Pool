@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Order;
 use App\Menu;
 use Session;
@@ -25,16 +26,31 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('id', 'desc')->paginate(15);
+        $orders = Order::where('closed', '=', false)
+                            ->orderBy('id', 'desc')
+                            ->paginate(15);
         
+        $current = new Carbon();
+
         for($i = 0; $i < sizeof($orders); $i++){
             $orders[$i] = $this->formatCurrency($orders[$i]);
+
+            $orders[$i]->timeLeft_min = $current->diffInMinutes($orders[$i]->deadline);
+            $orders[$i]->timeLeft     = $current->diffForHumans($orders[$i]->deadline, true, true, 3);
+
+            // If deadline is in past
+            if($current->greaterThan($orders[$i]->deadline)){
+                Order::where('id', $orders[$i]->id)
+                    ->update(['closed' => true]);
+            }
         }
-        
+
         return view('pages.orders.index', [
             'orders' => $orders
         ]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -81,7 +97,7 @@ class OrderController extends Controller
             $order->user_id             = $request->user()->id;
             $order->name                = $request->order_name;
             $order->site_link           = $request->site_link;
-            $order->deadline            = $request->deadline;
+            $order->deadline            = Carbon::createFromTimeString($request->deadline);
             $order->delivery_service    = $request->delivery_service;
             $order->max_orders          = $request->max_orders;
 
@@ -109,6 +125,12 @@ class OrderController extends Controller
         $order = $this->formatCurrency(
             Order::find($id)
         );
+
+        $current = new Carbon();
+
+        $order->timeLeft_min = $current->diffInMinutes($order->deadline);
+
+        $order->deadline = date("H:i", strtotime($order->deadline));
         
         return view('pages.orders.participate', [
             'order' => $order
@@ -199,7 +221,7 @@ class OrderController extends Controller
      * @return \App\Order
      */
     private function formatCurrency(Order $order): Order
-    {            
+    {
         $sum = 0;
 
         for($j = 0; $j < sizeof($order->menus); $j++){
