@@ -1,5 +1,5 @@
 # ToDo
-- [ ] Add __carbon__ for remaining time
+- [x] Add __carbon__ for remaining time
 - [x] Create __Order.Participate__ form
 - [ ] Add menu for closing/deleting orders
 - [x] Differnt color for own and participated order
