@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('delivery_service');
             $table->string('site_link');
-            $table->time('deadline');
+            $table->dateTime('deadline');
             $table->integer('max_orders');
             $table->boolean('closed')->default(false);
             $table->timestamps();
