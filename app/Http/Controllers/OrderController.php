@@ -191,7 +191,14 @@ class OrderController extends Controller
         //
     }
 
-    private function formatCurrency($order)
+    /**
+     * Formats currency to a more viewable format.
+     *
+     * @param \App\Order $order
+     *
+     * @return \App\Order
+     */
+    private function formatCurrency(Order $order): Order
     {            
         $sum = 0;
 
