@@ -57,6 +57,7 @@ return [
             'people'            => 'Participants',
             'deadline'          => 'Deadline',
             'time'              => "o'clock",
+            'minimum_value'     => 'Minimum Value',
             'delivery_service'  => 'Delivery Service',
 
             'other_participants' => 'Other participants',

@@ -57,6 +57,7 @@ return [
             'people'            => 'Mitbesteller',
             'deadline'          => 'Deadline',
             'time'              => 'Uhr',
+            'minimum_value'     => 'Mindestbestellwert',
             'delivery_service'  => 'Lieferservice',
 
             'other_participants' => 'Andere Mitbesteller',

@@ -182,6 +182,22 @@
                                         </div>
                                     </dd>
                                     
+                                    {{-- Minimum value --}}
+                                    <dt class="col-sm-4">
+                                        <i class="fa fa-sm fa-money" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.minimum_value')
+                                    </dt>
+                                    @if ($order->minimum_value == 0)
+                                    <dd class="col-sm-8 text-success">
+                                        
+                                    @elseif ($order->sum >= $order->minimum_value)
+                                    <dd class="col-sm-8 text-success">
+                                    
+                                    @else
+                                    <dd class="col-sm-8 text-warning">
+                                    @endif
+                                        {{ $order->minimum_value }} ,-€
+                                    </dd>
+
                                     {{-- Site link --}}
                                     <dt class="col-sm-4">
                                         <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.delivery_service')
