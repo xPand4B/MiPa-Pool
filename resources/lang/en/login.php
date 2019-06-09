@@ -40,4 +40,13 @@ return [
     'reset_password_header' => 'Reset your password',
     'get_reset_email'       => 'Send reset E-Mail',
 
+    // Verify Page
+    'verify' => [
+        'header'            => 'Verify Your Email',
+        'new_link_send'     => 'A fresh verification link has been sent to your email address.',
+        'instruction'       => 'Before proceeding, please check your email for a verification link.',
+        'resend_text_start' => 'If you did not receive the email',
+        'resend_text_link'  => 'click here',
+        'resend_text_end'   => 'to request another',
+    ],
 ];

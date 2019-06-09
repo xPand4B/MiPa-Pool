@@ -14,7 +14,7 @@
 Route::middleware(['language'])->group(function(){
 
     // Auth Routes
-    Route::middleware(['auth'])->group(function(){
+    Route::middleware(['auth', 'verified'])->group(function(){
         Route::get( '/',                            'OrderController@index')->name('home');
         Route::get( '/order/create',                'OrderController@create')->name('order.create');
         Route::post('/order/store',                 'OrderController@store')->name('order.store');
@@ -34,5 +34,5 @@ Route::middleware(['language'])->group(function(){
     });
 
     // Login routes
-    Auth::routes();
+    Auth::routes(['verify' => true]);
 });

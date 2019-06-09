@@ -1,24 +1,14 @@
 @extends('layouts.login')
 
+@section('headline', trans('login.verify.header'))
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
-                </div>
-            </div>
+    @if (session('resent'))
+        <div class="alert alert-success" role="alert">
+            @lang('login.verify.new_link_send')
         </div>
-    </div>
-</div>
+    @endif
+
+    @lang('login.verify.instruction')
+    @lang('login.verify.resend_text_start'), <a href="{{ route('verification.resend') }}">@lang('login.verify.resend_text_link')</a> @lang('login.verify.resend_text_end')
 @endsection
