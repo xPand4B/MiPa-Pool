@@ -45,13 +45,13 @@
                             @csrf
                             {{-- Order Name --}}
                             <div class="form-group is-focused">
-                                {{ Form::label('order_name', trans('page.orders.create.form.order_name'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('name', trans('page.orders.create.form.order_name'), ['class' => 'bmd-label-floating']) }}
             
-                                <input id="order_name" type="text" class="form-control{{ $errors->has('order_name') ? ' is-invalid' : '' }}" name="order_name" value="{{ old('order_name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
             
-                                @if ($errors->has('order_name'))
+                                @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('order_name') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -90,9 +90,9 @@
 
                                 {{-- Minimun order value --}}
                                 <div class="form-group col">
-                                    {{ Form::label('minimum_order_value', trans('page.orders.create.form.minimum_order_value'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('minimum_value', trans('page.orders.create.form.minimum_order_value'), ['class' => 'bmd-label-floating']) }}
 
-                                    <select name="minimum_order_value" id="minimum_order_value" class="form-control" required>
+                                    <select name="minimum_value" id="minimum_value" class="form-control" required>
                                         @for ($i = 0; $i <= 20; $i++)
                                         <option value="{{ $i }}">{{ $i }} @lang('page.orders.create.form.currency')</option>
                                         @endfor

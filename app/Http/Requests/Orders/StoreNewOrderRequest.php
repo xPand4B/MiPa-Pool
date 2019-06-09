@@ -24,12 +24,12 @@ class StoreNewOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'order_name'            => 'required|min:5|max:128',
-            'deadline'              => 'required',
-            'max_orders'            => 'required|integer|between:2,20',
-            'minimum_order_value'   => 'required|integer|between:0,20',
-            'delivery_service'      => 'required|string',
-            'site_link'             => 'required|active_url'
+            'name'              => 'required|min:5|max:128',
+            'deadline'          => 'required',
+            'max_orders'        => 'required|integer|between:2,20',
+            'minimum_value'     => 'required|integer|between:0,20',
+            'delivery_service'  => 'required|string',
+            'site_link'         => 'required|active_url'
         ];
     }
 }

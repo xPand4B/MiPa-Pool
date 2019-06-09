@@ -17,7 +17,7 @@ class CreateMenusTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('order_id')->unsigned();
-            $table->string('menu', 100);
+            $table->string('name', 100);
             $table->integer('number');
             $table->text('comment')->nullable();
 
