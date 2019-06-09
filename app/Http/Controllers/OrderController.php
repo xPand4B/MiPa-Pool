@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Orders\StoreNewOrderRequest;
+use App\Events\Orders\NewOrderHasBeenCreatedEvent;
+use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Order;
-use App\Menu;
-use Session;
-use App\Events\Orders\NewOrderHasCreatedEvent;
-use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 
 class OrderController extends Controller
 {
@@ -30,9 +28,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('closed', '=', false)
-                            ->orderBy('id', 'desc')
-                            ->paginate(15);
+        $orders = Order::NotClosed()
+                        ->orderBy('id', 'desc')
+                        ->paginate(15);
         
         $current = new Carbon();
 
@@ -44,7 +42,7 @@ class OrderController extends Controller
 
             // If deadline is in past
             if($current->greaterThan($orders[$i]->deadline)){
-                Order::where('id', $orders[$i]->id)
+                Order::findOrFail($orders[$i]->id)
                     ->update(['closed' => true]);
             }
         }
@@ -86,7 +84,7 @@ class OrderController extends Controller
      */
     public function store(StoreNewOrderRequest $request)
     {
-        $orderID = event(new NewOrderHasCreatedEvent($request))[0];
+        $orderID = event(new NewOrderHasBeenCreatedEvent($request))[0];
 
         return redirect()->route('order.participate', [
             'id' => $orderID
@@ -96,18 +94,16 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
-    public function participate($id)
+    public function participate(Order $order)
     {
-        if(!ctype_digit($id))
+        if($order->closed)
             return redirect()->back();
 
-        $order = $this->formatCurrency(
-            Order::find($id)
-        );
+        $order = $this->formatCurrency($order);
 
         $current = new Carbon();
 
@@ -137,11 +133,11 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
         //
     }
@@ -150,11 +146,11 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -162,11 +158,11 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
     }
@@ -195,7 +191,8 @@ class OrderController extends Controller
             if(strlen($price) == 2)
                 $price = $price.'.00';
 
-            $order->menus[$j]->price = str_replace('.', ',', $price);
+            // $order->menus[$j]->price = str_replace('.', ',', $price);
+            $order->menus[$j]->price = $price;
         }
 
         if($sum < 10)
@@ -208,7 +205,8 @@ class OrderController extends Controller
             $sum = $sum.'.00';
         }
 
-        $order->sum = str_replace('.', ',', $sum);
+        // $order->sum = str_replace('.', ',', $sum);
+        $order->sum = $sum;
 
         return $order;
     }

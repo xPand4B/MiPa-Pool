@@ -15,11 +15,11 @@ Route::middleware(['language'])->group(function(){
 
     // Auth Routes
     Route::middleware(['auth'])->group(function(){
-        Route::get( '/',                        'OrderController@index')->name('home');
-        Route::get( '/order/create',            'OrderController@create')->name('order.create');
-        Route::post('/order/store',             'OrderController@store')->name('order.store');
-        Route::get( '/order/participate/{id}',  'OrderController@participate')->name('order.participate');
-        Route::post('/order/participate/add',   'OrderController@storeParticipate')->name('order.participate.add');
+        Route::get( '/',                            'OrderController@index')->name('home');
+        Route::get( '/order/create',                'OrderController@create')->name('order.create');
+        Route::post('/order/store',                 'OrderController@store')->name('order.store');
+        Route::get( '/order/participate/{order}',   'OrderController@participate')->name('order.participate');
+        Route::post('/order/participate/add',       'OrderController@storeParticipate')->name('order.participate.add');
         
         // Order Management
         Route::get( '/manage',              'ManagementController@index')->name('manage.index');
