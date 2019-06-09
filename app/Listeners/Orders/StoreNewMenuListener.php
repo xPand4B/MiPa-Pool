@@ -18,8 +18,10 @@ class StoreNewMenuListener
     {
         $request = $event->request;
 
-        $request->validated();
-
+        $data               = $request->validated();
+        $data['user_id']    = $request->user()->id;
+        $data['order_id']   = $request->order_id;
+        
         $price = str_replace(',', '.', $request->price);
 
         if(!is_numeric($price)){
@@ -27,14 +29,9 @@ class StoreNewMenuListener
             return redirect()->back();
         }
 
-        Menu::create([
-            'user_id'   => $request->user()->id,
-            'order_id'  => $request->order_id,
-            'menu'      => $request->name,
-            'number'    => $request->number,
-            'comment'   => $request->comment,
-            'price'     => $price * 100
-        ]);
+        $data['price']      = $price * 100;
+
+        Menu::create($data);
 
         event(new SendFlashMessageEvent('success', trans('session.order.participated')));
     }

@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Orders;
 
-use App\Events\Orders\NewOrderHasCreatedEvent;
+use App\Events\Orders\NewOrderHasBeenCreatedEvent;
 use App\Events\SendFlashMessageEvent;
 use Carbon\Carbon;
 use App\Order;
@@ -12,23 +12,20 @@ class StoreNewOrderListener
     /**
      * Handle the event.
      *
-     * @param  NewOrderHasCreatedEvent  $event
+     * @param  NewOrderHasBeenCreatedEvent  $event
+     * 
      * @return void
      */
-    public function handle(NewOrderHasCreatedEvent $event)
+    public function handle(NewOrderHasBeenCreatedEvent $event)
     {
         $request = $event->request;
 
-        $request->validated();
+        $data = $request->validated();
+        
+        $data['user_id']  = $request->user()->id;
+        $data['deadline'] = Carbon::createFromTimeString($request->deadline);
 
-        $order = Order::create([
-            'user_id'           => $request->user()->id,
-            'name'              => $request->order_name,
-            'site_link'         => $request->site_link,
-            'deadline'          => Carbon::createFromTimeString($request->deadline),
-            'delivery_service'  => $request->delivery_service,
-            'max_orders'        => $request->max_orders
-        ]);
+        $order = Order::create($data);
 
         event(new SendFlashMessageEvent('success', trans('session.order.created')));
 
