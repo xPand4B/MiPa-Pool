@@ -3,6 +3,7 @@
 namespace App\Listeners\Profile;
 
 use App\Events\SendFlashMessageEvent;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use App\User;
 use Auth;
@@ -71,7 +72,6 @@ class StoreNewProfileDataListener
             ]);
             $user->password = Hash::make(request('password'));
         }
-
 
         User::findOrFail(Auth::user()->id)->update([
             'username'  => request('username'),
