@@ -22,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
 
     // OrderController
         // New order has been created
-        \App\Events\Orders\NewOrderHasCreatedEvent::class => [
+        \App\Events\Orders\NewOrderHasBeenCreatedEvent::class => [
             \App\Listeners\Orders\StoreNewOrderListener::class
         ],
 

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use App\Http\Requests\Orders\StoreNewOrderRequest;
 
-class NewOrderHasCreatedEvent
+class NewOrderHasBeenCreatedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
