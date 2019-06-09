@@ -114,7 +114,6 @@ return [
             'email'             => 'E-Mail',
             'password'          => 'Password',
             'confirm_password'  => 'Confirm password',
-            'about_me'          => 'About me',
             'avatar'            => [
                 'label'  => 'Choose a picture',
                 'helper' => 'Please upload a valid image file. Size of image should not be more than 2MB.'

@@ -159,23 +159,6 @@
                             </div>
                         </div>
 
-                        {{-- About Me --}}
-                        <div class="form-group">
-                            {{ Form::label('aboutMe', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}
-                            {{ Form::textarea('aboutMe', null, [
-                                        'class'         => 'form-control',
-                                        'rows'          => '5',
-                                        'minlenght'     => '5',
-                                        'maxlenght'     => '255'
-                            ]) }}
-
-                            @if ($errors->has('aboutMe'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('aboutMe') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
                         {{-- Submit --}}
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary btn-round"> 
