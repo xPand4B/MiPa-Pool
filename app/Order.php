@@ -12,7 +12,7 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name', 'site_link', 'deadline', 'delivery_service', 'max_orders'
+        'user_id', 'name', 'delivery_service', 'site_link', 'deadline', 'minimum_value', 'max_orders', 'closed'
     ];
 
     /**
@@ -29,5 +29,44 @@ class Order extends Model
     public function menus()
     {
         return $this->hasMany('App\Menu');
+    }
+
+    /**
+     * Scope a query to only include orders that are not closed.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * 
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotClosed($query)
+    {
+        return $query->where('closed', false);
+    }
+
+    /**
+     * Scope a query to only include orders that are closed.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * 
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeClosed($query)
+    {
+        return $query->where('closed', true);
+    }   
+
+    /**
+     * Scope a query to get a count for orders per current month.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param int $userID
+     * 
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCurrentMonth($query, int $userID)
+    {
+        return $query->where('user_id', $userID)
+                        ->whereMonth('created_at', date('m'))
+                        ->count();
     }
 }
