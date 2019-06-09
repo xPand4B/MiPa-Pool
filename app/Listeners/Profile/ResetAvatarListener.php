@@ -23,7 +23,7 @@ class ResetAvatarListener
 
         File::delete(config('filesystems.avatar.path') . $oldAvatar);
 
-        User::where('id', '=', Auth::user()->id)->update([
+        User::findOrFail(Auth::user()->id)->update([
             'avatar' => config('filesystems.avatar.default')
         ]);
 

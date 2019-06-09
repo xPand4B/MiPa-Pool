@@ -15,7 +15,10 @@ class LoadProfileDataListener
      */
     public function handle()
     {
-        $money_spend = Menu::where('user_id', '=', Auth::user()->id)->sum('price');
+        $money_spend = Menu::moneySpend(Auth::user()->id);
+        $order_count = Auth::user()->orders->count();
+        $this_month  = Order::currentMonth(Auth::user()->id);
+
         $money_spend *= 0.01;
 
         if($money_spend != '0'){
@@ -28,12 +31,6 @@ class LoadProfileDataListener
                     $money_spend = $money_spend.'0';
             }
         }
-
-        $order_count = Auth::user()->orders->count();
-
-        $this_month  = Order::where('user_id', '=', Auth::user()->id)
-                            ->whereMonth('created_at', date('m'))
-                            ->count();
         
         return [
             'user'        => Auth::user(),
