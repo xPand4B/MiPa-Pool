@@ -31,17 +31,15 @@ class OrderController extends Controller
         $orders = Order::NotClosed()
                         ->orderBy('id', 'desc')
                         ->paginate(15);
-        
-        $current = new Carbon();
 
         for($i = 0; $i < sizeof($orders); $i++){
             $orders[$i] = $this->formatCurrency($orders[$i]);
 
-            $orders[$i]->timeLeft_min = $current->diffInMinutes($orders[$i]->deadline);
-            $orders[$i]->timeLeft     = $current->diffForHumans($orders[$i]->deadline, true, true, 3);
+            $orders[$i]->timeLeft_min = Carbon::now()->diffInMinutes($orders[$i]->deadline);
+            $orders[$i]->timeLeft     = Carbon::now()->diffForHumans($orders[$i]->deadline, true, true, 3);
 
             // If deadline is in past
-            if($current->greaterThan($orders[$i]->deadline)){
+            if(Carbon::now()->greaterThan($orders[$i]->deadline)){
                 Order::findOrFail($orders[$i]->id)
                     ->update(['closed' => true]);
             }
@@ -105,9 +103,7 @@ class OrderController extends Controller
 
         $order = $this->formatCurrency($order);
 
-        $current = new Carbon();
-
-        $order->timeLeft_min = $current->diffInMinutes($order->deadline);
+        $order->timeLeft_min = Carbon::now()->diffInMinutes($order->deadline);
 
         $order->deadline = date("H:i", strtotime($order->deadline));
         
