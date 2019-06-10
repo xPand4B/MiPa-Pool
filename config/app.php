@@ -219,6 +219,11 @@ return [
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        /**
+         * Custom aliases
+         */
+        'Currency' => App\Helper\Currency::class,
     ],
 
 ];
