@@ -29,6 +29,6 @@ class StoreNewOrderListener
 
         event(new SendFlashMessageEvent('success', trans('session.order.created')));
 
-        return $order->id;
+        return $order;
     }
 }

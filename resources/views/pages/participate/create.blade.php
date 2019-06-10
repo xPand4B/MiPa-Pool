@@ -34,7 +34,7 @@
 
                     {{-- Content --}}
                     <div class="card-body pt-0">
-                        <form action="{{ route('order.participate.add') }}" method="POST">
+                        <form action="{{ route('participate.store') }}" method="POST">
                             @csrf
                             {{-- Order ID --}}
                             <input type="number" name="order_id" id="order_id" value="{{ $order->id }}" hidden>

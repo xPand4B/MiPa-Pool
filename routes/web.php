@@ -19,8 +19,9 @@ Route::middleware(['language'])->group(function(){
         Route::get( '/',                            'OrderController@index')->name('home');
         Route::get( '/order/create',                'OrderController@create')->name('order.create');
         Route::post('/order/store',                 'OrderController@store')->name('order.store');
-        Route::get( '/order/participate/{order}',   'OrderController@participate')->name('order.participate');
-        Route::post('/order/participate/add',       'OrderController@storeParticipate')->name('order.participate.add');
+
+        Route::get( '/order/participate/{order}',   'ParticipateController@create')->name('participate.create');
+        Route::post('/order/participate/add',       'ParticipateController@store')->name('participate.store');
         
         // Order Management
         Route::get( '/manage',              'ManagementController@index')->name('manage.index');
