@@ -125,7 +125,7 @@
                         </div>
 
                         {{-- Email --}}
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             {{ Form::label('email', trans('page.profile.form.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $user->email }}" required>
@@ -135,7 +135,7 @@
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
-                        </div>
+                        </div> --}}
 
                         {{-- Password + Confirm --}}
                         <div class="form-row" style="padding-left: 5px">
