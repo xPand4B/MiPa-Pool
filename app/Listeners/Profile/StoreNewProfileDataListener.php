@@ -59,11 +59,11 @@ class StoreNewProfileDataListener
         }
 
         // Check if email has changed
-        // if(request('email') != $user->email){
-        //     request()->validate([
-        //         'email' => 'required|email|max:255|unique:users'
-        //     ]);
-        // }
+        if(request('email') != $user->email){
+            request()->validate([
+                'email' => 'required|email|max:255|unique:users'
+            ]);
+        }
 
         // Check if password is set
         if(!empty(request('password'))){
@@ -77,7 +77,7 @@ class StoreNewProfileDataListener
             'username'  => request('username'),
             'firstname' => request('firstname'),
             'surname'   => request('surname'),
-            // 'email'     => request('email'),
+            'email'     => request('email'),
         ]);
 
         event(new SendFlashMessageEvent('success', trans('session.profile.updated')));

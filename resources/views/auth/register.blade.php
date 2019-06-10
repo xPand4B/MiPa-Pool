@@ -49,7 +49,7 @@
         </div>
 
         {{-- Email --}}
-        {{-- <div class="form-group row">
+        <div class="form-group row">
             {{ Form::label('email', trans('login.email'), ['class' => 'bmd-label-floating']) }}
 
             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -59,7 +59,7 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
-        </div> --}}
+        </div>
 
         <div class="form-row" style="padding-left: 5px">
             {{-- Password --}}
