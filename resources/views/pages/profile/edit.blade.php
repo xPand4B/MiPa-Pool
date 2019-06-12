@@ -56,7 +56,7 @@
 
                             {!! Form::model($user, [
                                 'route'  => [
-                                    'profile.update.data'
+                                    'profile.update'
                                 ],
                                 'method' => 'PUT',
                                 'enctype'=> 'multipart/form-data'
@@ -157,6 +157,23 @@
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
+                        </div>
+
+                        {{-- About Me --}}	
+                        <div class="form-group">	
+                            {{ Form::label('about_me', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}	
+                            {{ Form::textarea('about_me', null, [	
+                                        'class'         => 'form-control',	
+                                        'rows'          => '5',	
+                                        'minlenght'     => '5',	
+                                        'maxlenght'     => '255'	
+                            ]) }}	
+
+                                @if ($errors->has('about_me'))	
+                                <span class="invalid-feedback" role="alert">	
+                                    <strong>{{ $errors->first('about_me') }}</strong>	
+                                </span>	
+                            @endif	
                         </div>
 
                         {{-- Submit --}}
