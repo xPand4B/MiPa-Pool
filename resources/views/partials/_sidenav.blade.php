@@ -35,7 +35,7 @@
     
                 {{-- User Profil --}}
                 <li class="nav-item {{ Nav::hasSegment('profile') }}">
-                    <a href="{{ route('profile.show') }}" class="nav-link">
+                    <a href="{{ route('profile.edit') }}" class="nav-link">
                         <i class="material-icons">person</i>
                         <p>@lang('menu.side.profile')</p>
                     </a>
@@ -48,6 +48,13 @@
                     <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F8EMZ2C75K4TA" class="nav-link" target="_blank">
                         <i class="fa fa-paypal" style="color: #3b7bbf"></i>
                         <p>@lang('menu.side.support')</p>
+                    </a>
+                </li>
+
+                <li class="nav-item active-pro">
+                    <a href="https://xpand4b.de" class="nav-link" target="_blank">
+                        <i class="fa fa-heart" style="color: #c62828"></i>
+                        <p class="text-muted">©<?=date('Y')?>, by Eric Heinzl</p>
                     </a>
                 </li>
 

@@ -23,11 +23,11 @@ class ProfileController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function edit()
     {
         $userData = event(new LoadProfileDataEvent())[0];
 
-        return view('pages.profile', [
+        return view('pages.profile.edit', [
             'user'                   => $userData['user'],
             'order_count'            => $userData['order_count'],
             'order_count_this_month' => $userData['this_month'],
@@ -54,7 +54,7 @@ class ProfileController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function updateData(Request $request)
+    public function update(Request $request)
     {
         event(new UpdateProfileDataEvent($request));
 

@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Menu::class, function (Faker $faker) {
     return [
-        'menu'      => $faker->name(),
+        'name'      => $faker->name(),
         'number'    => $faker->numberBetween(1, 3),
         'comment'   => $faker->realText(rand(10, 50)),
         'price'     => $faker->numberBetween(100, 2000)

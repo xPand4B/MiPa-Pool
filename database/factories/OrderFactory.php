@@ -25,6 +25,7 @@ $factory->define(App\Order::class, function (Faker $faker) {
         'delivery_service'  => $faker->name,
         'site_link'         => $faker->url,
         'deadline'          => $deadline->addSeconds(rand(600, 86400)), // Between 10min and 24h
-        'max_orders'        => $faker->numberBetween(2, 15)
+        'minimum_value'     => $faker->numberBetween(0, 10),
+        'max_orders'        => $faker->numberBetween(2, 15),
     ];
 });

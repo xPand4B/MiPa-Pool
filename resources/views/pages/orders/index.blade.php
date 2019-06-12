@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-
     <div class="col-md-10 offset-md-1 px-0">
 
         {{-- No orders --}}
@@ -58,7 +57,12 @@
                         {{-- User Icon --}}
                         <div class="card-icon p-0 bg-transparent">
                             @if (file_exists(realpath(config('filesystems.avatar.path').$order->user->avatar)))
-                            <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}" title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" width="64px" height="64px">
+                            <img 
+                                class="rounded-circle"
+                                src="{{ asset(config('filesystems.avatar.path').$order->user->avatar) }}"
+                                title="{{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})" 
+                                width="64px"
+                                height="64px">
                             @endif
                         </div>
 
@@ -80,7 +84,7 @@
 
                             <div class="col-md-4 mt-2">
                                 @if (sizeof($order->menus) == $order->max_orders)
-                                    <a href="#" class="btn btn-block btn-round disabled" disabled>
+                                    <a href="#" class="btn btn-block btn-round disabled" disabled hidden>
 
                                 @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
                                     <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-block btn-warning btn-round">
@@ -118,7 +122,7 @@
                                             <tr>
                                             @endif
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
-                                                <td class="p-1">{{ $menu->menu }}</td>
+                                                <td class="p-1">{{ $menu->name }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
                                                 <td class="p-1">{{ $menu->comment }}</td>
                                                 <td class="p-1">{{ $menu->price }} €</td>
@@ -200,5 +204,4 @@
 
         @endif
     </div>
-
 @endsection

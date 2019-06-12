@@ -246,7 +246,7 @@
                                                 <tr>
                                                 @endif
                                                     <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
-                                                    <td class="p-1">{{ $menu->menu }}</td>
+                                                    <td class="p-1">{{ $menu->name }}</td>
                                                     <td class="p-1">{{ $menu->price }} €</td>
                                                 </tr>
                                             @endforeach

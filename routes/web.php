@@ -16,23 +16,28 @@ Route::middleware(['language'])->group(function(){
     // Auth Routes
     // Route::middleware(['auth', 'verified'])->group(function(){
     Route::middleware(['auth'])->group(function(){
+        // Order
         Route::get( '/',                            'OrderController@index')->name('home');
         Route::get( '/order/create',                'OrderController@create')->name('order.create');
         Route::post('/order/store',                 'OrderController@store')->name('order.store');
 
+        // Participate
         Route::get( '/order/participate/{order}',   'ParticipateController@create')->name('participate.create');
         Route::post('/order/participate/add',       'ParticipateController@store')->name('participate.store');
         
         // Order Management
-        Route::get( '/manage',              'ManagementController@index')->name('manage.index');
-        Route::get( '/manage/{id}',         'ManagementController@show')->name('manage.show');
-        Route::get( '/manage/edit{id}',     'ManagementController@edit')->name('manage.edit');
-        Route::get( '/manage/delete/{id}',  'ManagementController@destroy')->name('manage.destroy');
+        Route::get(   '/manage',                'ManagementController@index')->name('manage.index');
+        Route::get(   '/manage/{id}',           'ManagementController@show')->name('manage.show');
+        Route::patch( '/manage/edit{id}',       'ManagementController@edit')->name('manage.edit');
+        Route::delete('/manage/delete/{id}',    'ManagementController@destroy')->name('manage.destroy');
         
         // Profile
-        Route::get('/profile',              'ProfileController@show')->name('profile.show');
-        Route::match(['put', 'patch'],      '/profile/update/data',  'ProfileController@updateData')->name('profile.update.data');
-        Route::post('/profile/reset/avatar',  'ProfileController@resetAvatar')->name('profile.reset.avatar');
+        Route::get('/profile',                  'ProfileController@edit')->name('profile.edit');
+        Route::match(['put', 'patch'],          '/profile/update/data',  'ProfileController@update')->name('profile.update');
+        Route::post('/profile/reset/avatar',    'ProfileController@resetAvatar')->name('profile.reset.avatar');
+
+        // Search
+        Route::get('/search',    'SearchController@show')->name('search.show');
     });
 
     // Login routes
