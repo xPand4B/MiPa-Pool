@@ -78,6 +78,7 @@ class StoreNewProfileDataListener
             'firstname' => request('firstname'),
             'surname'   => request('surname'),
             // 'email'     => request('email'),
+            'about_me'  => request('about_me'),
         ]);
 
         event(new SendFlashMessageEvent('success', trans('session.profile.updated')));
