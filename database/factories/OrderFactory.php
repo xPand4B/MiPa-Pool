@@ -14,12 +14,12 @@ use Carbon\Carbon;
 |
 */
 
-$factory->define(App\Order::class, function (Faker $faker) {
+$factory->define(App\Models\Order::class, function (Faker $faker) {
     $deadline = new Carbon();
 
     return [
         'user_id'    => function(){
-            return App\User::inRandomOrder()->first()->id;
+            return App\Models\User::inRandomOrder()->first()->id;
         },
         'name'              => $faker->text(20),
         'delivery_service'  => $faker->name,

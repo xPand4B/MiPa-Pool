@@ -4,7 +4,7 @@ namespace App\Listeners\Profile;
 
 use App\Events\SendFlashMessageEvent;
 use Illuminate\Support\Facades\File;
-use App\User;
+use App\Models\User;
 use Auth;
 
 class ResetAvatarListener

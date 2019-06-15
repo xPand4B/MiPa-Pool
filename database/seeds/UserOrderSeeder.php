@@ -20,11 +20,11 @@ class UserOrderSeeder extends Seeder
         $this->command->info("Creating {$userCount} users, each having {$orderCount} orders.");
 
         // Create the Users 
-        $users = factory(App\User::class, $userCount)->create();
+        $users = factory(App\Models\User::class, $userCount)->create();
 
         // Create a range of orders for each users
         $users->each(function() use ($orderCount){
-            factory(App\Order::class, $orderCount)->create();
+            factory(App\Models\Order::class, $orderCount)->create();
         });
     }
 }

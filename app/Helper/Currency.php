@@ -2,16 +2,16 @@
 
 namespace App\Helper;
 
-use App\Order;
+use App\Models\Order;
 
 class Currency
 {
     /**
      * Formats currency to a more readable format.
      *
-     * @param \App\Order $order
+     * @param \App\Models\Order $order
      *
-     * @return \App\Order
+     * @return \App\Models\Order
      */
     public static function formatPriceForOrder(Order $order): Order
     {

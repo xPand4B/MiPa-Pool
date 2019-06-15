@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Order;
+use App\Models\Order;
 use Auth;
 
 class ManagementController extends Controller

@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Menu::class, function (Faker $faker) {
+$factory->define(App\Models\Menu::class, function (Faker $faker) {
     return [
         'name'      => $faker->name(),
         'number'    => $faker->numberBetween(1, 3),

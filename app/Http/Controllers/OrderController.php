@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helper\Currency;
 use Carbon\Carbon;
-use App\Order;
+use App\Models\Order;
 
 class OrderController extends Controller
 {

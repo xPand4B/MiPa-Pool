@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -35,7 +35,7 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany('App\Models\Order');
     }
 
     /**
@@ -43,6 +43,6 @@ class User extends Authenticatable
      */
     public function menus()
     {
-        return $this->hasMany('App\Menu');
+        return $this->hasMany('App\Models\Menu');
     }
 }

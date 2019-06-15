@@ -2,8 +2,8 @@
 
 namespace App\Listeners\Profile;
 
-use App\Order;
-use App\Menu;
+use App\Models\Order;
+use App\Models\Menu;
 use Auth;
 
 class LoadProfileDataListener

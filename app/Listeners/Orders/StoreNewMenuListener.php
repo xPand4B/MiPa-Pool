@@ -4,7 +4,7 @@ namespace App\Listeners\Orders;
 
 use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 use App\Events\SendFlashMessageEvent;
-use App\Menu;
+use App\Models\Menu;
 
 class StoreNewMenuListener
 {

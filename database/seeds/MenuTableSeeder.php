@@ -13,7 +13,7 @@ class MenuTableSeeder extends Seeder
     {
         $menuCount = $this->command->ask('How many menus per order do you need?', 4);
 
-        $orders = App\Order::all();
+        $orders = App\Models\Order::all();
 
         $this->command->info("Creating {$menuCount} menus for {$orders->count()} orders.");
         $this->command->info("If your input is more than or equal 'max_order' will be the new value.\n");
@@ -27,10 +27,10 @@ class MenuTableSeeder extends Seeder
                 $count = $order->max_orders;
             }
 
-            factory(App\Menu::class, $count)
+            factory(App\Models\Menu::class, $count)
                 ->create([
                     'order_id' => $i,
-                    'user_id'  => App\User::all()->random()->id            
+                    'user_id'  => App\Models\User::all()->random()->id            
                 ]);
             $i++;
         }

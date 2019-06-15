@@ -28,9 +28,9 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info("\nDatabase seeded!\n");
         
-        $usersCount  = App\User::all()->count();
-        $ordersCount = App\Order::all()->count();
-        $menusCount  = App\Menu::all()->count();
+        $usersCount  = App\Models\User::all()->count();
+        $ordersCount = App\Models\Order::all()->count();
+        $menusCount  = App\Models\Menu::all()->count();
         
         $this->command->info("\nTotal:");
         $this->command->info("=============");

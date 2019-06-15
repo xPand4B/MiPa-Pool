@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Searchable\Search;
-use App\Order;
-use App\Menu;
-use App\User;
+use App\Models\Order;
+use App\Models\Menu;
+use App\Models\User;
 
 class SearchController extends Controller
 {

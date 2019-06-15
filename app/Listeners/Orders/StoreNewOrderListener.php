@@ -5,7 +5,7 @@ namespace App\Listeners\Orders;
 use App\Events\Orders\NewOrderHasBeenCreatedEvent;
 use App\Events\SendFlashMessageEvent;
 use Carbon\Carbon;
-use App\Order;
+use App\Models\Order;
 
 class StoreNewOrderListener
 {

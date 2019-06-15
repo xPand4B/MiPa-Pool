@@ -6,14 +6,14 @@ use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 use App\Helper\Currency;
 use Carbon\Carbon;
-use App\Order;
+use App\Models\Order;
 
 class ParticipateController extends Controller
 {
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Models\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
