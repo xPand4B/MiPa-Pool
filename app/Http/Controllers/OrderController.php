@@ -32,7 +32,8 @@ class OrderController extends Controller
                         ->paginate(15);
 
         for($i = 0; $i < sizeof($orders); $i++){
-            $orders[$i] = Currency::format($orders[$i]);
+            $orders[$i] = Currency::getSum($orders[$i]);
+            $orders[$i] = Currency::formatPriceForOrder($orders[$i]);
 
             $orders[$i]->timeLeft_min = Carbon::now()->diffInMinutes($orders[$i]->deadline);
             $orders[$i]->timeLeft     = Carbon::now()->diffForHumans($orders[$i]->deadline, true, true, 3);
@@ -91,7 +92,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Models\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
@@ -104,7 +105,7 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Models\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */
@@ -116,7 +117,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Models\Order  $order
      * 
      * @return \Illuminate\Http\Response
      */

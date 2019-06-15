@@ -13,13 +13,10 @@ class Currency
      *
      * @return \App\Order
      */
-    public static function format(Order $order): Order
+    public static function formatPriceForOrder(Order $order): Order
     {
-        $sum = 0;
-
         for($j = 0; $j < sizeof($order->menus); $j++){
             $price = $order->menus[$j]->price * 0.01;
-            $sum  += $price;
 
             if($price < 10)
                 $price = '0'.$price;
@@ -34,6 +31,16 @@ class Currency
             // $order->menus[$j]->price = $price;
         }
 
+        return $order;
+    }
+
+    public static function getSum(Order $order): Order
+    {
+        $sum = 0;
+
+        for($i = 0; $i < sizeof($order->menus); $i++)
+            $sum += $order->menus[$i]->price * 0.01;
+
         if($sum < 10)
             $sum = '0'.$sum;
         
@@ -45,8 +52,31 @@ class Currency
         }
 
         $order->sum = str_replace('.', ',', $sum);
-        // $order->sum = $sum;
 
         return $order;
+    }
+
+    /**
+     * Formats price for a single menu
+     *
+     * @param int $price
+     *
+     * @return int
+     */
+    public static function formatPriceForSingleMenu(int $price)
+    {
+        if(! isset($price))
+            return;
+
+        if($price < 10)
+            $price = '0'.$price;
+        
+        if(strlen($price) == 4)
+            $price = $price.'0';
+
+        if(strlen($price) == 2)
+            $price = $price.'.00';
+
+        return str_replace('.', ',', $price);;
     }
 }

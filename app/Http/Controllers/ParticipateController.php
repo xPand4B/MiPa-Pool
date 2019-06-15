@@ -22,7 +22,8 @@ class ParticipateController extends Controller
         if($order->closed)
             return redirect()->route('home');
 
-        $order = Currency::format($order);
+        $order = Currency::getSum($order);
+        $order = Currency::formatPriceForOrder($order);
 
         $order->timeLeft_min = Carbon::now()->diffInMinutes($order->deadline);
 
