@@ -35,7 +35,7 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany('App\Models\Order');
+        return $this->hasMany(App\Models\Order::class);
     }
 
     /**
@@ -43,6 +43,6 @@ class User extends Authenticatable
      */
     public function menus()
     {
-        return $this->hasMany('App\Models\Menu');
+        return $this->hasMany(App\Models\Menu::class);
     }
 }

@@ -20,7 +20,7 @@ class Menu extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(App\Models\User::class);
     }
 
     /**
@@ -28,7 +28,7 @@ class Menu extends Model
      */
     public function order()
     {
-        return $this->belongsTo('App\Models\Order');
+        return $this->belongsTo(App\Models\Order::class);
     }
 
     /**
