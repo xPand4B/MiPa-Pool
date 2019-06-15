@@ -73,6 +73,11 @@ class StoreNewProfileDataListener
             $user->password = Hash::make(request('password'));
         }
 
+        // Validate no-required fields
+        request()->validate([
+            'about_me' => 'max:512'
+        ]);
+
         User::findOrFail(Auth::user()->id)->update([
             'username'  => request('username'),
             'firstname' => request('firstname'),
