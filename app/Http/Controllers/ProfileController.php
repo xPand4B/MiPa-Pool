@@ -44,7 +44,7 @@ class ProfileController extends Controller
     {
         event(new ResetAvatarEvent());
 
-        return redirect()->back();
+        return redirect()->route('profile.edit');
     }
 
     /**
@@ -58,6 +58,6 @@ class ProfileController extends Controller
     {
         event(new UpdateProfileDataEvent($request));
 
-        return redirect()->back();
+        return redirect()->route('profile.edit');
     }
 }
