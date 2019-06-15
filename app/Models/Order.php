@@ -32,13 +32,13 @@ class Order extends Model
     }
 
     /**
-     * Scope a query to only include orders that are not closed.
+     * Scope a query to only include orders that are open/not closed.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * 
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeNotClosed($query)
+    public function scopeOpen($query)
     {
         return $query->where('closed', false);
     }

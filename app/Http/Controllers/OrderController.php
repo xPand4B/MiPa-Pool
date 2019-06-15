@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::NotClosed()
+        $orders = Order::Open()
                         ->orderBy('id', 'desc')
                         ->paginate(15);
 

@@ -35,7 +35,7 @@ class SearchController extends Controller
         $menus  = Menu::searchFor($search)->paginate(20);
 
         $orders = Order::search($search)
-                        ->NotClosed()
+                        ->Open()
                         ->paginate(15);
 
         return view('pages.search.show', compact([
