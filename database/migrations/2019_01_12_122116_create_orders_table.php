@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivery_service');
             $table->string('site_link');
             $table->dateTime('deadline');
+            $table->integer('minimum_value');
             $table->integer('max_orders');
             $table->boolean('closed')->default(false);
             $table->timestamps();
