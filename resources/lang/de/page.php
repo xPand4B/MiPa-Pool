@@ -114,6 +114,7 @@ return [
             'email'             => 'E-Mail',
             'password'          => 'Passwort',
             'confirm_password'  => 'Passwort bestätigen',
+            'about_me'          => 'Über mich',
             'avatar'            => [
                 'label'  => 'Wähle ein Bild',
                 'helper' => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
@@ -128,6 +129,23 @@ return [
             'orders'    => 'Bestellungen',
             'month'     => 'Diesen Monat',
         ]
+    ],
+
+    // Search Page
+    'search' => [
+        'title' => 'Suche',
+
+        'breadcrumb' => [
+            'index' => 'Suche'
+        ],
+        
+        'tabpages' => [
+            'orders'    => 'Bestellungen',
+            'menus'     => 'Menüs',
+            'users'     => 'Nutzer',
+        ],
+        
+        'empty' => "Upps, sieht so aus als ob wir keine :type gefunden haben ¯\_(ツ)_/¯"
     ],
 
     'mysticModal' => "Glückwunsch, du hast ein Easteregg gefunden.<br>Schaffst du es sie alle zu finden?",

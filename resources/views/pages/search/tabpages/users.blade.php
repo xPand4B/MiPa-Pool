@@ -1,7 +1,7 @@
 <div class="row mt-4 justify-content-center">
     @foreach ($users as $user)
     <div class="col-md-4">
-        <div class="card p-3">
+        <div class="card p-3 my-3">
             {{-- Header --}}
             <div class="card-header card-header-icon justify-content-center">
                 <div class="card-icon p-0 bg-transparent">

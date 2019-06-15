@@ -4,7 +4,7 @@
             @if (Auth::user()->id == $order->user_id)
             <div class="card card-chart border border-primary mb-5">    
             @else
-            <div class="card card-chart mb-5">
+            <div class="card card-chart mb-3">
             @endif
 
                 {{-- Card Header --}}
@@ -82,11 +82,9 @@
                         <li class="list-group-item px-0 py-2">
                             @if (Auth::user()->id == $order->user_id)
                             <div class="stats text-primary">
-
                             @else
                             <div class="stats">
                             @endif
-
                                 <i class="material-icons">person</i> {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </li>
@@ -110,8 +108,3 @@
         </div>
     @endforeach
 </div>
-
-<hr class="mb-5">
-
-{{ $orders->links('vendor.pagination.bootstrap-4') }}
-    

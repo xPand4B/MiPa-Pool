@@ -21,12 +21,13 @@
                 <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
                         <ul class="nav nav-tabs" data-tabs="tabs">
+                            
                             {{-- Tab Orders --}}
                             <li class="nav-item">
                                 <a class="nav-link active show" href="#orders" data-toggle="tab">
                                     <i class="material-icons">shopping_cart</i>
                                     <span class="badge badge-pill badge-light">{{ sizeof($orders) }}</span>
-                                    @lang('page.search.tabpages.orders.title')
+                                    @lang('page.search.tabpages.orders')
                                 </a>
                             </li>
                             
@@ -35,7 +36,7 @@
                                 <a class="nav-link" href="#menus" data-toggle="tab">
                                     <i class="material-icons">fastfood</i>
                                     <span class="badge badge-pill badge-light">{{ sizeof($menus) }}</span>
-                                    @lang('page.search.tabpages.menus.title')
+                                    @lang('page.search.tabpages.menus')
                                 </a>
                             </li>
 
@@ -44,7 +45,7 @@
                                 <a class="nav-link" href="#users" data-toggle="tab">
                                     <i class="material-icons">person</i>
                                     <span class="badge badge-pill badge-light">{{ sizeof($users) }}</span>
-                                    @lang('page.search.tabpages.users.title')
+                                    @lang('page.search.tabpages.users')
                                 </a>
                             </li>
                         </ul>
@@ -59,29 +60,29 @@
 
                     {{-- Orders --}}
                     <div class="tab-pane active" id="orders">
-                    @if (sizeof($orders) != 0)
-                        @include('pages.search.tabpages.orders', ['orders' => $orders])
-                    @else
-                        @include('pages.search.tabpages.empty')
-                    @endif
+                        @if (sizeof($orders) != 0)
+                            @include('pages.search.tabpages.orders', ['orders' => $orders])
+                        @else
+                            @include('pages.search.tabpages.empty', ['type' => trans('page.search.tabpages.orders')])
+                        @endif
                     </div>
                     
                     {{-- Menus --}}
-                    <div class="tab-pane" id="menus">
-                    @if (sizeof($menus) != 0)
-                        @include('pages.search.tabpages.menus', ['menus' => $menus])
-                    @else
-                        @include('pages.search.tabpages.empty')
-                    @endif
+                    <div class="tab-pane " id="menus">
+                        @if (sizeof($menus) != 0)
+                            @include('pages.search.tabpages.menus', ['menus' => $menus])
+                        @else
+                            @include('pages.search.tabpages.empty', ['type' => trans('page.search.tabpages.menus')])
+                        @endif
                     </div>
 
                     {{-- Users --}}
                     <div class="tab-pane" id="users">
-                    @if (sizeof($users) != 0)
-                        @include('pages.search.tabpages.users', ['users' => $users])
-                    @else
-                        @include('pages.search.tabpages.empty')
-                    @endif
+                        @if (sizeof($users) != 0)
+                            @include('pages.search.tabpages.users', ['users' => $users])
+                        @else
+                            @include('pages.search.tabpages.empty', ['type' => trans('page.search.tabpages.users')])
+                        @endif
                     </div>
 
                 </div>

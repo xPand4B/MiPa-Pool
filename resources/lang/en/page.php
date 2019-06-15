@@ -114,6 +114,7 @@ return [
             'email'             => 'E-Mail',
             'password'          => 'Password',
             'confirm_password'  => 'Confirm password',
+            'about_me'          => 'About me',
             'avatar'            => [
                 'label'  => 'Choose a picture',
                 'helper' => 'Please upload a valid image file. Size of image should not be more than 2MB.'
@@ -128,6 +129,23 @@ return [
             'orders'    => 'Orders',
             'month'     => 'This month',
         ]
+    ],
+
+    // Search Page
+    'search' => [
+        'title' => 'Search',
+
+        'breadcrumb' => [
+            'index' => 'Search'
+        ],
+        
+        'tabpages' => [
+            'orders'    => 'Orders',
+            'menus'     => 'Menus',
+            'users'     => 'Users',
+        ],
+        
+        'empty' => "Upps, seems like we couldn't find any :type ¯\_(ツ)_/¯"
     ],
 
     'mysticModal' => "Congratulation, you've found an easteregg.<br>Can you find all of them?",
