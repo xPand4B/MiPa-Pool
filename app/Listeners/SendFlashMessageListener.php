@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\SendFlashMessageEvent;
 use Session;
+use App\Events\SendFlashMessageEvent;
 
 class SendFlashMessageListener
 {

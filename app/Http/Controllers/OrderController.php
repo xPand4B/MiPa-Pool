@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Orders\StoreNewOrderRequest;
-use App\Events\Orders\NewOrderHasBeenCreatedEvent;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Helper\Currency;
 use Carbon\Carbon;
 use App\Models\Order;
+use App\Helper\Currency;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Orders\StoreNewOrderRequest;
+use App\Events\Orders\NewOrderHasBeenCreatedEvent;
 
 class OrderController extends Controller
 {

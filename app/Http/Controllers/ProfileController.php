@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\Profile\UpdateProfileDataEvent;
-use App\Events\Profile\LoadProfileDataEvent;
-use App\Events\Profile\ResetAvatarEvent;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Events\Profile\ResetAvatarEvent;
+use App\Events\Profile\LoadProfileDataEvent;
+use App\Events\Profile\UpdateProfileDataEvent;
 
 class ProfileController extends Controller
 {

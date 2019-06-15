@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Spatie\Searchable\Search;
-use App\Models\Order;
 use App\Models\Menu;
 use App\Models\User;
+use App\Models\Order;
+use Illuminate\Http\Request;
+use Spatie\Searchable\Search;
 
 class SearchController extends Controller
 {

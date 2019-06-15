@@ -2,9 +2,9 @@
 
 namespace App\Listeners\Orders;
 
-use App\Events\Orders\NewMenuHasBeenCreatedEvent;
-use App\Events\SendFlashMessageEvent;
 use App\Models\Menu;
+use App\Events\SendFlashMessageEvent;
+use App\Events\Orders\NewMenuHasBeenCreatedEvent;
 
 class StoreNewMenuListener
 {

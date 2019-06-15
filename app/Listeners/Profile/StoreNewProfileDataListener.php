@@ -2,11 +2,11 @@
 
 namespace App\Listeners\Profile;
 
-use App\Events\SendFlashMessageEvent;
+use Auth;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
-use App\Models\User;
-use Auth;
+use App\Events\SendFlashMessageEvent;
 
 class StoreNewProfileDataListener
 {
