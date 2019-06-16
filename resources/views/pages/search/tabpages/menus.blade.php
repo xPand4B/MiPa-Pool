@@ -43,7 +43,7 @@
                         <i class="fa fa-sm fa-money" aria-hidden="true"></i>
                     </dt>
                     <dd class="col-sm-10">
-                        {{ $menu->price }} ,-€
+                        {{ $menu->price }} {{ config('app.currency') }}
                     </dd>
 
                     {{-- Created at --}}

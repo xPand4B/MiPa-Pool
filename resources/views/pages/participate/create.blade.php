@@ -195,7 +195,7 @@
                                     @else
                                     <dd class="col-sm-8 text-warning">
                                     @endif
-                                        {{ $order->minimum_value }} ,-€
+                                        {{ $order->minimum_value }} {{ config('app.currency') }}
                                     </dd>
 
                                     {{-- Site link --}}
@@ -247,14 +247,14 @@
                                                 @endif
                                                     <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                     <td class="p-1">{{ $menu->name }}</td>
-                                                    <td class="p-1">{{ $menu->price }} €</td>
+                                                    <td class="p-1">{{ $menu->price }} {{ config('app.currency') }}</td>
                                                 </tr>
                                             @endforeach
                                             
                                             <tr>
                                                 <td class="p-1"></td>
                                                 <td class="p-1"></td>
-                                                <th class="p-1 text-center"><strong>{{ $order->sum }} €</strong></th>
+                                                <th class="p-1 text-center"><strong>{{ $order->sum }} {{ config('app.currency') }}</strong></th>
                                             </tr>
                                         </tbody>
                                     </table>

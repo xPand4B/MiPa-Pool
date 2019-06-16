@@ -42,7 +42,6 @@ return [
                 'time'                  => '',
                 'max_orders'            => 'Participants',
                 'people'                => '',
-                'currency'              => '€',
                 'minimum_order_value'   => 'Min. Value',
                 'delivery_service'      => 'Delivery Service',
                 'site_link'             => 'Menu-card',
@@ -65,7 +64,7 @@ return [
             'form' => [
                 'name'      => 'Menu Name',
                 'number'    => 'How much do you want?',
-                'price'     => 'Total Price (in €)',
+                'price'     => 'Total Price (in '.config('app.currency').')',
                 'comment'   => 'Comment',
                 'submit'    => 'Add to order'
             ]

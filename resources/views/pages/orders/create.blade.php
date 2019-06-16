@@ -94,7 +94,7 @@
 
                                     <select name="minimum_value" id="minimum_value" class="form-control" required>
                                         @for ($i = 0; $i <= 20; $i++)
-                                        <option value="{{ $i }}">{{ $i }} @lang('page.orders.create.form.currency')</option>
+                                        <option value="{{ $i }}">{{ $i }} {{ config('app.currency') }}</option>
                                         @endfor
                                     </select>
                                 </div>

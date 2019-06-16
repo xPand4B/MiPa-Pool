@@ -56,6 +56,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application currency
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default currency for every order/menu. This is
+    | just to change the displayed currency, nothing more!
+    |
+    */
+
+    'currency' => '€',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

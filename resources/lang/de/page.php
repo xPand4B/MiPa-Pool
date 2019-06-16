@@ -42,7 +42,6 @@ return [
                 'time'                  => 'Uhr',
                 'max_orders'            => 'Mitbesteller',
                 'people'                => '',
-                'currency'              => '€',
                 'minimum_order_value'   => 'Mindestbestellwert',
                 'delivery_service'      => 'Lieferdienst',
                 'site_link'             => 'Speisekarte',
@@ -65,7 +64,7 @@ return [
             'form' => [
                 'name'      => 'Menü Name',
                 'number'    => 'Anzahl',
-                'price'     => 'Gesamt Preis (in €)',
+                'price'     => 'Gesamt Preis (in '.config('app.currency').')',
                 'comment'   => 'Kommentar',
                 'submit'    => 'Menü bestellen'
             ]
