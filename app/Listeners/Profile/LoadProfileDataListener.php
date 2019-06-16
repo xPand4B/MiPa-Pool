@@ -5,6 +5,7 @@ namespace App\Listeners\Profile;
 use Auth;
 use App\Models\Menu;
 use App\Models\Order;
+use App\Helper\Currency;
 
 class LoadProfileDataListener
 {
@@ -16,21 +17,10 @@ class LoadProfileDataListener
     public function handle()
     {
         $money_spend = Menu::moneySpend(Auth::user()->id);
+
         $order_count = Auth::user()->orders->count();
+        
         $this_month  = Order::currentMonth(Auth::user()->id);
-
-        $money_spend *= 0.01;
-
-        if($money_spend != '0'){
-            if(strlen($money_spend) != 1){
-                
-                if($money_spend < 10)
-                    $money_spend = '0'.$money_spend;
-                
-                if(strlen($money_spend) == 4)
-                    $money_spend = $money_spend.'0';
-            }
-        }
         
         return [
             'user'        => Auth::user(),

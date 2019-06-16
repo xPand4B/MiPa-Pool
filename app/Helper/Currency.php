@@ -17,8 +17,8 @@ class Currency
     {
         for($j = 0; $j < sizeof($order->menus); $j++)
         {
-            $price = $order->menus[$j]->price * 0.01;
-            $order->menus[$j]->price = self::Format((string)$price);
+            $price = $order->menus[$j]->price;
+            $order->menus[$j]->price = self::Format($price);
         }
 
         return $order;
@@ -38,7 +38,7 @@ class Currency
         for($i = 0; $i < sizeof($order->menus); $i++)
             $sum += $order->menus[$i]->price * 0.01;
 
-        $order->sum = self::Format((string)$sum);
+        $order->sum = self::Format($sum, false);
 
         return $order;
     }
@@ -46,14 +46,17 @@ class Currency
     /**
      * Return a formated value based in the input.
      *
-     * @param string $value
+     * @param var $value
      *
-     * @return string|null
+     * @return var|null
      */
-    private static function Format(string $value): ?string
+    public static function Format($value, bool $convert = true)
     {
         if(! isset($value))
             return null;
+
+        if($convert)
+            $value *= 0.01;
 
         if($value < 10)
         $value = '0'.$value;

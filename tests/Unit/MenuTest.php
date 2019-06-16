@@ -26,4 +26,24 @@ class MenuTest extends TestCase
             factory(Menu::class)->create($this->validMenuParams([$param => null]));
         }
     }
+
+    /** @test */
+    public function spend_money_on_menus_can_be_get()
+    {
+        $user = factory(User::class)->create($this->validUserParams());
+
+        factory(Menu::class)->create($this->validMenuParams([
+            'user_id'   => $user->id,
+            'price'     => 900,
+        ]));
+
+        factory(Menu::class)->create($this->validMenuParams([
+            'user_id'   => $user->id,
+            'price'     => 1100,
+        ]));
+
+        $this->assertEquals(
+            "20,00", Menu::moneySpend($user->id)
+        );
+    }
 }

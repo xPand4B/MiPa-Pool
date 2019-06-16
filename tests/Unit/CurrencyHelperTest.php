@@ -64,4 +64,20 @@ class CurrencyHelperTest extends TestCase
 
         $this->assertEquals("20,91", Currency::getSum($order)->sum);
     }
+
+    /** @test */
+    public function value_can_be_formated()
+    {
+        $this->assertEquals(
+            "14,98", Currency::Format(1498)
+        );
+
+        $this->assertEquals(
+            "14,98", Currency::Format(1498 * 0.01, false)
+        );
+
+        $this->assertEquals(
+            "14980", Currency::Format(1498, false)
+        );
+    }
 }
