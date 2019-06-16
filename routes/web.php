@@ -38,6 +38,9 @@ Route::middleware(['language'])->group(function(){
 
         // Search
         Route::get('/search',    'SearchController@show')->name('search.show');
+
+        // Redirects
+        Route::redirect('/search', '/', 302);
     });
 
     // Login routes

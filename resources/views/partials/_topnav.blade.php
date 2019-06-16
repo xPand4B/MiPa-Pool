@@ -18,13 +18,13 @@
         <div class="collapse navbar-collapse justify-content-end">
             {{-- Search --}}
             <form class="navbar-form" action="{{ route('search.show') }}" method="GET" role="search">
-                <div class="input-group no-border">
+                {{-- <div class="input-group no-border">
                     <input name="q" id="q" type="text" class="form-control" placeholder="{{ trans('menu.top.search') }}" value="{{ request('q') }}">
                     <button type="submit" class="btn btn-white btn-round btn-just-icon">
                         <i class="material-icons">search</i>
                         <div class="ripple-container"></div>
                     </button>
-                </div>
+                </div> --}}
             </form>
             
             <ul class="navbar-nav">
