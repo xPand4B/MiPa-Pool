@@ -17,8 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        // 'username', 'firstname', 'surname', 'email', 'about_me', 'avatar', 'password',
-        'username', 'firstname', 'surname', 'about_me', 'avatar', 'password',
+        'username', 'firstname', 'surname', 'email', 'about_me', 'avatar', 'password',
     ];
 
     /**
@@ -35,7 +34,7 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany(App\Models\Order::class);
+        return $this->hasMany(\App\Models\Order::class);
     }
 
     /**
@@ -43,6 +42,14 @@ class User extends Authenticatable
      */
     public function menus()
     {
-        return $this->hasMany(App\Models\Menu::class);
+        return $this->hasMany(\App\Models\Menu::class);
+    }
+
+    /**
+     * Get the user's fullname
+     */
+    public function getFullnameAttribute()
+    {
+        return $this->firstname . ' ' . $this->surname;
     }
 }
