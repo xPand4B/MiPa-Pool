@@ -54,7 +54,9 @@
                 <li class="nav-item active-pro">
                     <a href="https://xpand4b.de" class="nav-link" target="_blank">
                         <i class="fa fa-heart" style="color: #c62828"></i>
+                        <!-- !!! DON'T EVEN THING ABOUT CHANGING THIS NAME !!! -->
                         <p class="text-muted">©<?=date('Y')?>, by Eric Heinzl</p>
+                        <!-- !!! I SURE WILL FIND YOU !!! -->
                     </a>
                 </li>
 
