@@ -8,7 +8,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 
-class NewMenuHasBeenCreatedEvent
+class NewMenuCreationEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

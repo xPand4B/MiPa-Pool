@@ -4,17 +4,17 @@ namespace App\Listeners\Orders;
 
 use App\Models\Menu;
 use App\Events\SendFlashMessageEvent;
-use App\Events\Orders\NewMenuHasBeenCreatedEvent;
+use App\Events\Orders\NewMenuCreationEvent;
 
 class StoreNewMenuListener
 {
     /**
      * Handle the event.
      *
-     * @param  NewMenuHasBeenCreatedEvent  $event
+     * @param  NewMenuCreationEvent  $event
      * @return void
      */
-    public function handle(NewMenuHasBeenCreatedEvent $event)
+    public function handle(NewMenuCreationEvent $event)
     {
         $request = $event->request;
 

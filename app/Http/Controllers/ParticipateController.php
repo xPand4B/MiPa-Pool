@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Helper\Currency;
-use App\Events\Orders\NewMenuHasBeenCreatedEvent;
+use App\Events\Orders\NewMenuCreationEvent;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 
 class ParticipateController extends Controller
@@ -43,7 +43,7 @@ class ParticipateController extends Controller
      */
     public function store(StoreNewMenuRequest $request)
     {
-        event(new NewMenuHasBeenCreatedEvent($request));
+        event(new NewMenuCreationEvent($request));
 
         return redirect()->route('home');
     }

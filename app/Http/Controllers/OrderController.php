@@ -8,7 +8,7 @@ use App\Helper\Currency;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Orders\StoreNewOrderRequest;
-use App\Events\Orders\NewOrderHasBeenCreatedEvent;
+use App\Events\Orders\NewOrderCreationEvent;
 
 class OrderController extends Controller
 {
@@ -82,7 +82,7 @@ class OrderController extends Controller
      */
     public function store(StoreNewOrderRequest $request)
     {
-        $order = event(new NewOrderHasBeenCreatedEvent($request))[0];
+        $order = event(new NewOrderCreationEvent($request))[0];
 
         return redirect()->route('participate.create', [
             'order' => $order

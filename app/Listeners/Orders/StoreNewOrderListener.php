@@ -5,18 +5,18 @@ namespace App\Listeners\Orders;
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Events\SendFlashMessageEvent;
-use App\Events\Orders\NewOrderHasBeenCreatedEvent;
+use App\Events\Orders\NewOrderCreationEvent;
 
 class StoreNewOrderListener
 {
     /**
      * Handle the event.
      *
-     * @param  NewOrderHasBeenCreatedEvent  $event
+     * @param  NewOrderCreationEvent  $event
      * 
      * @return void
      */
-    public function handle(NewOrderHasBeenCreatedEvent $event)
+    public function handle(NewOrderCreationEvent $event)
     {
         $request = $event->request;
 
