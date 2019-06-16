@@ -20,7 +20,7 @@ class Order extends Model
      */
     public function user()
     {
-        return $this->belongsTo(App\Models\User::class);
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     /**
@@ -28,7 +28,7 @@ class Order extends Model
      */
     public function menus()
     {
-        return $this->hasMany(App\Models\Menu::class);
+        return $this->hasMany(\App\Models\Menu::class);
     }
 
     /**

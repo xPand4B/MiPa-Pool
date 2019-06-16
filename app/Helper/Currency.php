@@ -15,25 +15,22 @@ class Currency
      */
     public static function formatPriceForOrder(Order $order): Order
     {
-        for($j = 0; $j < sizeof($order->menus); $j++){
+        for($j = 0; $j < sizeof($order->menus); $j++)
+        {
             $price = $order->menus[$j]->price * 0.01;
-
-            if($price < 10)
-                $price = '0'.$price;
-            
-            if(strlen($price) == 4)
-                $price = $price.'0';
-
-            if(strlen($price) == 2)
-                $price = $price.'.00';
-
-            $order->menus[$j]->price = str_replace('.', ',', $price);
-            // $order->menus[$j]->price = $price;
+            $order->menus[$j]->price = self::Format((string)$price);
         }
 
         return $order;
     }
 
+    /**
+     * Return a sum based on all menus for specified order.
+     *
+     * @param \App\Models\Order $order
+     *
+     * @return \App\Models\Order
+     */
     public static function getSum(Order $order): Order
     {
         $sum = 0;
@@ -41,42 +38,32 @@ class Currency
         for($i = 0; $i < sizeof($order->menus); $i++)
             $sum += $order->menus[$i]->price * 0.01;
 
-        if($sum < 10)
-            $sum = '0'.$sum;
-        
-        if(strlen($sum) == 4){
-            $sum = $sum.'0';
-
-        }else if(strlen($sum) == 2){
-            $sum = $sum.'.00';
-        }
-
-        $order->sum = str_replace('.', ',', $sum);
+        $order->sum = self::Format((string)$sum);
 
         return $order;
     }
 
     /**
-     * Formats price for a single menu
+     * Return a formated value based in the input.
      *
-     * @param int $price
+     * @param string $value
      *
-     * @return int
+     * @return string|null
      */
-    public static function formatPriceForSingleMenu(int $price)
+    private static function Format(string $value): ?string
     {
-        if(! isset($price))
-            return;
+        if(! isset($value))
+            return null;
 
-        if($price < 10)
-            $price = '0'.$price;
-        
-        if(strlen($price) == 4)
-            $price = $price.'0';
+        if($value < 10)
+        $value = '0'.$value;
+    
+        if(strlen($value) == 4)
+            $value = $value.'0';
 
-        if(strlen($price) == 2)
-            $price = $price.'.00';
+        if(strlen($value) == 2)
+            $value = $value.'.00';
 
-        return str_replace('.', ',', $price);;
+        return str_replace('.', ',', $value);
     }
 }
