@@ -7,38 +7,45 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 - **ToDo**: <https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md>
 
 # Table of Content
-- [MiPa-Pool](#mipa-pool)
-- [Table of Content](#table-of-content)
-- [How to Start](#how-to-start)
-  - [Quick Start](#quick-start)
-  - [Composer](#composer)
-  - [Environment Variables](#environment-variables)
-  - [App-Key](#app-key)
-  - [Link storage to public directory](#link-storage-to-public-directory)
-  - [Database migration](#database-migration)
-- [Generate Fake Data](#generate-fake-data)
-- [Set custom Brand icon](#set-custom-brand-icon)
+- [MiPa-Pool](#MiPa-Pool)
+- [Table of Content](#Table-of-Content)
+- [How to Start](#How-to-Start)
+  - [Quick Start](#Quick-Start)
+  - [Composer](#Composer)
+  - [Environment Variables](#Environment-Variables)
+  - [App-Key](#App-Key)
+  - [Link storage to public directory](#Link-storage-to-public-directory)
+  - [Database migration](#Database-migration)
+- [Generate Fake Data](#Generate-Fake-Data)
+- [Set custom Brand icon](#Set-custom-Brand-icon)
 
 # How to Start
 
 ## Quick Start
-If you want to launch as soon as possible **and** your are running a linux version that supports bash scripts you can run [this script](https://github.com/xPand4B/MiPa-Pool/blob/master/installer.sh) to install everything.
+If you want to launch as soon as possible **and** your are running a linux version that supports bash scripts you can run
+[this script](https://github.com/xPand4B/MiPa-Pool/blob/master/installer.sh) to install everything you need.
+
+This will also do all following steps for your, just follow the instructions.
+
 
 ## Composer
-At first you need a working webserver(_php, apache/nginx, etc._), [Composer](https://getcomposer.org) and [node.js](https://nodejs.org/en/) installed on your computer.
+At first you need a working webserver (_php, apache/nginx, etc._), and [Composer](https://getcomposer.org) installed on your computer.
 Open a new **Command Prompt** inside your project's root folder and type the following command. This will install all required depencies.
 ```
 composer install
 ```
 
+
 ## Environment Variables
 Copy the **.env.example** file and fill in your credentials.
+
 
 ## App-Key
 Generate an App-Key.
 ```
 php artisan key:generate
 ```
+
 
 ## Link storage to public directory
 In order to use profile avatars and a brand icon you need to link the app storage to the public directory.
@@ -60,11 +67,9 @@ If you want to test the application you can run the following command to generat
 ```
 php artisan db:seed
 ```
-To login, just copy an email from the **users** table. The default password set for all user is **secret**.
+To login, just copy an username from the **users** table. The default password set for all users is **secret**.
 
 You can change the default password inside the **database/factories/UserFactory**.
-
-Simply set the variable **static $password** to a password of your choice.
 
 
 # Set custom Brand icon
@@ -73,5 +78,11 @@ In order to add your own brand icon you need to **[link your storage to the publ
 Now you can place your image inside the **public/storage/brand-icon** directory.
 
 Inside the **.env** file you have to set **BRAND_ICON** to the name of your image (including extension).
+
+**After** you changed this Variable type
+```bash
+php artisan config:cache
+```
+to apply your changes.
 
 To customize the image path you can go to the **filesystem config**.
