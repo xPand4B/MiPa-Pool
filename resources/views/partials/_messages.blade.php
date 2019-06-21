@@ -27,7 +27,7 @@
                         '</span>' +
 
                         '<span data-notify="message">' +
-                            '<h5>{2}</h5>' +
+                            '<p>{2}</p>' +
                         '</span>' +
 
                         '<div class="progress mt-2" data-notify="progressbar">' +
@@ -65,7 +65,7 @@
                         '</span> ' +
 
                         '<span data-notify="message">' +
-                            '<h4>{2}</h4>' +
+                            '<p>{2}</p>' +
                         '</span>' +
 
                         '<div class="progress mt-2" data-notify="progressbar">' +
@@ -83,9 +83,9 @@
            message:    '{{ Session::get("error") }}',
       },{
           type:            'danger',
-          delay:           2000,
+          delay:           5000,
           allow_dismiss:   true,
-          showProgressbar: false,
+          showProgressbar: true,
           animate: {
               enter:  'animated fadeInDown',
               exit:   'animated fadeOutUp'
@@ -103,11 +103,11 @@
                        '</span> ' +
 
                        '<span data-notify="message">' +
-                           '<h4>{2}</h4>' +
+                            '<p>{2}</p>' +
                        '</span>' +
 
                        '<div class="progress mt-2" data-notify="progressbar">' +
-                           '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                           '<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
                        '</div>' +
                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
                    '</div>' 
@@ -115,6 +115,7 @@
   </script>
 @endif
 
+{{-- Validation errors --}}
 @if (count($errors) > 0)
     <script>
         $.notify({
@@ -122,9 +123,9 @@
             message:    '@foreach ($errors->all() as $error) <li>{{$error}}</li> @endforeach'
         },{
             type:            'danger',
-            delay:           2000,
+            delay:           5000,
             allow_dismiss:   true,
-            showProgressbar: false,
+            showProgressbar: true,
             animate: {
                 enter:  'animated fadeInDown',
                 exit:   'animated fadeOutUp'
@@ -142,11 +143,11 @@
                         '</span> ' +
 
                         '<span data-notify="message">' +
-                            '<h4>{2}</h4>' +
+                            '<p>{2}</p>' +
                         '</span>' +
 
                         '<div class="progress mt-2" data-notify="progressbar">' +
-                            '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                            '<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
                         '</div>' +
                         '<a href="{3}" target="{4}" data-notify="url"></a>' +
                     '</div>' 
