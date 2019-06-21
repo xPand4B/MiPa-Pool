@@ -10,11 +10,11 @@
             @include('partials._sidenav')
 
             {{-- https://webgradients.com/ --}}
-            <div class="main-panel" style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+            <div class="main-panel">
                 @include('partials._topnav')
                 @include('partials._messages')
 
-                <div class="content mt-0 pt-3 pb-0 px-0">
+                <div class="content mt-0 p-0" style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)">
                     <div class="container-fluid">
                         <div class="row">
                             @yield('content')
