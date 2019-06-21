@@ -75,7 +75,10 @@ return [
     |
     */
 
-    'brand-icon' => 'storage/brand-icon/'. env('BRAND_ICON'),
+    'brand-icon' => [
+        'fileName' => env('BRAND_ICON'),
+        'path'      => 'storage/brand-icon/'.env('BRAND_ICON'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

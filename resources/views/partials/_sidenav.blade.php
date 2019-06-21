@@ -7,8 +7,10 @@
         <div class="logo">
             <a href="{{ route('home') }}" class="simple-text logo-normal">
                 {{-- Brand Icon --}}
-                @if (file_exists(public_path(config('filesystems.brand-icon'))))
-                    <img src="{{ asset(config('filesystems.brand-icon')) }}" alt="{{ config('app.name', 'MiPa-Pool') }}" width="32px" height="32px" style="border-radius: 16px">
+                @if (config('filesystems.brand-icon.fileName'))
+                    @if (file_exists(public_path(config('filesystems.brand-icon.path'))))
+                    <img src="{{ asset(config('filesystems.brand-icon.path')) }}" alt="{{ config('app.name', 'MiPa-Pool') }}" width="32px" height="32px" style="border-radius: 16px">
+                    @endif
                 @endif
 
                 {{ config('app.name', 'MiPa-Pool') }}
