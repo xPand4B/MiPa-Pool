@@ -32,9 +32,9 @@ Route::middleware(['language'])->group(function(){
         Route::delete('/manage/delete/{id}',    'ManagementController@destroy')->name('manage.destroy');
         
         // Profile
-        Route::get('/profile',                  'ProfileController@edit')->name('profile.edit');
-        Route::match(['put', 'patch'],          '/profile/update/data',  'ProfileController@update')->name('profile.update');
-        Route::post('/profile/reset/avatar',    'ProfileController@resetAvatar')->name('profile.reset.avatar');
+        Route::get(  '/profile',                'ProfileController@edit')->name('profile.edit');
+        Route::patch('/profile/update',         'ProfileController@update')->name('profile.update');
+        Route::post( '/profile/reset/avatar',   'ProfileController@resetAvatar')->name('profile.reset.avatar');
 
         // Search
         Route::get('/search',    'SearchController@show')->name('search.show');
