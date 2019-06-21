@@ -47,10 +47,10 @@
                 <div class="container-fluid table-responsive-sm">
                     <table class="table table-sm table-hover ">
                         <thead>
-                            <th>@lang('page.manage.index.tableHeads.name')</th>
-                            <th>@lang('page.manage.index.tableHeads.deliveryService')</th>
-                            <th>@lang('page.manage.index.tableHeads.deadline')</th>
-                            <th>@lang('page.manage.index.tableHeads.createdAt')</th>
+                            <th>@sortablelink('name',               trans('page.manage.index.tableHeads.name'))</th>
+                            <th>@sortablelink('deliveryService',    trans('page.manage.index.tableHeads.deliveryService'))</th>
+                            <th>@sortablelink('deadline',           trans('page.manage.index.tableHeads.deadline'))</th>
+                            <th>@sortablelink('createdAt',          trans('page.manage.index.tableHeads.createdAt'))</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <td>{{ $order->name }}</td>
                                     <td>
-                                        <a href="{{ $order->site_link }}" class="link">
+                                        <a href="{{ $order->site_link }}" class="link" target="_blank">
                                             {{ $order->delivery_service }}
                                         </a>
                                     </td>

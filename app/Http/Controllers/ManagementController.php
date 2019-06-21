@@ -24,7 +24,8 @@ class ManagementController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', '=', Auth::user()->id)->paginate(15);
+        $orders = Order::FromUser(Auth::user()->id)
+                        ->paginate(15);
 
         return view('pages.manage.index', [
             'orders' => $orders

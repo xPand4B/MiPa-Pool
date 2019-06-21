@@ -1,5 +1,5 @@
 {
-    "name": "xPand4B/MiPa-Pool",
+    "name": "xpand4b/mipa-pool",
     "description": "A small application to manage lunch orders.",
     "keywords": ["framework", "MiPa-Pool"],
     "license": "MIT",
@@ -9,6 +9,7 @@
         "akaunting/language": "^1.0",
         "devmarketer/easynav": "^1.0",
         "fideloper/proxy": "^4.0",
+        "kyslik/column-sortable": "^5.8",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",

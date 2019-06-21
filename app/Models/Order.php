@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Order extends Model
 {
+    use Sortable;
+
     /**
      * The attributes that are mass asignable.
      *
@@ -13,6 +17,15 @@ class Order extends Model
      */
     protected $fillable = [
         'user_id', 'name', 'delivery_service', 'site_link', 'deadline', 'minimum_value', 'max_orders', 'closed'
+    ];
+
+    /**
+     * The attributes that are sortable in tables.
+     *
+     * @var array
+     */
+    public $sortable = [
+        'name', 'delivery_service', 'deadline', 'created_at'
     ];
 
     /**
@@ -38,7 +51,7 @@ class Order extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOpen($query)
+    public function scopeOpen(Builder $query)
     {
         return $query->where('closed', false);
     }
@@ -50,10 +63,26 @@ class Order extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeClosed($query)
+    public function scopeClosed(Builder $query)
     {
         return $query->where('closed', true);
-    }   
+    }
+
+    /**
+     * Scope a query to get all orders from the specified user.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param int $userID
+     * 
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFromUser(Builder $query, int $userID)
+    {
+        return $query
+            ->where('user_id', $userID)
+            ->orderBy('created_at', 'DESC')
+            ->sortable();
+    } 
 
     /**
      * Scope a query to get a count for orders per current month.
@@ -63,10 +92,11 @@ class Order extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeCurrentMonth($query, int $userID)
+    public function scopeCurrentMonth(Builder $query, int $userID)
     {
-        return $query->where('user_id', $userID)
-                        ->whereMonth('created_at', date('m'))
-                        ->count();
-    }
+        return $query
+            ->where('user_id', $userID)
+            ->whereMonth('created_at', date('m'))
+            ->count();
+    } 
 }
