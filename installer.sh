@@ -65,9 +65,9 @@ if [ "$input2" == "y" ];
 
     if [ "$input4" == "y" ];
         then
+        sudo apt install php-sqlite3
+        touch database/databasq.sqlite
         vendor/bin/phpunit
         echo ""
     fi;
-
-    php artisan serve
 fi;
