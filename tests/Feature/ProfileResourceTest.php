@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 
 class ProfileResourceTest extends TestCase
 {
@@ -19,7 +18,7 @@ class ProfileResourceTest extends TestCase
             ->assertSee($user->firstname)
             ->assertSee($user->surname)
             // ->assertSee($user->email)
-            ->assertSee($user->about_me)           
+            ->assertSee($user->about_me)
             ->assertViewIs('pages.profile.edit');
     }
 
