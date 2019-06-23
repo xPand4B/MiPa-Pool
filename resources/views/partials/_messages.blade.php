@@ -22,7 +22,7 @@
                         '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
 
                         '<span data-notify="title">' +
-                            '<i class="fa fa-lg fa-check-circle-o" aria-hidden="true" style="color:#fff"></i> &ensp;' +
+                            '{!! config("icons.success") !!} &ensp;' +
                             '{1}' +
                         '</span>' +
 
@@ -60,7 +60,7 @@
                         '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
 
                         '<span data-notify="title">' +
-                            '<i class="fa fa-lg fa-info-circle" aria-hidden="true" style="color:#fff"></i> &ensp;' +
+                            '{!! config("icons.success") !!} &ensp;' +
                             '{1}' +
                         '</span> ' +
 
@@ -98,7 +98,7 @@
                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
 
                        '<span data-notify="title">' +
-                           '<i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true" style="color:#fff"></i> &ensp;' +  
+                           '{!! config("icons.error") !!} &ensp;' +  
                            '{1}' +
                        '</span> ' +
 
@@ -138,7 +138,7 @@
                         '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
 
                         '<span data-notify="title">' + 
-                            '<i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true" style="color:#fff"></i> &ensp;' +
+                            '{!! config("icons.error") !!} &ensp;' +
                             '{1}' +
                         '</span> ' +
 

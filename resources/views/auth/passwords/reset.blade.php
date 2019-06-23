@@ -46,7 +46,7 @@
         {{-- Submit --}}
         <div class="form-group row mb-0 mt-0">
             <button type="submit" class="btn btn-block btn-success btn-round">
-                <i class="fa fa-undo"></i> &ensp; {{ __('Reset Password') }}
+                {!! config('icons.reset') !!} &ensp; {{ __('Reset Password') }}
             </button>
         </div>
     </form>    

@@ -54,7 +54,7 @@
                 
                     {{-- Card Header --}}
                     <div class="card-header card-header-icon">
-                        {{-- User Icon --}}
+                        {{-- User Avatar --}}
                         <div class="card-icon p-0 bg-transparent">
                             @if (file_exists(realpath(config('filesystems.avatar.path').$order->user->avatar)))
                             <img 
@@ -93,7 +93,7 @@
                                     <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-block btn-success btn-round">
                                 @endif
 
-                                    <i class="fa fa-cart-plus"></i>
+                                    {!! config('icons.participate') !!}
                                     @lang('table.orders.participate')
                                 </a>
                             </div>
@@ -163,7 +163,7 @@
                             <div class="stats text-success">
                             @endif
 
-                                <i class="material-icons">access_time</i> {{ $order->timeLeft }}
+                                {!! config('icons.time') !!} {{ $order->timeLeft }}
                             </div>
                         </div>
 
@@ -176,7 +176,7 @@
                             <div class="stats">
                             @endif
 
-                                <i class="material-icons pl-1">person</i> {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
+                                {!! config('icons.profile') !!} {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </div>
 
@@ -190,7 +190,7 @@
                                 <div class="stats text-success">
                             @endif
 
-                                <i class="material-icons">done</i> {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                             </div>
                         </div>
 

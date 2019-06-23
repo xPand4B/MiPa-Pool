@@ -47,7 +47,7 @@
                                     'method' => 'POST'
                                 ]) !!}
                                     <label for="reset_avatar" class="btn btn-block btn-default btn-round">
-                                        <i class="fa fa-repeat" aria-hidden="true"></i> &ensp; @lang('page.profile.form.reset_avatar')
+                                        {!! config('icons.reset') !!} &ensp; @lang('page.profile.form.reset_avatar')
                                     </label>
                                     <button type="submit" id="reset_avatar" hidden></button>
 
@@ -65,7 +65,7 @@
                             {{-- Avatar --}}
                             <div class="col my-0 py-0">
                                 <label for="avatar" class="btn btn-block btn-success btn-round">
-                                    <i class="fa fa-upload" aria-hidden="true"></i> &ensp; @lang('page.profile.form.avatar.label')
+                                    {!! config('icons.upload') !!} &ensp; @lang('page.profile.form.avatar.label')
                                 </label>
                                 <input id="avatar" type="file" name="avatar" accept="image/*" size="2048" hidden>
                                 
@@ -179,7 +179,7 @@
                         {{-- Submit --}}
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary btn-round"> 
-                                <i class="fa fa-refresh"></i> &ensp; @lang('page.profile.form.submit')
+                                {!! config('icons.refresh') !!} &ensp; @lang('page.profile.form.submit')
                             </button>
                         </div>
 
@@ -196,7 +196,7 @@
                     <div class="card-header card-header-primary">
                         <h4 class="card-title mt-0">
                             <strong>
-                                <i class="fa fa-sm fa-line-chart" aria-hidden="true"></i> &ensp; @lang('page.profile.stats.headline')
+                                {!! config('icons.stats') !!} &ensp; @lang('page.profile.stats.headline')
                             </strong>
                         </h4>
                     </div>
@@ -212,7 +212,7 @@
                                     {{-- Header --}}
                                     <div class="card-header card-header-success card-header-icon">
                                         <div class="card-icon">
-                                            <i class="fa fa-eur"></i>
+                                            {!! config('icons.money') !!}
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.spend')</p>
                                         <h3 class="card-title">
@@ -229,7 +229,7 @@
                                     {{-- Header --}}
                                     <div class="card-header card-header-warning card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">store</i>
+                                            {!! config('icons.shop') !!}
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.orders')</p>
                                         <h3 class="card-title">
@@ -246,7 +246,7 @@
                                     {{-- Header --}}
                                     <div class="card-header card-header-info card-header-icon">
                                         <div class="card-icon">
-                                            <i class="fa fa-calendar-o"></i>
+                                            {!! config('icons.calender') !!}
                                         </div>
                                         <p class="card-category">@lang('page.profile.stats.month')</p>
                                         <h3 class="card-title">

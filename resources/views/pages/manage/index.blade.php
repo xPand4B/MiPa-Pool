@@ -94,13 +94,13 @@
                                                                                     
                                             {{-- Edit --}}
                                             <a href="{{ route('manage.edit', $order) }}" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.index.tableButtons.edit') }}">
-                                                <i class="material-icons">edit</i>
+                                                {!! config('icons.edit') !!}
                                             </a>
             
                                             {{-- Delete --}}
                                             {!! Form::open(['route' => ['manage.destroy', $order], 'method' => 'DELETE']) !!}
                                             <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.index.tableButtons.delete') }}">
-                                                <i class="fa fa-trash"></i>
+                                                {!! config('icons.delete') !!}
                                             </button>
                                             {!! Form::close() !!}
 

@@ -25,7 +25,7 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col-md-8 mt-4">
-                                <i class="fa fa-cutlery" aria-hidden="true"></i> {{ $order->name }}
+                                {!! config('icons.fastfood') !!} {{ $order->name }}
                             </strong>
                         </h4>
                     </div>
@@ -109,7 +109,7 @@
                             {{-- Submit --}}
                             <div class="form-group row">
                                 <button type="submit" class="btn btn-block btn-outline-success btn-round">
-                                    <i class="fa fa-shopping-cart"></i> &ensp; @lang('page.orders.participate.form.submit')
+                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('page.orders.participate.form.submit')
                                 </button>
                             </div>
                         </form>
@@ -142,7 +142,7 @@
                                 <dl class="row">
                                     {{-- Created by --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-user" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.created_by')
+                                        {!! config('icons.profile-sm') !!} &ensp; @lang('page.orders.participate.created_by')
                                     </dt>
                                     <dd class="col-sm-8 text-muted">
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
@@ -154,7 +154,7 @@
 
                                     {{-- Deadline --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-clock-o" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.deadline')
+                                        {!! config('icons.time-sm') !!} &ensp; @lang('page.orders.participate.deadline')
                                     </dt>
                                     @if ($order->timeLeft_min <= 5)
                                     <dd class="col-sm-8 text-danger">
@@ -170,7 +170,7 @@
                                     
                                     {{-- Counter --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-users" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.people')
+                                        {!! config('icons.people-sm') !!} &ensp; @lang('page.orders.participate.people')
                                     </dt>
                                     <dd class="col-sm-8">
                                         @if(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
@@ -184,7 +184,7 @@
                                     
                                     {{-- Minimum value --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-money" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.minimum_value')
+                                        {!! config('icons.money-sm') !!} &ensp; @lang('page.orders.participate.minimum_value')
                                     </dt>
                                     @if ($order->minimum_value == 0)
                                     <dd class="col-sm-8 text-success">
@@ -200,7 +200,7 @@
 
                                     {{-- Site link --}}
                                     <dt class="col-sm-4">
-                                        <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.delivery_service')
+                                        {!! config('icons.shopping-cart-sm') !!} &ensp; @lang('page.orders.participate.delivery_service')
                                     </dt>
                                     <dd class="col-sm-8 text-link">
                                         <a href="{{ $order->site_link }}" target="_blank">
@@ -223,7 +223,7 @@
                                     {{-- Title --}}
                                     <h4 class="card-title mt-0">
                                         <strong>
-                                            <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i> &ensp; @lang('page.orders.participate.other_participants')
+                                            {!! config('icons.shopping-cart-sm') !!} &ensp; @lang('page.orders.participate.other_participants')
                                         </strong>
                                     </h4>
                                 </div>

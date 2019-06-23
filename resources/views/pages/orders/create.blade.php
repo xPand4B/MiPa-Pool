@@ -132,7 +132,7 @@
                             {{-- Submit --}}
                             <div class="form-group row">
                                 <button type="submit" class="btn btn-block btn-success btn-round">
-                                    <i class="fa fa-shopping-cart"></i> &ensp; @lang('page.orders.create.form.submit')
+                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('page.orders.create.form.submit')
                                 </button>
                             </div>
                         </form>

@@ -65,14 +65,14 @@
         {{-- Submit --}}
         <div class="form-group row mb-0 mt-0">
             <button type="submit" class="btn btn-block btn-success btn-round">
-                <i class="fa fa-sign-in"></i> &ensp; @lang('login.login_button')
+                {!! config('icons.login') !!} &ensp; @lang('login.login_button')
             </button>
         </div>
 
         {{-- Forgot Password --}}
         {{-- <div class="text-center pt-2 pb-0">
             <a class="btn btn-link text-info py-0" href="{{ route('password.request') }}">
-                <i class="material-icons">email</i> @lang('login.forgot_password')
+                {!! config('icons.email') !!} @lang('login.forgot_password')
             </a>
         </div> --}}
 

@@ -12,7 +12,7 @@
 
                     {{-- Menu --}}
                     <dt class="col-sm-2 text-warning">
-                        <i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i>
+                        {!! config('icons.shopping-cart') !!}
                     </dt>
                     <dd class="col-sm-10 text-muted">
                         <a href="{{ $menu->order->site_link }}" target="_blank">{{ $menu->order->name }}</a>
@@ -20,7 +20,7 @@
 
                     {{-- User --}}
                     <dt class="col-sm-2 text-primary">
-                        <i class="fa fa-sm fa-user" aria-hidden="true"></i>
+                        {!! config('icons.profile-sm') !!}
                     </dt>
                     @if (Auth::user()->id == $menu->user_id)
                     <dd class="col-sm-10 text-primary">
@@ -32,7 +32,7 @@
 
                     {{-- Menu --}}
                     <dt class="col-sm-2 text-warning">
-                        <i class="fa fa-sm fa-cutlery" aria-hidden="true"></i>
+                        {!! config('icons.fastfood-sm') !!}
                     </dt>
                     <dd class="col-sm-10">
                         {{ $menu->number }}x {{ $menu->name }}
@@ -40,7 +40,7 @@
 
                     {{-- Price --}}
                     <dt class="col-sm-2 text-success">
-                        <i class="fa fa-sm fa-money" aria-hidden="true"></i>
+                        {!! config('icons.money-sm') !!}
                     </dt>
                     <dd class="col-sm-10">
                         {{ $menu->price }} {{ config('app.currency') }}
@@ -48,7 +48,7 @@
 
                     {{-- Created at --}}
                     <dt class="col-sm-2">
-                        <i class="fa fa-sm fa-calendar" aria-hidden="true"></i>
+                        {!! config('icons.calender-sm') !!}
                     </dt>
                     <dd class="col-sm-10">
                         {{ $menu->created_at }}

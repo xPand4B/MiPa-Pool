@@ -21,7 +21,7 @@
                 {{-- <div class="input-group no-border">
                     <input name="q" id="q" type="text" class="form-control" placeholder="{{ trans('menu.top.search') }}" value="{{ request('q') }}">
                     <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
+                        {!! config('icons.search') !!}
                         <div class="ripple-container"></div>
                     </button>
                 </div> --}}
@@ -31,7 +31,7 @@
                 {{-- Add order --}}
                 <li class="nav-item">
                     <a href="{{ route('orders.create') }}" class="nav-link" title="{{ trans('menu.top.create_order') }}">
-                        <i class="fa fa-plus-square-o"></i>
+                        {!! config('icons.addOrder') !!}
                         <p class="d-lg-none d-md-block">@lang('menu.top.create_order')</p>
                     </a>
                 </li>
@@ -39,7 +39,7 @@
                 {{-- Notifications --}}
                 {{-- <li class="nav-item dropdown">
                     <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ trans('menu.top.notifications') }}">
-                        <i class="material-icons">notifications</i>
+                        {!! config('icons.notification') !!}
                         <span class="notification">5</span>
                         <p class="d-lg-none d-md-block">@lang('menu.top.notifications')</p>
                     </a>
@@ -55,8 +55,8 @@
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" title="{{ trans('menu.top.logout') }}"
                         onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        <i class="material-icons">power_settings_new</i>
+                                    document.getElementById('logout-form').submit();"> 
+                        {!! config('icons.logout') !!}
                         <p class="d-lg-none d-md-block">@lang('menu.top.logout')</p>
                     </a>
 

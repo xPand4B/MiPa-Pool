@@ -50,7 +50,7 @@
                                 <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-sm btn-block btn-success btn-round">
                             @endif
 
-                                <i class="fa fa-cart-plus"></i>
+                                {!! config('icons.participate') !!}
                                 @lang('table.orders.participate')
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                                 <div class="stats text-success">
                             @endif
 
-                                <i class="material-icons">access_time</i> {{ $order->deadline }}
+                            {!! config('icons.time') !!} {{ $order->deadline }}
                             </div>
                         </li>
 
@@ -85,7 +85,7 @@
                             @else
                             <div class="stats">
                             @endif
-                                <i class="material-icons">person</i> {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
+                                {!! config('icons.profile') !!} {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </li>
                         
@@ -99,7 +99,7 @@
                                 <div class="stats text-success">
                             @endif
 
-                                <i class="material-icons">done</i> {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
                             </div>
                         </li>
                     </ul>                   

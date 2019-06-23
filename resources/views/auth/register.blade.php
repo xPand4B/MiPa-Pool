@@ -85,7 +85,7 @@
         {{-- Submit --}}
         <div class="form-group row mb-0 mt-4">
             <button type="submit" class="btn btn-block btn-success btn-round">
-                <i class="fa fa-sign-in"></i> &ensp; @lang('login.signup_button')
+                {!! config('icons.login') !!} &ensp; @lang('login.signup_button')
             </button>
         </div>
 

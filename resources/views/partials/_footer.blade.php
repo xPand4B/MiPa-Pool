@@ -11,7 +11,7 @@
                 {{-- Source Code --}}
                 <li>
                     <a href="https://github.com/xPand4B/MiPa-Pool" target="_blank">
-                        <i class="fa fa-lg fa-github"></i> &ensp; @lang('menu.footer.sourcecode')
+                        {!! config('icons.github-lg') !!} &ensp; @lang('menu.footer.sourcecode')
                     </a>
                 </li>
             </ul>

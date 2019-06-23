@@ -24,7 +24,7 @@
         {{-- Submit --}}
         <div class="form-group row mb-0">
             <button type="submit" class="btn btn-block btn-success btn-round">
-                <i class="fa fa-paper-plane"></i> &ensp; @lang('login.get_reset_email')
+                {!! config('icons.send') !!} &ensp; @lang('login.get_reset_email')
             </button>
         </div>
 
