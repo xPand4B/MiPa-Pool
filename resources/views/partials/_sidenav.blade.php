@@ -20,7 +20,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 {{-- Home --}}
-                <li class="nav-item {{ Nav::isRoute('home') }} {{ Nav::hasSegment('order') }}">
+                <li class="nav-item {{ Nav::isRoute('home') }} {{ Nav::hasSegment('orders') }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="material-icons">home</i>
                         <p>@lang('menu.side.home')</p>

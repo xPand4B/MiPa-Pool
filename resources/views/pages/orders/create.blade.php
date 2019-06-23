@@ -41,7 +41,7 @@
                     
                     {{-- Card Content --}}
                     <div class="card-body">
-                        <form method="POST" action="{{ route('order.store') }}">
+                        <form method="POST" action="{{ route('orders.store') }}">
                             @csrf
                             {{-- Order Name --}}
                             <div class="form-group is-focused">

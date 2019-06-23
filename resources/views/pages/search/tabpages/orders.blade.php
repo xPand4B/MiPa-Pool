@@ -39,7 +39,7 @@
                             </strong>
                         </div>
 
-                        <div class="colmt-2">
+                        <div class="col mt-2">
                             @if (sizeof($order->menus) == $order->max_orders)
                                 <a href="#" class="btn btn-sm btn-block btn-round disabled" disabled>
 

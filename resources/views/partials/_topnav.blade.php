@@ -30,7 +30,7 @@
             <ul class="navbar-nav">
                 {{-- Add order --}}
                 <li class="nav-item">
-                    <a href="{{ route('order.create') }}" class="nav-link" title="{{ trans('menu.top.create_order') }}">
+                    <a href="{{ route('orders.create') }}" class="nav-link" title="{{ trans('menu.top.create_order') }}">
                         <i class="fa fa-plus-square-o"></i>
                         <p class="d-lg-none d-md-block">@lang('menu.top.create_order')</p>
                     </a>

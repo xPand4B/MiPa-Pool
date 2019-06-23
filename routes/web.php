@@ -17,27 +17,30 @@ Route::middleware(['language'])->group(function(){
     // Route::middleware(['auth', 'verified'])->group(function(){
     Route::middleware(['auth'])->group(function(){
         // Order
-        Route::get( '/',                            'OrderController@index')->name('home');
-        Route::get( '/order/create',                'OrderController@create')->name('order.create');
-        Route::post('/order/store',                 'OrderController@store')->name('order.store');
+        Route::get(     '/',        'OrderController@index')->name('home');
+        Route::resource('/orders',  'OrderController', [
+            'only' => [ 'create', 'store']
+        ]);
 
         // Participate
-        Route::get( '/order/participate/{order}',   'ParticipateController@create')->name('participate.create');
-        Route::post('/order/participate/add',       'ParticipateController@store')->name('participate.store');
+        Route::get( '/orders/participate/{order}',  'ParticipateController@create')->name('participate.create');
+        Route::post('/orders/participate',          'ParticipateController@store' )->name('participate.store');
         
-        // Order Management
-        Route::get(   '/manage',                'ManagementController@index')->name('manage.index');
-        Route::get(   '/manage/{id}',           'ManagementController@show')->name('manage.show');
-        Route::patch( '/manage/edit{id}',       'ManagementController@edit')->name('manage.edit');
-        Route::delete('/manage/delete/{id}',    'ManagementController@destroy')->name('manage.destroy');
+        // Management
+        Route::patch(   '/manage/close',    'ManagementController@close')->name('manage.close');
+        Route::resource('/manage',          'ManagementController', [
+            'parameters'    => [ 'manage' => 'order' ],
+            'except'        => [ 'create', 'store' ]
+        ]);
         
         // Profile
-        Route::get(  '/profile',                'ProfileController@edit')->name('profile.edit');
-        Route::patch('/profile/update',         'ProfileController@update')->name('profile.update');
-        Route::post( '/profile/reset/avatar',   'ProfileController@resetAvatar')->name('profile.reset.avatar');
+        Route::match(['put', 'patch'], 
+                    '/profile',                 'ProfileController@update'     )->name('profile.update');
+        Route::get( '/profile',                 'ProfileController@edit'       )->name('profile.edit');
+        Route::post('/profile/reset/avatar',    'ProfileController@resetAvatar')->name('profile.reset.avatar');
 
         // Search
-        Route::get('/search',    'SearchController@show')->name('search.show');
+        Route::get('/search',   'SearchController@show')->name('search.show');
 
         // Redirects
         Route::redirect('/search', '/', 302);
