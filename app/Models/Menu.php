@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Helper\Currency;
+use App\Helper\CurrencyHelper;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
@@ -42,7 +42,7 @@ class Menu extends Model
      */
     public function scopeMoneySpend($query, int $userID)
     {
-        return Currency::Format(
+        return CurrencyHelper::Format(
             $query->where('user_id', $userID)->sum('price')
         );
     }

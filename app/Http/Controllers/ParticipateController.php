@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\Order;
-use App\Helper\Currency;
+use App\Helper\TimeHelper;
+use App\Helper\CurrencyHelper;
 use App\Events\Orders\NewMenuCreationEvent;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 
 class ParticipateController extends Controller
 {
+    /**
+     * Restrict access
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -22,10 +30,10 @@ class ParticipateController extends Controller
         if($order->closed)
             return redirect()->route('home');
 
-        $order = Currency::getSum($order);
-        $order = Currency::formatPriceForOrder($order);
+        $order = CurrencyHelper::getSum($order);
+        $order = CurrencyHelper::formatPriceForOrder($order);
 
-        $order->timeLeft_min = Carbon::now()->diffInMinutes($order->deadline);
+        $order->timeLeft_min = TimeHelper::GetTimeLeft($order->deadline, true);
 
         $order->deadline = date("H:i", strtotime($order->deadline));
         

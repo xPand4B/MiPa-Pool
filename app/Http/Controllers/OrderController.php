@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Order;
-use App\Helper\Currency;
+use App\Helper\TimeHelper;
 use Illuminate\Http\Request;
+use App\Helper\CurrencyHelper;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Orders\StoreNewOrderRequest;
 use App\Events\Orders\NewOrderCreationEvent;
+use App\Http\Requests\Orders\StoreNewOrderRequest;
 
 class OrderController extends Controller
 {
@@ -32,11 +33,11 @@ class OrderController extends Controller
                         ->paginate(15);
 
         for($i = 0; $i < sizeof($orders); $i++){
-            $orders[$i] = Currency::getSum($orders[$i]);
-            $orders[$i] = Currency::formatPriceForOrder($orders[$i]);
+            $orders[$i] = CurrencyHelper::getSum($orders[$i]);
+            $orders[$i] = CurrencyHelper::formatPriceForOrder($orders[$i]);
 
-            $orders[$i]->timeLeft_min = Carbon::now()->diffInMinutes($orders[$i]->deadline);
-            $orders[$i]->timeLeft     = Carbon::now()->diffForHumans($orders[$i]->deadline, true, true, 3);
+            $orders[$i]->timeLeft_min = TimeHelper::GetTimeLeft($orders[$i]->deadline, true);
+            $orders[$i]->timeLeft     = TimeHelper::GetTimeLeft($orders[$i]->deadline);
 
             // If deadline is in past
             if(Carbon::now()->greaterThan($orders[$i]->deadline)){

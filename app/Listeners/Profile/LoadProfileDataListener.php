@@ -5,7 +5,6 @@ namespace App\Listeners\Profile;
 use Auth;
 use App\Models\Menu;
 use App\Models\Order;
-use App\Helper\Currency;
 
 class LoadProfileDataListener
 {

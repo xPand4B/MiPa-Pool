@@ -4,7 +4,7 @@ namespace App\Helper;
 
 use App\Models\Order;
 
-class Currency
+class CurrencyHelper
 {
     /**
      * Formats currency to a more readable format.

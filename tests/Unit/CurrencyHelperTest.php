@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Menu;
 use App\Models\Order;
-use App\Helper\Currency;
+use App\Helper\CurrencyHelper;
 
 class CurrencyHelperTest extends TestCase
 {
@@ -32,7 +32,7 @@ class CurrencyHelperTest extends TestCase
         $this->assertCount(1, Order::all());
         $this->assertCount(3, Menu::all());
 
-        $order = Currency::formatPriceForOrder($order);
+        $order = CurrencyHelper::formatPriceForOrder($order);
 
         $this->assertEquals('05,90', $order->menus[0]->price);
         $this->assertEquals('00,01', $order->menus[1]->price);
@@ -62,22 +62,22 @@ class CurrencyHelperTest extends TestCase
         $this->assertCount(1, Order::all());
         $this->assertCount(3, Menu::all());
 
-        $this->assertEquals("20,91", Currency::getSum($order)->sum);
+        $this->assertEquals("20,91", CurrencyHelper::getSum($order)->sum);
     }
 
     /** @test */
     public function value_can_be_formated()
     {
         $this->assertEquals(
-            "14,98", Currency::Format(1498)
+            "14,98", CurrencyHelper::Format(1498)
         );
 
         $this->assertEquals(
-            "14,98", Currency::Format(1498 * 0.01, false)
+            "14,98", CurrencyHelper::Format(1498 * 0.01, false)
         );
 
         $this->assertEquals(
-            "14980", Currency::Format(1498, false)
+            "14980", CurrencyHelper::Format(1498, false)
         );
     }
 }

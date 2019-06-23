@@ -237,7 +237,8 @@ return [
         /**
          * Custom aliases
          */
-        'Currency' => App\Helper\Currency::class,
+        'CurrencyHelper' => App\Helper\CurrencyHelper::class,
+        'TimeHelper' => App\Helper\TimeHelper::class,
     ],
 
 ];
