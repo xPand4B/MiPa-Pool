@@ -80,8 +80,7 @@ class Order extends Model
     {
         return $query
             ->where('user_id', $userID)
-            ->orderBy('created_at', 'DESC')
-            ->sortable();
+            ->sortable(['created_at' => 'desc']);
     } 
 
     /**
