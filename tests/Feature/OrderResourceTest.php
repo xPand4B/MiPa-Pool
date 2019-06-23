@@ -9,7 +9,7 @@ use App\Models\Order;
 class OrderResourceTest extends TestCase
 {
     /** @test */
-    public function all_orders_can_be_displayed()
+    public function index()
     {
         $orders = 10;
         $menusPerOrder  = 5;
@@ -33,66 +33,70 @@ class OrderResourceTest extends TestCase
         }
 
         $this->actingAsUser()
-            ->get('/')
+            ->get(route('home'))
             ->assertStatus(200)
-            ->assertViewIs('pages.orders.index');
+            ->assertViewIs('pages.orders.index')
+            ->assertViewHasAll([
+                'orders'
+            ]);
 
-        $this->assertCount($orders,                     Order::all());
-        $this->assertCount($orders * $menusPerOrder,    Menu::all());
-    }
-
-    /** @test */
-    public function only_logged_in_users_can_see_all_orders()
-    {
-        $this->get('/')
-            ->assertStatus(302)
-            ->assertRedirect(route('login'));
+        $this->assertModelCount(2, $orders, $orders * $menusPerOrder);
     }
     
     /** @test */
-    public function the_create_form_can_be_visited_by_a_logged_in_users()
+    public function create()
     {
+        $this->withoutExceptionHandling();
+
         $this->actingAsUser()
-            ->get('/order/create')
+            ->get(route('orders.create'))
             ->assertStatus(200)
             ->assertSuccessful()
-            ->assertViewIs('pages.orders.create');
+            ->assertViewIs('pages.orders.create')
+            ->assertViewHasAll([
+                'timesteps'
+            ]);
+
+        $this->assertModelCount(1, 0, 0);
     }
 
     /** @test */
-    public function only_logged_in_users_can_visit_create_form()
-    {
-        $this->get('/order/create')
-            ->assertStatus(302)
-            ->assertRedirect(route('login'));
-    }
-
-    /** @test */
-    public function an_order_can_be_created_by_a_logged_in_user()
+    public function store()
     {
         $user   = $this->user();
         $params = $this->validOrderParams(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->post('/order/store', $params)
+            ->post(route('orders.store', $params))
             ->assertStatus(302)
             ->assertRedirect(route('participate.create', 1))
             ->assertSessionHas('success');
 
-        $this->assertCount(1, Order::all());
-
         $this->assertEquals($params['user_id'], Order::first()->user_id);
+
+        $this->assertModelCount(1, 1, 0);
     }
 
     /** @test */
-    public function only_logged_in_users_can_create_orders()
+    public function AuthRoutes()
     {
         $params = $this->validOrderParams();
 
-        $this->post('/order/store', $params)
+        // Index - Home
+        $this->get(route(('home')))
             ->assertStatus(302)
             ->assertRedirect(route('login'));
 
-        $this->assertCount(0, Order::all());
+        // Create
+        $this->get(route('orders.create'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        // Store
+        $this->post(route('orders.store', $params))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        $this->assertModelCount(0, 0, 0);
     }
 }

@@ -2,8 +2,9 @@
 
 namespace Tests;
 
-use Carbon\Carbon;
+use App\Models\Menu;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -38,9 +39,27 @@ abstract class TestCase extends BaseTestCase
      *
      * @return TestCase
      */
-    protected function actingAsUser(string $driver = null)
+    protected function actingAsUser(string $driver = null): TestCase
     {
         $this->actingAs($this->user(), $driver);
+
+        return $this;
+    }
+
+    /**
+     * Assert count for all models in one method.
+     *
+     * @param integer $userCount
+     * @param integer $orderCount
+     * @param integer $menuCount
+     *
+     * @return TestCase
+     */
+    protected function assertModelCount(int $userCount, int $orderCount, int $menuCount): TestCase
+    {
+        $this->assertCount($userCount,  User::all());
+        $this->assertCount($orderCount, Order::all());
+        $this->assertCount($menuCount,  Menu::all());
 
         return $this;
     }

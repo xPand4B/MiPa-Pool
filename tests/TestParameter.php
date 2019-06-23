@@ -61,7 +61,7 @@ trait TestParameter
             'name'      => 'Test Menu',
             'number'    => '1',
             'comment'   => 'Without Onions',
-            'price'     => 1498,
+            'price'     => 14.98,
         ], $overrides);
     }
 }
