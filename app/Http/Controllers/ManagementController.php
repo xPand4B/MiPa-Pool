@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Order;
+use App\Helper\TimeHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\SendFlashMessageEvent;
+use Kyslik\ColumnSortable\Exceptions\ColumnSortableException;
 
 class ManagementController extends Controller
 {
@@ -18,14 +21,18 @@ class ManagementController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of all Orders created by Auth::user().
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $orders = Order::FromUser(Auth::user()->id)
+        try {
+            $orders = Order::FromUser(Auth::user()->id)
                         ->paginate(15);
+        } catch (ColumnSortableException $e) {
+            return redirect()->back();
+        }
 
         return view('pages.manage.index', [
             'orders' => $orders
@@ -33,56 +40,60 @@ class ManagementController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified Order created by Auth::user().
      *
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show(Order $order)
     {
-        //
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.index');
+
+        $order->timeLeft_min = TimeHelper::GetTimeLeft($order->deadline, true);
+        $order->timeLeft     = TimeHelper::GetTimeLeft($order->deadline);
+
+        return view('pages.manage.show', compact([
+            'order'
+        ]));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for editing the specified Order created by Auth::user().
+     *
+     * @param  Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Order $order)
+    {
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.index');
+
+        return view('pages.manage.edit', compact([
+            'order'
+        ]));
+    }
+
+    /**
+     * Update the specified Order created by Auth::user() in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function update(Request $request, Order $order)
     {
-        //
+        return redirect()->route('manage.edit');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Close the specified Order created by Auth::user() in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function close(Request $request, Order $order)
     {
         //
     }
@@ -90,11 +101,18 @@ class ManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.index');
+
+        $order->delete();
+
+        event(new SendFlashMessageEvent('success', trans('session.management.destroyed')));
+
+        return redirect()->route('manage.index');
     }
 }
