@@ -29,4 +29,8 @@ return [
         'updated'       => 'Dein Profil wurde aktualisiert.',
         'resetedAvatar' => 'Dein Profilbild wurde zurückgesetzt.'
     ],
+
+    'management' => [
+        'destroyed' => 'Deine Bestellung wurde gelöscht.',
+    ],
 ];

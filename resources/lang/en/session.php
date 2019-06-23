@@ -29,4 +29,8 @@ return [
         'updated'       => 'Your profile has been updated.',
         'resetedAvatar' => 'Your avatar has been set to default.'
     ],
+
+    'management' => [
+        'destroyed' => 'Your Order has been deleted.',
+    ],
 ];

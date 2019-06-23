@@ -24,8 +24,8 @@ return [
 
         'index' => [
             'empty' => [
-                'title' => "Upps, pretty empty here. ¯\_(ツ)_/¯",
-                'message' => 'If you want to create an order click the <i class="fa fa-plus-square-o"></i> icon.',
+                'title'     => "Upps, pretty empty here. ¯\_(ツ)_/¯",
+                'message'   => "If you want to create an order click the ".config('icons.addOrder')." icon.",
             ],
         ],
 
@@ -39,9 +39,8 @@ return [
             'form'  => [
                 'order_name'            => 'Order name',
                 'deadline'              => 'Deadline',
-                'time'                  => '',
+                'time'                  => "o'clock",
                 'max_orders'            => 'Participants',
-                'people'                => '',
                 'minimum_order_value'   => 'Min. Value',
                 'delivery_service'      => 'Delivery Service',
                 'site_link'             => 'Menu-card',
@@ -49,8 +48,8 @@ return [
             ],
         ],
 
-        'participate' => [
-            'title'         => 'Order informations',
+        'participate'   => [
+            'title'     => 'Order informations',
 
             'created_by'        => 'Creator',
             'people'            => 'Participants',
@@ -75,12 +74,19 @@ return [
     'manage' => [
         'title' => 'Management',
 
+        'empty' => [
+            'title'     => "Upps, seems like you haven't created an order yet ¯\_(ツ)_/¯",
+            'message'   => 'If you want to create an order click the '.config('icons.addOrder').' icon.',
+        ],
+
         'breadcrumb' => [
-            'index'       => 'Management',
+            'index'  => 'Management',
         ],
 
         'index' => [
-            'headline' => 'Manage your orders',
+            'headline'   => 'Manage your orders',
+
+            'viewOrder'  => 'View Order',
 
             'tableHeads' => [
                 'name'              => 'Name',
@@ -91,9 +97,12 @@ return [
 
             'tableButtons' => [
                 'edit'      => 'Edit Order',
-                'close'     => 'Close Order',
                 'delete'    => 'Delete Order'
             ]
+        ],
+
+        'show' => [
+            'noTimeLeft'    => 'Closed',
         ],
     ],
 
@@ -115,8 +124,8 @@ return [
             'confirm_password'  => 'Confirm password',
             'about_me'          => 'About me',
             'avatar'            => [
-                'label'  => 'Choose a picture',
-                'helper' => 'Please upload a valid image file. Size of image should not be more than 2MB.'
+                'label'         => 'Choose a picture',
+                'helper'        => 'Please upload a valid image file. Size of image should not be more than 2MB.'
             ],
             'reset_avatar'      => 'Reset avatar',
             'submit'            => 'Update profile'
@@ -135,7 +144,7 @@ return [
         'title' => 'Search',
 
         'breadcrumb' => [
-            'index' => 'Search'
+            'index'  => 'Search'
         ],
         
         'tabpages' => [
@@ -144,7 +153,7 @@ return [
             'users'     => 'Users',
         ],
         
-        'empty' => "Upps, seems like we couldn't find any :type ¯\_(ツ)_/¯"
+        'empty' => "Upps, seems like we couldn't find any :type ¯\_(ツ)_/¯",
     ],
 
     'mysticModal' => "Congratulation, you've found an easteregg.<br>Can you find all of them?",

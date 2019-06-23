@@ -24,8 +24,8 @@ return [
 
         'index' => [
             'empty' => [
-                'title' => 'Upps, ziemlich leer hier. ¯\_(ツ)_/¯',
-                'message' => 'Wenn du eine Bestellung erstellen möchtest klicke auf das <i class="fa fa-plus-square-o"></i> Icon.',
+                'title'     => 'Upps, ziemlich leer hier. ¯\_(ツ)_/¯',
+                'message'   => "Wenn du eine Bestellung erstellen möchtest klicke auf das ".config('icons.addOrder')." Icon.",
             ],
         ],
 
@@ -41,7 +41,6 @@ return [
                 'deadline'              => 'Laufzeit bis',
                 'time'                  => 'Uhr',
                 'max_orders'            => 'Mitbesteller',
-                'people'                => '',
                 'minimum_order_value'   => 'Mindestbestellwert',
                 'delivery_service'      => 'Lieferdienst',
                 'site_link'             => 'Speisekarte',
@@ -49,8 +48,8 @@ return [
             ],
         ],
 
-        'participate' => [
-            'title'         => 'Bestellinformationen',
+        'participate'   => [
+            'title'     => 'Bestellinformationen',
 
             'created_by'        => 'Ersteller',
             'people'            => 'Mitbesteller',
@@ -75,12 +74,19 @@ return [
     'manage' => [
         'title' => 'Verwaltung',
 
+        'empty' => [
+            'title'     => "Upps, sieht so aus als ob du noch keine Bestellungen erstellt hast ¯\_(ツ)_/¯",
+            'message'   => 'Wenn du eine Bestellung erstellen möchtest klicke auf das '.config('icons.addOrder').' Icon.',
+        ],
+
         'breadcrumb' => [
-            'index'       => 'Verwaltung',
+            'index'  => 'Verwaltung',
         ],
 
         'index' => [
-            'headline' => 'Verwalte deine Bestellungen',
+            'headline'   => 'Verwalte deine Bestellungen',
+
+            'viewOrder'  => 'Bestellung ansehen',
 
             'tableHeads' => [
                 'name'              => 'Name',
@@ -91,9 +97,12 @@ return [
 
             'tableButtons' => [
                 'edit'      => 'Bestellung bearbeiten',
-                'close'     => 'Bestellung schließen',
-                'delete'    => 'BEstellung löschen'
+                'delete'    => 'Bestellung löschen'
             ]
+        ],
+        
+        'show' => [
+            'noTimeLeft'    => 'Closed',
         ],
     ],
 
@@ -115,8 +124,8 @@ return [
             'confirm_password'  => 'Passwort bestätigen',
             'about_me'          => 'Über mich',
             'avatar'            => [
-                'label'  => 'Wähle ein Bild',
-                'helper' => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
+                'label'         => 'Wähle ein Bild',
+                'helper'        => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
             ],
             'reset_avatar'      => 'Bild zurücksetzten',
             'submit'            => 'Profil aktualisieren'
@@ -135,7 +144,7 @@ return [
         'title' => 'Suche',
 
         'breadcrumb' => [
-            'index' => 'Suche'
+            'index'  => 'Suche'
         ],
         
         'tabpages' => [
@@ -144,7 +153,7 @@ return [
             'users'     => 'Nutzer',
         ],
         
-        'empty' => "Upps, sieht so aus als ob wir keine :type gefunden haben ¯\_(ツ)_/¯"
+        'empty' => "Upps, sieht so aus als ob wir keine :type gefunden haben ¯\_(ツ)_/¯",
     ],
 
     'mysticModal' => "Glückwunsch, du hast ein Easteregg gefunden.<br>Schaffst du es sie alle zu finden?",
