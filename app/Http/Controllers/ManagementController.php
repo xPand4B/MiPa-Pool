@@ -41,9 +41,16 @@ class ManagementController extends Controller
             $orders[$i]->timeLeft     = TimeHelper::GetTimeLeft($orders[$i]->deadline);
         }
 
+        if(! empty(request('id'))){
+            $selected = Order::FromUser(Auth::user()->id)
+                                ->findOrFail(request('id'))
+                                ->name;
+        }
+
         return view('pages.manage.index', [
             'orders'    => $orders,
-            'timesteps' => TimeHelper::GetTimesteps()
+            'timesteps' => TimeHelper::GetTimesteps(),
+            'selected'  => empty($selected) ? '' : $selected
         ]);
     }
 }

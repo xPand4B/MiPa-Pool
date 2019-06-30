@@ -24,7 +24,7 @@
                     <div class="card-header card-header-icon">
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
-                            <strong class="col-md-8 mt-4">
+                            <strong class="col-md mt-4">
                                 {!! config('icons.fastfood') !!} {{ $order->name }}
                             </strong>
                         </h4>
@@ -207,6 +207,21 @@
                                             {{ $order->delivery_service }}
                                         </a>
                                     </dd>
+
+                                    {{-- Manage --}}
+                                    @if (Auth::user()->id == $order->user_id)
+                                        <dt class="col-sm-4 mt-3">
+                                            <form action="{{ route('manage.index') }}" method="GET" role="search">
+                                                {!! config('icons.settings-sm') !!}
+            
+                                                <input name="id" id="id" type="text" class="form-control" value="{{ $order->id }}" hidden>
+                                                <button type="submit" class="btn btn-link text-primary p-0">
+                                                    &ensp; @lang('page.orders.manage')
+                                                </button>
+                                            </form>
+                                        </dt>
+                                        <dd class="col-sm-8 text-link"></dd>
+                                    @endif
                                 </dl>
                             </div>
                         </div>

@@ -169,14 +169,19 @@
 
                         {{-- Creator --}}
                         <div class="col-md text-center">
-                            @if (Auth::user()->id == $order->user_id)
                             <div class="stats text-primary">
 
-                            @else
-                            <div class="stats">
-                            @endif
+                                @if (Auth::user()->id == $order->user_id)
+                                    <form action="{{ route('manage.index') }}" method="GET">
+                                        <input name="id" id="id" type="text" class="form-control" value="{{ $order->id }}" hidden>
+                                        <button type="submit" class="btn btn-link p-0 text-primary text-capitalize">
+                                            {!! config('icons.settings-sm') !!} @lang('page.orders.manage')
+                                        </button>
+                                    </form>
+                                @else
+                                    {!! config('icons.profile') !!} {{ $order->user->fullname }} ({{ $order->user->username }})
+                                @endif
 
-                                {!! config('icons.profile') !!} {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
                             </div>
                         </div>
 
