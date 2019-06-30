@@ -78,6 +78,89 @@ class OrderResourceTest extends TestCase
     }
 
     /** @test */
+    // public function update()
+    // {
+    //     //
+    // }
+
+    /** @test */
+    public function close()
+    {
+        $user  = $this->user();
+        $order = factory(Order::class)->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)
+            ->get(route('orders.close', $order))
+            ->assertStatus(302)
+            ->assertRedirect(route('manage.index'))
+            ->assertSessionHas('success');
+
+        $order = $order->refresh();
+
+        $this->assertEquals(1, Order::first()->closed);
+
+        $this->assertModelCount(1, 1, 0);
+    }
+
+    /** @test */
+    public function destroy()
+    {
+        $user  = $this->user();
+        $order = factory(Order::class)->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)
+            ->delete(route('orders.destroy', $order))
+            ->assertStatus(302)
+            ->assertRedirect(route('manage.index'))
+            ->assertSessionHas('success');
+
+        $this->assertModelCount(1, 0, 0);
+    }
+
+    /** @test */
+    public function OrderExists()
+    {
+        // $this->user();
+        factory(Order::class)->create(['user_id' => $this->user()]);
+
+        // Update
+
+        // Close
+        $this->actingAsUser()
+            ->get(route('orders.close', 2))
+            ->assertStatus(404);
+
+        // Destroy
+        $this->actingAsUser()
+            ->delete(route('orders.destroy', 2))
+            ->assertStatus(404);
+        
+        $this->assertModelCount(3, 1, 0);
+    }
+
+        /** @test */
+        public function OrderFromUser()
+        {
+            $order = factory(Order::class)->create(['user_id' => $this->user()]);
+    
+            // Update
+    
+            // Close
+            $this->actingAsUser()
+                ->get(route('orders.close', $order))
+                ->assertStatus(302)
+                ->assertRedirect(route('manage.index'));
+
+            // Destroy
+            $this->actingAsUser()
+                ->delete(route('orders.destroy', $order))
+                ->assertStatus(302)
+                ->assertRedirect(route('manage.index'));
+            
+            $this->assertModelCount(3, 1, 0);
+        }
+
+    /** @test */
     public function AuthRoutes()
     {
         $params = $this->validOrderParams();
@@ -94,6 +177,21 @@ class OrderResourceTest extends TestCase
 
         // Store
         $this->post(route('orders.store', $params))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        // Update
+        $this->patch(route('orders.update', $params))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        // Close
+        $this->patch(route('orders.update', $this->validOrderParams(['closed' => 1])))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        // Destroy
+        $this->delete(route('orders.destroy', 1))
             ->assertStatus(302)
             ->assertRedirect(route('login'));
 
