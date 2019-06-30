@@ -55,6 +55,8 @@ return [
 
     'search'            => '<i class="material-icons">search</i>',
     'send'              => '<i class="fa fa-paper-plane"></i>',
+    'settings'          => '<i class="material-icons">settings</i>',
+    'settings-sm'       => '<i class="fa fa-cog" aria-hidden="true"></i>',
     'shop'              => '<i class="material-icons">store</i>',
     'shopping-cart'     => '<i class="fa fa-shopping-cart"></i>',
     'shopping-cart-sm'  => '<i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i>',
