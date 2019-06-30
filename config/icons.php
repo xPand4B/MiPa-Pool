@@ -16,6 +16,7 @@ return [
     'calender'          => '<i class="fa fa-calendar-o"></i>',
     'calender-sm'       => '<i class="fa fa-sm fa-calendar-o"></i>',
     'checked'           => '<i class="material-icons">done</i>',
+    'close'             => '<i class="fa fa-times" aria-hidden="true"></i>',
 
     'delete'            => '<i class="fa fa-trash"></i>',
 
@@ -57,6 +58,7 @@ return [
     'shop'              => '<i class="material-icons">store</i>',
     'shopping-cart'     => '<i class="fa fa-shopping-cart"></i>',
     'shopping-cart-sm'  => '<i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i>',
+    'show'              => '<i class="fa fa-eye" aria-hidden="true"></i>',
     'success'           => '<i class="fa fa-lg fa-check-circle" aria-hidden="true" style="color:#fff"></i>',
     'stats'             => '<i class="fa fa-sm fa-line-chart" aria-hidden="true"></i>',
 
