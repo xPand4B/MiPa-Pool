@@ -14,7 +14,9 @@ return [
 
     // Order Pages
     'orders' => [
-        'title' => 'Orders',
+        'title'  => 'Orders',
+
+        'manage' => 'Manage',
 
         'breadcrumb' => [
             'index'         => 'Orders',

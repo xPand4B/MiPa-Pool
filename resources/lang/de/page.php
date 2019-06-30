@@ -14,9 +14,11 @@ return [
 
     // Order Pages
     'orders' => [
-        'title' => 'Bestellungen',
+        'title'  => 'Bestellungen',
 
-        'breadcrumb' => [
+        'manage' => 'Verwalten',
+
+        'breadcrumb'=> [
             'index'       => 'Bestellungen',
             'create'      => 'Erstellen',
             'participate' => 'Mitbestellen'
