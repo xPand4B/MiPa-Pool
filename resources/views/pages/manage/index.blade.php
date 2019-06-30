@@ -52,13 +52,9 @@
                         </strong>
 
                         <div class="col-md-4">
-                            <form method="POST" action="#" class="justify-content-center">
-                                @csrf
-                                <div class="input-group no-border">
-                                    <input type="text" value="" class="form-control" placeholder="{{ trans('menu.top.search') }}">
-                                    <button type="submit" class="btn btn-white btn-round btn-just-icon" hidden></button>
-                                </div>
-                            </form>
+                            <div class="input-group no-border">
+                                <input type="text" value="" id="searchbar-management" class="form-control" placeholder="{{ trans('menu.top.search') }}">
+                            </div>
                         </div>
 
                     </h4>
@@ -69,7 +65,7 @@
                 {{-- Content --}}
                 <div class="card-body p-0">
                     <div class="container-fluid table-responsive-sm p-0">
-                        <table class="table table-sm table-hover ">
+                        <table class="table table-sm table-hover" id="table-management">
                             <thead>
                                 <th>@sortablelink('name',               trans('page.manage.index.tableHeads.name'))</th>
                                 <th>@sortablelink('delivery_service',   trans('page.manage.index.tableHeads.deliveryService'))</th>
@@ -150,4 +146,26 @@
             @endif
         </div>
     </div>
+@endsection
+
+@section('javascript')
+    <script>
+        $(document).ready(function(){
+            $("#searchbar-management").keyup(function () {
+                var value = this.value.toLowerCase().trim();
+
+                $("#table-management tr").each(function (index) {
+                    if (!index)
+                        return;
+
+                    $(this).find("td").each(function () {
+                        var id = $(this).text().toLowerCase().trim();
+                        var not_found = (id.indexOf(value) == -1);
+                        $(this).closest('tr').toggle(!not_found);
+                        return not_found;
+                    });
+                });
+            });
+        });
+    </script>
 @endsection
