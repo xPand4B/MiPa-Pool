@@ -39,7 +39,7 @@ trait TestParameter
             'name'              => 'Test Order',
             'delivery_service'  => 'Delivery Service',
             'site_link'         => 'https://lieferheld.de',
-            'deadline'          => Carbon::now()->format('Y-m-d H:i'),
+            'deadline'          => Carbon::now()->addHour()->format('Y-m-d H:i'),
             'minimum_value'     => rand(0, 20),
             'max_orders'        => rand(2, 20),
             'closed'            => 0,
