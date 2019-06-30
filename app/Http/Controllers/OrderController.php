@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use Auth;
 use App\Models\Order;
 use App\Helper\TimeHelper;
 use Illuminate\Http\Request;
 use App\Helper\CurrencyHelper;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Events\SendFlashMessageEvent;
 use App\Events\Orders\NewOrderCreationEvent;
 use App\Http\Requests\Orders\StoreNewOrderRequest;
 
@@ -38,12 +40,6 @@ class OrderController extends Controller
 
             $orders[$i]->timeLeft_min = TimeHelper::GetTimeLeft($orders[$i]->deadline, true);
             $orders[$i]->timeLeft     = TimeHelper::GetTimeLeft($orders[$i]->deadline);
-
-            // If deadline is in past
-            if(Carbon::now()->greaterThan($orders[$i]->deadline)){
-                Order::findOrFail($orders[$i]->id)
-                    ->update(['closed' => true]);
-            }
         }
 
         return view('pages.orders.index', [
@@ -57,20 +53,9 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $range = range(strtotime("00:00"), strtotime("24:00"), 15 * 60);
-        $current = date("H:i");
-
-        $timesteps = [];
-        foreach($range as $step){
-            $temp = date("H:i", $step);
-
-            if($temp > $current)
-                array_push($timesteps, $temp);
-        }
-        
+    {        
         return view('pages.orders.create', [
-            'timesteps' => $timesteps
+            'timesteps' => TimeHelper::GetTimesteps()
         ]);
     }
 
@@ -85,45 +70,70 @@ class OrderController extends Controller
     {
         $order = event(new NewOrderCreationEvent($request))[0];
 
+        Log::info("Order #$order->id has been successfully created.");
+
         return redirect()->route('participate.create', [
             'order' => $order
         ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Update the specified Order created by Auth::user() in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * 
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
     {
-        //
+        // event(new);
+
+        // Log::info("Order #$order->id has been successfully updated.");
+
+        return redirect()->route('manage.index');
+    }
+
+    /**
+     * Close the specified Order created by Auth::user() in storage.
+     *
+     * @param  Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function close(Order $order)
+    {
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.index');
+
+        $order->update([
+            'closed' => 1
+        ]);
+
+        Log::info("Order #$order->id has been successfully closed.");
+
+        event(new SendFlashMessageEvent('success', trans('session.management.closed')));
+
+        return redirect()->route('manage.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
-     * 
+     * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
     {
-        //
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.index');
+
+        $id = $order->id;
+
+        $order->delete();
+
+        Log::info("Order #$id has been successfully deleted.");
+
+        event(new SendFlashMessageEvent('success', trans('session.management.destroyed')));
+
+        return redirect()->route('manage.index');
     }
 }

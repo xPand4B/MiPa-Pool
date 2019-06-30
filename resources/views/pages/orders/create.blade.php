@@ -80,9 +80,9 @@
                                     <select name="max_orders" id="max_orders" class="form-control" required>
                                         @for ($i = 2; $i <= 20; $i++)
                                             @if ($i == 2)
-                                                <option value="{{ $i }}" selected>{{ $i }} @lang('page.orders.create.form.people')</option>
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
                                             @else
-                                                <option value="{{ $i }}">{{ $i }} @lang('page.orders.create.form.people')</option>
+                                                <option value="{{ $i }}">{{ $i }}</option>
                                             @endif
                                         @endfor
                                     </select>

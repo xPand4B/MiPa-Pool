@@ -31,8 +31,10 @@ class StoreNewMenuListener
 
         $data['price']      = $price * 100;
 
-        Menu::create($data);
+        $menu = Menu::create($data);
 
         event(new SendFlashMessageEvent('success', trans('session.order.participated')));
+
+        return $menu;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Helper\TimeHelper;
 use App\Helper\CurrencyHelper;
+use Illuminate\Support\Facades\Log;
 use App\Events\Orders\NewMenuCreationEvent;
 use App\Http\Requests\Orders\StoreNewMenuRequest;
 
@@ -51,7 +52,9 @@ class ParticipateController extends Controller
      */
     public function store(StoreNewMenuRequest $request)
     {
-        event(new NewMenuCreationEvent($request));
+        $menu = event(new NewMenuCreationEvent($request))[0];
+
+        Log::info("Menu #$menu->id has been successfully created.");
 
         return redirect()->route('home');
     }

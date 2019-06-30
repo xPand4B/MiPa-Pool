@@ -43,7 +43,7 @@
 
             @else
                 {{-- Header --}}
-                <div class="card-header card-header-transparent card-header-icon">
+                <div class="card-header card-header-transparent card-header-icon mx-5">
 
                     {{-- Title --}}
                     <h4 class="card-title row mt-4">
@@ -64,12 +64,11 @@
                     </h4>
                 </div>
 
-
                 <hr>
 
                 {{-- Content --}}
                 <div class="card-body p-0">
-                    <div class="container-fluid table-responsive-sm">
+                    <div class="container-fluid table-responsive-sm p-0">
                         <table class="table table-sm table-hover ">
                             <thead>
                                 <th>@sortablelink('name',               trans('page.manage.index.tableHeads.name'))</th>
@@ -80,33 +79,62 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                <tr onclick="window.location.href='{{ route('manage.show', $order) }}'" title="{{ trans('page.manage.index.viewOrder') }}" style="cursor: pointer;">
-                                    <td>{{ $order->name }}</td>
-                                    <td onclick="" title="" style="cursor: default;">
-                                        <a href="{{ $order->site_link }}" class="link" target="_blank">
-                                            {{ $order->delivery_service }}
-                                        </a>
-                                    </td>
-                                    <td>{{ $order->deadline }}</td>
-                                    <td>{{ $order->created_at }}</td>
-                                    <td>
-                                        <div class="row pull-right">
-                                                                                    
-                                            {{-- Edit --}}
-                                            <a href="{{ route('manage.edit', $order) }}" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.index.tableButtons.edit') }}">
-                                                {!! config('icons.edit') !!}
+                                    @if ($order->closed)
+                                    <tr class="table-danger">
+                                    @else
+                                    <tr class="table-success">
+                                    @endif
+                                        <td>{{ $order->name }}</td>
+                                        <td>
+                                            <a href="{{ $order->site_link }}" class="link" target="_blank">
+                                                {{ $order->delivery_service }}
                                             </a>
-            
-                                            {{-- Delete --}}
-                                            {!! Form::open(['route' => ['manage.destroy', $order], 'method' => 'DELETE']) !!}
-                                            <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.index.tableButtons.delete') }}">
-                                                {!! config('icons.delete') !!}
-                                            </button>
-                                            {!! Form::close() !!}
+                                        </td>
+                                        <td>
+                                            {{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('page.manage.edit.form.time')
+                                        </td>
+                                        <td>
+                                            {{ date('d.m.Y - H:i', strtotime($order->created_at)) }} @lang('page.manage.edit.form.time')
+                                        </td>
+                                        <td>
+                                            <div class="row pull-right">
+                                                                                        
+                                                {{-- Edit --}}
+                                                @if (! $order->closed)
+                                                    <div class="col">
+                                                        <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.index.tableButtons.edit') }}" data-toggle="modal" data-target="#orders.edit.{{ $order->id }}">
+                                                            {!! config('icons.edit') !!}
+                                                        </button>
+                                                    </div>
+                                                @endif
 
-                                        </div>
-                                    </td>
-                                </tr>
+                                                {{-- Close --}}
+                                                @if (! $order->closed)
+                                                    <div class="col">
+                                                        <a href="{{ route('orders.close', $order) }}" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.index.tableButtons.close') }}">
+                                                            {!! config('icons.close') !!}
+                                                        </a>
+                                                    </div>
+                                                @endif
+
+                                                <div class="col">
+                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.index.tableButtons.show') }}" data-toggle="modal" data-target="#orders.show.{{ $order->id }}">
+                                                        {!! config('icons.show') !!}
+                                                    </button>
+                                                </div>
+                
+                                                {{-- Delete --}}
+                                                {!! Form::open(['route' => ['orders.destroy', $order], 'method' => 'DELETE']) !!}
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.index.tableButtons.delete') }}">
+                                                            {!! config('icons.delete') !!}
+                                                        </button>
+                                                    </div>
+                                                {!! Form::close() !!}
+
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -116,8 +144,10 @@
                 
                     {!! $orders->appends(\Request::except('page'))->render() !!}
                 </div>
-            @endif
 
+                @include('pages.manage.edit', [ 'orders' => $orders, 'timesteps' => $timesteps])
+                @include('pages.manage.show', [ 'orders' => $orders ])
+            @endif
         </div>
     </div>
 @endsection
