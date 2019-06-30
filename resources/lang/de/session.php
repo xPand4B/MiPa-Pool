@@ -31,6 +31,7 @@ return [
     ],
 
     'management' => [
+        'closed'    => 'Deine Bestellung wurde geschlossen.',
         'destroyed' => 'Deine Bestellung wurde gelöscht.',
     ],
 ];

@@ -86,8 +86,6 @@ return [
         'index' => [
             'headline'   => 'Verwalte deine Bestellungen',
 
-            'viewOrder'  => 'Bestellung ansehen',
-
             'tableHeads' => [
                 'name'              => 'Name',
                 'deliveryService'   => 'Lieferdienst',
@@ -97,12 +95,27 @@ return [
 
             'tableButtons' => [
                 'edit'      => 'Bestellung bearbeiten',
+                'close'     => 'Bestellung schließen',
+                'show'      => 'Bestellung ansehen',
                 'delete'    => 'Bestellung löschen'
             ]
         ],
         
         'show' => [
             'noTimeLeft'    => 'Closed',
+        ],
+
+        'edit' => [
+            'form'  => [
+                'order_name'            => 'Name der Bestellung',
+                'deadline'              => 'Laufzeit bis',
+                'time'                  => 'Uhr',
+                'max_orders'            => 'Mitbesteller',
+                'minimum_order_value'   => 'Mindestbestellwert',
+                'delivery_service'      => 'Lieferdienst',
+                'site_link'             => 'Speisekarte',
+                'submit'                => 'Änderungen Speichern'
+            ],
         ],
     ],
 

@@ -86,8 +86,6 @@ return [
         'index' => [
             'headline'   => 'Manage your orders',
 
-            'viewOrder'  => 'View Order',
-
             'tableHeads' => [
                 'name'              => 'Name',
                 'deliveryService'   => 'Delivery Service',
@@ -97,12 +95,27 @@ return [
 
             'tableButtons' => [
                 'edit'      => 'Edit Order',
+                'close'     => 'Close Order',
+                'show'      => 'View Order',
                 'delete'    => 'Delete Order'
             ]
         ],
 
         'show' => [
             'noTimeLeft'    => 'Closed',
+        ],
+
+        'edit' => [
+            'form'  => [
+                'order_name'            => 'Order name',
+                'deadline'              => 'Deadline',
+                'time'                  => "o'clock",
+                'max_orders'            => 'Participants',
+                'minimum_order_value'   => 'Min. Value',
+                'delivery_service'      => 'Delivery Service',
+                'site_link'             => 'Menu-card',
+                'submit'                => 'Update Order',
+            ],
         ],
     ],
 
