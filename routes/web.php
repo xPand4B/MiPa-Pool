@@ -17,9 +17,10 @@ Route::middleware(['language'])->group(function(){
     // Route::middleware(['auth', 'verified'])->group(function(){
     Route::middleware(['auth'])->group(function(){
         // Order
-        Route::get(     '/',        'OrderController@index')->name('home');
-        Route::resource('/orders',  'OrderController', [
-            'only' => [ 'create', 'store']
+        Route::get(     '/',                        'OrderController@index')->name('home');
+        Route::get(     '/orders/{order}/close',    'OrderController@close')->name('orders.close');
+        Route::resource('/orders',                  'OrderController', [
+            'except' => [ 'show', 'edit' ]
         ]);
 
         // Participate
@@ -27,10 +28,8 @@ Route::middleware(['language'])->group(function(){
         Route::post('/orders/participate',          'ParticipateController@store' )->name('participate.store');
         
         // Management
-        Route::patch(   '/manage/close',    'ManagementController@close')->name('manage.close');
         Route::resource('/manage',          'ManagementController', [
-            'parameters'    => [ 'manage' => 'order' ],
-            'except'        => [ 'create', 'store' ]
+            'only'          => [ 'index' ]
         ]);
         
         // Profile
