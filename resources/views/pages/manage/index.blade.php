@@ -3,11 +3,11 @@
 @section('title', trans('page.manage.title'))
 
 @section('headline')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">@lang('page.manage.breadcrumb.index')</li>
-        </ol>
-    </nav>
+    @include('partials._breadcrumb', [
+        'items' => [
+            trans('page.manage.breadcrumb.index'),
+        ]
+    ])
 @endsection
 
 @section('content')

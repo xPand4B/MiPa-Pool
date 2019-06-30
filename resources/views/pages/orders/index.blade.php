@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('headline')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">@lang('page.orders.breadcrumb.index')</li>
-        </ol>
-    </nav>
+    @include('partials._breadcrumb', [
+        'items' => [
+            trans('page.orders.breadcrumb.index'),
+        ]
+    ])
 @endsection
 
 @section('content')

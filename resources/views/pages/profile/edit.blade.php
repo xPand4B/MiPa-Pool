@@ -3,12 +3,12 @@
 @section('title', trans('page.profile.title'))
 
 @section('headline')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item active" aria-current="page">@lang('page.profile.breadcrumb.index')</li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $user->firstname}} {{ $user->surname}}</li>
-        </ol>
-    </nav>
+    @include('partials._breadcrumb', [
+        'items' => [
+            trans('page.profile.breadcrumb.index'),
+            $user->fullname
+        ]
+    ])
 @endsection
 
 @section('content')
