@@ -38,7 +38,7 @@ if [ "$input2" == "y" ];
     echo "${green}Open the .env file and fill in your database credentials.${reset}"
     echo ""
     echo "If you are done press any button to continue..."
-    xdg-open .env
+    nano .env
     read -n 1 -s -r -p ""
     echo "Sure?"
     read -n 1 -s -r -p ""
