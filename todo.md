@@ -15,7 +15,8 @@
 # Pre Release
 - [x] Add __carbon__ for remaining time
 - [x] Create __Order.Participate__ form
-- [ ] Add order management
+- [x] Add order management
+- [x] Add menu management
 - [x] Differnt color for own and participated order
 - [x] Add unit tests
 - [x] Add option for uploading profile images
