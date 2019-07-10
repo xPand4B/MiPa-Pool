@@ -3,8 +3,9 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Models\User;
 use App\Models\Menu;
+use App\Models\User;
+use App\Models\Order;
 
 class MenuTest extends TestCase
 {   
@@ -24,6 +25,35 @@ class MenuTest extends TestCase
             $this->expectException(\Exception::class);
     
             factory(Menu::class)->create($this->validMenuParams([$param => null]));
+        }
+    }
+
+    /** @test */
+    public function all_menus_from_logged_in_user_can_be_get()
+    {
+        $user1 = $this->user();
+        $user2 = $this->user();
+
+        $order = factory(Order::class)->create(['user_id' => $this->user()]);
+
+        $testMenus = [
+            factory(Menu::class)->create(['user_id' => $user1->id, 'order_id' => $order->id]),
+            factory(Menu::class)->create(['user_id' => $user1->id, 'order_id' => $order->id]),
+            factory(Menu::class)->create(['user_id' => $user1->id, 'order_id' => $order->id]),
+        ];
+
+        factory(Menu::class, 3)->create(['user_id' => $user2->id, 'order_id' => $order->id]);
+
+        $menus = Menu::FromUser($user1->id);
+
+        $this->assertCount( 6, Menu::all());
+        $this->assertEquals(3, Menu::FromUser($user1->id)->count());
+        $this->assertEquals(3, Menu::FromUser($user2->id)->count());
+
+        $count = 1;
+        foreach($menus as $menu){
+            $this->assertEquals($testMenus[$count], $menu);
+            $count++;
         }
     }
 

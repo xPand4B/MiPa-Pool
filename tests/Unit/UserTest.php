@@ -3,7 +3,9 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use App\Models\Menu;
 use App\Models\User;
+use App\Models\Order;
 
 class UserTest extends TestCase
 {
@@ -55,6 +57,38 @@ class UserTest extends TestCase
         $fullname = $this->validUserParams()['firstname'].' '.$this->validUserParams()['surname'];
 
         $this->assertEquals($fullname, User::first()->fullname);
+    }
+
+    /** @test */
+    public function check_if_a_user_has_orders()
+    {
+        $user = factory(User::class)->create();
+
+        $this->assertEquals(false, $user->hasOrders());
+
+        factory(Order::class)->create(['user_id' => $user->id]);
+
+        $this->assertEquals(true, $user->hasOrders());
+
+        $this->assertModelCount(1, 1, 0);
+    }
+
+    /** @test */
+    public function check_if_a_user_has_menus()
+    {
+        $user  = factory(User::class)->create();
+        $order = factory(Order::class)->create(['user_id' => $user->id]);
+
+        $this->assertEquals(false, $user->hasMenus());
+
+        factory(Menu::class)->create([
+            'user_id' => $user->id,
+            'order_id' => $order->id,
+        ]);
+
+        $this->assertEquals(true, $user->hasMenus());
+
+        $this->assertModelCount(1, 1, 1);
     }
 
     /**

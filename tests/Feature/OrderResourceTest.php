@@ -69,19 +69,13 @@ class OrderResourceTest extends TestCase
         $this->actingAs($user)
             ->post(route('orders.store', $params))
             ->assertStatus(302)
-            ->assertRedirect(route('participate.create', 1))
+            ->assertRedirect(route('menu.create', 1))
             ->assertSessionHas('success');
 
         $this->assertEquals($params['user_id'], Order::first()->user_id);
 
         $this->assertModelCount(1, 1, 0);
     }
-
-    /** @test */
-    // public function update()
-    // {
-    //     //
-    // }
 
     /** @test */
     public function close()
@@ -92,7 +86,7 @@ class OrderResourceTest extends TestCase
         $this->actingAs($user)
             ->get(route('orders.close', $order))
             ->assertStatus(302)
-            ->assertRedirect(route('manage.index'))
+            ->assertRedirect(route('manage.orders.index'))
             ->assertSessionHas('success');
 
         $order = $order->refresh();
@@ -111,7 +105,7 @@ class OrderResourceTest extends TestCase
         $this->actingAs($user)
             ->delete(route('orders.destroy', $order))
             ->assertStatus(302)
-            ->assertRedirect(route('manage.index'))
+            ->assertRedirect(route('manage.orders.index'))
             ->assertSessionHas('success');
 
         $this->assertModelCount(1, 0, 0);
@@ -124,6 +118,9 @@ class OrderResourceTest extends TestCase
         factory(Order::class)->create(['user_id' => $this->user()]);
 
         // Update
+        $this->actingAsUser()
+            ->patch(route('orders.update', 2), $this->validOrderParams())
+            ->assertStatus(404);
 
         // Close
         $this->actingAsUser()
@@ -135,35 +132,39 @@ class OrderResourceTest extends TestCase
             ->delete(route('orders.destroy', 2))
             ->assertStatus(404);
         
-        $this->assertModelCount(3, 1, 0);
+        $this->assertModelCount(4, 1, 0);
     }
 
-        /** @test */
-        public function OrderFromUser()
-        {
-            $order = factory(Order::class)->create(['user_id' => $this->user()]);
-    
-            // Update
-    
-            // Close
-            $this->actingAsUser()
-                ->get(route('orders.close', $order))
-                ->assertStatus(302)
-                ->assertRedirect(route('manage.index'));
+    /** @test */
+    public function OrderFromUser()
+    {
+        $order = factory(Order::class)->create(['user_id' => $this->user()]);
 
-            // Destroy
-            $this->actingAsUser()
-                ->delete(route('orders.destroy', $order))
-                ->assertStatus(302)
-                ->assertRedirect(route('manage.index'));
-            
-            $this->assertModelCount(3, 1, 0);
-        }
+        // Update
+        $this->actingAsUser()
+            ->patch(route('orders.update', $order), $this->validOrderParams())
+            ->assertStatus(404);
+
+        // Close
+        $this->actingAsUser()
+            ->get(route('orders.close', $order))
+            ->assertStatus(302)
+            ->assertRedirect(route('manage.orders.index'));
+
+        // Destroy
+        $this->actingAsUser()
+            ->delete(route('orders.destroy', $order))
+            ->assertStatus(302)
+            ->assertRedirect(route('manage.orders.index'));
+        
+        $this->assertModelCount(4, 1, 0);
+    }
 
     /** @test */
     public function AuthRoutes()
     {
         $params = $this->validOrderParams();
+        $order  = factory(Order::class)->create($params);
 
         // Index - Home
         $this->get(route(('home')))
@@ -186,7 +187,7 @@ class OrderResourceTest extends TestCase
             ->assertRedirect(route('login'));
 
         // Close
-        $this->patch(route('orders.update', $this->validOrderParams(['closed' => 1])))
+        $this->get(route('orders.close', $order))
             ->assertStatus(302)
             ->assertRedirect(route('login'));
 
@@ -195,6 +196,6 @@ class OrderResourceTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('login'));
 
-        $this->assertModelCount(0, 0, 0);
+        $this->assertModelCount(0, 1, 0);
     }
 }
