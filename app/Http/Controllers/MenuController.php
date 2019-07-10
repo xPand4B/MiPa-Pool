@@ -99,7 +99,7 @@ class MenuController extends Controller
 
         $menu->delete();
 
-        Log::info("menu #$id has been successfully deleted.");
+        Log::info("Menu #$id has been successfully deleted.");
 
         event(new SendFlashMessageEvent('success', trans('session.management.menu.destroyed')));
 

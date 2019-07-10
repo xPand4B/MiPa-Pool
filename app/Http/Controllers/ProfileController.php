@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Events\Profile\ResetAvatarEvent;
@@ -44,6 +45,8 @@ class ProfileController extends Controller
     {
         event(new ResetAvatarEvent());
 
+        Log::info("User #".Auth::user()->id." has successfully reseted the avatar.");
+
         return redirect()->route('profile.edit');
     }
 
@@ -57,6 +60,8 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         event(new UpdateProfileDataEvent($request));
+
+        Log::info("User #".Auth::user()->id." has successfully been updated.");
 
         return redirect()->route('profile.edit');
     }
