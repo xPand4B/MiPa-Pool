@@ -73,7 +73,7 @@
                                         <div class="row pull-right">
                                                                                     
                                             {{-- Edit --}}
-                                            @if (! false)
+                                            @if (! $menu->order->closed)
                                                 <div class="col p-0 text-center">
                                                     <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.edit') }}" data-toggle="modal" data-target="#menus.edit.{{ $menu->id }}">
                                                         {!! config('icons.edit') !!}
