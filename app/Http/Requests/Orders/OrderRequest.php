@@ -4,7 +4,7 @@ namespace App\Http\Requests\Orders;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNewOrderRequest extends FormRequest
+class OrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class StoreNewOrderRequest extends FormRequest
     {
         return [
             'name'              => 'required|min:5|max:128',
-            'deadline'          => 'required',
+            'deadline'          => '',
             'max_orders'        => 'required|integer|between:2,20',
             'minimum_value'     => 'required|integer|between:0,20',
             'delivery_service'  => 'required|string',

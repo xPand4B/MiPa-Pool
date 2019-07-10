@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use App\Events\SendFlashMessageEvent;
 
-class StoreNewProfileDataListener
+class UpdateProfileListener
 {
     /**
      * Handle the event.

@@ -6,14 +6,14 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use App\Http\Requests\Orders\StoreNewOrderRequest;
+use App\Http\Requests\Orders\OrderRequest;
 
 class NewOrderCreationEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var \App\Http\Requests\Orders\StoreNewOrderRequest
+     * @var \App\Http\Requests\Orders\OrderRequest
      */
     public $request;
 
@@ -22,7 +22,7 @@ class NewOrderCreationEvent
      *
      * @return void
      */
-    public function __construct(StoreNewOrderRequest $request)
+    public function __construct(OrderRequest $request)
     {
         $this->request = $request;
     }

@@ -6,14 +6,14 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use App\Http\Requests\Orders\StoreNewMenuRequest;
+use App\Http\Requests\Menus\MenuRequest;
 
 class NewMenuCreationEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var App\Http\Requests\Orders\StoreNewMenuRequest
+     * @var App\Http\Requests\Menus\MenuRequest
      */
     public $request;
 
@@ -22,7 +22,7 @@ class NewMenuCreationEvent
      *
      * @return void
      */
-    public function __construct(StoreNewMenuRequest $request)
+    public function __construct(MenuRequest $request)
     {
         $this->request = $request;
     }

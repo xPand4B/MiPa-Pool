@@ -30,7 +30,19 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\Orders\NewMenuCreationEvent::class => [
             \App\Listeners\Orders\StoreNewMenuListener::class
         ],
+
+        // Update existing order
+        \App\Events\Orders\UpdateOrderEvent::class => [
+            \App\Listeners\Orders\UpdateOrderListener::class
+        ],
     // end OrderController
+
+    // MenuController
+        // Update existing menu
+        \App\Events\Menus\UpdateMenuEvent::class => [
+            \App\Listeners\Menus\UpdateMenuListener::class
+        ],
+    // end MenuController
 
     // ProfileController
         // Load Profile
@@ -40,7 +52,7 @@ class EventServiceProvider extends ServiceProvider
 
         // Profile data has been updated
         \App\Events\Profile\UpdateProfileDataEvent::class => [
-            \App\Listeners\Profile\StoreNewProfileDataListener::class,
+            \App\Listeners\Profile\UpdateProfileListener::class,
         ],
 
         // Avatar has been reset
