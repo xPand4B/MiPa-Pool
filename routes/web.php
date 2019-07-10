@@ -23,14 +23,16 @@ Route::middleware(['language'])->group(function(){
             'except' => [ 'show', 'edit' ]
         ]);
 
-        // Participate
-        Route::get( '/orders/participate/{order}',  'ParticipateController@create')->name('participate.create');
-        Route::post('/orders/participate',          'ParticipateController@store' )->name('participate.store');
+        // Menus
+        Route::match(['put', 'patch'],
+                      '/orders/participate/{menu}',     'MenuController@update' )->name('menu.update');
+        Route::get(   '/orders/participate/{order}',    'MenuController@create' )->name('menu.create');
+        Route::post(  '/orders/participate',            'MenuController@store'  )->name('menu.store');
+        Route::delete('/orders/participate/{menu}',     'MenuController@destroy')->name('menu.destroy');
         
         // Management
-        Route::resource('/manage',          'ManagementController', [
-            'only'          => [ 'index' ]
-        ]);
+        Route::get('/manage/orders',    'OrderManagementController@index')->name('manage.orders.index');
+        Route::get('/manage/menus',     'MenuManagementController@index' )->name('manage.menus.index');
         
         // Profile
         Route::match(['put', 'patch'], 
