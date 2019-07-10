@@ -58,10 +58,14 @@ if [ "$input2" == "y" ];
     fi;
 
     echo ""
-    read -n 1 -p "Would you like to run all tests to see if everything is working just fine? [y/n] " input4
+    echo "Would you like to run all tests to see if everything is working just fine?"
     echo ""
     echo "If not please report the error to ${green}xpand.4beatz@gmail.com${reset}"
-    echo "or create an issue at ${green}https://github.com/xPand4B/MiPa-Pool/issues/new/choose${reset}"
+    echo "or create an issue at ${green}https://github.com/xPand4B/MiPa-Pool/issues/new/choose${reset}."
+    echo ""
+    read -n 1 -p "[y/n]" input4
+    echo ""
+    echo ""
 
     if [ "$input4" == "y" ];
         then
