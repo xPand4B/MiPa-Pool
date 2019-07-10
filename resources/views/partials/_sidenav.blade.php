@@ -26,14 +26,6 @@
                         <p>@lang('menu.side.home')</p>
                     </a>
                 </li>
-
-                {{-- Manage Orders --}}
-                <li class="nav-item {{ Nav::hasSegment('manage') }}">
-                    <a href="{{ route('manage.index') }}" class="nav-link">
-                        {!! config('icons.shopping-cart') !!}
-                        <p>@lang('menu.side.manage')</p>
-                    </a>
-                </li>
     
                 {{-- User Profil --}}
                 <li class="nav-item {{ Nav::hasSegment('profile') }}">
@@ -42,11 +34,51 @@
                         <p>@lang('menu.side.profile')</p>
                     </a>
                 </li>
-                
-                <hr class="mx-3 mt-5 mb-0" style="background-color: rgba(180, 180, 180, 0.3);">
+
+                {{-- Management --}}
+                @if (Auth::user()->hasOrders() || Auth::user()->hasMenus())
+                    <div class="nav-collection">
+
+                        {{-- Manage Index --}}
+                        <li class="nav-parent">
+                            <a class="nav-link">
+                                <p>
+                                    {!! config('icons.settings') !!}
+                                    @lang('menu.side.manage.index')
+                                </p>
+                            </a>
+                        </li>
+
+                        {{-- Manage Orders --}}
+                        @if (Auth::user()->hasOrders())
+                            <li class="nav-item {{ Nav::isRoute('manage.orders.index') }}">
+                                <a href="{{ route('manage.orders.index') }}" class="nav-link nav-child">
+                                    {!! config('icons.shopping-cart') !!}
+                                    <p>
+                                        <span class="badge badge-pill badge-light">{{ sizeof(Auth::user()->orders) }}</span>
+                                        @lang('menu.side.manage.orders')
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+
+                        {{-- Manage Menus --}}
+                        @if (Auth::user()->hasMenus())
+                            <li class="nav-item {{ Nav::isRoute('manage.menus.index') }}">
+                                <a href="{{ route('manage.menus.index') }}" class="nav-link nav-child">
+                                    {!! config('icons.fastfood') !!}
+                                    <p>
+                                        <span class="badge badge-pill badge-light">{{ sizeof(Auth::user()->menus) }}</span>
+                                        @lang('menu.side.manage.menus')
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                    </div>
+                @endif
 
                 {{-- PayPal --}}
-                <li class="nav-item">
+                <li class="nav-item active-pro mb-5">
                     <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F8EMZ2C75K4TA" class="nav-link" target="_blank">
                         {!! config('icons.paypal') !!}
                         <p>@lang('menu.side.support')</p>
