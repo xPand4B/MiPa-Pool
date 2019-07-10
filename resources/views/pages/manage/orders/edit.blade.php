@@ -39,6 +39,8 @@
                         <div class="card-body">
                             {!! Form::model($order, [ 'route'  => [ 'orders.update', $order ], 'method' => 'PUT' ]) !!}
                                 @csrf
+                                <input id="id" name="id" value="{{ $order->id }}" hidden>
+
                                 {{-- Order Name --}}
                                 <div class="form-group is-focused">
                                     {{ Form::label('name', trans('page.manage.edit.form.order_name'), ['class' => 'bmd-label-floating']) }}
@@ -57,7 +59,7 @@
                                     {{ Form::label('deadline', trans('page.manage.edit.form.deadline'), ['class' => 'bmd-label-floating']) }}
 
                                     <select name="deadline" id="deadline" class="form-control text-gray" disabled>
-                                        <option value="" selected>{{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('page.manage.edit.form.time')</option>
+                                        <option value="{{ $order->deadline }}" selected>{{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('page.manage.edit.form.time')</option>
                                     </select>
                                 </div>
                 
@@ -69,7 +71,7 @@
                                         {{ Form::label('max_orders', trans('page.manage.edit.form.max_orders'), ['class' => 'bmd-label-floating']) }}
 
                                         <select name="max_orders" id="max_orders" class="form-control" required>
-                                            @for ($i = 2; $i <= 20; $i++)
+                                            @for ($i = $order->menus->count(); $i <= 20; $i++)
                                                 @if ($i == $order->max_orders)
                                                     <option value="{{ $i }}" selected>{{ $i }}</option>
                                                 @else

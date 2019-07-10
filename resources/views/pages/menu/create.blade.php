@@ -34,7 +34,7 @@
 
                     {{-- Content --}}
                     <div class="card-body pt-0">
-                        <form action="{{ route('participate.store') }}" method="POST">
+                        <form action="{{ route('menu.store') }}" method="POST">
                             @csrf
                             {{-- Order ID --}}
                             <input type="number" name="order_id" id="order_id" value="{{ $order->id }}" hidden>
@@ -142,7 +142,7 @@
                                 <dl class="row">
                                     {{-- Created by --}}
                                     <dt class="col-sm-4">
-                                        {!! config('icons.profile-sm') !!} &ensp; @lang('page.orders.participate.created_by')
+                                        {!! config('icons.profile-sm') !!} &ensp; @lang('page.orders.menu.created_by')
                                     </dt>
                                     <dd class="col-sm-8 text-muted">
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
@@ -211,7 +211,7 @@
                                     {{-- Manage --}}
                                     @if (Auth::user()->id == $order->user_id)
                                         <dt class="col-sm-4 mt-3">
-                                            <form action="{{ route('manage.index') }}" method="GET" role="search">
+                                            <form action="{{ route('manage.orders.index') }}" method="GET" role="search">
                                                 {!! config('icons.settings-sm') !!}
             
                                                 <input name="id" id="id" type="text" class="form-control" value="{{ $order->id }}" hidden>
@@ -251,6 +251,7 @@
                                                 <th class="p-1">@lang('table.orders.head.name')</th>
                                                 <th class="p-1">@lang('table.orders.head.menu')</th>
                                                 <th class="p-1">@lang('table.orders.head.price')</th>
+                                                <th class="p-1"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -263,6 +264,16 @@
                                                     <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                     <td class="p-1">{{ $menu->name }}</td>
                                                     <td class="p-1">{{ $menu->price }} {{ config('app.currency') }}</td>
+                                                    @if (Auth::user()->id == $menu->user_id)
+                                                        <td class="p-1">
+                                                            <form action="{{ route('manage.menus.index') }}" method="GET">
+                                                                <input name="id" id="id" type="text" class="form-control" value="{{ $menu->id }}" hidden>
+                                                                <button type="submit" class="btn btn-link p-1 m-0 text-primary">
+                                                                    {!! config('icons.settings-sm') !!}
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                             
@@ -270,6 +281,7 @@
                                                 <td class="p-1"></td>
                                                 <td class="p-1"></td>
                                                 <th class="p-1 text-center"><strong>{{ $order->sum }} {{ config('app.currency') }}</strong></th>
+                                                <td class="p-1"></td>
                                             </tr>
                                         </tbody>
                                     </table>

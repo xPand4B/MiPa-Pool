@@ -87,10 +87,10 @@
                                     <a href="#" class="btn btn-block btn-round disabled" disabled hidden>
 
                                 @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
-                                    <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-block btn-warning btn-round">
+                                    <a href="{{ route('menu.create', ['order' => $order]) }}" class="btn btn-block btn-warning btn-round">
 
                                 @else
-                                    <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-block btn-success btn-round">
+                                    <a href="{{ route('menu.create', ['order' => $order]) }}" class="btn btn-block btn-success btn-round">
                                 @endif
 
                                     {!! config('icons.participate') !!}
@@ -112,6 +112,7 @@
                                             <th class="p-1">@lang('table.orders.head.number')</th>
                                             <th class="p-1">@lang('table.orders.head.comment')</th>
                                             <th class="p-1">@lang('table.orders.head.price')</th>
+                                            <th class="p-1"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -126,6 +127,16 @@
                                                 <td class="p-1">{{ $menu->number }}</td>
                                                 <td class="p-1">{{ $menu->comment }}</td>
                                                 <td class="p-1">{{ $menu->price }} {{ config('app.currency') }}</td>
+                                                @if (Auth::user()->id == $menu->user_id)
+                                                    <td class="p-1">
+                                                        <form action="{{ route('manage.menus.index') }}" method="GET">
+                                                            <input name="id" id="id" type="text" class="form-control" value="{{ $menu->id }}" hidden>
+                                                            <button type="submit" class="btn btn-link p-1 m-0 text-primary">
+                                                                {!! config('icons.settings-sm') !!}
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                         
@@ -135,6 +146,7 @@
                                             <td class="p-1"></td>
                                             <td class="p-1"></td>
                                             <th class="p-1 text-center"><strong>{{ $order->sum }} {{ config('app.currency') }}</strong></th>
+                                            <td class="p-1"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -172,7 +184,7 @@
                             <div class="stats text-primary">
 
                                 @if (Auth::user()->id == $order->user_id)
-                                    <form action="{{ route('manage.index') }}" method="GET">
+                                    <form action="{{ route('manage.orders.index') }}" method="GET">
                                         <input name="id" id="id" type="text" class="form-control" value="{{ $order->id }}" hidden>
                                         <button type="submit" class="btn btn-link p-0 text-primary text-capitalize">
                                             {!! config('icons.settings-sm') !!} @lang('page.orders.manage')
