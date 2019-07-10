@@ -19,10 +19,9 @@ return [
 
     'order' =>[
         'created' => 'Deine Bestellung wurde erstellt.',
-
         'participated'  => 'Dein Menü wurde zur Bestellung hinzugefügt',
 
-        'price_is_no_digit' => 'Preis muss eine Zahl sein.'
+        'price_is_no_digit' => 'Preis muss eine Zahl sein.',
     ],
     
     'profile' => [
@@ -32,6 +31,13 @@ return [
 
     'management' => [
         'closed'    => 'Deine Bestellung wurde geschlossen.',
-        'destroyed' => 'Deine Bestellung wurde gelöscht.',
+
+        'order' =>[
+            'destroyed' => 'Deine Bestellung wurde gelöscht.',
+        ],
+
+        'menu' =>[
+            'destroyed' => 'Dein Menu wurde gelöscht.',
+        ],
     ],
 ];

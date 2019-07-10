@@ -82,25 +82,33 @@ return [
         ],
 
         'breadcrumb' => [
-            'index'  => 'Management',
+            'index'     => 'Management',
+            'orders'    => 'Orders',
+            'menus'     => 'Menus',
         ],
 
-        'index' => [
-            'headline'   => 'Manage your orders',
+        'headline' => [
+            'orders'    => 'Manage your orders',
+            'menus'     => 'Manage your menus',
+        ],
 
-            'tableHeads' => [
-                'name'              => 'Name',
-                'deliveryService'   => 'Delivery Service',
-                'deadline'          => 'Deadline',
-                'createdAt'         => 'Created'
-            ],
+        'tableHeads' => [
+            'name'              => 'Name',
 
-            'tableButtons' => [
-                'edit'      => 'Edit Order',
-                'close'     => 'Close Order',
-                'show'      => 'View Order',
-                'delete'    => 'Delete Order'
-            ]
+            'deliveryService'   => 'Delivery Service',
+            'deadline'          => 'Deadline',
+            'createdAt'         => 'Created',
+            'updatedAt'         => 'Updated',
+
+            'number'            => 'Number',
+            'price'             => 'Price (in '.config('app.currency').')',
+        ],
+
+        'tableButtons' => [
+            'edit'      => 'Edit',
+            'close'     => 'Close',
+            'show'      => 'View',
+            'delete'    => 'Delete'
         ],
 
         'show' => [
@@ -116,7 +124,13 @@ return [
                 'minimum_order_value'   => 'Min. Value',
                 'delivery_service'      => 'Delivery Service',
                 'site_link'             => 'Menu-card',
-                'submit'                => 'Update Order',
+
+                'menu_name'             => 'Menu Name',
+                'number'                => 'How much do you want?',
+                'price'                 => 'Total Price (in '.config('app.currency').')',
+                'comment'               => 'Comment',
+
+                'submit'                => 'Save changes',
             ],
         ],
     ],
@@ -162,13 +176,13 @@ return [
             'index'  => 'Search'
         ],
         
-        'tabpages' => [
-            'orders'    => 'Orders',
-            'menus'     => 'Menus',
-            'users'     => 'Users',
-        ],
-        
         'empty' => "Upps, seems like we couldn't find any :type ¯\_(ツ)_/¯",
+    ],
+
+    'tabpages' => [
+        'orders'    => 'Orders',
+        'menus'     => 'Menus',
+        'users'     => 'Users',
     ],
 
     'mysticModal' => "Congratulation, you've found an easteregg.<br>Can you find all of them?",

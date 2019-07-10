@@ -82,25 +82,33 @@ return [
         ],
 
         'breadcrumb' => [
-            'index'  => 'Verwaltung',
+            'index'     => 'Verwaltung',
+            'orders'    => 'Bestellungen',
+            'menus'     => 'Menüs',
         ],
 
-        'index' => [
-            'headline'   => 'Verwalte deine Bestellungen',
+        'headline' => [
+            'orders'    => 'Verwalte deine Bestellungen',
+            'menus'     => 'Verwalte deine Menüs',
+        ],
 
-            'tableHeads' => [
-                'name'              => 'Name',
-                'deliveryService'   => 'Lieferdienst',
-                'deadline'          => 'Laufzeit',
-                'createdAt'         => 'Erstellung'
-            ],
+        'tableHeads' => [
+            'name'              => 'Name',
 
-            'tableButtons' => [
-                'edit'      => 'Bestellung bearbeiten',
-                'close'     => 'Bestellung schließen',
-                'show'      => 'Bestellung ansehen',
-                'delete'    => 'Bestellung löschen'
-            ]
+            'deliveryService'   => 'Lieferdienst',
+            'deadline'          => 'Laufzeit',
+            'createdAt'         => 'Erstellung',
+            'updatedAt'         => 'Aktualisiert',
+
+            'number'            => 'Anzahl',
+            'price'             => 'Preis (in '.config('app.currency').')',
+        ],
+
+        'tableButtons' => [
+            'edit'      => 'Bearbeiten',
+            'close'     => 'Schließen',
+            'show'      => 'Ansehen',
+            'delete'    => 'Löschen'
         ],
         
         'show' => [
@@ -116,6 +124,12 @@ return [
                 'minimum_order_value'   => 'Mindestbestellwert',
                 'delivery_service'      => 'Lieferdienst',
                 'site_link'             => 'Speisekarte',
+
+                'order_name'            => 'Menü Name',
+                'number'                => 'Anzahl',
+                'price'                 => 'Gesamt Preis (in '.config('app.currency').')',
+                'comment'               => 'Kommentar',
+
                 'submit'                => 'Änderungen Speichern'
             ],
         ],
@@ -162,13 +176,13 @@ return [
             'index'  => 'Suche'
         ],
         
-        'tabpages' => [
-            'orders'    => 'Bestellungen',
-            'menus'     => 'Menüs',
-            'users'     => 'Nutzer',
-        ],
-        
         'empty' => "Upps, sieht so aus als ob wir keine :type gefunden haben ¯\_(ツ)_/¯",
+    ],
+
+    'tabpages' => [
+        'orders'    => 'Bestellungen',
+        'menus'     => 'Menüs',
+        'users'     => 'Nutzer',
     ],
 
     'mysticModal' => "Glückwunsch, du hast ein Easteregg gefunden.<br>Schaffst du es sie alle zu finden?",

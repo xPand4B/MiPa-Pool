@@ -18,11 +18,10 @@ return [
     ],
 
     'order' =>[
-        'created'       => 'Your order has been created.',
+        'created'           => 'Your order has been created.',
+        'participated'      => 'Your menu has been added to the order.',
 
-        'participated'  => 'Your menu has been added to the order.',
-
-        'price_is_no_digit' => 'Price has to be a digit.'
+        'price_is_no_digit' => 'Price has to be a digit.',
     ],
     
     'profile' => [
@@ -32,6 +31,13 @@ return [
 
     'management' => [
         'closed'    => 'Your Order has been closed.',
-        'destroyed' => 'Your Order has been deleted.',
+
+        'order' => [
+            'destroyed' => 'Your Order has been deleted.',
+        ],
+
+        'menu' => [
+            'destroyed' => 'Your Menu has been deleted.',
+        ],
     ],
 ];
