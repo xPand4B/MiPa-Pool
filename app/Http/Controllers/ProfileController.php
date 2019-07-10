@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Events\Profile\ResetAvatarEvent;
 use App\Events\Profile\LoadProfileDataEvent;
