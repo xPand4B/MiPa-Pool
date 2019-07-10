@@ -142,7 +142,7 @@
                                 <dl class="row">
                                     {{-- Created by --}}
                                     <dt class="col-sm-4">
-                                        {!! config('icons.profile-sm') !!} &ensp; @lang('page.orders.menu.created_by')
+                                        {!! config('icons.profile-sm') !!} &ensp; @lang('page.orders.participate.created_by')
                                     </dt>
                                     <dd class="col-sm-8 text-muted">
                                         {{ $order->user->firstname }} {{ $order->user->surname}} ({{ $order->user->username }})
