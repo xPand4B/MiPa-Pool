@@ -9,7 +9,7 @@ use App\Helper\CurrencyHelper;
 use App\Http\Controllers\Controller;
 use Kyslik\ColumnSortable\Exceptions\ColumnSortableException;
 
-class ManagementController extends Controller
+class OrderManagementController extends Controller
 {
     /**
      * Restrict access
@@ -29,9 +29,13 @@ class ManagementController extends Controller
         try {
             $orders = Order::FromUser(Auth::user()->id)
                         ->paginate(15);
+
         } catch (ColumnSortableException $e) {
             return redirect()->back();
         }
+
+        if(sizeof($orders) == 0)
+            return redirect()->route('home');
 
         for($i = 0; $i < sizeof($orders); $i++){
             $orders[$i] = CurrencyHelper::getSum($orders[$i]);
@@ -44,13 +48,13 @@ class ManagementController extends Controller
         if(! empty(request('id'))){
             $selected = Order::FromUser(Auth::user()->id)
                                 ->findOrFail(request('id'))
-                                ->name;
+                                ->id;
         }
 
-        return view('pages.manage.index', [
+        return view('pages.manage.orders.index', [
             'orders'    => $orders,
             'timesteps' => TimeHelper::GetTimesteps(),
-            'selected'  => empty($selected) ? '' : $selected
+            'selected'  => empty($selected) ? '' : 'id:'.$selected,
         ]);
     }
 }
