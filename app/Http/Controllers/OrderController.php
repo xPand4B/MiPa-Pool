@@ -12,6 +12,7 @@ use App\Events\SendFlashMessageEvent;
 use App\Events\Orders\UpdateOrderEvent;
 use App\Http\Requests\Orders\OrderRequest;
 use App\Events\Orders\NewOrderCreationEvent;
+use App\Models\Menu;
 
 class OrderController extends Controller
 {
@@ -134,6 +135,8 @@ class OrderController extends Controller
         $id = $order->id;
 
         $order->delete();
+
+        Menu::where('order_id', $id)->delete();
 
         Log::info("Order #$id has been successfully deleted.");
 
