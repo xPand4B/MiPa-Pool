@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Order;
 use App\Helper\TimeHelper;
-use Illuminate\Http\Request;
 use App\Helper\CurrencyHelper;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Events\SendFlashMessageEvent;
+use App\Events\Orders\UpdateOrderEvent;
+use App\Http\Requests\Orders\OrderRequest;
 use App\Events\Orders\NewOrderCreationEvent;
-use App\Http\Requests\Orders\StoreNewOrderRequest;
 
 class OrderController extends Controller
 {
@@ -62,17 +62,17 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Orders\StoreNewOrderRequest  $request
+     * @param  \App\Http\Requests\Orders\OrderRequest  $request
      * 
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewOrderRequest $request)
+    public function store(OrderRequest $request)
     {
         $order = event(new NewOrderCreationEvent($request))[0];
 
         Log::info("Order #$order->id has been successfully created.");
 
-        return redirect()->route('participate.create', [
+        return redirect()->route('menu.create', [
             'order' => $order
         ]);
     }
@@ -80,17 +80,22 @@ class OrderController extends Controller
     /**
      * Update the specified Order created by Auth::user() in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Orders\OrderRequest  $request
      * @param  Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(OrderRequest $request)
     {
-        // event(new);
+        $order = Order::findOrFail($request->input("id"));
 
-        // Log::info("Order #$order->id has been successfully updated.");
+        if(Auth::user()->id != $order->user_id)
+            return redirect()->route('manage.orders.index');
 
-        return redirect()->route('manage.index');
+        event(new UpdateOrderEvent($request));
+
+        Log::info("Order #".$request->input('id')." has been successfully updated.");
+
+        return redirect()->route('manage.orders.index');
     }
 
     /**
@@ -102,7 +107,7 @@ class OrderController extends Controller
     public function close(Order $order)
     {
         if(Auth::user()->id != $order->user_id)
-            return redirect()->route('manage.index');
+            return redirect()->route('manage.orders.index');
 
         $order->update([
             'closed' => 1
@@ -112,7 +117,7 @@ class OrderController extends Controller
 
         event(new SendFlashMessageEvent('success', trans('session.management.closed')));
 
-        return redirect()->route('manage.index');
+        return redirect()->route('manage.orders.index');
     }
 
     /**
@@ -124,7 +129,7 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         if(Auth::user()->id != $order->user_id)
-            return redirect()->route('manage.index');
+            return redirect()->route('manage.orders.index');
 
         $id = $order->id;
 
@@ -132,8 +137,8 @@ class OrderController extends Controller
 
         Log::info("Order #$id has been successfully deleted.");
 
-        event(new SendFlashMessageEvent('success', trans('session.management.destroyed')));
+        event(new SendFlashMessageEvent('success', trans('session.management.order.destroyed')));
 
-        return redirect()->route('manage.index');
+        return redirect()->route('manage.orders.index');
     }
 }
