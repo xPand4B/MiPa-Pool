@@ -89,13 +89,15 @@
                                             </div>
             
                                             {{-- Delete --}}
-                                            <div class="col p-0 text-center">
-                                                {!! Form::open(['route' => ['menu.destroy', $menu], 'method' => 'DELETE']) !!}
-                                                    <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.tableButtons.delete') }}">
-                                                        {!! config('icons.delete') !!}
-                                                    </button>
-                                                {!! Form::close() !!}
-                                            </div>
+                                            @if (! $menu->order->closed)
+                                                <div class="col p-0 text-center">
+                                                    {!! Form::open(['route' => ['menu.destroy', $menu], 'method' => 'DELETE']) !!}
+                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.tableButtons.delete') }}">
+                                                            {!! config('icons.delete') !!}
+                                                        </button>
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            @endif
 
                                         </div>
                                     </td>
