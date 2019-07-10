@@ -25,7 +25,7 @@ class Order extends Model
      * @var array
      */
     public $sortable = [
-        'name', 'delivery_service', 'deadline', 'created_at'
+        'name', 'delivery_service', 'deadline', 'created_at', 'updated_at'
     ];
 
     /**
@@ -80,7 +80,7 @@ class Order extends Model
     {
         return $query
             ->where('user_id', $userID)
-            ->sortable(['created_at' => 'desc']);
+            ->sortable(['updated_at' => 'desc']);
     } 
 
     /**

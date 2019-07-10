@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Menu;
+use App\Models\Order;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -51,5 +53,35 @@ class User extends Authenticatable
     public function getFullnameAttribute()
     {
         return $this->firstname . ' ' . $this->surname;
+    }
+
+    /**
+     * Rather or not the current user has orders.
+     *
+     * @return boolean
+     */
+    public function hasOrders(): bool
+    {
+        $hasOrders = Order::where('user_id', $this->id)->count();
+
+        if($hasOrders != 0)
+            return true;
+
+        return false;
+    }
+
+    /**
+     * Rather or not the current user has menus.
+     *
+     * @return boolean
+     */
+    public function hasMenus(): bool
+    {
+        $hasMenus = Menu::where('user_id', $this->id)->count();
+
+        if($hasMenus != 0)
+            return true;
+
+        return false;
     }
 }
