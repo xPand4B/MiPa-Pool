@@ -69,7 +69,7 @@
         }
 
         .bg-purple{
-            background: url("/img/404-errors/space/bg_purple.png");
+            background: url("{{ asset('img/404-errors/space/bg_purple.png') }}");
             background-repeat: repeat-x;
             background-size: cover;
             background-position: left top;
@@ -236,7 +236,7 @@
         }
 
         .stars{
-            background: url("/svg/404-errors/space/overlay_stars.svg");
+            background: url("{{ asset('svg/404-errors/space/overlay_stars.svg') }}");
             background-repeat: repeat;
             background-size: contain;
             background-position: left top;

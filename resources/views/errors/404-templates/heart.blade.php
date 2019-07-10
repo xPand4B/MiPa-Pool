@@ -67,13 +67,13 @@
         }
 
         .red {
-            background: url("/img/404-errors/heart/red-1.png") no-repeat center center;
+            background: url("{{ asset('img/404-errors/heart/red-1.png') }}") no-repeat center center;
             opacity: 1;
             animation: red 3s linear infinite, opacityRed 5s linear alternate infinite;
         }
 
         .blue {
-            background: url("/img/404-errors/heart/blue-1.png") no-repeat center center;
+            background: url("{{ asset('img/404-errors/heart/blue-1.png') }}") no-repeat center center;
             opacity: 0;
             animation: blue 3s linear infinite, opacityBlue 5s linear alternate infinite;
         }
@@ -101,67 +101,67 @@
 
         @keyframes blue {
             0% {
-                background-image: url("/img/404-errors/heart/blue-1.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-1.png') }}") 
         }
             9.09% {
-                background-image: url("/img/404-errors/heart/blue-2.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-2.png') }}") 
         }
             27.27% {
-                background-image: url("/img/404-errors/heart/blue-3.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-3.png') }}") 
         }
             36.36% {
-                background-image: url("/img/404-errors/heart/blue-4.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-4.png') }}") 
         }
             45.45% {
-                background-image: url("/img/404-errors/heart/blue-5.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-5.png') }}") 
         }
             54.54% {
-                background-image: url("/img/404-errors/heart/blue-6.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-6.png') }}") 
         }
             63.63% {
-                background-image: url("/img/404-errors/heart/blue-7.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-7.png') }}") 
         }
             72.72% {
-                background-image: url("/img/404-errors/heart/blue-8.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-8.png') }}") 
         }
             81.81% {
-                background-image: url("/img/404-errors/heart/blue-9.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-8.png') }}") 
         }
             100% {
-                background-image: url("/img/404-errors/heart/blue-1.png") 
+                background-image: url("{{ asset('img/404-errors/heart/blue-1.png') }}") 
         }
         }
 
         @keyframes red {
             0% {
-                background-image: url("/img/404-errors/heart/red-1.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-1.png') }}") 
         }
             9.09% {
-                background-image: url("/img/404-errors/heart/red-2.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-2.png') }}") 
         }
             27.27% {
-                background-image: url("/img/404-errors/heart/red-3.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-3.png') }}") 
         }
             36.36% {
-                background-image: url("/img/404-errors/heart/red-4.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-4.png') }}") 
         }
             45.45% {
-                background-image: url("/img/404-errors/heart/red-5.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-5.png') }}") 
         }
             54.54% {
-                background-image: url("/img/404-errors/heart/red-6.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-6.png') }}") 
         }
             63.63% {
-                background-image: url("/img/404-errors/heart/red-7.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-7.png') }}") 
         }
             72.72% {
-                background-image: url("/img/404-errors/heart/red-8.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-8.png') }}") 
         }
             81.81% {
-                background-image: url("/img/404-errors/heart/red-9.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-9.png') }}") 
         }
             100% {
-                background-image: url("/img/404-errors/heart/red-1.png") 
+                background-image: url("{{ asset('img/404-errors/heart/red-1.png') }}") 
         }
         }
 

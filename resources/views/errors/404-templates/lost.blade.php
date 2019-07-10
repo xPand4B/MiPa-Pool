@@ -14,7 +14,7 @@
         }
 
         .four_zero_four_bg{
-            background-image: url("/img/404-errors/lost/dribbble_1.gif");
+            background-image: url("{{ asset('img/404-errors/lost/dribbble_1.gif') }}");
             height: 400px;
             background-position: center;
         }
