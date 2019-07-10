@@ -27,7 +27,7 @@
                                 <a class="nav-link active show" href="#orders" data-toggle="tab">
                                     {!! config('icons.shopping-cart') !!}
                                     <span class="badge badge-pill badge-light">{{ sizeof($orders) }}</span>
-                                    @lang('page.search.tabpages.orders')
+                                    @lang('page.tabpages.orders')
                                 </a>
                             </li>
                             
@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="#menus" data-toggle="tab">
                                     {!! config('icons.fastfood') !!}
                                     <span class="badge badge-pill badge-light">{{ sizeof($menus) }}</span>
-                                    @lang('page.search.tabpages.menus')
+                                    @lang('page.tabpages.menus')
                                 </a>
                             </li>
 
@@ -45,7 +45,7 @@
                                 <a class="nav-link" href="#users" data-toggle="tab">
                                     {!! config('icons.profile') !!}
                                     <span class="badge badge-pill badge-light">{{ sizeof($users) }}</span>
-                                    @lang('page.search.tabpages.users')
+                                    @lang('page.tabpages.users')
                                 </a>
                             </li>
                         </ul>

@@ -44,10 +44,10 @@
                                 <a href="#" class="btn btn-sm btn-block btn-round disabled" disabled>
 
                             @elseif(sizeof($order->menus) != 0 && (sizeof($order->menus) + 1 == $order->max_orders || sizeof($order->menus) + 2 == $order->max_orders))
-                                <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-sm btn-block btn-warning btn-round">
+                                <a href="{{ route('menu.create', ['order' => $order]) }}" class="btn btn-sm btn-block btn-warning btn-round">
 
                             @else
-                                <a href="{{ route('participate.create', ['order' => $order]) }}" class="btn btn-sm btn-block btn-success btn-round">
+                                <a href="{{ route('menu.create', ['order' => $order]) }}" class="btn btn-sm btn-block btn-success btn-round">
                             @endif
 
                                 {!! config('icons.participate') !!}
