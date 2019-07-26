@@ -3,7 +3,7 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.orders.breadcrumb.index'),
+            trans('breadcrumb.orders.index'),
         ]
     ])
 @endsection
@@ -94,7 +94,7 @@
                                 @endif
 
                                     {!! config('icons.participate') !!}
-                                    @lang('table.orders.participate')
+                                    @lang('tables.orders.participate')
                                 </a>
                             </div>
                         </h4>
@@ -107,11 +107,11 @@
                                 <table class="table table-sm table-shopping text-center m-0">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th class="p-1">@lang('table.orders.head.name')</th>
-                                            <th class="p-1">@lang('table.orders.head.menu')</th>
-                                            <th class="p-1">@lang('table.orders.head.number')</th>
-                                            <th class="p-1">@lang('table.orders.head.comment')</th>
-                                            <th class="p-1">@lang('table.orders.head.price')</th>
+                                            <th class="p-1">@lang('tables.orders.head.name')</th>
+                                            <th class="p-1">@lang('tables.orders.head.menu')</th>
+                                            <th class="p-1">@lang('tables.orders.head.number')</th>
+                                            <th class="p-1">@lang('tables.orders.head.comment')</th>
+                                            <th class="p-1">@lang('tables.orders.head.price')</th>
                                             <th class="p-1"></th>
                                         </tr>
                                     </thead>
@@ -153,7 +153,7 @@
                                 
                             @else
                                 <div class="text-center">
-                                    <h5 class="text-danger"><strong>@lang('table.orders.empty')</strong></h4>
+                                    <h5 class="text-danger"><strong>@lang('tables.orders.empty')</strong></h4>
                                 </div>
                             @endif
                         </div>
@@ -207,7 +207,7 @@
                                 <div class="stats text-success">
                             @endif
 
-                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('tables.orders.footer.people_count')
                             </div>
                         </div>
 

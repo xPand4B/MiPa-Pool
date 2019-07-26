@@ -5,8 +5,8 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.orders.breadcrumb.index') => route('home'),
-            trans('page.orders.breadcrumb.create')
+            trans('breadcrumb.orders.index') => route('home'),
+            trans('breadcrumb.orders.create')
         ]
     ])
 @endsection
@@ -45,7 +45,7 @@
                             @csrf
                             {{-- Order Name --}}
                             <div class="form-group is-focused">
-                                {{ Form::label('name', trans('page.orders.create.form.order_name'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('name', trans('forms.orders.create.order_name'), ['class' => 'bmd-label-floating']) }}
             
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
             
@@ -60,14 +60,14 @@
                             <div class="form-row" style="padding-left: 5px">
                                 {{-- Deadline --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    {{ Form::label('deadline', trans('page.orders.create.form.deadline'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('deadline', trans('forms.orders.create.deadline'), ['class' => 'bmd-label-floating']) }}
 
                                     <select name="deadline" id="deadline" class="form-control">
                                         @for ($i = 0; $i < sizeof($timesteps); $i++)
                                             @if ($i == 0)
-                                                <option value="{{ $timesteps[$i] }}" selected>{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
+                                                <option value="{{ $timesteps[$i] }}" selected>{{ $timesteps[$i] }} @lang('forms.orders.create.time')</option>
                                             @else
-                                                <option value="{{ $timesteps[$i] }}">{{ $timesteps[$i] }} @lang('page.orders.create.form.time')</option>
+                                                <option value="{{ $timesteps[$i] }}">{{ $timesteps[$i] }} @lang('forms.orders.create.time')</option>
                                             @endif
                                         @endfor
                                     </select>
@@ -75,7 +75,7 @@
 
                                 {{-- Max Orders --}}
                                 <div class="form-group col px-0 pr-3">
-                                    {{ Form::label('max_orders', trans('page.orders.create.form.max_orders'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('max_orders', trans('forms.orders.create.max_orders'), ['class' => 'bmd-label-floating']) }}
 
                                     <select name="max_orders" id="max_orders" class="form-control" required>
                                         @for ($i = 2; $i <= 20; $i++)
@@ -90,7 +90,7 @@
 
                                 {{-- Minimun order value --}}
                                 <div class="form-group col">
-                                    {{ Form::label('minimum_value', trans('page.orders.create.form.minimum_order_value'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('minimum_value', trans('forms.orders.create.minimum_order_value'), ['class' => 'bmd-label-floating']) }}
 
                                     <select name="minimum_value" id="minimum_value" class="form-control" required>
                                         @for ($i = 0; $i <= 20; $i++)
@@ -104,7 +104,7 @@
                             <div class="form-row" style="padding-left: 5px">
                                 {{-- Delivery Service --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    {{ Form::label('delivery_service', trans('page.orders.create.form.delivery_service'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('delivery_service', trans('forms.orders.create.delivery_service'), ['class' => 'bmd-label-floating']) }}
             
                                     <input id="delivery_service" type="text" class="form-control{{ $errors->has('delivery_service') ? ' is-invalid' : '' }}" name="delivery_service" value="{{ old('delivery_service') }}" required>
             
@@ -117,7 +117,7 @@
             
                                 {{-- Site Link --}}
                                 <div class="form-group col px-0">
-                                    {{ Form::label('site_link', trans('page.orders.create.form.site_link'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('site_link', trans('forms.orders.create.site_link'), ['class' => 'bmd-label-floating']) }}
             
                                     <input id="site_link" type="text" class="form-control{{ $errors->has('site_link') ? ' is-invalid' : '' }}" name="site_link" value="{{ old('site_link') }}" required>
             
@@ -132,7 +132,7 @@
                             {{-- Submit --}}
                             <div class="form-group row">
                                 <button type="submit" class="btn btn-block btn-success btn-round">
-                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('page.orders.create.form.submit')
+                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('forms.orders.create.submit')
                                 </button>
                             </div>
                         </form>

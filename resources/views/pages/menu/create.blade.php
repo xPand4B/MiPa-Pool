@@ -5,8 +5,8 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.orders.breadcrumb.index')   => route('home'),
-            trans('page.orders.breadcrumb.participate'),
+            trans('breadcrumb.orders.index')   => route('home'),
+            trans('breadcrumb.orders.participate'),
             $order->name
         ]
     ])
@@ -41,7 +41,7 @@
 
                             {{-- Name --}}
                             <div class="form-group col pl-0 pr-3">
-                                {{ Form::label('name', trans('page.orders.participate.form.name'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('name', trans('forms.orders.participate.name'), ['class' => 'bmd-label-floating']) }}
             
                                 {{ Form::text('name', null, [
                                     'class'     => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''),
@@ -61,7 +61,7 @@
 
                             {{-- Number --}}
                             <div class="form-group col px-0">
-                                {{ Form::label('number', trans('page.orders.participate.form.number'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('number', trans('forms.orders.participate.number'), ['class' => 'bmd-label-floating']) }}
 
                                 <select name="number" id="number" class="form-control" required>
                                     @for ($i = 1; $i <= 10; $i++)
@@ -72,7 +72,7 @@
 
                             {{-- Price --}}
                             <div class="form-group col pl-0 pr-3">
-                                {{ Form::label('price', trans('page.orders.participate.form.price'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('price', trans('forms.orders.participate.price'), ['class' => 'bmd-label-floating']) }}
             
                                 {{ Form::text('price', null, [
                                     'class'     => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''),
@@ -91,7 +91,7 @@
 
                             {{-- Comment --}}
                             <div class="form-group col pl-0 pr-3">
-                                {{ Form::label('comment', trans('page.orders.participate.form.comment'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('comment', trans('forms.orders.participate.comment'), ['class' => 'bmd-label-floating']) }}
                                 {{ Form::textarea('comment', null, [
                                     'class'         => 'form-control',
                                     'rows'          => '5',
@@ -109,7 +109,7 @@
                             {{-- Submit --}}
                             <div class="form-group row">
                                 <button type="submit" class="btn btn-block btn-outline-success btn-round">
-                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('page.orders.participate.form.submit')
+                                    {!! config('icons.shopping-cart') !!} &ensp; @lang('forms.orders.participate.submit')
                                 </button>
                             </div>
                         </form>
@@ -248,9 +248,9 @@
                                     <table class="table table-sm text-center m-0 ">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th class="p-1">@lang('table.orders.head.name')</th>
-                                                <th class="p-1">@lang('table.orders.head.menu')</th>
-                                                <th class="p-1">@lang('table.orders.head.price')</th>
+                                                <th class="p-1">@lang('tables.orders.head.name')</th>
+                                                <th class="p-1">@lang('tables.orders.head.menu')</th>
+                                                <th class="p-1">@lang('tables.orders.head.price')</th>
                                                 <th class="p-1"></th>
                                             </tr>
                                         </thead>

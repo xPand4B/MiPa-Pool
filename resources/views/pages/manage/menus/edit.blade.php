@@ -23,7 +23,7 @@
     
                                 {{-- Name --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    {{ Form::label('name', trans('page.manage.edit.form.order_name'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('name', trans('forms.manage.edit.order_name'), ['class' => 'bmd-label-floating']) }}
                 
                                     {{ Form::text('name', null, [
                                         'class'     => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''),
@@ -43,7 +43,7 @@
     
                                 {{-- Number --}}
                                 <div class="form-group col px-0">
-                                    {{ Form::label('number', trans('page.manage.edit.form.number'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('number', trans('forms.manage.edit.number'), ['class' => 'bmd-label-floating']) }}
     
                                     <select name="number" id="number" class="form-control" required>
                                         @for ($i = 1; $i <= 10; $i++)
@@ -54,7 +54,7 @@
     
                                 {{-- Price --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    {{ Form::label('price', trans('page.manage.edit.form.price'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('price', trans('forms.manage.edit.price'), ['class' => 'bmd-label-floating']) }}
                 
                                     {{ Form::text('price', null, [
                                         'class'     => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''),
@@ -73,7 +73,7 @@
     
                                 {{-- Comment --}}
                                 <div class="form-group col pl-0 pr-3">
-                                    {{ Form::label('comment', trans('page.manage.edit.form.comment'), ['class' => 'bmd-label-floating']) }}
+                                    {{ Form::label('comment', trans('forms.manage.edit.comment'), ['class' => 'bmd-label-floating']) }}
                                     {{ Form::textarea('comment', null, [
                                         'class'         => 'form-control',
                                         'rows'          => '5',
@@ -91,7 +91,7 @@
                                 {{-- Submit --}}
                                 <div class="form-group row">
                                     <button type="submit" class="btn btn-block btn-outline-success btn-round">
-                                        {!! config('icons.shopping-cart') !!} &ensp; @lang('page.manage.edit.form.submit')
+                                        {!! config('icons.shopping-cart') !!} &ensp; @lang('forms.manage.edit.submit')
                                     </button>
                                 </div>
                             {!! Form::close() !!}

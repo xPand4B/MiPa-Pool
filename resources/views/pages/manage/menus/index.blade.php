@@ -3,8 +3,8 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.manage.breadcrumb.index'),
-            trans('page.manage.breadcrumb.menus'),
+            trans('breadcrumb.management.index'),
+            trans('breadcrumb.management.menus'),
         ]
     ])
 @endsection
@@ -43,11 +43,11 @@
                 <div class="container-fluid table-responsive-sm p-0">
                     <table class="table table-sm table-hover" id="table-management">
                         <thead>
-                            <th>@sortablelink('name',       trans('page.manage.tableHeads.name'))</th>
-                            <th>@sortablelink('number',     trans('page.manage.tableHeads.number'))</th>
-                            <th>@sortablelink('price',      trans('page.manage.tableHeads.price'))</th>
-                            <th>@sortablelink('created_at', trans('page.manage.tableHeads.createdAt'))</th>
-                            <th>@sortablelink('updated_at', trans('page.manage.tableHeads.updatedAt'))</th>
+                            <th>@sortablelink('name',       trans('tables.management.head.name'))</th>
+                            <th>@sortablelink('number',     trans('tables.management.head.number'))</th>
+                            <th>@sortablelink('price',      trans('tables.management.head.price'))</th>
+                            <th>@sortablelink('created_at', trans('tables.management.head.createdAt'))</th>
+                            <th>@sortablelink('updated_at', trans('tables.management.head.updatedAt'))</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -62,11 +62,11 @@
                                     <td>{{ $menu->number }}</td>
                                     <td>{{ $menu->price }} {{ config('app.currency') }}</td>
                                     <td>
-                                        {{ date('d.m.Y - H:i', strtotime($menu->created_at)) }} @lang('page.manage.edit.form.time')
+                                        {{ date('d.m.Y - H:i', strtotime($menu->created_at)) }} @lang('forms.manage.edit.time')
                                     </td>
                                     <td>
                                         @if ($menu->created_at != $menu->updated_at)
-                                            {{ date('d.m.Y - H:i', strtotime($menu->updated_at)) }} @lang('page.manage.edit.form.time')
+                                            {{ date('d.m.Y - H:i', strtotime($menu->updated_at)) }} @lang('forms.manage.edit.time')
                                         @endif
                                     </td>
                                     <td>
@@ -75,7 +75,7 @@
                                             {{-- Edit --}}
                                             @if (! $menu->order->closed)
                                                 <div class="col p-0 text-center">
-                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.edit') }}" data-toggle="modal" data-target="#menus.edit.{{ $menu->id }}">
+                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.edit') }}" data-toggle="modal" data-target="#menus.edit.{{ $menu->id }}">
                                                         {!! config('icons.edit') !!}
                                                     </button>
                                                 </div>
@@ -83,7 +83,7 @@
 
                                             {{-- Show --}}
                                             <div class="col p-0 text-center">
-                                                <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.show') }}" data-toggle="modal" data-target="#menus.show.{{ $menu->id }}">
+                                                <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.show') }}" data-toggle="modal" data-target="#menus.show.{{ $menu->id }}">
                                                     {!! config('icons.show') !!}
                                                 </button>
                                             </div>
@@ -92,7 +92,7 @@
                                             @if (! $menu->order->closed)
                                                 <div class="col p-0 text-center">
                                                     {!! Form::open(['route' => ['menu.destroy', $menu], 'method' => 'DELETE']) !!}
-                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.tableButtons.delete') }}">
+                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('tables.management.buttons.delete') }}">
                                                             {!! config('icons.delete') !!}
                                                         </button>
                                                     {!! Form::close() !!}

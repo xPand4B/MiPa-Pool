@@ -46,7 +46,7 @@
                             {!! config('icons.calender-sm') !!}
                         </dt>
                         <dd class="col-sm-10">
-                            {{ date('d.m.Y - H:i', strtotime($menu->created_at)) }} @lang('page.manage.edit.form.time')
+                            {{ date('d.m.Y - H:i', strtotime($menu->created_at)) }} @lang('forms.manage.edit.time')
                         </dd>
 
                         {{-- Updated at --}}
@@ -55,7 +55,7 @@
                                 {!! config('icons.refresh') !!}
                             </dt>
                             <dd class="col-sm-10">
-                                {{ date('d.m.Y - H:i', strtotime($menu->updated_at)) }} @lang('page.manage.edit.form.time')
+                                {{ date('d.m.Y - H:i', strtotime($menu->updated_at)) }} @lang('forms.manage.edit.time')
                             </dd>
                         @endif
                     </dl>

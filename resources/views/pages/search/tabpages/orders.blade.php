@@ -51,7 +51,7 @@
                             @endif
 
                                 {!! config('icons.participate') !!}
-                                @lang('table.orders.participate')
+                                @lang('tables.orders.participate')
                             </a>
                         </div>
                     </h4>
@@ -99,7 +99,7 @@
                                 <div class="stats text-success">
                             @endif
 
-                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('table.orders.footer.people_count')
+                                {!! config('icons.checked') !!} {{ sizeof($order->menus) }}/{{ $order->max_orders }} @lang('tables.orders.footer.people_count')
                             </div>
                         </li>
                     </ul>                   

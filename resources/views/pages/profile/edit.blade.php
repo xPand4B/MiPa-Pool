@@ -5,7 +5,7 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.profile.breadcrumb.index'),
+            trans('breadcrumb.profile.index'),
             $user->fullname
         ]
     ])
@@ -29,7 +29,7 @@
                         {{-- Title --}}
                         <h4 class="card-title row mt-0">
                             <strong class="col mt-4">
-                                @lang('page.profile.form.headline')
+                                @lang('forms.profile.headline')
                             </strong>
                         </h4>
                     </div>
@@ -47,7 +47,7 @@
                                     'method' => 'POST'
                                 ]) !!}
                                     <label for="reset_avatar" class="btn btn-block btn-default btn-round">
-                                        {!! config('icons.reset') !!} &ensp; @lang('page.profile.form.reset_avatar')
+                                        {!! config('icons.reset') !!} &ensp; @lang('forms.profile.reset_avatar')
                                     </label>
                                     <button type="submit" id="reset_avatar" hidden></button>
 
@@ -65,12 +65,12 @@
                             {{-- Avatar --}}
                             <div class="col my-0 py-0">
                                 <label for="avatar" class="btn btn-block btn-success btn-round">
-                                    {!! config('icons.upload') !!} &ensp; @lang('page.profile.form.avatar.label')
+                                    {!! config('icons.upload') !!} &ensp; @lang('forms.profile.avatar.label')
                                 </label>
                                 <input id="avatar" type="file" name="avatar" accept="image/*" size="2048" hidden>
                                 
                                 <small id="fileHelp" class="form-text text-muted">
-                                    @lang('page.profile.form.avatar.helper')
+                                    @lang('forms.profile.avatar.helper')
                                 </small>
                                 
                                 @if ($errors->has('avatar'))
@@ -85,7 +85,7 @@
 
                         {{-- Username --}}
                         <div class="form-group">
-                            {{ Form::label('username', trans('page.profile.form.username'), ['class' => 'bmd-label-floating']) }}
+                            {{ Form::label('username', trans('forms.profile.username'), ['class' => 'bmd-label-floating']) }}
                             
                             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username }}" required>
                             
@@ -99,7 +99,7 @@
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Firstname --}}
                             <div class="form-group col-lg pl-0 pr-3">
-                                {{ Form::label('firstname', trans('page.profile.form.firstname'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('firstname', trans('forms.profile.firstname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ $user->firstname }}" required>
 
@@ -112,7 +112,7 @@
 
                             {{-- Surname --}}
                             <div class="form-group col-lg px-0">
-                                {{ Form::label('surname', trans('page.profile.form.surname'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('surname', trans('forms.profile.surname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ $user->surname }}" required>
                                 
@@ -126,7 +126,7 @@
 
                         {{-- Email --}}
                         {{-- <div class="form-group">
-                            {{ Form::label('email', trans('page.profile.form.email'), ['class' => 'bmd-label-floating']) }}
+                            {{ Form::label('email', trans('forms.profile.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $user->email }}" required>
 
@@ -141,7 +141,7 @@
                         <div class="form-row" style="padding-left: 5px">
                             {{-- Password --}}
                             <div class="form-group col-lg pl-0 pr-3">
-                                {{ Form::label('password', trans('page.profile.form.password'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('password', trans('forms.profile.password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
@@ -153,7 +153,7 @@
                             </div>
                             {{-- Confirm Password --}}
                             <div class="form-group col-lg px-0">
-                                {{ Form::label('password-confirm', trans('page.profile.form.confirm_password'), ['class' => 'bmd-label-floating']) }}
+                                {{ Form::label('password-confirm', trans('forms.profile.confirm_password'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
@@ -161,7 +161,7 @@
 
                         {{-- About Me --}}	
                         <div class="form-group">	
-                            {{ Form::label('about_me', trans('page.profile.form.about_me'), ['class' => 'bmd-label-floating']) }}	
+                            {{ Form::label('about_me', trans('forms.profile.about_me'), ['class' => 'bmd-label-floating']) }}	
                             {{ Form::textarea('about_me', null, [	
                                         'class'         => 'form-control',	
                                         'rows'          => '5',	
@@ -179,7 +179,7 @@
                         {{-- Submit --}}
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary btn-round"> 
-                                {!! config('icons.refresh') !!} &ensp; @lang('page.profile.form.submit')
+                                {!! config('icons.refresh') !!} &ensp; @lang('forms.profile.submit')
                             </button>
                         </div>
 

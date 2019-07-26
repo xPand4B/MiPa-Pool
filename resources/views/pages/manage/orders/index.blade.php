@@ -3,8 +3,8 @@
 @section('headline')
     @include('partials._breadcrumb', [
         'items' => [
-            trans('page.manage.breadcrumb.index'),
-            trans('page.manage.breadcrumb.orders'),
+            trans('breadcrumb.management.index'),
+            trans('breadcrumb.management.orders'),
         ]
     ])
 @endsection
@@ -43,11 +43,11 @@
                 <div class="container-fluid table-responsive-sm p-0">
                     <table class="table table-sm table-hover" id="table-management">
                         <thead>
-                            <th>@sortablelink('name',               trans('page.manage.tableHeads.name'))</th>
-                            <th>@sortablelink('delivery_service',   trans('page.manage.tableHeads.deliveryService'))</th>
-                            <th>@sortablelink('deadline',           trans('page.manage.tableHeads.deadline'))</th>
-                            <th>@sortablelink('created_at',         trans('page.manage.tableHeads.createdAt'))</th>
-                            <th>@sortablelink('updated_at',         trans('page.manage.tableHeads.updatedAt'))</th>
+                            <th>@sortablelink('name',               trans('tables.management.head.name'))</th>
+                            <th>@sortablelink('delivery_service',   trans('tables.management.head.deliveryService'))</th>
+                            <th>@sortablelink('deadline',           trans('tables.management.head.deadline'))</th>
+                            <th>@sortablelink('created_at',         trans('tables.management.head.createdAt'))</th>
+                            <th>@sortablelink('updated_at',         trans('tables.management.head.updatedAt'))</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -65,14 +65,14 @@
                                         </a>
                                     </td>
                                     <td>
-                                        {{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('page.manage.edit.form.time')
+                                        {{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('forms.manage.edit.time')
                                     </td>
                                     <td>
-                                        {{ date('d.m.Y - H:i', strtotime($order->created_at)) }} @lang('page.manage.edit.form.time')
+                                        {{ date('d.m.Y - H:i', strtotime($order->created_at)) }} @lang('forms.manage.edit.time')
                                     </td>
                                     <td>
                                         @if ($order->created_at != $order->updated_at)
-                                            {{ date('d.m.Y - H:i', strtotime($order->updated_at)) }} @lang('page.manage.edit.form.time')
+                                            {{ date('d.m.Y - H:i', strtotime($order->updated_at)) }} @lang('forms.manage.edit.time')
                                         @endif
                                     </td>
                                     <td>
@@ -81,7 +81,7 @@
                                             {{-- Edit --}}
                                             @if (! $order->closed)
                                                 <div class="col p-0 text-center">
-                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.edit') }}" data-toggle="modal" data-target="#orders.edit.{{ $order->id }}">
+                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.edit') }}" data-toggle="modal" data-target="#orders.edit.{{ $order->id }}">
                                                         {!! config('icons.edit') !!}
                                                     </button>
                                                 </div>
@@ -90,14 +90,14 @@
                                             {{-- Close --}}
                                             @if (! $order->closed)
                                                 <div class="col p-0 text-center">
-                                                    <a href="{{ route('orders.close', $order) }}" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.close') }}">
+                                                    <a href="{{ route('orders.close', $order) }}" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.close') }}">
                                                         {!! config('icons.close') !!}
                                                     </a>
                                                 </div>
                                             @endif
 
                                             <div class="col p-0 text-center">
-                                                <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('page.manage.tableButtons.show') }}" data-toggle="modal" data-target="#orders.show.{{ $order->id }}">
+                                                <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.show') }}" data-toggle="modal" data-target="#orders.show.{{ $order->id }}">
                                                     {!! config('icons.show') !!}
                                                 </button>
                                             </div>
@@ -106,7 +106,7 @@
                                             @if (! $order->closed)
                                                 <div class="col p-0 text-center">
                                                     {!! Form::open(['route' => ['orders.destroy', $order], 'method' => 'DELETE']) !!}
-                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('page.manage.tableButtons.delete') }}">
+                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('tables.management.buttons.delete') }}">
                                                             {!! config('icons.delete') !!}
                                                         </button>
                                                     {!! Form::close() !!}
