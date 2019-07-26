@@ -5,7 +5,7 @@
 @section('headline')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb m-0 p-0 bg-transparent">
-            <li class="breadcrumb-item">@lang('page.search.breadcrumb.index')</li>
+            <li class="breadcrumb-item">@lang('breadcrumb.search.index')</li>
             <li class="breadcrumb-item active" aria-current="page">{{ $search }}</li>
         </ol>
     </nav>

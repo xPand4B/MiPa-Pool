@@ -23,6 +23,7 @@ return [
         'profile' => 'Profile',
         'support' => 'Support this project',
     ],
+
     // Top Menu
     'top' => [
         'search'        => 'Search...',
@@ -31,6 +32,7 @@ return [
         'language'      => 'Language',
         'logout'        => 'Logout',
     ],
+    
     // Footer
     'footer' => [
         'sourcecode' => 'Source Code'

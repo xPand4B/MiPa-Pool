@@ -18,12 +18,6 @@ return [
 
         'manage' => 'Verwalten',
 
-        'breadcrumb'=> [
-            'index'       => 'Bestellungen',
-            'create'      => 'Erstellen',
-            'participate' => 'Mitbestellen'
-        ],
-
         'index' => [
             'empty' => [
                 'title'     => 'Upps, ziemlich leer hier. ¯\_(ツ)_/¯',
@@ -36,17 +30,6 @@ return [
             
             'card'  => [
                 'title' => 'Bestellung erstellen',
-            ],
-
-            'form'  => [
-                'order_name'            => 'Name der Bestellung',
-                'deadline'              => 'Laufzeit bis',
-                'time'                  => 'Uhr',
-                'max_orders'            => 'Mitbesteller',
-                'minimum_order_value'   => 'Mindestbestellwert',
-                'delivery_service'      => 'Lieferdienst',
-                'site_link'             => 'Speisekarte',
-                'submit'                => 'Bestellung erstellen',
             ],
         ],
 
@@ -61,14 +44,6 @@ return [
             'delivery_service'  => 'Lieferservice',
 
             'other_participants' => 'Andere Mitbesteller',
-
-            'form' => [
-                'name'      => 'Menü Name',
-                'number'    => 'Anzahl',
-                'price'     => 'Gesamt Preis (in '.config('app.currency').')',
-                'comment'   => 'Kommentar',
-                'submit'    => 'Menü bestellen'
-            ]
         ],
     ],
 
@@ -76,89 +51,19 @@ return [
     'manage' => [
         'title' => 'Verwaltung',
 
-        'empty' => [
-            'title'     => "Upps, sieht so aus als ob du noch keine Bestellungen erstellt hast ¯\_(ツ)_/¯",
-            'message'   => 'Wenn du eine Bestellung erstellen möchtest klicke auf das '.config('icons.addOrder').' Icon.',
-        ],
-
-        'breadcrumb' => [
-            'index'     => 'Verwaltung',
-            'orders'    => 'Bestellungen',
-            'menus'     => 'Menüs',
-        ],
-
         'headline' => [
             'orders'    => 'Verwalte deine Bestellungen',
             'menus'     => 'Verwalte deine Menüs',
         ],
-
-        'tableHeads' => [
-            'name'              => 'Name',
-
-            'deliveryService'   => 'Lieferdienst',
-            'deadline'          => 'Laufzeit',
-            'createdAt'         => 'Erstellung',
-            'updatedAt'         => 'Aktualisiert',
-
-            'number'            => 'Anzahl',
-            'price'             => 'Preis (in '.config('app.currency').')',
-        ],
-
-        'tableButtons' => [
-            'edit'      => 'Bearbeiten',
-            'close'     => 'Schließen',
-            'show'      => 'Ansehen',
-            'delete'    => 'Löschen'
-        ],
         
         'show' => [
             'noTimeLeft'    => 'Closed',
-        ],
-
-        'edit' => [
-            'form'  => [
-                'order_name'            => 'Name der Bestellung',
-                'deadline'              => 'Laufzeit bis',
-                'time'                  => 'Uhr',
-                'max_orders'            => 'Mitbesteller',
-                'minimum_order_value'   => 'Mindestbestellwert',
-                'delivery_service'      => 'Lieferdienst',
-                'site_link'             => 'Speisekarte',
-
-                'order_name'            => 'Menü Name',
-                'number'                => 'Anzahl',
-                'price'                 => 'Gesamt Preis (in '.config('app.currency').')',
-                'comment'               => 'Kommentar',
-
-                'submit'                => 'Änderungen Speichern'
-            ],
         ],
     ],
 
     // Profile Page
     'profile' => [
         'title' => 'Profil',
-        
-        'breadcrumb' => [
-            'index'  => 'Profil'
-        ],
-        
-        'form' => [
-            'headline'          => 'Profil bearbeiten',
-            'username'          => 'Username',
-            'firstname'         => 'Name',
-            'surname'           => 'Nachname',
-            'email'             => 'E-Mail',
-            'password'          => 'Passwort',
-            'confirm_password'  => 'Passwort bestätigen',
-            'about_me'          => 'Über mich',
-            'avatar'            => [
-                'label'         => 'Wähle ein Bild',
-                'helper'        => 'Bitte wähle ein gültiges Bild aus. Es sollte nicht größer als 2MB sein.'
-            ],
-            'reset_avatar'      => 'Bild zurücksetzten',
-            'submit'            => 'Profil aktualisieren'
-        ],
         
         'stats' => [
             'headline'  => 'Statistiken',
@@ -171,10 +76,6 @@ return [
     // Search Page
     'search' => [
         'title' => 'Suche',
-
-        'breadcrumb' => [
-            'index'  => 'Suche'
-        ],
         
         'empty' => "Upps, sieht so aus als ob wir keine :type gefunden haben ¯\_(ツ)_/¯",
     ],
