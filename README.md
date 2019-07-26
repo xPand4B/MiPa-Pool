@@ -4,20 +4,29 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 - **License**: MIT License
 - **Github Repository**: <https://github.com/xPand4B/MiPa-Pool>
 - **Issue Tracker**: <https://github.com/xPand4B/MiPa-Pool/issues>
-- **ToDo**: <https://github.com/xPand4B/MiPa-Pool/blob/master/todo.md>
+- **Releases**: <https://github.com/xPand4B/MiPa-Pool/releases>
 
 # Table of Content
-- [MiPa-Pool](#MiPa-Pool)
-- [Table of Content](#Table-of-Content)
-- [How to Start](#How-to-Start)
-  - [Quick Start](#Quick-Start)
-  - [Composer](#Composer)
-  - [Environment Variables](#Environment-Variables)
-  - [App-Key](#App-Key)
-  - [Link storage to public directory](#Link-storage-to-public-directory)
-  - [Database migration](#Database-migration)
-- [Generate Fake Data](#Generate-Fake-Data)
-- [Set custom Brand icon](#Set-custom-Brand-icon)
+- [MiPa-Pool](#mipa-pool)
+- [Table of Content](#table-of-content)
+- [Versioning](#versioning)
+- [How to Start](#how-to-start)
+  - [Quick Start](#quick-start)
+  - [Composer](#composer)
+  - [Environment Variables](#environment-variables)
+  - [App-Key](#app-key)
+  - [Link storage to public directory](#link-storage-to-public-directory)
+  - [Database migration](#database-migration)
+- [Generate Fake Data](#generate-fake-data)
+- [Set custom Brand icon](#set-custom-brand-icon)
+
+# Versioning
+The MiPaPo follows the [Semantic Versioning 2.0.0](https://semver.org/).
+1. MAJOR version when you make incompatible API changes,
+2. MINOR version when you add functionality in a backwards-compatible manner, and
+3. PATCH version when you make backwards-compatible bug fixes.
+
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format. 
 
 # How to Start
 
