@@ -1,6 +1,9 @@
+# Versioning may change in future!
+
 # Table of Content
-- [Table of Content](#Table-of-Content)
-- [Pre Release](#Pre-Release)
+- [Versioning may change in future!](#versioning-may-change-in-future)
+- [Table of Content](#table-of-content)
+- [Pre Release](#pre-release)
 - [v1.*](#v1)
   - [v1.1](#v11)
   - [v1.2](#v12)
