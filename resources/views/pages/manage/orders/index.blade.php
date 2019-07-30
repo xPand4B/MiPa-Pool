@@ -44,10 +44,10 @@
                     <table class="table table-sm table-hover" id="table-management">
                         <thead>
                             <th>@sortablelink('name',               trans('tables.management.head.name'))</th>
-                            <th>@sortablelink('delivery_service',   trans('tables.management.head.deliveryService'))</th>
-                            <th>@sortablelink('deadline',           trans('tables.management.head.deadline'))</th>
-                            <th>@sortablelink('created_at',         trans('tables.management.head.createdAt'))</th>
-                            <th>@sortablelink('updated_at',         trans('tables.management.head.updatedAt'))</th>
+                            <th class="text-center">@sortablelink('delivery_service',   trans('tables.management.head.deliveryService'))</th>
+                            <th class="text-center">@sortablelink('deadline',           trans('tables.management.head.deadline'))</th>
+                            <th class="text-center">@sortablelink('created_at',         trans('tables.management.head.createdAt'))</th>
+                            <th class="text-center">@sortablelink('updated_at',         trans('tables.management.head.updatedAt'))</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -59,24 +59,30 @@
                                 @endif
                                     <td style="display:none">id:{{ $order->id }}</td>
                                     <td>{{ $order->name }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ $order->site_link }}" class="link" target="_blank">
                                             {{ $order->delivery_service }}
                                         </a>
                                     </td>
-                                    <td>
-                                        {{ date('d.m.Y - H:i', strtotime($order->deadline)) }} @lang('forms.manage.edit.time')
+                                    <td class="text-center">
+                                        {{ date('d.m.Y', strtotime($order->deadline)) }}
+                                        <br>
+                                        {{ date('H:i', strtotime($order->deadline)) }} @lang('forms.manage.edit.time')
                                     </td>
-                                    <td>
-                                        {{ date('d.m.Y - H:i', strtotime($order->created_at)) }} @lang('forms.manage.edit.time')
+                                    <td class="text-center">
+                                        {{ date('d.m.Y', strtotime($order->created_at)) }}
+                                        <br>
+                                        {{ date('H:i', strtotime($order->created_at)) }} @lang('forms.manage.edit.time')
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($order->created_at != $order->updated_at)
-                                            {{ date('d.m.Y - H:i', strtotime($order->updated_at)) }} @lang('forms.manage.edit.time')
+                                            {{ date('d.m.Y', strtotime($order->updated_at)) }}
+                                            <br>
+                                            {{ date('H:i', strtotime($order->updated_at)) }} @lang('forms.manage.edit.time')
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="row pull-right">
+                                        <div class="row pull-right mx-2">
                                                                                     
                                             {{-- Edit --}}
                                             @if (! $order->closed)
@@ -123,7 +129,7 @@
 
                 <hr class="mb-5">
             
-                {!! $orders->appends(\Request::except('page'))->render() !!}
+                {{-- {!! $orders->appends(\Request::except('page'))->render() !!} --}}
             </div>
 
             @include('pages.manage.orders.edit', [ 'orders' => $orders, 'timesteps' => $timesteps])
