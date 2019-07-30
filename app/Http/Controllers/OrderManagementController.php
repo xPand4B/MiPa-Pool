@@ -27,8 +27,8 @@ class OrderManagementController extends Controller
     public function index()
     {
         try {
-            $orders = Order::FromUser(Auth::user()->id)
-                        ->paginate(15);
+            $orders = Order::FromUser(Auth::user()->id)->get();
+                        // ->paginate(15);
 
         } catch (ColumnSortableException $e) {
             return redirect()->back();

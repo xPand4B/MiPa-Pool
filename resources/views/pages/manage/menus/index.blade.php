@@ -44,10 +44,10 @@
                     <table class="table table-sm table-hover" id="table-management">
                         <thead>
                             <th>@sortablelink('name',       trans('tables.management.head.name'))</th>
-                            <th>@sortablelink('number',     trans('tables.management.head.number'))</th>
-                            <th>@sortablelink('price',      trans('tables.management.head.price'))</th>
-                            <th>@sortablelink('created_at', trans('tables.management.head.createdAt'))</th>
-                            <th>@sortablelink('updated_at', trans('tables.management.head.updatedAt'))</th>
+                            <th class="text-center">@sortablelink('number',     trans('tables.management.head.number'))</th>
+                            <th class="text-center">@sortablelink('price',      trans('tables.management.head.price'))</th>
+                            <th class="text-center">@sortablelink('created_at', trans('tables.management.head.createdAt'))</th>
+                            <th class="text-center">@sortablelink('updated_at', trans('tables.management.head.updatedAt'))</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -59,18 +59,22 @@
                                 @endif
                                     <td style="display:none">id:{{ $menu->id }}</td>
                                     <td>{{ $menu->name }}</td>
-                                    <td>{{ $menu->number }}</td>
-                                    <td>{{ $menu->price }} {{ config('app.currency') }}</td>
-                                    <td>
-                                        {{ date('d.m.Y - H:i', strtotime($menu->created_at)) }} @lang('forms.manage.edit.time')
+                                    <td class="text-center">{{ $menu->number }}</td>
+                                    <td class="text-center">{{ $menu->price }} {{ config('app.currency') }}</td>
+                                    <td class="text-center">
+                                        {{ date('d.m.Y', strtotime($menu->created_at)) }}
+                                        <br>
+                                        {{ date('H:i', strtotime($menu->created_at)) }} @lang('forms.manage.edit.time')
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($menu->created_at != $menu->updated_at)
-                                            {{ date('d.m.Y - H:i', strtotime($menu->updated_at)) }} @lang('forms.manage.edit.time')
+                                            {{ date('d.m.Y', strtotime($menu->updated_at)) }}
+                                            <br>
+                                            {{ date('H:i', strtotime($menu->updated_at)) }} @lang('forms.manage.edit.time')
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="row pull-right">
+                                        <div class="row pull-right mx-2">
                                                                                     
                                             {{-- Edit --}}
                                             @if (! $menu->order->closed)
@@ -109,7 +113,7 @@
 
                 <hr class="mb-5">
             
-                {!! $menus->appends(\Request::except('page'))->render() !!}
+                {{-- {!! $menus->appends(\Request::except('page'))->render() !!} --}}
             </div>
 
             @include('pages.manage.menus.edit',    [ 'menus' => $menus ])
@@ -119,4 +123,6 @@
     </div>
 @endsection
 
-@include('partials._livesearch')
+@section('javascript')
+    @include('partials._livesearch')
+@endsection
