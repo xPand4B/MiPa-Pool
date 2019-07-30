@@ -119,7 +119,11 @@
                                     <tbody>
                                         @foreach ($order->menus as $menu)
                                             @if (Auth::user()->id == $menu->user_id)
-                                            <tr class="text-primary">
+                                                @if ($menu->payed)
+                                                    <tr id="row-menu-{{ $menu->id }}" class="text-primary" style="text-decoration: line-through">
+                                                @else
+                                                    <tr id="row-menu-{{ $menu->id }}" class="text-primary">
+                                                @endif
                                             @else
                                                 @if ($menu->payed)
                                                     <tr id="row-menu-{{ $menu->id }}" class="text-muted" style="text-decoration: line-through">
