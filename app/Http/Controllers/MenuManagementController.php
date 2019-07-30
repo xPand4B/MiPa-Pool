@@ -26,8 +26,8 @@ class MenuManagementController extends Controller
     public function index()
     {
         try {
-            $menus  = Menu::FromUser(Auth::user()->id)
-                        ->paginate(15);
+            $menus  = Menu::FromUser(Auth::user()->id)->get();
+                        // ->paginate(15);
 
         } catch (ColumnSortableException $e) {
             return redirect()->back();
