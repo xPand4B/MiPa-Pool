@@ -5,6 +5,7 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 - **Github Repository**: <https://github.com/xPand4B/MiPa-Pool>
 - **Issue Tracker**: <https://github.com/xPand4B/MiPa-Pool/issues>
 - **Releases**: <https://github.com/xPand4B/MiPa-Pool/releases>
+- **How to update** <https://github.com/xPand4B/MiPa-Pool/tree/master/UPDATE>
 
 # Table of Content
 - [MiPa-Pool](#mipa-pool)

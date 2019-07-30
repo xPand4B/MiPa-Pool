@@ -25,10 +25,11 @@ Route::middleware(['language'])->group(function(){
 
         // Menus
         Route::match(['put', 'patch'],
-                      '/orders/participate/{menu}',     'MenuController@update' )->name('menu.update');
-        Route::get(   '/orders/participate/{order}',    'MenuController@create' )->name('menu.create');
-        Route::post(  '/orders/participate',            'MenuController@store'  )->name('menu.store');
-        Route::delete('/orders/participate/{menu}',     'MenuController@destroy')->name('menu.destroy');
+                      '/orders/participate/{menu}',     'MenuController@update'     )->name('menu.update');
+        Route::put(   '/orders/togglePayed/{id}',       'MenuController@TogglePayed')->name('menu.togglePayed');
+        Route::get(   '/orders/participate/{order}',    'MenuController@create'     )->name('menu.create');
+        Route::post(  '/orders/participate',            'MenuController@store'      )->name('menu.store');
+        Route::delete('/orders/participate/{menu}',     'MenuController@destroy'    )->name('menu.destroy');
         
         // Management
         Route::get('/manage/orders',    'OrderManagementController@index')->name('manage.orders.index');

@@ -17,7 +17,7 @@ class Menu extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'order_id', 'name', 'number', 'comment', 'price'
+        'user_id', 'order_id', 'name', 'number', 'comment', 'price', 'payed'
     ];
 
     /**
