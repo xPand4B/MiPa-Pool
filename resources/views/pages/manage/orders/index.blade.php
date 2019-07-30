@@ -133,4 +133,7 @@
     </div>
 @endsection
 
-@include('partials._livesearch')
+@section('javascript')
+    @include('partials._livesearch')
+    @include('partials._togglePayed')
+@endsection
