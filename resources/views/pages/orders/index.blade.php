@@ -113,6 +113,7 @@
                                             <th class="p-1">@lang('tables.orders.head.comment')</th>
                                             <th class="p-1">@lang('tables.orders.head.price')</th>
                                             <th class="p-1"></th>
+                                            <th class="p-1"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,13 +121,37 @@
                                             @if (Auth::user()->id == $menu->user_id)
                                             <tr class="text-primary">
                                             @else
-                                            <tr>
+                                                @if ($menu->payed)
+                                                    <tr id="row-menu-{{ $menu->id }}" class="text-muted" style="text-decoration: line-through">
+                                                @else
+                                                    <tr id="row-menu-{{ $menu->id }}">
+                                                @endif
+                                                
                                             @endif
+
                                                 <td class="p-1">{{ $menu->user->firstname }} {{ $menu->user->surname }}</td>
                                                 <td class="p-1">{{ $menu->name }}</td>
                                                 <td class="p-1">{{ $menu->number }}</td>
                                                 <td class="p-1">{{ $menu->comment }}</td>
                                                 <td class="p-1">{{ $menu->price }} {{ config('app.currency') }}</td>
+
+                                                @if (Auth::user()->id == $menu->order->user_id)
+                                                    <td class="p-1">
+                                                        <div class="form-check m-0">
+                                                            <label class="form-check-label">
+                                                                @if ($menu->payed)
+                                                                    <input class="form-check-input form-sm" type="checkbox" value="{{ $menu->id }}" id="payed-menu-{{ $menu->id }}" onclick="TogglePayed(this, <?=$menu->id;?>)" checked>
+                                                                @else
+                                                                    <input class="form-check-input form-sm" type="checkbox" value="{{ $menu->id }}" id="payed-menu-{{ $menu->id }}" onclick="TogglePayed(this, <?=$menu->id;?>)">
+                                                                @endif
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                @endif
+
                                                 @if (Auth::user()->id == $menu->user_id)
                                                     <td class="p-1">
                                                         <form action="{{ route('manage.menus.index') }}" method="GET">
@@ -221,4 +246,8 @@
 
         @endif
     </div>
+@endsection
+
+@section('javascript')
+    @include('partials._togglePayed')
 @endsection
