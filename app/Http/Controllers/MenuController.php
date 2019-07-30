@@ -6,6 +6,7 @@ use Auth;
 use App\Models\Menu;
 use App\Models\Order;
 use App\Helper\TimeHelper;
+use Illuminate\Http\Request;
 use App\Helper\CurrencyHelper;
 use Illuminate\Support\Facades\Log;
 use App\Events\Menus\UpdateMenuEvent;
@@ -82,6 +83,26 @@ class MenuController extends Controller
         Log::info("Menu #".$request->input('id')." has been successfully updated.");
 
         return redirect()->route('manage.menus.index');
+    }
+
+    /**
+     * Toggle payewd variable.
+     *
+     * @param integer $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function TogglePayed(int $id)
+    {
+        $menu = Menu::findOrFail($id);
+
+        $update = $menu->update([
+            'payed' => !$menu->payed
+        ]);
+
+        Log::info("Menu #".$id." has been successfully updated.");
+
+        return response()->json($update);
     }
 
     /**
