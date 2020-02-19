@@ -52,11 +52,13 @@
                         </thead>
                         <tbody>
                             @foreach ($menus as $menu)
+                                <tr onclick="$('#menus.show.{{ $menu->id }}').modal('open')"
                                 @if ($menu->order->closed)
-                                <tr class="table-danger">
+                                    class="table-danger"
                                 @else
-                                <tr class="table-success">
+                                    class="table-success"
                                 @endif
+                                >
                                     <td style="display:none">id:{{ $menu->id }}</td>
                                     <td>{{ $menu->name }}</td>
                                     <td class="text-center">{{ $menu->number }}</td>
@@ -79,7 +81,7 @@
                                             {{-- Edit --}}
                                             @if (! $menu->order->closed)
                                                 <div class="col p-0 text-center">
-                                                    <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.edit') }}" data-toggle="modal" data-target="#menus.edit.{{ $menu->id }}">
+                                                    <button type="button" class="px-2 py-1 btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.edit') }}" data-toggle="modal" data-target="#menus.edit.{{ $menu->id }}">
                                                         {!! config('icons.edit') !!}
                                                     </button>
                                                 </div>
@@ -87,7 +89,7 @@
 
                                             {{-- Show --}}
                                             <div class="col p-0 text-center">
-                                                <button type="button" class="btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.show') }}" data-toggle="modal" data-target="#menus.show.{{ $menu->id }}">
+                                                <button type="button" class="px-2 py-1 btn btn-sm btn-link bg-transparent text-dark" title="{{ trans('tables.management.buttons.show') }}" data-toggle="modal" data-target="#menus.show.{{ $menu->id }}">
                                                     {!! config('icons.show') !!}
                                                 </button>
                                             </div>
@@ -96,7 +98,7 @@
                                             @if (! $menu->order->closed)
                                                 <div class="col p-0 text-center">
                                                     {!! Form::open(['route' => ['menu.destroy', $menu], 'method' => 'DELETE']) !!}
-                                                        <button type="submit" class="btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('tables.management.buttons.delete') }}">
+                                                        <button type="submit" class="px-2 py-1 btn btn-sm btn-link bg-transparent text-danger" title="{{ trans('tables.management.buttons.delete') }}">
                                                             {!! config('icons.delete') !!}
                                                         </button>
                                                     {!! Form::close() !!}
@@ -116,8 +118,8 @@
                 {{-- {!! $menus->appends(\Request::except('page'))->render() !!} --}}
             </div>
 
-            @include('pages.manage.menus.edit',    [ 'menus' => $menus ])
-            @include('pages.manage.menus.show',    [ 'menus' => $menus ])
+            @include('pages.manage.menus.edit', [ 'menus' => $menus ])
+            @include('pages.manage.menus.show', [ 'menus' => $menus ])
             
         </div>
     </div>

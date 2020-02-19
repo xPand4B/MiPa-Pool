@@ -30,6 +30,9 @@ return [
         'create_order'  => 'Create order',
         'notifications' => 'Notifications',
         'language'      => 'Language',
+        'notification'  => [
+            'empty' => 'No new notifications.',
+        ],
         'logout'        => 'Logout',
     ],
     

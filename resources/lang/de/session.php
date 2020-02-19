@@ -18,8 +18,8 @@ return [
     ],
 
     'order' =>[
-        'created' => 'Deine Bestellung wurde erstellt.',
-        'participated'  => 'Dein Menü wurde zur Bestellung hinzugefügt',
+        'created'           => 'Deine Bestellung wurde erstellt.',
+        'participated'      => 'Dein Menü wurde zur Bestellung hinzugefügt',
 
         'price_is_no_digit' => 'Preis muss eine Zahl sein.',
     ],

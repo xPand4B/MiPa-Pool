@@ -30,6 +30,9 @@ return [
         'create_order'  => 'Bestellung erstellen',
         'notifications' => 'Benachrichtigungen',
         'language'      => 'Anzeigesprache',
+        'notification'  => [
+            'empty' => 'Keine neuen Benachrichtigungen.',
+        ],
         'logout'        => 'Abmelden',
     ],
     

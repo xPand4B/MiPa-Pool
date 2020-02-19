@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Menu;
-use App\Models\Order;
+use App\Mail\Auth\ResetPasswordMail;
+use App\Notifications\ResetPassword;
+use Illuminate\Support\Facades\Mail;
+use App\Events\SendFlashMessageEvent;
+use App\Mail\Auth\EmailVerificationMail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 
-// class User extends Authenticatable implements MustVerifyEmail
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail, HasLocalePreference
 {
     use Notifiable;
 
@@ -36,7 +39,7 @@ class User extends Authenticatable
      */
     public function orders()
     {
-        return $this->hasMany(\App\Models\Order::class);
+        return $this->hasMany(Order::class);
     }
 
     /**
@@ -44,15 +47,27 @@ class User extends Authenticatable
      */
     public function menus()
     {
-        return $this->hasMany(\App\Models\Menu::class);
+        return $this->hasMany(Menu::class);
+    }
+
+    /**
+     * Get the user's preferred locale.
+     *
+     * @return string
+     */
+    public function preferredLocale()
+    {
+        return $this->locale;
     }
 
     /**
      * Get the user's fullname
+     *
+     * @return string
      */
-    public function getFullnameAttribute()
+    public function getFullnameAttribute(): string
     {
-        return $this->firstname . ' ' . $this->surname;
+        return "$this->firstname $this->surname";
     }
 
     /**
@@ -83,5 +98,33 @@ class User extends Authenticatable
             return true;
 
         return false;
+    }
+
+    /**
+     * Re-send the email verification email.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification(): void
+    {
+        Mail::to($this)
+            ->send(new EmailVerificationMail($this));
+
+        event(new SendFlashMessageEvent('success', trans('login.verify.new_link_send')));
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     *
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        Mail::to($this)
+            ->send(new ResetPasswordMail($this, $token));
+
+        event(new SendFlashMessageEvent('success', trans('passwords.sent')));
     }
 }

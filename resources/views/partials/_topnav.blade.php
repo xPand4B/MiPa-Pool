@@ -37,19 +37,27 @@
                 </li>
 
                 {{-- Notifications --}}
-                {{-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a href="#" class="nav-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ trans('menu.top.notifications') }}">
                         {!! config('icons.notification') !!}
-                        <span class="notification">5</span>
+                        @if (Auth::user()->unreadNotifications->count() != 0)
+                            <span class="notification">
+                                {{ Auth::user()->unreadNotifications->count() }}
+                            </span>
+                        @endif
                         <p class="d-lg-none d-md-block">@lang('menu.top.notifications')</p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                        <a href="#" class="dropdown-item">Test</a>
-                        <a href="#" class="dropdown-item">Test</a>
-                        <a href="#" class="dropdown-item">Test</a>
-                        <a href="#" class="dropdown-item">Test</a>
+                        @if (Auth::user()->unreadNotifications->count() == 0)
+                            <h6 class="dropdown-header">@lang('menu.top.notification.empty')</h6>
+                        @endif
+                        @foreach (Auth::user()->unreadNotifications as $notification)
+                            <a href="{{ $notification->data['link'] }}" class="dropdown-item">
+                                {!! $notification->data['message'] !!}
+                            </a>
+                        @endforeach
                     </div>
-                </li> --}}
+                </li>
 
                 {{-- Logout --}}
                 <li class="nav-item">

@@ -59,11 +59,11 @@ class UpdateProfileListener
         }
 
         // Check if email has changed
-        // if(request('email') != $user->email){
-        //     request()->validate([
-        //         'email' => 'required|email|max:255|unique:users'
-        //     ]);
-        // }
+        if(request('email') != $user->email){
+            request()->validate([
+                'email' => 'required|email|max:255|unique:users'
+            ]);
+        }
 
         // Check if password is set
         if(!empty(request('password'))){
@@ -82,7 +82,7 @@ class UpdateProfileListener
             'username'  => request('username'),
             'firstname' => request('firstname'),
             'surname'   => request('surname'),
-            // 'email'     => request('email'),
+            'email'     => request('email'),
             'about_me'  => request('about_me'),
         ]);
 

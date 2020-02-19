@@ -22,7 +22,13 @@
                     <div class="card-header card-header-transparent card-header-icon">
                         <div class="card-icon p-0 bg-transparent">
                             @if (file_exists(realpath(config('filesystems.avatar.path').$user->avatar)))
-                            <img class="rounded-circle" src="{{ asset(config('filesystems.avatar.path').$user->avatar) }}" title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})" width="82px" height="82px">
+                            <img
+                                class="rounded-circle"
+                                src="{{ asset(config('filesystems.avatar.path').$user->avatar) }}"
+                                title="{{ $user->firstname }} {{ $user->surname}} ({{ $user->username }})"
+                                width="82px"
+                                height="82px"
+                            >
                             @endif
                         </div>
 
@@ -41,7 +47,7 @@
 
                         <div class="row">
                             {{-- Reset Avatar --}}
-                            <div class="col my-0 py-0">
+                            <div class="col-md-12 my-0 py-0">
                                 {!! Form::open([
                                     'route' => 'profile.reset.avatar',
                                     'method' => 'POST'
@@ -54,6 +60,9 @@
                                 {!! Form::close() !!}
                             </div>
 
+
+                            {{-- Avatar --}}
+                            <div class="col-md-12 my-0 py-0">
                             {!! Form::model($user, [
                                 'route'  => [
                                     'profile.update'
@@ -62,17 +71,15 @@
                                 'enctype'=> 'multipart/form-data'
                             ]) !!}
 
-                            {{-- Avatar --}}
-                            <div class="col my-0 py-0">
                                 <label for="avatar" class="btn btn-block btn-success btn-round">
                                     {!! config('icons.upload') !!} &ensp; @lang('forms.profile.avatar.label')
                                 </label>
                                 <input id="avatar" type="file" name="avatar" accept="image/*" size="2048" hidden>
-                                
+
                                 <small id="fileHelp" class="form-text text-muted">
                                     @lang('forms.profile.avatar.helper')
                                 </small>
-                                
+
                                 @if ($errors->has('avatar'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('avatar') }}</strong>
@@ -86,9 +93,9 @@
                         {{-- Username --}}
                         <div class="form-group">
                             {{ Form::label('username', trans('forms.profile.username'), ['class' => 'bmd-label-floating']) }}
-                            
+
                             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username }}" required>
-                            
+
                             @if ($errors->has('username'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('username') }}</strong>
@@ -115,7 +122,7 @@
                                 {{ Form::label('surname', trans('forms.profile.surname'), ['class' => 'bmd-label-floating']) }}
 
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ $user->surname }}" required>
-                                
+
                                 @if ($errors->has('surname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('surname') }}</strong>
@@ -125,7 +132,7 @@
                         </div>
 
                         {{-- Email --}}
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             {{ Form::label('email', trans('forms.profile.email'), ['class' => 'bmd-label-floating']) }}
 
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $user->email }}" required>
@@ -135,7 +142,7 @@
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
-                        </div> --}}
+                        </div>
 
                         {{-- Password + Confirm --}}
                         <div class="form-row" style="padding-left: 5px">
@@ -159,26 +166,26 @@
                             </div>
                         </div>
 
-                        {{-- About Me --}}	
-                        <div class="form-group">	
-                            {{ Form::label('about_me', trans('forms.profile.about_me'), ['class' => 'bmd-label-floating']) }}	
-                            {{ Form::textarea('about_me', null, [	
-                                        'class'         => 'form-control',	
-                                        'rows'          => '5',	
-                                        'minlenght'     => '5',	
-                                        'maxlenght'     => '255'	
-                            ]) }}	
+                        {{-- About Me --}}
+                        <div class="form-group">
+                            {{ Form::label('about_me', trans('forms.profile.about_me'), ['class' => 'bmd-label-floating']) }}
+                            {{ Form::textarea('about_me', null, [
+                                        'class'         => 'form-control',
+                                        'rows'          => '5',
+                                        'minlenght'     => '5',
+                                        'maxlenght'     => '255'
+                            ]) }}
 
-                                @if ($errors->has('about_me'))	
-                                <span class="invalid-feedback" role="alert">	
-                                    <strong>{{ $errors->first('about_me') }}</strong>	
-                                </span>	
-                            @endif	
+                                @if ($errors->has('about_me'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('about_me') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         {{-- Submit --}}
                         <div class="form-group row">
-                            <button type="submit" class="btn btn-block btn-primary btn-round"> 
+                            <button type="submit" class="btn btn-block btn-primary btn-round">
                                 {!! config('icons.refresh') !!} &ensp; @lang('forms.profile.submit')
                             </button>
                         </div>
