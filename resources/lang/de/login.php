@@ -13,6 +13,7 @@ return [
 
     // Multiusable Lines
     'email'                 => 'E-Mail',
+    'email_or_username'     => 'E-Mail / Username',
     'password'              => 'Passwort',
     'username'              => 'Username',
     'firstname'             => 'Name',

@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Auth\EmailVerificationMail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -53,7 +55,7 @@ class RegisterController extends Controller
             'username'  => 'required|string|max:255|unique:users',
             'firstname' => 'required|string|max:255',
             'surname'   => 'required|string|max:255',
-            // 'email'     => 'required|string|email|max:255|unique:users',
+            'email'     => 'required|string|email|max:255|unique:users',
             'password'  => 'required|string|min:6|confirmed',
         ]);
     }
@@ -70,12 +72,15 @@ class RegisterController extends Controller
             'username'  => $data['username'],
             'firstname' => $data['firstname'],
             'surname'   => $data['surname'],
-            // 'email'     => $data['email'],
+            'email'     => $data['email'],
             'password'  => Hash::make($data['password']),
         ]);
-        
+
         Log::info("User #".$user->id." has been successfully created.");
-        
+
+        Mail::to($user->email)
+            ->send(new EmailVerificationMail($user));
+
         return $user;
     }
 }

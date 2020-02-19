@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Models\Menu;
 use App\Models\Order;
 use App\Helper\TimeHelper;
 use App\Helper\CurrencyHelper;
@@ -12,7 +13,6 @@ use App\Events\SendFlashMessageEvent;
 use App\Events\Orders\UpdateOrderEvent;
 use App\Http\Requests\Orders\OrderRequest;
 use App\Events\Orders\NewOrderCreationEvent;
-use App\Models\Menu;
 
 class OrderController extends Controller
 {
@@ -33,7 +33,7 @@ class OrderController extends Controller
     {
         $orders = Order::Open()
                         ->orderBy('id', 'desc')
-                        ->paginate(15);
+                        ->paginate(10);
 
         for($i = 0; $i < sizeof($orders); $i++){
             $orders[$i] = CurrencyHelper::getSum($orders[$i]);

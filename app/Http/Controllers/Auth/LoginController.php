@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -38,12 +41,28 @@ class LoginController extends Controller
     }
 
     /**
-     * Replaces default auth field 'email' with 'username'
+     * Override redirectTo method.
      *
      * @return void
      */
-    public function username()
+    public function redirectTo()
     {
-        return 'username';
+        Log::info("User #".Auth::user()->id." has successfully logged in.");
+    }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        $field = filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL) ? $this->username() : 'username';
+
+        return [
+            $field      => $request->get($this->username()),
+            'password'  => $request->password,
+        ];
     }
 }

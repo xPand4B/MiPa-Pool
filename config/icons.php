@@ -35,6 +35,8 @@ return [
     'heart'             => '<i class="fa fa-heart" style="color: #c62828"></i>',
     'home'              => '<i class="material-icons">home</i>',
 
+    'info'              => '<i class="fa fa-info" aria-hidden="true" style="color:#fff"></i>',
+
     'login'             => '<i class="fa fa-sign-in"></i>',
     'logout'            => '<i class="material-icons">power_settings_new</i>',
 
@@ -61,7 +63,7 @@ return [
     'shopping-cart'     => '<i class="fa fa-shopping-cart"></i>',
     'shopping-cart-sm'  => '<i class="fa fa-sm fa-shopping-cart" aria-hidden="true"></i>',
     'show'              => '<i class="fa fa-eye" aria-hidden="true"></i>',
-    'success'           => '<i class="fa fa-lg fa-check-circle" aria-hidden="true" style="color:#fff"></i>',
+    'success'           => '<i class="fa fa-check" aria-hidden="true" style="color:#fff"></i>',
     'stats'             => '<i class="fa fa-sm fa-line-chart" aria-hidden="true"></i>',
 
     'time'              => '<i class="material-icons">access_time</i>',

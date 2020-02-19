@@ -10,7 +10,12 @@
         background-position: center center;
         background-repeat: no-repeat">
         
+        @include('partials._javascript')
+
+        @include('partials._messages')
+
         <div class="wrapper">
+            
             <div class="content mt-0 pt-3 pb-0">
                 <div class="container-fluid">
                     <div class="row">
@@ -55,7 +60,5 @@
                 </div>
             </div>
         </div>
-
-        @include('partials._javascript')
     </body>
 </html>

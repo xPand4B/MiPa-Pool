@@ -1,7 +1,13 @@
 # How to update to v1.1.x
+Version 1.1.x and above are **not compatible** with v1.0.x
+
 In order to update to version 1.1.x you have to do `git pull`.
 
-After that typ `php artisan migrate` to add the new migrations and your done.
+After that typ `php artisan migrate:fresh` to add the new migrations.
+
+**!! WARNING!!**
+
+This will delete all existing users!
 
 # Changelog for MiPa-Pool v1.1.x
 

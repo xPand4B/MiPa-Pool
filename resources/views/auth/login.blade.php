@@ -9,20 +9,20 @@
         @csrf
 
         {{-- Email --}}
-        {{-- <div class="form-group is-focused">
-            {{ Form::label('email', trans('login.email'), ['class' => 'bmd-label-floating']) }}
+        <div class="form-group is-focused">
+            {{ Form::label('email', trans('login.email_or_username'), ['class' => 'bmd-label-floating']) }}
 
-            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+            <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
             @if ($errors->has('email'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
-        </div> --}}
+        </div>
 
         {{-- Username --}}
-        <div class="form-group is-focused">
+        {{-- <div class="form-group is-focused">
             {{ Form::label('username', trans('login.username'), ['class' => 'bmd-label-floating']) }}
 
             <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
@@ -32,7 +32,7 @@
                     <strong>{{ $errors->first('username') }}</strong>
                 </span>
             @endif
-        </div>
+        </div> --}}
 
         {{-- Password --}}
         <div class="form-group row">
@@ -70,11 +70,11 @@
         </div>
 
         {{-- Forgot Password --}}
-        {{-- <div class="text-center pt-2 pb-0">
+        <div class="text-center pt-2 pb-0">
             <a class="btn btn-link text-info py-0" href="{{ route('password.request') }}">
                 {!! config('icons.email') !!} @lang('login.forgot_password')
             </a>
-        </div> --}}
+        </div>
 
         <hr class="my-2">
 
