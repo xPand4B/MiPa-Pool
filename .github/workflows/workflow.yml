@@ -9,6 +9,18 @@ on:
       - master
 
 jobs:
+  setup:
+    name: "setup"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: shivammathur/setup-php@v1
+        with:
+          php-version: '7.4'
+          tools: phpunit
+      - name: Give access rights
+        run: chmod +x ./psh.phar
+
   build:
     name: "build"
     runs-on: ubuntu-latest
