@@ -1,4 +1,4 @@
-name: build
+name: Workflow
 
 on:
   pull_request:
@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  laravel-tests:
-    name: "Branch: master"
+  setup:
+    name: "setup"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -20,9 +20,17 @@ jobs:
           tools: phpunit
       - name: Give access rights.
         run: chmod +x ./psh.phar
+
+  build:
+    name: "build"
+    steps:
       - name: Run init script.
         run: ./psh.phar github:init
-      - name: Execute Unit-Tests via PHPUnit.
+
+  unit:
+    name: "php-unit"
+    steps:
+      - name: Execute PHPUnit tests
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: app/Components/Common/Database/database.sqlite
