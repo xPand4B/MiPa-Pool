@@ -1,4 +1,4 @@
-name: Main workflow
+name: build
 
 on:
   pull_request:
@@ -9,17 +9,10 @@ on:
       - master
 
 jobs:
-  laravel-tests:
-    name: "System: Ubuntu"
+  build:
+    - name: "Branch: master"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: shivammathur/setup-php@v1
-        with:
-          php-version: '7.4'
-          tools: phpunit
-      - name: Give access rights.
-        run: chmod +x ./psh.phar
       - name: Run init script.
         run: ./psh.phar github:init
       - name: Execute Unit-Tests via PHPUnit.

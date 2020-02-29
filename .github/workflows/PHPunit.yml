@@ -1,0 +1,20 @@
+name: PHPUnit
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  phpunit:
+    - name: "Execute: PHPUnit"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run PHPUnit
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: app/Components/Common/Database/database.sqlite
+        run: ./psh.phar github:unit
