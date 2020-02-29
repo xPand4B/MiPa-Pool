@@ -1,4 +1,5 @@
 name: CI
+author: Eric Heinzl
 
 on:
   pull_request:
@@ -14,7 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: ./.github/actions/setup.yml
+      - uses: shivammathur/setup-php@v1
+        with:
+          php-version: '7.4'
+          tools: phpunit
+      - name: Give access rights
+        run: chmod +x ./psh.phar
       - name: Run init script
         run: ./psh.phar github:init
 
@@ -27,12 +33,16 @@ jobs:
         with:
           php-version: '7.4'
           tools: phpunit
-      - name: Give access rights.
+      - name: Give access rights
         run: chmod +x ./psh.phar
-      - name: Run init script.
+      - name: Run init script
         run: ./psh.phar github:init
-      - name: Run PHPUnit tests
+      - name: ''
+        run: echo '--------------------------'
+      - name: Run PHPUnit
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: app/Components/Common/Database/database.sqlite
         run: ./psh.phar github:unit
+       - name: ''
+        run: echo '--------------------------'
