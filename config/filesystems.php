@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'public'),
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been setup for each driver as an example of the required options.
     |
-    | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
+    | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -64,33 +64,5 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Brand Icon
-    |--------------------------------------------------------------------------
-    |
-    | Here you can set the path and name of the brand icon.
-    |
-    */
-
-    'brand-icon' => [
-        'fileName' => env('BRAND_ICON'),
-        'path'      => 'storage/brand-icon/'.env('BRAND_ICON'),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Profile Avatars
-    |--------------------------------------------------------------------------
-    |
-    | Here you can set the name for the default profile avatar.
-    |
-    */
-
-    'avatar' => [
-        'path'      => 'storage/avatars/',
-        'default'   => 'default.svg'
     ],
 ];
