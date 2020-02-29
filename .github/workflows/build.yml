@@ -1,5 +1,4 @@
 name: CI
-author: Eric Heinzl
 
 on:
   pull_request:
