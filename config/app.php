@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MiPa-Pool'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,17 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application currency
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the default currency for every order/menu. This is
-    | just to change the displayed currency, nothing more!
-    |
-    */
-
-    'currency' => '€',
+    'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Berlin',
+    'timezone' => env('APP_TIMEZONE', 'Europe/Berlin'),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'de',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,6 +94,19 @@ return [
     */
 
     'fallback_locale' => 'en',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Faker Locale
+    |--------------------------------------------------------------------------
+    |
+    | This locale will be used by the Faker PHP library when generating fake
+    | data for your database seeds. For example, this will be used to get
+    | localized telephone numbers, street address information and more.
+    |
+    */
+
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -133,11 +136,6 @@ return [
 
     'providers' => [
 
-        /**
-         * Laravel Collevtive Providers...
-         */
-        Collective\Html\HtmlServiceProvider::class,
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -165,19 +163,19 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        App\Providers\DatabaseServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Package Service Providers...
+         */
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*
@@ -194,6 +192,7 @@ return [
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
+        'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
@@ -223,22 +222,11 @@ return [
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        /*
-         * Package Aliases...
-         */
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
-        /**
-         * Custom aliases
-         */
-        'CurrencyHelper' => App\Helper\CurrencyHelper::class,
-        'TimeHelper' => App\Helper\TimeHelper::class,
     ],
 
 ];

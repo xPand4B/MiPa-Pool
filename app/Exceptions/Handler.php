@@ -2,8 +2,15 @@
 
 namespace App\Exceptions;
 
+use App\Components\Common\Http\Resources\ErrorResource;
+use App\Components\Common\MiPaPo;
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -29,8 +36,9 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -40,12 +48,27 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Exception $exception
+     * @return JsonResponse|Response
+     * @throws Exception
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ModelNotFoundException) {
+            $parameter = explode('/', $request->fullUrl());
+            $parameter = $parameter[sizeof($parameter) - 1];
+
+            $model = explode('\\', $exception->getModel());
+            $model = mb_strtolower($model[sizeof($model) - 1]);
+
+            return (new ErrorResource())
+                ->setSource('/database/models/'.$model, $parameter)
+                ->setDetail("Entry for '".$model."' not found.")
+                ->setStatusCode(404)
+                ->getError();
+        }
+
         return parent::render($request, $exception);
     }
 }

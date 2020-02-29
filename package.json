@@ -1,27 +1,39 @@
 {
     "private": true,
+    "homepage": "https://github.com/xPand4B/MiPa-Pool",
+    "author": {
+        "name": "Eric Heinzl",
+        "email": "xpand.4beatz@gmail.com",
+        "url": "https://xpand4b.de"
+    },
     "scripts": {
-        "dev": "php artisan brand:color && npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "php artisan brand:color && npm run development -- --watch",
-        "watch-poll": "php artisan brand:color && npm run watch -- --watch-poll",
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "php artisan brand:color && npm run production",
+        "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.18",
-        "bootstrap": "^4.1.0",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "material-dashboard": "^2.1.0",
-        "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.5",
-        "popper.js": "^1.12",
-        "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
-        "sass-loader": "^7.1.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "axios": "^0.19",
+        "cross-env": "^7.0",
+        "deepmerge": "^4.2.2",
+        "fibers": "^4.0.2",
+        "laravel-mix": "^5.0.1",
+        "lodash": "^4.17.15",
+        "resolve-url-loader": "^3.1.1",
+        "sass": "^1.25.0",
+        "sass-loader": "^8.0.2",
+        "sweetalert2": "^9.8.1",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "es6-promise": "^4.2.8",
+        "vue": "^2.6.11",
+        "vue-router": "^3.1.5",
+        "vuetify": "^2.2.14",
+        "vuex": "^3.1.2"
     }
 }

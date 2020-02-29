@@ -1,0 +1,11 @@
+<template>
+    <div>
+        OrderIndex
+    </div>
+</template>
+
+<script>
+    export default {
+
+    }
+</script>

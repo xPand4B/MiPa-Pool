@@ -1,11 +1,23 @@
+import Swal from 'sweetalert2';
 
 window._ = require('lodash');
-window.Popper = require('popper.js').default;
 
-try {
-    window.$ = window.jQuery = require('jquery');
-    
-} catch (e) {}
+// Sweetalert Stuff
+window.Swal = Swal.mixin({
+    //
+});
+
+window.Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 4000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+    }
+});
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
