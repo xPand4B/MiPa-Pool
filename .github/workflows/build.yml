@@ -23,12 +23,14 @@ jobs:
 
   build:
     name: "build"
+    runs-on: ubuntu-latest
     steps:
       - name: Run init script.
         run: ./psh.phar github:init
 
   unit:
     name: "php-unit"
+    runs-on: ubuntu-latest
     steps:
       - name: Execute PHPUnit tests
         env:
