@@ -1,4 +1,6 @@
 # MiPa-Pool
+![Build Status](https://github.com/xPand4B/MiPa-Pool/workflows/CI/badge.svg)
+
 Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und kommunizieren.
 
 - **License**: MIT License
