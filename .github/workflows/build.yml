@@ -37,12 +37,8 @@ jobs:
         run: chmod +x ./psh.phar
       - name: Run init script
         run: ./psh.phar github:init
-      - name: ''
-        run: echo '--------------------------'
       - name: Run PHPUnit
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: app/Components/Common/Database/database.sqlite
         run: ./psh.phar github:unit
-       - name: ''
-        run: echo '--------------------------'
