@@ -13,6 +13,7 @@ jobs:
     name: "build"
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - uses: ./.github/actions/setup.yml
       - name: Run init script
         run: ./psh.phar github:init
