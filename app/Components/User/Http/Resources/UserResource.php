@@ -33,6 +33,7 @@ class UserResource extends BaseResource
         return [
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
+            'initials' => $this->initials,
             'username' => $this->username,
             'email' => $this->email,
             'birthday' => $this->birthday,

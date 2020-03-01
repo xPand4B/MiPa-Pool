@@ -11,7 +11,6 @@
 </template>
 
 <script>
-    import { mapActions, mapGetters } from 'vuex';
     import LayoutDefaultContent from './content';
     import LayoutDefaultNavigation from './navigation';
     import LayoutDefaultFooter from './footer';
@@ -23,6 +22,10 @@
             LayoutDefaultContent,
             LayoutDefaultNavigation,
             LayoutDefaultFooter,
+        },
+
+        created() {
+            this.$store.dispatch('fetchUser');
         },
 
         data: () => ({
@@ -55,6 +58,6 @@
             topnav: {
                 title: 'MiPa-Pool',
             }
-        }),
+        })
     }
 </script>

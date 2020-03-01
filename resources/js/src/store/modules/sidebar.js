@@ -1,13 +1,7 @@
 export default {
     state: {
-        sidebarVisibleState: {
-            type: Boolean,
-            default: true
-        },
-        sidebarMiniState: {
-            type: Boolean,
-            default: false
-        },
+        sidebarVisibleState: null,
+        sidebarMiniState: false,
     },
 
     getters: {
@@ -29,11 +23,11 @@ export default {
     },
 
     mutations: {
-        SIDEBAR_VISIBLE_TOGGLE: (state) => {
+        SIDEBAR_VISIBLE_TOGGLE: (state, payload) => {
             state.sidebarVisibleState = !state.sidebarVisibleState;
         },
 
-        SIDEBAR_MINI_TOGGLE: (state) => {
+        SIDEBAR_MINI_TOGGLE: (state, payload) => {
             state.sidebarMiniState = !state.sidebarMiniState;
         }
     }
