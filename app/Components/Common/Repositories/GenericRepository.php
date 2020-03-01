@@ -236,9 +236,11 @@ class GenericRepository implements RepositoryInterface
                     return $valid;
                 }
             }
+
+            $model->$field = $value;
         }
 
-        $model->update($request->all());
+        $model->save();
 
         return $this->getResource(
             $model, null

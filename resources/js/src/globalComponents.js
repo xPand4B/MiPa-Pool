@@ -2,8 +2,10 @@ import {
     Icon
 } from "./components";
 
-export default {
+const GlobalComponents = {
     install(Vue) {
         Vue.component('icon', Icon);
-    },
+    }
 };
+
+export default GlobalComponents;

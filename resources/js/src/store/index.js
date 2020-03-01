@@ -9,21 +9,5 @@ export default new Vuex.Store({
     modules: {
         sidebarStore,
         userStore
-    },
-
-    state: {
-        //
-    },
-
-    getters: {
-        //
-    },
-
-    actions: {
-        //
-    },
-
-    mutations: {
-        //
-    },
+    }
 });

@@ -1,28 +1,23 @@
 <template>
     <v-avatar
+        v-if="initials"
         :color="color"
         :size="size"
     >
         <span
-            v-if="isLoaded"
             :class="['white--text', initialsClass]"
-        >{{ initials }}</span>
-
-        <span
-            v-else
-            :class="['white--text', initialsClass]"
-        >&nbsp;</span>
-
+        >
+            {{ initials }}
+        </span>
     </v-avatar>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
-
     export default {
         name: "profile-initials",
 
         props: {
+            initials: null,
             initialsClass: {
                 type: String,
                 default: 'headline'
@@ -35,13 +30,6 @@
                 type: [String, Number],
                 default: 48
             },
-        },
-
-        computed: {
-            ...mapGetters({
-                isLoaded: 'userIsLoaded',
-                initials: 'getCurrentUserInitials'
-            }),
-        },
+        }
     }
 </script>

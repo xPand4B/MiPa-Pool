@@ -41,6 +41,6 @@
                 type: [String, Number],
                 default: 48
             },
-        },
+        }
     }
 </script>

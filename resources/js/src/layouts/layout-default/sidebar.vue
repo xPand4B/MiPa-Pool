@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer
-        :value="sidebarVisible"
-        :mini-variant.sync="sidebarMini"
+        :value="getSidebarVisible"
+        :mini-variant.sync="getSidebarMini"
         clipped
         app
     >
@@ -61,7 +61,7 @@
 </template>
 
 <script>
-    import { mapGetters, mapState } from 'vuex';
+    import { mapGetters } from 'vuex';
     import SidebarLink from './sidebar-link';
     import SidebarToggleMini from './sidebar-toggle-mini';
 
@@ -79,14 +79,11 @@
         },
 
         data: () => ({
-            activeSidebarItem: 0,
+            activeSidebarItem: 0
         }),
 
         computed: {
-            ...mapGetters({
-                sidebarVisible: 'getSidebarVisible',
-                sidebarMini: 'getSidebarMini'
-            }),
-        },
+            ...mapGetters(['getSidebarVisible', 'getSidebarMini'])
+        }
     }
 </script>
