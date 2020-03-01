@@ -1,21 +1,15 @@
 export default {
     state: {
-        sidebarVisibleState: {
-            type: Boolean,
-            default: true
-        },
-        sidebarMiniState: {
-            type: Boolean,
-            default: false
-        },
+        sidebarVisibleState: true,
+        sidebarMiniState: false,
     },
 
     getters: {
-        getSidebarVisible: (state) =>
-            (state.sidebarVisibleState),
+        getSidebarVisible: ({ sidebarVisibleState }) =>
+            (sidebarVisibleState),
 
-        getSidebarMini: (state) =>
-            (state.sidebarMiniState),
+        getSidebarMini: ({ sidebarMiniState }) =>
+            (sidebarMiniState),
     },
 
     actions: {
@@ -29,12 +23,12 @@ export default {
     },
 
     mutations: {
-        SIDEBAR_VISIBLE_TOGGLE: (state) => {
+        SIDEBAR_VISIBLE_TOGGLE: (state, payload) => {
             state.sidebarVisibleState = !state.sidebarVisibleState;
         },
 
-        SIDEBAR_MINI_TOGGLE: (state) => {
+        SIDEBAR_MINI_TOGGLE: (state, payload) => {
             state.sidebarMiniState = !state.sidebarMiniState;
-        }
+        },
     }
 }

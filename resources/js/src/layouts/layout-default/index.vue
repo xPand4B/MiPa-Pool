@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import { mapActions, mapGetters } from 'vuex';
+    import { mapGetters } from 'vuex';
     import LayoutDefaultContent from './content';
     import LayoutDefaultNavigation from './navigation';
     import LayoutDefaultFooter from './footer';
@@ -23,6 +23,12 @@
             LayoutDefaultContent,
             LayoutDefaultNavigation,
             LayoutDefaultFooter,
+        },
+
+        beforeCreate() {
+            this.$store.dispatch('fetchUser').then(() => {
+                this.$vuetify.theme.dark = this.darkmode;
+            });
         },
 
         data: () => ({
@@ -54,7 +60,13 @@
 
             topnav: {
                 title: 'MiPa-Pool',
-            }
+            },
         }),
+
+        computed: {
+            ...mapGetters({
+                darkmode: 'getCurrentUserDarkmode'
+            }),
+        },
     }
 </script>
