@@ -31,7 +31,7 @@
             },
             topnav: {
                 type: Object
-            },
-        },
+            }
+        }
     }
 </script>

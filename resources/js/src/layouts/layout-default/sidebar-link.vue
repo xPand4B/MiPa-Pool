@@ -113,7 +113,7 @@
             isFontawesomeIcon() {
                 return !!this.item.icon.includes(' fa-');
             },
-        },
+        }
     }
 
 </script>

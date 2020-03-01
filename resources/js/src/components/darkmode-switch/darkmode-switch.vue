@@ -5,7 +5,7 @@
                 <v-list-item-action>
                     <v-switch
                         v-model="$vuetify.theme.dark"
-                        @change="toggleDarkMode"
+                        @change=""
                         :color="switchColor"
                     />
                 </v-list-item-action>
@@ -17,7 +17,6 @@
 
 <script>
     import { mapActions } from 'vuex';
-
     export default {
         name: "darkmode-switch",
 
@@ -40,8 +39,8 @@
             ...mapActions(['toggleDarkmode']),
 
             toggleDarkMode() {
-                this.$store.dispatch('toggleDarkmode');
-            },
-        },
+                console.log('TODO: Push darkmode toggle to user');
+            }
+        }
     }
 </script>

@@ -103,13 +103,17 @@
                         'Field must be between 5 and 255 characters'
                     );
                 }
-            },
+            }
         }),
 
         methods: {
             submit() {
                 console.log('Submit')
-            },
-        },
+            }
+        }
     }
 </script>
+
+<style scoped>
+
+</style>
