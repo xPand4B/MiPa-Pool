@@ -32,11 +32,11 @@
         props: {
             topnav: {
                 type: Object,
-            }
+            },
         },
 
         methods:{
             ...mapActions(['sidebarVisibleToggle'])
-        }
+        },
     }
 </script>
