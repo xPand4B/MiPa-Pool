@@ -51,6 +51,6 @@
             ProfileImage,
             DarkmodeSwitch,
             ButtonMenu
-        }
+        },
     }
 </script>

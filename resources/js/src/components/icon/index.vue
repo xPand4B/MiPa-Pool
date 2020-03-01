@@ -11,7 +11,7 @@
             name: {
                 type: String,
                 default: null
-            }
-        }
+            },
+        },
     }
 </script>

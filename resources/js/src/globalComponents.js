@@ -5,5 +5,5 @@ import {
 export default {
     install(Vue) {
         Vue.component('icon', Icon);
-    }
+    },
 };

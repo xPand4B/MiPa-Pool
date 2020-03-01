@@ -39,13 +39,9 @@
 
         computed: {
             ...mapGetters({
-                currentUser: 'getCurrentUser',
+                isLoaded: 'userIsLoaded',
                 initials: 'getCurrentUserInitials'
             }),
-
-            isLoaded() {
-                return this.currentUser !== null;
-            }
-        }
+        },
     }
 </script>

@@ -79,14 +79,14 @@
         },
 
         data: () => ({
-            activeSidebarItem: 0
+            activeSidebarItem: 0,
         }),
 
         computed: {
             ...mapGetters({
                 sidebarVisible: 'getSidebarVisible',
                 sidebarMini: 'getSidebarMini'
-            })
+            }),
         },
     }
 </script>

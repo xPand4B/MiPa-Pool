@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"3031607caaecf6971a89","1":"30a6669dd9986c34cb02","2":"962d2852922ec339eb64","3":"ca8dcd542987ca57f44c","4":"4efc59e8a8ae280d4205","5":"525b581a5160dcab719f"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"0fd42417afd9fbdeaae4","1":"405f88e2df1fede34036","2":"962d2852922ec339eb64","3":"ca8dcd542987ca57f44c","4":"4efc59e8a8ae280d4205","5":"525b581a5160dcab719f"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2183,7 +2183,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['toggleDarkmode']), {
     toggleDarkMode: function toggleDarkMode() {
-      console.log('TODO: Push darkmode toggle to user');
+      this.$store.dispatch('toggleDarkmode');
     }
   })
 });
@@ -2399,13 +2399,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    currentUser: 'getCurrentUser',
+    isLoaded: 'userIsLoaded',
     initials: 'getCurrentUserInitials'
-  }), {
-    isLoaded: function isLoaded() {
-      return this.currentUser !== null;
-    }
-  })
+  }))
 });
 
 /***/ }),
@@ -25810,7 +25806,7 @@ var render = function() {
                 [
                   _c("v-switch", {
                     attrs: { color: _vm.switchColor },
-                    on: { change: function($event) {} },
+                    on: { change: _vm.toggleDarkMode },
                     model: {
                       value: _vm.$vuetify.theme.dark,
                       callback: function($$v) {
@@ -84390,24 +84386,26 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    sidebarVisibleState: null,
+    sidebarVisibleState: true,
     sidebarMiniState: false
   },
   getters: {
-    getSidebarVisible: function getSidebarVisible(state) {
-      return state.sidebarVisibleState;
+    getSidebarVisible: function getSidebarVisible(_ref) {
+      var sidebarVisibleState = _ref.sidebarVisibleState;
+      return sidebarVisibleState;
     },
-    getSidebarMini: function getSidebarMini(state) {
-      return state.sidebarMiniState;
+    getSidebarMini: function getSidebarMini(_ref2) {
+      var sidebarMiniState = _ref2.sidebarMiniState;
+      return sidebarMiniState;
     }
   },
   actions: {
-    sidebarVisibleToggle: function sidebarVisibleToggle(_ref) {
-      var commit = _ref.commit;
+    sidebarVisibleToggle: function sidebarVisibleToggle(_ref3) {
+      var commit = _ref3.commit;
       commit('SIDEBAR_VISIBLE_TOGGLE');
     },
-    sidebarMiniToggle: function sidebarMiniToggle(_ref2) {
-      var commit = _ref2.commit;
+    sidebarMiniToggle: function sidebarMiniToggle(_ref4) {
+      var commit = _ref4.commit;
       commit('SIDEBAR_MINI_TOGGLE');
     }
   },
@@ -84445,9 +84443,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentUser: null
   },
   getters: {
-    getCurrentUser: function getCurrentUser(_ref) {
+    userIsLoaded: function userIsLoaded(_ref) {
       var currentUser = _ref.currentUser;
-      return currentUser;
+      return currentUser !== null;
     },
     getCurrentUserEmail: function getCurrentUserEmail(_ref2) {
       var currentUser = _ref2.currentUser;
@@ -84466,20 +84464,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getCurrentUserAvatar: function getCurrentUserAvatar(_ref5) {
       var currentUser = _ref5.currentUser;
       return currentUser.data.attributes.avatar;
+    },
+    getCurrentUserDarkmode: function getCurrentUserDarkmode(_ref6) {
+      var currentUser = _ref6.currentUser;
+      return currentUser.data.attributes.darkmode;
     }
   },
   actions: {
-    fetchUser: function fetchUser(_ref6) {
-      var commit = _ref6.commit;
+    fetchUser: function fetchUser(_ref7) {
+      var commit = _ref7.commit;
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var id, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                id = '08a04949-e402-461c-abc9-c1f0a9e74b60';
+                id = '038e1330-fcd8-482b-8eaa-6cfa6199c38b';
                 _context.next = 3;
-                return axios.get('api/v1/users/' + id);
+                return axios.get("api/v1/users/".concat(id));
 
               case 3:
                 response = _context.sent;
@@ -84492,11 +84494,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    toggleDarkmode: function toggleDarkmode(_ref8) {
+      var state = _ref8.state,
+          commit = _ref8.commit;
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var darkmode, id, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                darkmode = state.currentUser.data.attributes.darkmode;
+                id = '038e1330-fcd8-482b-8eaa-6cfa6199c38b?darkmode';
+                _context2.next = 4;
+                return axios.patch("api/v1/users/".concat(id), {
+                  darkmode: !darkmode
+                });
+
+              case 4:
+                response = _context2.sent;
+                commit('TOGGLE_DARKMODE', response.data);
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   mutations: {
     USER_SET: function USER_SET(state, payload) {
       state.currentUser = payload;
+    },
+    TOGGLE_DARKMODE: function TOGGLE_DARKMODE(state, payload) {
+      state.currentUser.data.attributes.darkmode = payload.data.attributes;
     }
   }
 });

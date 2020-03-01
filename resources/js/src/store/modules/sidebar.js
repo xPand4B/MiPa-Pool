@@ -1,15 +1,15 @@
 export default {
     state: {
-        sidebarVisibleState: null,
+        sidebarVisibleState: true,
         sidebarMiniState: false,
     },
 
     getters: {
-        getSidebarVisible: (state) =>
-            (state.sidebarVisibleState),
+        getSidebarVisible: ({ sidebarVisibleState }) =>
+            (sidebarVisibleState),
 
-        getSidebarMini: (state) =>
-            (state.sidebarMiniState),
+        getSidebarMini: ({ sidebarMiniState }) =>
+            (sidebarMiniState),
     },
 
     actions: {
@@ -29,6 +29,6 @@ export default {
 
         SIDEBAR_MINI_TOGGLE: (state, payload) => {
             state.sidebarMiniState = !state.sidebarMiniState;
-        }
+        },
     }
 }
