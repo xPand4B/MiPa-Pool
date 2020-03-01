@@ -241,7 +241,7 @@ class GenericRepository implements RepositoryInterface
         $model->update($request->all());
 
         return $this->getResource(
-            $model, $request
+            $model, null
         );
     }
 

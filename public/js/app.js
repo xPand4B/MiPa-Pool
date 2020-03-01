@@ -84479,7 +84479,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                id = '038e1330-fcd8-482b-8eaa-6cfa6199c38b';
+                id = '02ea978f-0527-4bed-9faf-79444d1d4ac7';
                 _context.next = 3;
                 return axios.get("api/v1/users/".concat(id));
 
@@ -84505,7 +84505,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 darkmode = state.currentUser.data.attributes.darkmode;
-                id = '038e1330-fcd8-482b-8eaa-6cfa6199c38b?darkmode';
+                id = '02ea978f-0527-4bed-9faf-79444d1d4ac7';
                 _context2.next = 4;
                 return axios.patch("api/v1/users/".concat(id), {
                   darkmode: !darkmode
@@ -84513,7 +84513,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 response = _context2.sent;
-                commit('TOGGLE_DARKMODE', response.data);
+                commit('USER_UPDATE', response.data);
 
               case 6:
               case "end":
@@ -84528,8 +84528,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     USER_SET: function USER_SET(state, payload) {
       state.currentUser = payload;
     },
-    TOGGLE_DARKMODE: function TOGGLE_DARKMODE(state, payload) {
-      state.currentUser.data.attributes.darkmode = payload.data.attributes;
+    USER_UPDATE: function USER_UPDATE(state, payload) {
+      state.currentUser = payload;
     }
   }
 });
