@@ -68,6 +68,7 @@ class UserApiController extends MiPaPoApiController
             'email'     => 'required|max:255|email|unique:users',
             'avatar'    => 'nullable',
             'locale'    => 'nullable',
+            'darkmode'  => 'boolean',
             'birthday'  => 'nullable|date',
             'password'  => 'required|min:8|max:255|confirmed',
         ];

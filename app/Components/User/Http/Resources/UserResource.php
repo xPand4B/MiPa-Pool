@@ -31,10 +31,10 @@ class UserResource extends BaseResource
     protected function getAttributes($request): array
     {
         return [
+            'username' => $this->username,
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'initials' => $this->initials,
-            'username' => $this->username,
             'email' => $this->email,
             'birthday' => $this->birthday,
             'avatar' => $this->avatar,
