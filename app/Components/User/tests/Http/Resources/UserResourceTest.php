@@ -42,9 +42,10 @@ class UserResourceTest extends TestCase
             'id' => (string)$user->id,
 
             'attributes' => [
+                'username' => $user->username,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
-                'username' => $user->username,
+                'initials' => $user->initials,
                 'email' => $user->email,
                 'birthday' => $user->birthday,
                 'avatar' => $user->avatar,
