@@ -68,7 +68,7 @@
         },
 
         data: () => ({
-            showMenu: false
-        })
+            showMenu: false,
+        }),
     }
 </script>

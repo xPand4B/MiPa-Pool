@@ -39,9 +39,12 @@ class UserApiController extends MiPaPoApiController
      */
     protected function setStoreValues(Request $request): array
     {
+        $initials = $request->get('firstname')[0].$request->get('lastname')[0];
+
         return [
             'username' => $request->get('username'),
             'firstname' => $request->get('firstname'),
+            'initials' => $initials,
             'lastname' => $request->get('lastname'),
             'email' => $request->get('email'),
             'avatar' => $request->get('avatar'),
@@ -65,6 +68,7 @@ class UserApiController extends MiPaPoApiController
             'email'     => 'required|max:255|email|unique:users',
             'avatar'    => 'nullable',
             'locale'    => 'nullable',
+            'darkmode'  => 'boolean',
             'birthday'  => 'nullable|date',
             'password'  => 'required|min:8|max:255|confirmed',
         ];
