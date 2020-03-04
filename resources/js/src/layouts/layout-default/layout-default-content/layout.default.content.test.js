@@ -1,4 +1,4 @@
-describe('Component - ButtonMenu', () => {
+describe('Layout - LayoutDefaultContent', () => {
     test('TODO: Add tests', () => {
         //
     });

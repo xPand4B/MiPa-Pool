@@ -1,1 +1,5 @@
-// TODO: Add test
+describe('Component - ProfileInitials', () => {
+    test('TODO: Add tests', () => {
+        //
+    });
+});

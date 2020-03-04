@@ -1,1 +1,5 @@
-// TODO: Add test
+describe('Component - DarkmodeSwitch', () => {
+    test('TODO: Add tests', () => {
+        //
+    });
+});

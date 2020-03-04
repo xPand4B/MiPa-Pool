@@ -30,8 +30,8 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import ProfileInitials from './profile-initials';
-    import ProfileImage from './profile-image';
+    import ProfileInitials from '../profile-initials';
+    import ProfileImage from '../profile-image';
 
     export default {
         name: "profile-information",

@@ -1,4 +1,4 @@
-describe('Component - ButtonMenu', () => {
+describe('Pages - UserIndex', () => {
     test('TODO: Add tests', () => {
         //
     });

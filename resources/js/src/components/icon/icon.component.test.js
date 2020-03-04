@@ -1,1 +1,5 @@
-// TODO: Add test
+describe('Component - Icon', () => {
+    test('TODO: Add tests', () => {
+        //
+    });
+});

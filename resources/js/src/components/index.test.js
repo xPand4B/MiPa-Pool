@@ -1,4 +1,4 @@
-describe('Component - ButtonMenu', () => {
+describe('Helper - Components', () => {
     test('TODO: Add tests', () => {
         //
     });
