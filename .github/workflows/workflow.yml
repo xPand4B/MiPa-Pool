@@ -5,12 +5,12 @@ on:
     branches:
       - master
       - release
-      - 2.0
+      - '2.0'
   push:
     branches:
       - master
       - release
-      - 2.0
+      - '2.0'
 
 jobs:
   setup:
