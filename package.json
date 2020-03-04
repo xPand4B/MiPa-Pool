@@ -1,11 +1,18 @@
 {
     "private": true,
     "homepage": "https://github.com/xPand4B/MiPa-Pool",
-    "author": {
-        "name": "Eric Heinzl",
-        "email": "xpand.4beatz@gmail.com",
-        "url": "https://xpand4b.de"
-    },
+    "authors": [
+        {
+            "name": "Eric Heinzl",
+            "email": "xpand.4beatz@gmail.com",
+            "url": "https://xpand4b.de"
+        },
+        {
+            "name": "Stuart Lux",
+            "email": "stulux98@gmx.de",
+            "url": "https://yunarito.de"
+        }
+    ],
     "scripts": {
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",

@@ -10,7 +10,13 @@
             "name": "Eric Heinzl",
             "email": "xpand.4beatz@gmail.com",
             "homepage": "https://xpand4b.de",
-            "role": "Developer"
+            "role": "Lead-Developer"
+        },
+        {
+            "name": "Stuart Lux",
+            "email": "stulux98@gmx.de",
+            "homepage": "https://yunarito.de",
+            "role": "Frontend-Developer"
         }
     ],
     "license": "MIT",
