@@ -29,12 +29,12 @@ const routes = [
             {
                 path: '/',
                 name: 'order.index',
-                component: () => import('../pages/order/OrderIndex')
+                component: () => import('../pages/order/index')
             },
             {
                 path: 'profile',
                 name: 'user.index',
-                component: () => import('../pages/user/UserIndex')
+                component: () => import('../pages/user/index')
             },
         ]
     }
