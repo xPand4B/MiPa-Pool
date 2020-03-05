@@ -11,8 +11,8 @@
 </template>
 
 <script>
-    import LayoutDefaultNavigationTopnav from './topnav';
-    import LayoutDefaultNavigationSidebar from "./sidebar";
+    import LayoutDefaultNavigationTopnav from './layout-default-navigation-topnav';
+    import LayoutDefaultNavigationSidebar from "./layout-default-navigation-sidebar";
 
     export default {
         name: 'layout-default-navigation',

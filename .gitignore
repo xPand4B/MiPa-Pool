@@ -14,3 +14,4 @@ yarn-error.log
 .idea
 .editorconfig
 .DS_Store
+/coverage/
