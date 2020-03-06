@@ -64,6 +64,7 @@ class ErrorResource
      * A unique identifier for this particular occurrence of the problem.
      *
      * @param $id
+     *
      * @return $this
      */
     public function setId($id): self

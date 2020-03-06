@@ -11,23 +11,17 @@ class DummyClass implements RepositoryInterface
 {
     public function all()
     {
-        return new DummyCollection(
-            Dummy::all()
-        );
+        //
     }
 
     public function paginate()
     {
-        return new DummyCollection(
-            Dummy::paginate()
-        );
+        //
     }
 
     public function getById($id)
     {
-        return new DummyResource(
-            Dummy::findOrFail($id)
-        );
+        //
     }
 
     public function create($id, array $data)

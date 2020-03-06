@@ -37,17 +37,20 @@ abstract class BaseResource extends JsonResource
      * Extract query params from url.
      *
      * @param Request $request
+     *
      * @return void
      */
     private function getQueryParams(Request $request): void
     {
         $columns = $this->getColumnListing($this->table);
 
-        if ($columns) {
-            foreach ($columns as $column) {
-                if ($request->has(mb_strtolower($column))) {
-                    array_push($this->queryParams, mb_strtolower($column));
-                }
+        if (!$columns) {
+            return;
+        }
+
+        foreach ($columns as $column) {
+            if ($request->has(mb_strtolower($column))) {
+                array_push($this->queryParams, mb_strtolower($column));
             }
         }
     }
@@ -69,6 +72,7 @@ abstract class BaseResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param  Request  $request
+     *
      * @return array
      */
     public function toArray($request)
@@ -97,6 +101,7 @@ abstract class BaseResource extends JsonResource
      * Filters attribute-fields based on query params.
      *
      * @param array $attributes
+     *
      * @return array
      */
     private function filterQueryParams(array $attributes): array
@@ -141,6 +146,7 @@ abstract class BaseResource extends JsonResource
      * Returns the resource attributes.
      *
      * @param $request
+     *
      * @return array
      */
     abstract protected function getAttributes($request): array;
@@ -149,6 +155,7 @@ abstract class BaseResource extends JsonResource
      * Returns the resource relations.
      *
      * @param $request
+     *
      * @return array
      */
     abstract protected function getRelations($request): array;
@@ -157,6 +164,7 @@ abstract class BaseResource extends JsonResource
      * Returns the resource links.
      *
      * @param $request
+     *
      * @return array
      */
     protected function getLinks($request): array

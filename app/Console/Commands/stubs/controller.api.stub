@@ -2,95 +2,74 @@
 
 namespace DummyNamespace;
 
+use App\Components\Common\Http\Controllers\Api\MiPaPoApiController;
 use App\Components\DummyModelClass\Database\DummyModelClass;
-use App\Components\Common\Repositories\GenericRepository;
 use App\Components\DummyModelClass\Http\Resources\DummyModelClassResource;
-use App\Components\Common\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class DummyClass extends Controller
+class DummyClass extends MiPaPoApiController
 {
     /**
-     * @var GenericRepository
+     * Set the Resource for json responses.
+     *
+     * @return String
      */
-    private $DummyModelVariableRepository;
+    protected function setResource(): String
+    {
+        return DummyModelClassResource::class;
+    }
 
     /**
-     * DummyClass constructor.
+     * Set the Model for this api endpoint.
+     *
+     * @return String
      */
-    public function __construct()
+    protected function setModel(): String
     {
-        $this->DummyModelVariableRepository = (new GenericRepository(
-            DummyModelClassResource::class,
-            DummyModelClass::class
-        ))->setValidationRules([
+        return DummyModelVariable::class;
+    }
+
+    /**
+     * Set the values that should be stored after the store route is called.
+     *
+     * @param Request $request
+     *
+     * @return array
+     */
+    protected function setStoreValues(Request $request): array
+    {
+        return [
             //
-        ])->setValidationMessages([
-            //
-        ])->setValidationCustomAttributes([
-            //
-        ]);
+        ];
     }
 
     /**
-     * Return a listing of resources.
+     * Set the validation rules.
      *
-     * @param Request $request
-     *
-     * @return AnonymousResourceCollection
+     * @return array
      */
-    public function index(Request $request)
+    protected function setValidationRules(): array
     {
-        return $this
-            ->DummyModelVariableRepository
-            ->all($request);
+        return [];
     }
 
     /**
-     * Store a newly created resource.
+     * OPTIONAL: Set the custom validation messages.
      *
-     * @param Request $request
+     * @return array
      */
-    public function store(Request $request)
+    protected function setValidationMessages(): array
     {
-        //
+        return [];
     }
 
     /**
-     * Return the specified resource.
+     * OPTIONAL: Set custom validation attributes.
      *
-     * @param Request $request
-     * @param DummyModelClass $DummyModelVariable
-     *
-     * @return mixed
+     * @return array
      */
-    public function show(Request $request, DummyModelClass $DummyModelVariable)
+    protected function setValidationCustomAttributes(): array
     {
-        return $this
-            ->DummyModelVariableRepository
-            ->getById($request, $DummyModelVariable->id);
-    }
-
-    /**
-     * Update the specified resource.
-     *
-     * @param Request $request
-     * @param DummyModelClass $DummyModelVariable
-     */
-    public function update(Request $request, DummyModelClass $DummyModelVariable)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource.
-     *
-     * @param Request $request
-     * @param DummyModelClass $DummyModelVariable
-     */
-    public function destroy(Request $request, DummyModelClass $DummyModelVariable)
-    {
-        //
+        return [];
     }
 }
