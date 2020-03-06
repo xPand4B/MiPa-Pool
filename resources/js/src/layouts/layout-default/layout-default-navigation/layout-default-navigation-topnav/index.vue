@@ -20,7 +20,7 @@
 
 <script>
     import { mapActions } from 'vuex';
-    import { ProfileTopnav } from "../../components";
+    import { ProfileTopnav } from "../../../../components";
 
     export default {
         name: "layout-default-navigation-topnav",

@@ -12,9 +12,9 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import LayoutDefaultContent from './content';
-    import LayoutDefaultNavigation from './navigation';
-    import LayoutDefaultFooter from './footer';
+    import LayoutDefaultContent from './layout-default-content';
+    import LayoutDefaultNavigation from './layout-default-content';
+    import LayoutDefaultFooter from './layout-default-footer';
 
     export default {
         name: 'layout-default',

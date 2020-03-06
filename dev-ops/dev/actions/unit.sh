@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# DESCRIPTION: Run unit tests.
+# DESCRIPTION: Run phpunit tests.
 
 INCLUDE: ./../../common/actions/.unit.sh
