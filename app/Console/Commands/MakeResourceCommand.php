@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Foundation\Console\ResourceMakeCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -42,8 +43,9 @@ class MakeResourceCommand extends ResourceMakeCommand
      * Build the class with the given name.
      *
      * @param  string  $name
+     *
      * @return string
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     protected function buildClass($name)
     {

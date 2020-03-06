@@ -3,7 +3,6 @@
 namespace DummyNamespace;
 
 use App\Components\Common\Http\Resources\BaseResource;
-use App\Components\DummyComponent\Database\DummyComponent;
 
 class DummyClass extends BaseResource
 {
@@ -19,7 +18,7 @@ class DummyClass extends BaseResource
      */
     protected function getType(): String
     {
-        return DummyComponent::class;
+        return '';
     }
 
     /**

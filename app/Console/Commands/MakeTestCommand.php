@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Foundation\Console\TestMakeCommand;
 use Illuminate\Support\Str;
 
@@ -61,8 +62,9 @@ class MakeTestCommand extends TestMakeCommand
      * Build the class with the given name.
      *
      * @param  string  $name
+     *
      * @return string
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     protected function buildClass($name)
     {

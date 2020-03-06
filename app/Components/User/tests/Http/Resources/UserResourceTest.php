@@ -15,7 +15,7 @@ class UserResourceTest extends TestCase
     use UserTestCaseTrait;
 
     /** @test */
-    public function test_resource_format(): void
+    public function test_user_resource_format(): void
     {
         $this->createUser(2);
         $users = User::all();
