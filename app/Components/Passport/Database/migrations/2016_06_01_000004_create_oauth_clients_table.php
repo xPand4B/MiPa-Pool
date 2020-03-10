@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Passport\Database\Client;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ class CreateOauthClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_clients', function (Blueprint $table) {
+        Schema::create(Client::TABLE_NAME, function (Blueprint $table) {
             $table->increments('id')->autoIncrement();
 
             $table->uuid('user_id')->index()->nullable();
@@ -36,6 +37,6 @@ class CreateOauthClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oauth_clients');
+        Schema::dropIfExists(Client::TABLE_NAME);
     }
 }

@@ -14,6 +14,13 @@ class User extends Authenticatable
     use Notifiable, UsesUuid, HasApiTokens, HasSeeder;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    const TABLE_NAME = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

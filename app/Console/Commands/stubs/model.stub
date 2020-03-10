@@ -15,7 +15,7 @@ class DummyClass extends Model
      *
      * @var string
      */
-    protected $table;
+    const TABLE_NAME = '';
 
     /**
      * The attributes that are mass assignable.

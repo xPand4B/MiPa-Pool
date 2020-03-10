@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Passport\Database\PersonalAccessClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +14,10 @@ class CreateOauthPersonalAccessClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
+        Schema::create(PersonalAccessClient::TABLE_NAME, function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('client_id')->index();
+            $table->unsignedBigInteger('client_id')->index();
 
             $table->timestampsTz();
         });
@@ -29,6 +30,6 @@ class CreateOauthPersonalAccessClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oauth_personal_access_clients');
+        Schema::dropIfExists(PersonalAccessClient::TABLE_NAME);
     }
 }

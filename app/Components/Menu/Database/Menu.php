@@ -19,7 +19,7 @@ class Menu extends Model
      *
      * @var string
      */
-    protected $table;
+    const TABLE_NAME = 'menus';
 
     /**
      * The attributes that are mass assignable.
@@ -48,35 +48,5 @@ class Menu extends Model
     public function order()
     {
         return $this->belongsTo(Order::class);
-    }
-
-    /**
-     * Scope a query to get all orders from the specified user.
-     *
-     * @param Builder $query
-     * @param int $userID
-     *
-     * @return Builder
-     */
-    public function scopeFromUser(Builder $query, int $userID)
-    {
-        return $query
-            ->where('user_id', $userID)
-            ->orderBy('updated_at', 'desc');
-    }
-
-    /**
-     * Scope a query to get all money spend so far.
-     *
-     * @param Builder $query
-     * @param int $userID
-     *
-     * @return Builder
-     */
-    public function scopeMoneySpend($query, int $userID)
-    {
-        return CurrencyHelper::Format(
-            $query->where('user_id', $userID)->sum('price')
-        );
     }
 }

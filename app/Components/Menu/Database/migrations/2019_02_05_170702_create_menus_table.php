@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Menu\Database\Menu;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +14,7 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create(Menu::TABLE_NAME, function (Blueprint $table) {
             $table->uuid('id')->primary();
 
             $table->uuid('user_id');
@@ -40,6 +41,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists(Menu::TABLE_NAME);
     }
 }
