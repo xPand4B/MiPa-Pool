@@ -9,6 +9,9 @@ header: |
 
 paths:
   - dev-ops/common/actions
+templates:
+  - source: "dev-ops/common/templates/.env.dist"
+    destination: ".env"
 
 const:
   APP_NAME: "MiPa-Pool"
@@ -52,13 +55,6 @@ const:
   PUSHER_APP_CLUSTER: "eu"
 
 environments:
-  mipapo:
-    templates:
-      - source: "dev-ops/mipapo/templates/.env.dist"
-        destination: ".env"
-    paths:
-      - "dev-ops/mipapo/actions"
-
   dev:
     templates:
       - source: "dev-ops/dev/templates/.env.dist"
