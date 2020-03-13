@@ -25,7 +25,7 @@ Additional labels for pre-release and build metadata are available as extensions
 # How to install
 ## Settings
 To setup the application you need a file named `.psh.yaml.override` in your **root directory**.
-After you have that go inside the `.psh.yaml`, crap all settings you wanna change and paste them inside the `.psh.yaml.override`.
+After you have that go inside the `.psh.yaml`, copy all settings you wanna change and paste them inside the `.psh.yaml.override`.
 
 **IMPORTANT:** You need to keep the original hierarchy!
 
