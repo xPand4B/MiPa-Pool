@@ -47,6 +47,7 @@ class MakeControllerCommand extends ControllerMakeCommand
      * Get the default namespace for the class.
      *
      * @param  string  $rootNamespace
+     *
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
@@ -63,6 +64,7 @@ class MakeControllerCommand extends ControllerMakeCommand
      * Remove the base controller import if we are already in base namespace.
      *
      * @param  string  $name
+     *
      * @return string
      */
     protected function buildClass($name)

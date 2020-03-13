@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Foundation\Console\RequestMakeCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -16,6 +17,7 @@ class MakeRequestCommand extends RequestMakeCommand
      * Get the default namespace for the class.
      *
      * @param  string  $rootNamespace
+     *
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
@@ -30,8 +32,9 @@ class MakeRequestCommand extends RequestMakeCommand
      * Build the class with the given name.
      *
      * @param  string  $name
+     *
      * @return string
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     protected function buildClass($name)
     {

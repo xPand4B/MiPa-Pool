@@ -37,6 +37,7 @@ class Handler extends ExceptionHandler
      * Report or log an exception.
      *
      * @param Exception $exception
+     *
      * @return void
      * @throws Exception
      */
@@ -50,6 +51,7 @@ class Handler extends ExceptionHandler
      *
      * @param Request $request
      * @param Exception $exception
+     *
      * @return JsonResponse|Response
      * @throws Exception
      */

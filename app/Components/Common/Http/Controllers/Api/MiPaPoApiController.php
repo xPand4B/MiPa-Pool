@@ -2,6 +2,7 @@
 
 namespace App\Components\Common\Http\Controllers\Api;
 
+use App\Components\Common\Contracts\ApiControllerInterface;
 use App\Components\Common\Http\Controllers\Controller;
 use App\Components\Common\Repositories\GenericRepository;
 use Illuminate\Http\JsonResponse;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-abstract class MiPaPoApiController extends Controller
+abstract class MiPaPoApiController extends Controller implements ApiControllerInterface
 {
     /**
      * @var GenericRepository
@@ -88,7 +89,7 @@ abstract class MiPaPoApiController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    protected function index(Request $request)
+    public function index(Request $request)
     {
         return $this->repository->all($request);
     }
@@ -138,7 +139,7 @@ abstract class MiPaPoApiController extends Controller
      *
      * @return JsonResource
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): JsonResource
     {
         $model = $this->repository->getById(
             $request, $id
@@ -157,7 +158,7 @@ abstract class MiPaPoApiController extends Controller
      *
      * @return JsonResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id): JsonResponse
     {
         $model = $this->repository->getById(
             $request, $id

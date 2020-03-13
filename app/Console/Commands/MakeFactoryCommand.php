@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Components\Common\MiPaPo;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Console\Factories\FactoryMakeCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -17,8 +18,7 @@ class MakeFactoryCommand extends FactoryMakeCommand
      * Execute the console command.
      *
      * @return bool|null
-     *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     public function handle()
     {

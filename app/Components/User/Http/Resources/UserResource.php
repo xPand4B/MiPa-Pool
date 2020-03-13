@@ -3,7 +3,6 @@
 namespace App\Components\User\Http\Resources;
 
 use App\Components\Common\Http\Resources\BaseResource;
-use App\Components\User\Database\User;
 
 class UserResource extends BaseResource
 {
