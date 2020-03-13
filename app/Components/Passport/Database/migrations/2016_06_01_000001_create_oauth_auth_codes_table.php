@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Passport\Database\AuthCode;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +14,11 @@ class CreateOauthAuthCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_auth_codes', function (Blueprint $table) {
+        Schema::create(AuthCode::TABLE_NAME, function (Blueprint $table) {
             $table->string('id', 100)->primary();
 
             $table->uuid('user_id');
-            $table->unsignedInteger('client_id');
+            $table->unsignedBigInteger('client_id');
 
             $table->text('scopes')->nullable();
             $table->boolean('revoked');
@@ -34,6 +35,6 @@ class CreateOauthAuthCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oauth_auth_codes');
+        Schema::dropIfExists(AuthCode::TABLE_NAME);
     }
 }
