@@ -13,7 +13,7 @@
 <script>
     import { mapGetters } from 'vuex';
     import LayoutDefaultContent from './layout-default-content';
-    import LayoutDefaultNavigation from './layout-default-content';
+    import LayoutDefaultNavigation from './layout-default-navigation';
     import LayoutDefaultFooter from './layout-default-footer';
 
     export default {
@@ -26,6 +26,8 @@
         },
 
         beforeCreate() {
+            // TODO: Get darkmode from cookie/local storage?
+            // this.$vuetify.theme.dark = this.darkmode;
             this.$store.dispatch('fetchUser').then(() => {
                 this.$vuetify.theme.dark = this.darkmode;
             });

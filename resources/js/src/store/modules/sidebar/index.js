@@ -1,6 +1,6 @@
 export default {
     state: {
-        sidebarVisibleState: true,
+        sidebarVisibleState: (window.innerWidth > 960),
         sidebarMiniState: false,
     },
 

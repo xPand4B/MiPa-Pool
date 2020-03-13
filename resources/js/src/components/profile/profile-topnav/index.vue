@@ -5,7 +5,6 @@
         offset-y
         button-icon
         content-flat
-        content-shaped
     >
         <template v-slot:button>
             <profile-initials v-if="true"/>
