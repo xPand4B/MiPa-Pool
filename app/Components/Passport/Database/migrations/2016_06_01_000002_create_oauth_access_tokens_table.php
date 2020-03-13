@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Passport\Database\Token;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +14,11 @@ class CreateOauthAccessTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_access_tokens', function (Blueprint $table) {
+        Schema::create(Token::TABLE_NAME, function (Blueprint $table) {
             $table->string('id', 100)->primary();
 
             $table->uuid('user_id')->index()->nullable();
-            $table->unsignedInteger('client_id');
+            $table->unsignedBigInteger('client_id');
 
             $table->string('name')->nullable();
             $table->text('scopes')->nullable();
@@ -35,6 +36,6 @@ class CreateOauthAccessTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oauth_access_tokens');
+        Schema::dropIfExists(Token::TABLE_NAME);
     }
 }

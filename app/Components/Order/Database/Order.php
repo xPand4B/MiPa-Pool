@@ -21,7 +21,7 @@ class Order extends Model
      *
      * @var string
      */
-    protected $table;
+    const TABLE_NAME = 'orders';
 
     /**
      * The attributes that are mass assignable.
@@ -50,60 +50,5 @@ class Order extends Model
     public function menus()
     {
         return $this->hasMany(Menu::class);
-    }
-
-    /**
-     * Scope a query to only include orders that are open/not closed.
-     *
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeOpen(Builder $query)
-    {
-        return $query->where('closed', false);
-    }
-
-    /**
-     * Scope a query to only include orders that are closed.
-     *
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeClosed(Builder $query)
-    {
-        return $query->where('closed', true);
-    }
-
-    /**
-     * Scope a query to get all orders from the specified user.
-     *
-     * @param Builder $query
-     * @param Uuid $userId
-     *
-     * @return Builder
-     */
-    public function scopeFromUser(Builder $query, Uuid $userId)
-    {
-        return $query
-            ->where('user_id', $userId)
-            ->orderBy('updated_at', 'desc');
-    }
-
-    /**
-     * Scope a query to get a count for orders per current month.
-     *
-     * @param Builder $query
-     * @param Uuid $userId
-     *
-     * @return int
-     */
-    public function scopeCurrentMonth(Builder $query, Uuid $userId)
-    {
-        return $query
-            ->where('user_id', $userId)
-            ->whereMonth('created_at', date('m'))
-            ->count();
     }
 }

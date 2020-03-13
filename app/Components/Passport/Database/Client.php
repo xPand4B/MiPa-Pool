@@ -6,5 +6,10 @@ use Laravel\Passport\Client as PassportClient;
 
 class Client extends PassportClient
 {
-    // nth
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    const TABLE_NAME = 'oauth_clients';
 }

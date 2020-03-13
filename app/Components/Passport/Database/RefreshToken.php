@@ -6,5 +6,10 @@ use Laravel\Passport\RefreshToken as PassportRefreshToken;
 
 class RefreshToken extends PassportRefreshToken
 {
-    // nth
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    const TABLE_NAME = 'oauth_refresh_tokens';
 }
