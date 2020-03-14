@@ -1,0 +1,100 @@
+version: '3'
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
+
+services:
+
+  nginx:
+    build: ./dev-ops/docker/container/nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - php
+      - mysql
+    volumes:
+      - .:/app
+    networks:
+      - laravel
+
+  mysql:
+    build: ./dev-ops/docker/container/mysql
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: MiPaPo
+      MYSQL_USER: app
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - laravel
+
+  # docker exec -it php bash
+  # Includes composer and npm
+  php:
+    build: ./dev-ops/docker/container/php
+    container_name: php
+    depends_on:
+      - mysql
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+    networks:
+      - laravel
+
+  # docker-compose run --rm psh ...
+  psh:
+    build: ./dev-ops/docker/container/psh
+    container_name: psh
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app
+    entrypoint: ['php', '/app/psh.phar']
+    networks:
+      - laravel
+
+  # docker-compose run --rm composer ...
+  composer:
+    build: ./dev-ops/docker/container/composer
+    container_name: composer
+    volumes:
+      - .:/app
+    networks:
+      - laravel
+
+  # docker-compose run --rm npm ...
+  npm:
+    build: ./dev-ops/docker/container/npm
+    container_name: node
+    volumes:
+      - .:/app
+    networks:
+      - laravel
+
+  # docker-compose run --rm artisan ...
+  artisan:
+    build: ./dev-ops/docker/container/php
+    container_name: artisan
+    depends_on:
+      - php
+      - mysql
+    volumes:
+      - .:/app
+    entrypoint: ['php', '/app/artisan']
+    networks:
+      - laravel
