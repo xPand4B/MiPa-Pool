@@ -56,45 +56,45 @@ services:
     networks:
       - laravel
 
-  # docker-compose run --rm psh ...
-  psh:
-    build: ./dev-ops/docker/container/psh
-    container_name: psh
-    depends_on:
-      - mysql
-    volumes:
-      - .:/app
-    entrypoint: ['php', '/app/psh.phar']
-    networks:
-      - laravel
-
-  # docker-compose run --rm composer ...
-  composer:
-    build: ./dev-ops/docker/container/composer
-    container_name: composer
-    volumes:
-      - .:/app
-    networks:
-      - laravel
-
-  # docker-compose run --rm npm ...
-  npm:
-    build: ./dev-ops/docker/container/npm
-    container_name: node
-    volumes:
-      - .:/app
-    networks:
-      - laravel
-
-  # docker-compose run --rm artisan ...
-  artisan:
-    build: ./dev-ops/docker/container/php
-    container_name: artisan
-    depends_on:
-      - php
-      - mysql
-    volumes:
-      - .:/app
-    entrypoint: ['php', '/app/artisan']
-    networks:
-      - laravel
+#  # docker-compose run --rm psh ...
+#  psh:
+#    build: ./dev-ops/docker/container/psh
+#    container_name: psh
+#    depends_on:
+#      - mysql
+#    volumes:
+#      - .:/app
+#    entrypoint: ['php', '/app/psh.phar']
+#    networks:
+#      - laravel
+#
+#  # docker-compose run --rm composer ...
+#  composer:
+#    build: ./dev-ops/docker/container/composer
+#    container_name: composer
+#    volumes:
+#      - .:/app
+#    networks:
+#      - laravel
+#
+#  # docker-compose run --rm npm ...
+#  npm:
+#    build: ./dev-ops/docker/container/npm
+#    container_name: node
+#    volumes:
+#      - .:/app
+#    networks:
+#      - laravel
+#
+#  # docker-compose run --rm artisan ...
+#  artisan:
+#    build: ./dev-ops/docker/container/php
+#    container_name: artisan
+#    depends_on:
+#      - php
+#      - mysql
+#    volumes:
+#      - .:/app
+#    entrypoint: ['php', '/app/artisan']
+#    networks:
+#      - laravel
