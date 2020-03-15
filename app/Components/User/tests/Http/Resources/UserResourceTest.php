@@ -49,8 +49,10 @@ class UserResourceTest extends TestCase
                 'email' => $user->email,
                 'birthday' => $user->birthday,
                 'avatar' => $user->avatar,
-                'locale' => $user->locale,
-                'darkmode' => (boolean)$user->darkmode,
+                'preferences' => [
+                    'locale' => $user->locale,
+                    'darkmode' => (boolean)$user->darkmode,
+                ]
             ],
 
             'relationships' => [
