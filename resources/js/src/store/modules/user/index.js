@@ -25,12 +25,12 @@ export default {
             (currentUser.data.attributes.avatar),
 
         getCurrentUserDarkmode: ({ currentUser }) =>
-            (currentUser.data.attributes.darkmode),
+            (currentUser.data.attributes.preferences.darkmode),
     },
 
     actions: {
         async fetchUser({ commit }) {
-            const id = '02ea978f-0527-4bed-9faf-79444d1d4ac7';
+            const id = '0d6f2ce2-75a6-4cef-9636-535916275954';
 
             const response = await axios.get(
                 `api/v1/users/${id}`
@@ -40,8 +40,8 @@ export default {
         },
 
         async toggleDarkmode({ state, commit }) {
-            const darkmode = state.currentUser.data.attributes.darkmode;
-            const id = '02ea978f-0527-4bed-9faf-79444d1d4ac7';
+            const darkmode = state.currentUser.data.attributes.preferences.darkmode;
+            const id = '0d6f2ce2-75a6-4cef-9636-535916275954';
 
             const response = await axios.patch(
                 `api/v1/users/${id}`, {

@@ -37,8 +37,10 @@ class UserResource extends BaseResource
             'email' => $this->email,
             'birthday' => $this->birthday,
             'avatar' => $this->avatar,
-            'locale' => $this->locale,
-            'darkmode' => (boolean)$this->darkmode,
+            'preferences' => [
+                'locale' => $this->locale,
+                'darkmode' => (boolean)$this->darkmode,
+            ],
 //            'email_verified_at' => $this->email_verified_at,
 //            'created_at' => $this->created_at,
 //            'updated_at' => $this->updated_at,
