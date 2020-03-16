@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"a3949cfab7d2d622ec10","1":"0e5b37bba7f19d31c9df","2":"3122689b3148737cc583","3":"e939c644368241c8990f","4":"360a515860db14327ee1","5":"0b6f0b7804e4ac7780f9"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"0370b7ca42a6903250ad","1":"04098c40f2031dbdd48f","2":"9a0f134873c9664d1d35","3":"11a28dacb5720cdfc501","4":"9f4e5fddff0cf1acd7a5","5":"fe2eaaed850670324cbe"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -84477,7 +84477,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                id = '0d6f2ce2-75a6-4cef-9636-535916275954';
+                id = '7aabd16d-443f-4ff5-99ab-7885db58658a';
                 _context.next = 3;
                 return axios.get("api/v1/users/".concat(id));
 
@@ -84503,7 +84503,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 darkmode = state.currentUser.data.attributes.preferences.darkmode;
-                id = '0d6f2ce2-75a6-4cef-9636-535916275954';
+                id = '7aabd16d-443f-4ff5-99ab-7885db58658a';
                 _context2.next = 4;
                 return axios.patch("api/v1/users/".concat(id), {
                   darkmode: !darkmode
@@ -84552,8 +84552,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/e.heinzl/Development/00-Projects/MiPa-Pool/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/e.heinzl/Development/00-Projects/MiPa-Pool/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Stu\Desktop\Projekte\GitHub\MiPa-Pool\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Stu\Desktop\Projekte\GitHub\MiPa-Pool\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

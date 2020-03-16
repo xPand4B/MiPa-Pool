@@ -29,7 +29,7 @@
         props: {
             title: {
                 type: String,
-                default: 'Toggle menu'
+                default: 'Minimize menu'
             },
             iconOpen: {
                 type: String,
