@@ -1,0 +1,49 @@
+<?php
+
+namespace MiPaPo\Core\Tests\Console\Commands;
+
+use MiPaPo\Core\Components\Common\Helper\CoreComponentHelper;
+use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
+
+/**
+ * @group App
+ */
+class AddApiRoutesCommandTest extends TestCase
+{
+    use ComponentTestTrait;
+
+    /** @test */
+    public function test_command_makes_component_if_not_exist(): void
+    {
+        $countBefore = CoreComponentHelper::getCount();
+        $this->addApiRoutes();
+
+        $countAfter = CoreComponentHelper::getCount();
+        $this->deleteSampleComponent();
+
+        self::assertSame($countAfter, $countBefore + 1);
+    }
+
+    /** @test */
+    public function test_command_adds_api_route_file(): void
+    {
+        $countBefore = $this->countFilesByName('api.php');
+        $this->addApiRoutes();
+
+        $countAfter = $this->countFilesByName('api.php');
+        $this->deleteSampleComponent();
+
+        self::assertSame($countAfter, $countBefore + 1);
+    }
+
+    /**
+     * RUns the add:api-routes command.
+     */
+    private function addApiRoutes(): void
+    {
+        $this->artisan('add:api-routes', [
+            'component' => $this->sampleComponentName
+        ]);
+    }
+}

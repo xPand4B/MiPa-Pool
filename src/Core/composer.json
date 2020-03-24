@@ -1,0 +1,58 @@
+{
+    "name": "mipa-pool/core",
+    "type": "mipapo-bundle",
+    "version": "1.0.0",
+    "license": "MIT",
+    "homepage": "https://github.com/xPand4B/MiPa-Pool",
+    "authors": [
+        {
+            "name": "Eric Heinzl",
+            "email": "xpand.4beatz@gmail.com",
+            "homepage": "https://xpand4b.de",
+            "role": "Lead-Developer"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "php": "^7.2",
+        "fideloper/proxy": "^4.0",
+        "laravel/framework": "^6.2",
+        "laravel/passport": "^8.0"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "facade/ignition": "^1.4",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MiPaPo\\Core\\": "src/"
+        },
+        "classmap": [
+            "src/Components/Common/Database/factories",
+            "src/Components/Common/Database/seeds",
+            "src/Components/User/Database/factories"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ]
+    }
+}

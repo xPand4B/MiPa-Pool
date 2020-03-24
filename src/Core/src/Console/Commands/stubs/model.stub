@@ -1,0 +1,28 @@
+<?php
+
+namespace DummyNamespace;
+
+use MiPaPo\Core\Components\Common\Traits\HasSeeder;
+use MiPaPo\Core\Components\Common\Traits\UsesUuid;
+use Illuminate\Database\Eloquent\Model;
+
+class DummyClass extends Model
+{
+    use UsesUuid, HasSeeder;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    const TABLE_NAME = '';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        //
+    ];
+}

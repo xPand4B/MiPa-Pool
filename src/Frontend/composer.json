@@ -1,0 +1,19 @@
+{
+    "name": "mipa-pool/frontend",
+    "type": "mipapo-bundle",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric Heinzl",
+            "email": "xpand.4beatz@gmail.com",
+            "homepage": "https://xpand4b.de",
+            "role": "Lead-Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MiPaPo\\Frontend\\": ""
+        }
+    }
+}

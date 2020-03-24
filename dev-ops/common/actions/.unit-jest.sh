@@ -2,4 +2,4 @@
 
 INCLUDE: ./.install-npm.sh
 
-npm run jest
+npm run unit
