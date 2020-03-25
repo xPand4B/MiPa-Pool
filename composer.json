@@ -1,6 +1,6 @@
 {
-    "name": "mipa-pool/core",
-    "type": "mipapo-bundle",
+    "name": "xpand4b/mipa-pool",
+    "type": "project",
     "version": "1.0.0",
     "license": "MIT",
     "homepage": "https://github.com/xPand4B/MiPa-Pool",
