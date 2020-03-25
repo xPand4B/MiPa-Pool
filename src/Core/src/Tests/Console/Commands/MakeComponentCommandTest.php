@@ -5,11 +5,11 @@ namespace MiPaPo\Core\Tests\Console\Commands;
 use MiPaPo\Core\Components\Common\Helper\CoreComponentHelper;
 use MiPaPo\Core\CoreBundle;
 use MiPaPo\Core\Tests\ComponentTestTrait;
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
 use Illuminate\Support\Facades\File;
 
 /**
- * @group App
+ * @group Core
  */
 class MakeComponentCommandTest extends TestCase
 {

@@ -1,12 +1,27 @@
 {
-  "scripts": {
-    "dev": "npm run dev --prefix ./src/Frontend/Resources/app",
-    "development": "npm run dev --prefix ./src/Frontend/Resources/app",
-    "watch": "npm run watch --prefix ./src/Frontend/Resources/app",
-    "watch-poll": "npm run watch-poll --prefix ./src/Frontend/Resources/app",
-    "hot": "npm run hot --prefix ./src/Frontend/Resources/app",
-    "prod": "npm run prod --prefix ./src/Frontend/Resources/app",
-    "production": "npm run prod --prefix ./src/Frontend/Resources/app",
-    "jest": "npm run jest --prefix ./src/Frontend/Resources/app"
-  }
+    "homepage": "https://github.com/xPand4B/MiPa-Pool",
+    "authors": [
+        {
+            "name": "Eric Heinzl",
+            "email": "xpand.4beatz@gmail.com",
+            "url": "https://xpand4b.de",
+            "role": "Lead-Developer"
+        },
+        {
+            "name": "Stuart Lux",
+            "email": "stulux98@gmx.de",
+            "url": "https://yunarito.de",
+            "role": "Frontend-Developer"
+        }
+    ],
+    "scripts": {
+        "dev": "npm run dev --prefix ./src/Frontend/Resources/app",
+        "development": "npm run dev --prefix ./src/Frontend/Resources/app",
+        "watch": "npm run watch --prefix ./src/Frontend/Resources/app",
+        "watch-poll": "npm run watch-poll --prefix ./src/Frontend/Resources/app",
+        "hot": "npm run hot --prefix ./src/Frontend/Resources/app",
+        "prod": "npm run prod --prefix ./src/Frontend/Resources/app",
+        "production": "npm run prod --prefix ./src/Frontend/Resources/app",
+        "unit": "npm run unit --prefix ./src/Frontend/Resources/app"
+    }
 }

@@ -3,7 +3,7 @@
 namespace MiPaPo\Core\Tests\Console\Commands;
 
 /**
- * @group App
+ * @group Core
  */
 class MakeSeederCommandTest
 {

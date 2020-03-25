@@ -41,7 +41,7 @@ class MakeTestCommand extends TestMakeCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return base_path('src/Core/Components/').str_replace('\\', '/', $name).'.php';
+        return base_path('src/Core/src/Components/').str_replace('\\', '/', $name).'.php';
     }
 
     /**
@@ -80,6 +80,6 @@ class MakeTestCommand extends TestMakeCommand
      */
     protected function rootNamespace()
     {
-        return 'App\Components';
+        return 'MiPaPo\Core\Components';
     }
 }

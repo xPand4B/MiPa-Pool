@@ -69,8 +69,6 @@ class MakeControllerCommand extends ControllerMakeCommand
      */
     protected function buildClass($name)
     {
-        $controllerNamespace = 'App\\Components\\'.$this->component.'\\Http\\Controllers';
-
         $replace = [];
 
         if ($this->option('parent')) {
@@ -82,8 +80,6 @@ class MakeControllerCommand extends ControllerMakeCommand
         }
 
         $replace = $this->buildReplacements();
-
-        $replace["use {$controllerNamespace}\Controller;\n"] = '';
 
         $this->call('make:test', [
             'name' => 'Http/Controllers/'.$this->argument('name').'Test',

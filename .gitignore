@@ -5,7 +5,6 @@
 /public/storage
 /public/svgs
 /public/webfonts
-/public/mix-manifest.json
 /public/*.js
 vendor
 .env

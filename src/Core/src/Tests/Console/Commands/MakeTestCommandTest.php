@@ -4,10 +4,10 @@ namespace MiPaPo\Core\Tests\Console\Commands;
 
 use MiPaPo\Core\Components\Common\Helper\CoreComponentHelper;
 use MiPaPo\Core\Tests\ComponentTestTrait;
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group App
+ * @group Core
  */
 class MakeTestCommandTest extends TestCase
 {
@@ -48,7 +48,7 @@ class MakeTestCommandTest extends TestCase
         $this->deleteSampleComponent();
 
         self::assertStringContainsString(
-            $this->sampleComponentName.DIRECTORY_SEPARATOR.'tests'.DIRECTORY_SEPARATOR.$this->getSampleUnitTestName(),
+            $this->sampleComponentName.DIRECTORY_SEPARATOR.'Tests'.DIRECTORY_SEPARATOR.$this->getSampleUnitTestName(),
             $sampleFile[0]
         );
     }

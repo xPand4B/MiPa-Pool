@@ -2,7 +2,8 @@
 
 namespace MiPaPo\Core\Components\Common\Tests\Repositories;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 
 /**
  * @group Common

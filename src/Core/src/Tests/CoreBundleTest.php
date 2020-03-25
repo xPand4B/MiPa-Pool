@@ -3,10 +3,10 @@
 namespace MiPaPo\Core\Tests;
 
 use MiPaPo\Core\CoreBundle;
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group Common
+ * @group Core
  */
 class CoreBundleTest extends TestCase
 {

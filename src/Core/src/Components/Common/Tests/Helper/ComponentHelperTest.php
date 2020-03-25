@@ -4,8 +4,8 @@ namespace MiPaPo\Core\Components\Common\Tests\Helper;
 
 use MiPaPo\Core\Components\Common\Helper\CoreComponentHelper;
 use MiPaPo\Core\CoreBundle;
+use MiPaPo\Core\Testing\TestCase;
 use MiPaPo\Core\Tests\ComponentTestTrait;
-use MiPaPo\Core\Components\Common\Testing\TestCase;
 use Illuminate\Support\Facades\File;
 
 /**

@@ -2,7 +2,8 @@
 
 namespace MiPaPo\Core\Components\User\Tests\Database\factories;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Components\User\Database\User;
 use MiPaPo\Core\Components\User\Tests\UserTestCaseTrait;
 

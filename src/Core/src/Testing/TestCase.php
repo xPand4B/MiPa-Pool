@@ -1,6 +1,6 @@
 <?php
 
-namespace MiPaPo\Core\Components\Common\Testing;
+namespace MiPaPo\Core\Testing;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;

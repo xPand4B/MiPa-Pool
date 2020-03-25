@@ -1,6 +1,6 @@
 <?php
 
-namespace MiPaPo\Core\Components\Common\Testing\Traits;
+namespace MiPaPo\Core\Testing\Traits;
 
 trait RequestTestTrait
 {

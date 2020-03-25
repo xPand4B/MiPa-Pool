@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
 
 /**
  * @group Dummy

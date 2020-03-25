@@ -2,7 +2,8 @@
 
 namespace MiPaPo\Core\Components\Order\Tests\Database;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Components\Order\Database\Order;
 use MiPaPo\Core\Components\Order\Tests\OrderTestCaseTrait;
 

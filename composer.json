@@ -10,13 +10,20 @@
             "email": "xpand.4beatz@gmail.com",
             "homepage": "https://xpand4b.de",
             "role": "Lead-Developer"
+        },
+        {
+            "name": "Stuart Lux",
+            "email": "stulux98@gmx.de",
+            "homepage": "https://yunarito.de",
+            "role": "Frontend-Developer"
         }
     ],
     "scripts": {
         "post-autoload-dump": [
-            "composer install -d ./src/Core --no-interaction --optimize-autoloader --no-suggest",
-            "composer install -d ./src/Frontend --no-interaction --optimize-autoloader --no-suggest",
-            "composer install -d ./src/Recovery --no-interaction --optimize-autoloader --no-suggest"
+            "composer install -d ./src/Core --no-interaction --optimize-autoloader --no-suggest"
+        ],
+        "unit": [
+            "composer unit -d ./src/Core"
         ]
     }
 }

@@ -4,10 +4,10 @@ namespace MiPaPo\Core\Tests\Console\Commands;
 
 use MiPaPo\Core\Components\Common\Helper\CoreComponentHelper;
 use MiPaPo\Core\Tests\ComponentTestTrait;
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group App
+ * @group Core
  */
 class MakeResourceCommandTest extends TestCase
 {

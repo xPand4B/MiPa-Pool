@@ -2,7 +2,8 @@
 
 namespace MiPaPo\Core\Components\Common\Tests\Http\Controllers\Api;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 
 /**
  * @group Common

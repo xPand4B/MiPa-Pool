@@ -39,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MiPaPo\\Core\\": "src/"
+            "MiPaPo\\Core\\": "./src/"
         },
         "classmap": [
             "src/Components/Common/Database/factories",
@@ -47,12 +47,23 @@
             "src/Components/User/Database/factories"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "MiPaPo\\Core\\Tests\\": "src/Tests",
+            "MiPaPo\\Core\\Components\\Common\\Tests\\": "src/Components/Common/Tests",
+            "MiPaPo\\Core\\Components\\Menu\\Tests\\": "src/Components/Menu/Tests",
+            "MiPaPo\\Core\\Components\\Order\\Tests\\": "src/Components/Order/Tests",
+            "MiPaPo\\Core\\Components\\Passport\\Tests\\": "src/Components/Passport/Tests",
+            "MiPaPo\\Core\\Components\\User\\Tests\\": "src/Components/User/Tests"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
-        ]
+        ],
+        "unit": "php vendor/bin/phpunit"
     }
 }

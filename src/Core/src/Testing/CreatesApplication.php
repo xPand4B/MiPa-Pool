@@ -1,6 +1,6 @@
 <?php
 
-namespace MiPaPo\Core\Components\Common\Testing;
+namespace MiPaPo\Core\Testing;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
@@ -14,7 +14,7 @@ trait CreatesApplication
      */
     public function createApplication()
     {
-        $app = require base_path('src/Core/src/Resources/public/app.php');
+        $app = require __DIR__.'../../../../../bootstrap/app.php';
 
         $app->make(Kernel::class)->bootstrap();
 

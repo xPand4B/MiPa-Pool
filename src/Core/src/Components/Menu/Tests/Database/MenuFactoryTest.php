@@ -2,7 +2,8 @@
 
 namespace MiPaPo\Core\Components\Menu\Tests\Database;
 
-use MiPaPo\Core\Components\Common\Testing\TestCase;
+use MiPaPo\Core\Testing\TestCase;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Components\Menu\Database\Menu;
 use MiPaPo\Core\Components\Menu\Tests\MenuTestCaseTrait;
 
