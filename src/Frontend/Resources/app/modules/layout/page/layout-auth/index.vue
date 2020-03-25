@@ -1,5 +1,5 @@
 <template>
-    <v-content>
+    <v-content class="authBackground">
         <v-container
             class="fill-height"
             fluid
@@ -13,57 +13,37 @@
                     sm="8"
                     md="4"
                 >
-                    <v-card class="elevation-12">
+                    <v-card class="elevation-12" shaped>
                         <v-toolbar
                             color="primary"
                             dark
                             flat
                         >
-                            <v-toolbar-title>Login</v-toolbar-title>
+                            <v-tabs
+                                v-model="tab"
+                                fixed-tabs
+                                dark
+                            >
+                                <v-tab>
+                                    Login
+                                </v-tab>
+                                <v-tab>
+                                    Register
+                                </v-tab>
+                            </v-tabs>
                             <v-spacer/>
                         </v-toolbar>
+
                         <v-card-text>
-                             <v-form
-                                 @submit.prevent="submit"
-                                 v-model="valid"
-                             >
-                                 <v-text-field
-                                     id="email"
-                                     label="E-Mail"
-                                     name="email"
-                                     v-model="form.email"
-                                     :rules="[rules.email, rules.length, rules.required]"
-                                     type="email"
-                                     selected
-                                     required
-                                 />
+                            <v-tabs-items v-model="tab">
+                                <v-tab-item>
+                                    <auth-login/>
+                                </v-tab-item>
+                                <v-tab-item>
+                                    <auth-register/>
+                                </v-tab-item>
 
-                                 <v-text-field
-                                     id="password"
-                                     label="Password"
-                                     name="password"
-                                     v-model="form.password"
-                                     :rules="[rules.length, rules.required]"
-                                     :append-icon="passwordVisible ? 'mdi-eye-off' : 'mdi-eye'"
-                                     @click:append="passwordVisible = !passwordVisible"
-                                     :type="passwordVisible ? 'text' : 'password'"
-                                     required
-                                 />
-
-                                 <v-checkbox
-                                     v-model="form.remember"
-                                     label="Remember me?"
-                                 />
-                            </v-form>
-
-                            <v-btn
-                                :disabled="!valid"
-                                color="green"
-                                type="submit"
-                                rounded
-                            >
-                                <icon name="fas fa-sign-in-alt"/> &nbsp; Login
-                            </v-btn>
+                            </v-tabs-items>
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -73,45 +53,34 @@
 </template>
 
 <script>
-    export default {
-        name: 'layout-page-auth',
+    import AuthLogin from "../../pages/auth/Login";
+    import AuthRegister from "../../pages/auth/Register";
+    import LayoutDefaultFooter from '../layout-default/layout-default-footer';
 
-        props: {
-            source: String,
+    export default {
+
+        components: {
+            AuthLogin,
+            AuthRegister,
+            LayoutDefaultFooter,
         },
 
-        data: () => ({
-            valid: false,
-            form: {
-                email: '',
-                password: '',
-                remember: false
-            },
-            passwordVisible: false,
-            rules: {
-                required: value => !!value || 'Field is required',
-                email: value => {
-                    const pattern = /.+@.+\..+/;
-                    return (
-                        pattern.test(value) ||
-                        'E-Mail must be valid.'
-                    );
-                },
-                length: value => {
-                    const minLength = 5;
-                    const maxLength = 255;
-                    return (
-                        (value.length >= minLength && value.length <= maxLength) ||
-                        'Field must be between 5 and 255 characters'
-                    );
-                }
-            },
-        }),
-
-        methods: {
-            submit() {
-                console.log('Submit')
-            },
+        data () {
+            return {
+                tab: null,
+            }
         },
     }
 </script>
+
+<style>
+    html{
+        overflow: hidden;
+    }
+    .authBackground{
+        background-image: url(https://source.unsplash.com/1280x720/daily?programming);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+</style>
