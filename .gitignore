@@ -1,10 +1,4 @@
-/public/css
-/public/fonts
-/public/js
-/public/sprites
 /public/storage
-/public/svgs
-/public/webfonts
 /public/*.js
 vendor
 .env
