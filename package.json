@@ -15,13 +15,14 @@
         }
     ],
     "scripts": {
-        "dev": "npm run dev --prefix ./src/Frontend/Resources/app",
-        "development": "npm run dev --prefix ./src/Frontend/Resources/app",
-        "watch": "npm run watch --prefix ./src/Frontend/Resources/app",
-        "watch-poll": "npm run watch-poll --prefix ./src/Frontend/Resources/app",
-        "hot": "npm run hot --prefix ./src/Frontend/Resources/app",
-        "prod": "npm run prod --prefix ./src/Frontend/Resources/app",
-        "production": "npm run prod --prefix ./src/Frontend/Resources/app",
-        "unit": "npm run unit --prefix ./src/Frontend/Resources/app"
+        "dev": "npm run dev --prefix src/Frontend/Resources/app",
+        "development": "npm run dev --prefix src/Frontend/Resources/app",
+        "watch": "npm run watch --prefix src/Frontend/Resources/app",
+        "watch-poll": "npm run watch-poll --prefix src/Frontend/Resources/app",
+        "hot": "npm run hot --prefix src/Frontend/Resources/app",
+        "prod": "npm run prod --prefix src/Frontend/Resources/app",
+        "production": "npm run prod --prefix src/Frontend/Resources/app",
+
+        "unit": "npm run unit --prefix src/Frontend/Resources/app"
     }
 }

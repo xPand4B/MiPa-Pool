@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # DESCRIPTION: Initialize the workflow.
 
-I: rm src/Core/src/Components/Common/Database/database.sqlite
-I: touch src/Core/src/Components/Common/Database/database.sqlite
+I: rm src/database.sqlite
+I: touch src/database.sqlite
 
 INCLUDE: ./../../common/actions/.init-prod.sh
 
