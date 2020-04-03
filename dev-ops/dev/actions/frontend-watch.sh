@@ -2,6 +2,6 @@
 # DESCRIPTION: Start the js watcher.
 
 I: rm public/*.js
-php artisan key:generate
-INCLUDE: ./../../common/actions/.npm-run-watch.sh
+I: rm public/*.js.map
 
+INCLUDE: ./../../common/actions/.npm-run-watch.sh

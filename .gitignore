@@ -1,6 +1,8 @@
+/public/css
+/public/js
 /public/storage
 /public/*.js
-vendor
+/vendor
 .env
 .psh.yaml.override
 .idea
