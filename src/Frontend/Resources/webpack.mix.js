@@ -47,14 +47,6 @@ mix.webpackConfig({
                 __dirname + '/app/core/plugins',
             '@modules':
                 __dirname + '/app/modules',
-
-            // assets
-            '@assets':
-                __dirname + '/assets',
-
-            // translations
-            '@translations':
-                __dirname + '/translations',
         },
     },
 });
