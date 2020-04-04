@@ -6,6 +6,6 @@
 
 <script>
     export default {
-
+        name: 'profile-page-index',
     }
 </script>
