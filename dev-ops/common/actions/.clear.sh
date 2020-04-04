@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
-I: rm -rf public/storage
+# General
+I: rm public/css/app.css
+I: rm public/js
 
-I: rm public/*.js
+I: rm -rf public/fonts
 I: rm -rf public/sprites
+I: rm -rf public/storage
 I: rm -rf public/svgs
 I: rm -rf public/webfonts
 
-I: rm storage/oauth/*.key
-I: rm storage/logs/*.log
+I: rm public/*.js
+I: rm public/*.js.map
 
-I: rm .phpunit.result.cache
+I: rm -rf src/vendor
+
+# Core
+I: rm src/Core/src/Resources/storage/logs/*.log
+I: rm src/Core/src/Resources/storage/oauth/*.key
+
+#Frontend
+I: rm -rf src/Frontend/Resources/app/node_modules

@@ -1,0 +1,94 @@
+<?php
+
+namespace DummyNamespace;
+
+use MiPaPo\Core\Components\DummyModelClass\Database\DummyModelClass;
+use MiPaPo\Core\Components\Common\Repositories\GenericRepository;
+use MiPaPo\Core\Components\DummyModelClass\Http\Resources\DummyModelClassResource;
+use  MiPaPo\Core\Controller\Controller;
+use Illuminate\Http\Request;
+use ParentDummyFullModelClass;
+
+class DummyClass extends Controller
+{
+    /**
+     * @var GenericRepository
+     */
+    private $DummyModelVariableRepository;
+
+    /**
+     * DummyClass constructor.
+     */
+    public function __construct()
+    {
+        $this->DummyModelVariableRepository = (new GenericRepository(
+            DummyModelClassResource::class,
+            DummyModelClass::class
+        ))->setValidationRules([
+            //
+        ])->setValidationMessages([
+            //
+        ])->setValidationCustomAttributes([
+            //
+        ]);
+    }
+
+    /**
+     * Return a listing of the resource.
+     *
+     * @param Request $request
+     * @param ParentDummyModelClass $ParentDummyModelVariable
+     */
+    public function index(Request $request, ParentDummyModelClass $ParentDummyModelVariable)
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource.
+     *
+     * @param Request $request
+     * @param ParentDummyModelClass $ParentDummyModelVariable
+     */
+    public function store(Request $request, ParentDummyModelClass $ParentDummyModelVariable)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @param ParentDummyModelClass $ParentDummyModelVariable
+     * @param DummyModelClass $DummyModelVariable
+     */
+    public function show(Request $request, ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource.
+     *
+     * @param Request $request
+     * @param ParentDummyModelClass $ParentDummyModelVariable
+     * @param DummyModelClass $DummyModelVariable
+     */
+    public function update(Request $request, ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource.
+     *
+     * @param Request $request
+     * @param ParentDummyModelClass $ParentDummyModelVariable
+     * @param DummyModelClass $DummyModelVariable
+     */
+    public function destroy(Request $request, ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    {
+        //
+    }
+}
+

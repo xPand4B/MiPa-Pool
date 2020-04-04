@@ -6,6 +6,6 @@ INCLUDE: ./.install-npm.sh
 INCLUDE: ./.npm-run-dev.sh
 INCLUDE: ./.cache.sh
 
-php artisan storage:link
+#php artisan storage:link
 php artisan migrate:fresh
 php artisan passport:install

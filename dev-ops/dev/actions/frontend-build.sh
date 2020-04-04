@@ -2,7 +2,6 @@
 # DESCRIPTION: Build the frontend.
 
 I: rm public/*.js
-INCLUDE: ./../../common/actions/.install-npm.sh
-INCLUDE: ./../../common/actions/.npm-run-dev.sh
+I: rm public/*.js.map
 
-php artisan key:generate
+INCLUDE: ./../../common/actions/.npm-run-dev.sh

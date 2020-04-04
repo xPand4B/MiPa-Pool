@@ -1,0 +1,56 @@
+<?php
+
+namespace DummyNamespace;
+
+use MiPaPo\Core\Components\Common\Http\Resources\BaseResource;
+
+class DummyClass extends BaseResource
+{
+    /**
+     * @var string
+     */
+    protected $table = '';
+
+    /**
+     * Returns the resource type.
+     *
+     * @return String
+     */
+    protected function getType(): String
+    {
+        return '';
+    }
+
+    /**
+     * Returns the resource attributes.
+     *
+     * @param $request
+     * @return array
+     */
+    protected function getAttributes($request): array
+    {
+        return parent::setAttributes($request);
+    }
+
+    /**
+     * Returns the resource relations.
+     *
+     * @param $request
+     * @return array
+     */
+    protected function getRelations($request): array
+    {
+        return parent::setRelations($request);
+    }
+
+    /**
+     * Returns the resource links.
+     *
+     * @param $request
+     * @return array
+     */
+    protected function getLinks(): array
+    {
+        return parent::setLinks();
+    }
+}

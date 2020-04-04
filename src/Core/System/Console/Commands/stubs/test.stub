@@ -1,0 +1,13 @@
+<?php
+
+namespace DummyNamespace;
+
+use MiPaPo\Core\Testing\TestCase;
+
+/**
+ * @group DummyGroup
+ */
+class DummyClass extends TestCase
+{
+    // TODO: Add test
+}
