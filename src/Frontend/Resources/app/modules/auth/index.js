@@ -1,7 +1,11 @@
-import AuthPageLogin from './page/auth-login';
-import AuthPageRegister from './page/auth-register';
+import AuthComponentLogin from './component/auth-login';
+import AuthComponentRegister from './component/auth-register';
 
-export default {
+import AuthPageLogin from './page/auth-login';
+
+export {
+    AuthComponentLogin,
+    AuthComponentRegister,
+
     AuthPageLogin,
-    AuthPageRegister,
 };

@@ -13,39 +13,7 @@
                     sm="8"
                     md="4"
                 >
-                    <v-card class="elevation-12" shaped>
-                        <v-toolbar
-                            color="primary"
-                            dark
-                            flat
-                        >
-                            <v-tabs
-                                v-model="tab"
-                                fixed-tabs
-                                dark
-                            >
-                                <v-tab>
-                                    Login
-                                </v-tab>
-                                <v-tab>
-                                    Register
-                                </v-tab>
-                            </v-tabs>
-                            <v-spacer/>
-                        </v-toolbar>
-
-                        <v-card-text>
-                            <v-tabs-items v-model="tab">
-                                <v-tab-item>
-                                    <auth-login/>
-                                </v-tab-item>
-                                <v-tab-item>
-                                    <auth-register/>
-                                </v-tab-item>
-
-                            </v-tabs-items>
-                        </v-card-text>
-                    </v-card>
+                    <router-view></router-view>
                 </v-col>
             </v-row>
         </v-container>
@@ -53,23 +21,8 @@
 </template>
 
 <script>
-    import AuthLogin from "../../pages/auth/Login";
-    import AuthRegister from "../../pages/auth/Register";
-    import LayoutDefaultFooter from '../layout-default/layout-default-footer';
-
     export default {
-
-        components: {
-            AuthLogin,
-            AuthRegister,
-            LayoutDefaultFooter,
-        },
-
-        data () {
-            return {
-                tab: null,
-            }
-        },
+        name: 'layout-page-auth',
     }
 </script>
 
