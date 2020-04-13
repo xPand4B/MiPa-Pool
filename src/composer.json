@@ -58,7 +58,6 @@
         ],
         "unit": [
             "rm -rf Core/Components/Sample",
-            "rm database.sqlite",
             "php vendor/bin/phpunit"
         ]
     }
