@@ -11,12 +11,64 @@ abstract class BaseResource extends JsonResource
     /**
      * @var array
      */
-    protected $queryParams = [];
+    private $queryParams = [];
 
     /**
-     * @var string
+     * Returns the resource table.
+     *
+     * @return String
      */
-    protected $table = '';
+    abstract protected function getTable(): String;
+
+    /**
+     * Returns the resource type.
+     *
+     * @return String
+     */
+    abstract protected function getType(): String;
+
+    /**
+     * Returns the resource attributes.
+     *
+     * @param $request
+     *
+     * @return array
+     */
+    abstract protected function getAttributes($request): array;
+
+    /**
+     * Returns the resource relations.
+     *
+     * @param $request
+     *
+     * @return array
+     */
+    abstract protected function getRelations($request): array;
+
+    /**
+     * Returns the resource id.
+     *
+     * @return String
+     */
+    protected function getId(): String
+    {
+        return (string)$this->id;
+    }
+
+    /**
+     * Returns the resource links.
+     *
+     * @param $request
+     *
+     * @return array
+     */
+    protected function getLinks($request): array
+    {
+        return [
+            'self' => null,
+            'related' => null,
+        ];
+    }
 
     /**
      * BaseResource constructor.
@@ -42,7 +94,7 @@ abstract class BaseResource extends JsonResource
      */
     private function getQueryParams(Request $request): void
     {
-        $columns = $this->getColumnListing($this->table);
+        $columns = $this->getColumnListing($this->getTable());
 
         if (!$columns) {
             return;
@@ -123,55 +175,5 @@ abstract class BaseResource extends JsonResource
         }
 
         return $filtered;
-    }
-
-    /**
-     * Returns the resource id.
-     *
-     * @return String
-     */
-    protected function getId(): String
-    {
-        return (string)$this->id;
-    }
-
-    /**
-     * Returns the resource type.
-     *
-     * @return String
-     */
-    abstract protected function getType(): String;
-
-    /**
-     * Returns the resource attributes.
-     *
-     * @param $request
-     *
-     * @return array
-     */
-    abstract protected function getAttributes($request): array;
-
-    /**
-     * Returns the resource relations.
-     *
-     * @param $request
-     *
-     * @return array
-     */
-    abstract protected function getRelations($request): array;
-
-    /**
-     * Returns the resource links.
-     *
-     * @param $request
-     *
-     * @return array
-     */
-    protected function getLinks($request): array
-    {
-        return [
-            'self' => null,
-            'related' => null,
-        ];
     }
 }

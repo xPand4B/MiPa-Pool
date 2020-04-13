@@ -2,10 +2,10 @@
 
 namespace MiPaPo\Core\Components\Common\Tests\Http\Controller\Auth;
 
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
+use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group Common
+ * @group CommonCoreComponent
  */
 class ResetPasswordController extends TestCase
 {

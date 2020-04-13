@@ -3,10 +3,9 @@
 namespace MiPaPo\Core\Components\Common\Tests\Repositories;
 
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 
 /**
- * @group Common
+ * @group CommonCoreComponent
  */
 class GenericRepositoryTest extends TestCase
 {

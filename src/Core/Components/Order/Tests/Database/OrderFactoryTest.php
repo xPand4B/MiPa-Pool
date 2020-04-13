@@ -3,12 +3,10 @@
 namespace MiPaPo\Core\Components\Order\Tests\Database;
 
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
-use MiPaPo\Core\Components\Order\Database\Order;
 use MiPaPo\Core\Components\Order\Tests\OrderTestCaseTrait;
 
 /**
- * @group Order
+ * @group OrderCoreComponent
  */
 class OrderFactoryTest extends TestCase
 {

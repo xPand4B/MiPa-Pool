@@ -5,7 +5,6 @@ namespace MiPaPo\Core\Tests;
 use MiPaPo\Core\Helper\CoreComponentHelper;
 use MiPaPo\Core\CoreBundle;
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 use Illuminate\Support\Facades\File;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace MiPaPo\Core\System\Tests;
+namespace MiPaPo\Core\Tests;
 
 use MiPaPo\Core\Helper\CoreComponentHelper;
 use MiPaPo\Core\CoreBundle;

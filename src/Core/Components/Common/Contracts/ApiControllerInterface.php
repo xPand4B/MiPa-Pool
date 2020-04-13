@@ -16,7 +16,7 @@ interface ApiControllerInterface
      *
      * @return AnonymousResourceCollection
      */
-    function index(Request $request);
+    public function index(Request $request);
 
     /**
      * Store a newly created resource.
@@ -31,29 +31,29 @@ interface ApiControllerInterface
      * Return the specified resource.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function show(Request $request, $id): JsonResource;
+    public function show(Request $request, string $id): JsonResource;
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function update(Request $request, $id): JsonResource;
+    public function update(Request $request, string $id): JsonResource;
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResponse
      */
-    public function destroy(Request $request, $id): JsonResponse;
+    public function destroy(Request $request, string $id): JsonResponse;
 }

@@ -7,9 +7,14 @@ use MiPaPo\Core\Components\Common\Http\Resources\BaseResource;
 class UserResource extends BaseResource
 {
     /**
-     * @var string
+     * Returns the resource table.
+     *
+     * @return String
      */
-    protected $table = 'users';
+    protected function getTable(): String
+    {
+        return 'users';
+    }
 
     /**
      * Returns the resource type.

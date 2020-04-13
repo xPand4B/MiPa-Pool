@@ -1,15 +1,15 @@
 <?php
 
-namespace MiPaPo\Core\System\Tests\Console\Commands;
+namespace MiPaPo\Core\Tests\System\Console\Commands;
 
 use MiPaPo\Core\Helper\CoreComponentHelper;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 
 /**
- * @group System
+ * @group Core
  */
-class MakeFactoryCommandTest extends TestCase
+class MakeControllerCommandTest extends TestCase
 {
     use ComponentTestTrait;
 
@@ -17,7 +17,7 @@ class MakeFactoryCommandTest extends TestCase
     public function test_command_makes_component_if_not_exist(): void
     {
         $countBefore = CoreComponentHelper::getCount();
-        $this->makeFactory();
+        $this->makeController();
 
         $countAfter = CoreComponentHelper::getCount();
         $this->deleteSampleComponent();
@@ -28,29 +28,29 @@ class MakeFactoryCommandTest extends TestCase
     /** @test */
     public function test_command_makes_controller_and_test(): void
     {
-        $this->makeFactory();
+        $this->makeController();
 
-        $factory = CoreComponentHelper::getFilesByDirectory(
-            'Database'.DIRECTORY_SEPARATOR.'factories'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Factory.php'
+        $controller = CoreComponentHelper::getFilesByDirectory(
+            'Http'.DIRECTORY_SEPARATOR.'Controller'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Controller.php'
         );
 
         $test = CoreComponentHelper::getFilesByDirectory(
-            'Tests'.DIRECTORY_SEPARATOR.'Database'.DIRECTORY_SEPARATOR.'factories'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'FactoryTest.php'
+            'Tests'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Controller'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'ControllerTest.php'
         );
 
-        self::assertTrue(file_exists($factory[0]));
+        self::assertTrue(file_exists($controller[0]));
         self::assertTrue(file_exists($test[0]));
 
         $this->deleteSampleComponent();
     }
 
     /**
-     * Runs the make:factory command.
+     * Runs the make:controller command.
      */
-    private function makeFactory(): void
+    private function makeController(): void
     {
-        $this->artisan('make:factory', [
-            'name' => $this->getSampleFactoryName(),
+        $this->artisan('make:controller', [
+            'name' => $this->getSampleControllerName(),
             'component' => $this->sampleComponentName
         ]);
     }
@@ -60,8 +60,8 @@ class MakeFactoryCommandTest extends TestCase
      *
      * @return string
      */
-    private function getSampleFactoryName(): string
+    private function getSampleControllerName(): string
     {
-        return $this->sampleComponentName . 'Factory';
+        return $this->sampleComponentName . 'Controller';
     }
 }

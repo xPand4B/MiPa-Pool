@@ -1,9 +1,9 @@
 <?php
 
-namespace MiPaPo\Core\System\Tests\Console\Commands;
+namespace MiPaPo\Core\Tests\System\Console\Commands;
 
 /**
- * @group System
+ * @group Core
  */
 class MakeSeederCommandTest
 {

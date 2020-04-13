@@ -1,15 +1,15 @@
 <?php
 
-namespace MiPaPo\Core\System\Tests\Console\Commands;
+namespace MiPaPo\Core\Tests\System\Console\Commands;
 
 use MiPaPo\Core\Helper\CoreComponentHelper;
 use MiPaPo\Core\CoreBundle;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Testing\TestCase;
 use Illuminate\Support\Facades\File;
 
 /**
- * @group System
+ * @group Core
  */
 class MakeMiddlewareCommandTest extends TestCase
 {
