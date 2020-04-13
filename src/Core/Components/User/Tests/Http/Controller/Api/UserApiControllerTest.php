@@ -6,7 +6,7 @@ use MiPaPo\Core\Testing\TestCase;
 use MiPaPo\Core\Components\User\Tests\UserTestCaseTrait;
 
 /**
- * @group User
+ * @group UserCoreComponent
  */
 class UserApiControllerTest extends TestCase
 {

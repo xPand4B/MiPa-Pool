@@ -18,6 +18,12 @@ class Application extends \Illuminate\Foundation\Application
         parent::__construct($basePath);
     }
 
+    /**
+     * Get the base path of the Laravel installation.
+     *
+     * @param  string  $path Optionally, a path to append to the base path
+     * @return string
+     */
     public function basePath($path = '')
     {
         if ($path === 'composer.json') {

@@ -18,4 +18,22 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
     }
+
+    /**
+     * Assert that a given class has specified traits assigned.
+     *
+     * @param string $class
+     * @param array $traits
+     */
+    protected function assertClassHasTrait(string $class, array $traits): void
+    {
+        foreach ($traits as $trait) {
+            $hasTrait = in_array(
+                $trait,
+                array_keys((new \ReflectionClass($class))->getTraits())
+            );
+
+            self::assertTrue($hasTrait);
+        }
+    }
 }

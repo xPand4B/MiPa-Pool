@@ -5,7 +5,7 @@ namespace MiPaPo\Core\Components\Order\Tests;
 use MiPaPo\Core\Components\Order\Database\Order;
 
 /**
- * @group Order
+ * @group OrderCoreComponent
  */
 trait OrderTestCaseTrait
 {

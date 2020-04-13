@@ -3,10 +3,9 @@
 namespace MiPaPo\Core\Components\Common\Tests\Http\Controller\Auth;
 
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 
 /**
- * @group Common
+ * @group CommonCoreComponent
  */
 class RegisterControllerTest extends TestCase
 {

@@ -5,7 +5,7 @@ namespace MiPaPo\Core\Components\User\Tests;
 use MiPaPo\Core\Components\User\Database\User;
 
 /**
- * @group User
+ * @group UserCoreComponent
  */
 trait UserTestCaseTrait
 {

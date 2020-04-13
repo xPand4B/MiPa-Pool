@@ -5,7 +5,7 @@ namespace MiPaPo\Core\Components\Menu\Tests;
 use MiPaPo\Core\Components\Menu\Database\Menu;
 
 /**
- * @group Menu
+ * @group MenuCoreComponent
  */
 trait MenuTestCaseTrait
 {

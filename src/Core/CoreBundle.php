@@ -73,18 +73,20 @@ class CoreBundle
         $seeders = [];
 
         foreach ($seederPaths as $path) {
-            if (is_dir($path)) {
-                $files = File::allFiles($path);
+            if (!is_dir($path)) {
+                continue;
+            }
 
-                foreach ($files as $file) {
-                    $classname = $file->getFilenameWithoutExtension();
-                    $component = explode(DIRECTORY_SEPARATOR, $file->getRealPath());
-                    $component = $component[sizeof($component) - 4];
+            $files = File::allFiles($path);
 
-                    $namespace = 'MiPaPo\Core\Components\\' . $component . '\Database\Seeds\\' . $classname;
+            foreach ($files as $file) {
+                $classname = $file->getFilenameWithoutExtension();
+                $component = explode(DIRECTORY_SEPARATOR, $file->getRealPath());
+                $component = $component[sizeof($component) - 4];
 
-                    array_push($seeders, $namespace);
-                }
+                $namespace = 'MiPaPo\Core\Components\\' . $component . '\Database\Seeds\\' . $classname;
+
+                array_push($seeders, $namespace);
             }
         }
 

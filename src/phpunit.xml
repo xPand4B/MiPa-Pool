@@ -23,11 +23,7 @@
 
     <testsuites>
         <testsuite name="components">
-            <directory>Core/Components</directory>
-        </testsuite>
-
-        <testsuite name="system">
-            <directory>Core/System/Tests</directory>
+            <directory>Core/Components/**/Tests</directory>
         </testsuite>
 
         <testsuite name="core">

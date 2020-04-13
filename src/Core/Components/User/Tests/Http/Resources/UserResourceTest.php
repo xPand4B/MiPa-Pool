@@ -3,13 +3,12 @@
 namespace MiPaPo\Core\Components\User\Tests\Http\Resources;
 
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 use MiPaPo\Core\Components\User\Database\User;
 use MiPaPo\Core\Components\User\Http\Resources\UserResource;
 use MiPaPo\Core\Components\User\Tests\UserTestCaseTrait;
 
 /**
- * @group User
+ * @group UserCoreComponent
  */
 class UserResourceTest extends TestCase
 {

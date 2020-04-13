@@ -162,10 +162,15 @@ class ErrorResource
      *
      * @return $this
      */
-    public function setSource(string $pointer, string $parameter): self
+    public function setSource(string $pointer = null, string $parameter = null): self
     {
-        $this->sourcePointer = $pointer;
-        $this->sourceParameter = $parameter;
+        if ($pointer !== null) {
+            $this->sourcePointer = $pointer;
+        }
+
+        if ($parameter !== null) {
+            $this->sourceParameter = $parameter;
+        }
 
         return $this;
     }
@@ -255,7 +260,7 @@ class ErrorResource
      *
      * @return JsonResponse
      */
-    public function getError()
+    public function getError(): JsonResponse
     {
         $response = response()->json(
             $this->getErrorSkeleton()
@@ -268,7 +273,12 @@ class ErrorResource
         return $response;
     }
 
-    public function getErrorCollection()
+    /**
+     * Returns the error collection as JsonResponse.
+     *
+     * @return JsonResponse
+     */
+    public function getErrorCollection(): JsonResponse
     {
         $response = response()->json(
             $this->getErrorCollectionSkeleton()

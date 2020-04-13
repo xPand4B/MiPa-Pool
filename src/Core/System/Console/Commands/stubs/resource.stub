@@ -7,9 +7,14 @@ use MiPaPo\Core\Components\Common\Http\Resources\BaseResource;
 class DummyClass extends BaseResource
 {
     /**
-     * @var string
+     * Returns the resource table.
+     *
+     * @return String
      */
-    protected $table = '';
+    protected function getTable(): String
+    {
+        return '';
+    }
 
     /**
      * Returns the resource type.

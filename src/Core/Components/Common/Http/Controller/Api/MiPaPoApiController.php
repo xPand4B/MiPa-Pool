@@ -3,7 +3,7 @@
 namespace MiPaPo\Core\Components\Common\Http\Controller\Api;
 
 use MiPaPo\Core\Components\Common\Contracts\ApiControllerInterface;
-use  MiPaPo\Core\Controller\Controller;
+use MiPaPo\Core\Controller\Controller;
 use MiPaPo\Core\Components\Common\Repositories\GenericRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -16,11 +16,6 @@ abstract class MiPaPoApiController extends Controller implements ApiControllerIn
      * @var GenericRepository
      */
     private $repository;
-
-    /**
-     * @var array
-     */
-    private $storeValues;
 
     /**
      * MiPaPoApiController constructor.
@@ -120,11 +115,11 @@ abstract class MiPaPoApiController extends Controller implements ApiControllerIn
      * Return the specified resource.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function show(Request $request, $id): JsonResource
+    public function show(Request $request, string $id): JsonResource
     {
         return $this->repository->getById(
             $request, $id
@@ -135,11 +130,11 @@ abstract class MiPaPoApiController extends Controller implements ApiControllerIn
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function update(Request $request, $id): JsonResource
+    public function update(Request $request, string $id): JsonResource
     {
         $model = $this->repository->getById(
             $request, $id
@@ -154,11 +149,11 @@ abstract class MiPaPoApiController extends Controller implements ApiControllerIn
      * Remove the specified resource from storage.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResponse
      */
-    public function destroy(Request $request, $id): JsonResponse
+    public function destroy(Request $request, string $id): JsonResponse
     {
         $model = $this->repository->getById(
             $request, $id

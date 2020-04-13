@@ -3,7 +3,6 @@
 namespace MiPaPo\Frontend\Tests\Controller;
 
 use MiPaPo\Core\Testing\TestCase;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
 
 /**
  * @group Frontend

@@ -25,5 +25,8 @@
         "unit": [
             "composer unit -d ./src"
         ]
-    }
+    },
+  "require": {
+    "ext-json": "*"
+  }
 }

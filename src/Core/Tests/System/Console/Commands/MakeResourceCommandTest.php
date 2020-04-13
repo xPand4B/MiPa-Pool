@@ -1,13 +1,13 @@
 <?php
 
-namespace MiPaPo\Core\System\Tests\Console\Commands;
+namespace MiPaPo\Core\Tests\System\Console\Commands;
 
 use MiPaPo\Core\Helper\CoreComponentHelper;
-use MiPaPo\Core\System\Tests\ComponentTestTrait;
+use MiPaPo\Core\Tests\ComponentTestTrait;
 use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group System
+ * @group Core
  */
 class MakeResourceCommandTest extends TestCase
 {

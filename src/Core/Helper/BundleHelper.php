@@ -65,7 +65,7 @@ class BundleHelper
     }
 
     /**
-     * Get all bundle directories .
+     * Get all bundle directories.
      *
      * @return array
      */
