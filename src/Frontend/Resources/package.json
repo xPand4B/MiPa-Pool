@@ -15,29 +15,25 @@
         }
     ],
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "dev": "node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "unit": "jest --config jest.config.js --passWithNoTests"
     },
     "devDependencies": {
-        "@vue/test-utils": "^1.0.0-beta.31",
+        "@vue/test-utils": "^1.0.0-beta.33",
         "axios": "^0.19",
-        "babel-jest": "^25.2.6",
+        "babel-jest": "^25.3.0",
         "cross-env": "^7.0",
         "deepmerge": "^4.2.2",
         "fibers": "^4.0.2",
-        "jest": "^25.2.7",
+        "jest": "^25.3.0",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.15",
         "resolve-url-loader": "^3.1.1",
         "sass": "^1.25.0",
         "sass-loader": "^8.0.2",
-        "sweetalert2": "^9.10.9",
+        "sweetalert2": "^9.10.12",
         "vue-jest": "^3.0.5",
         "vue-template-compiler": "^2.6.11"
     },
@@ -46,7 +42,7 @@
         "es6-promise": "^4.2.8",
         "vue": "^2.6.11",
         "vue-router": "^3.1.5",
-        "vuetify": "^2.2.20",
+        "vuetify": "^2.2.22",
         "vuex": "^3.1.2"
     }
 }
