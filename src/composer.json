@@ -41,7 +41,9 @@
     "autoload": {
         "psr-4": {
             "MiPaPo\\Core\\": "Core/",
-            "MiPaPo\\Frontend\\": "Frontend/"
+            "MiPaPo\\Documentation\\": "Documentation/",
+            "MiPaPo\\Frontend\\": "Frontend/",
+            "MiPaPo\\Recovery\\": "Recovery/"
         },
         "classmap": [
             "Core/Components/Common/Database/factories",
@@ -58,7 +60,7 @@
         ],
         "unit": [
             "rm -rf Core/Components/Sample",
-            "php vendor/bin/phpunit"
+            "php vendor/bin/phpunit --colors=always --coverage-html ../build/coverage-report"
         ]
     }
 }

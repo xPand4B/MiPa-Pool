@@ -31,11 +31,11 @@ class MakeResourceCommandTest extends TestCase
         $this->makeResource();
 
         $resource = CoreComponentHelper::getFilesByDirectory(
-            'Http'.DIRECTORY_SEPARATOR.'Resources'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Resource.php'
+            'Http/Resources/'.$this->sampleComponentName.'Resource.php'
         );
 
         $test = CoreComponentHelper::getFilesByDirectory(
-            'Tests'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Resources'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'ResourceTest.php'
+            'Tests/Http/Resources/'.$this->sampleComponentName.'ResourceTest.php'
         );
 
         self::assertTrue(file_exists($resource[0]));
@@ -51,7 +51,8 @@ class MakeResourceCommandTest extends TestCase
     {
         $this->artisan('make:resource', [
             'name' => $this->getSampleResourceName(),
-            'component' => $this->sampleComponentName
+            'component' => $this->sampleComponentName,
+            '--collection' => 'default'
         ]);
     }
 
