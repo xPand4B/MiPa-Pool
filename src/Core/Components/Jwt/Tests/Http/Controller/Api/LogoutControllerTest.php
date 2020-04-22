@@ -1,11 +1,11 @@
 <?php
 
-namespace MiPaPo\Core\Components\Common\Tests\Http\Controller\Auth;
+namespace MiPaPo\Core\Components\Jwt\Tests\Http\Controller\Api;
 
 use MiPaPo\Core\Testing\TestCase;
 
 /**
- * @group CommonCoreComponent
+ * @group JwtCoreComponent
  */
 class LogoutControllerTest extends TestCase
 {

@@ -8,4 +8,4 @@ INCLUDE: ./.cache.sh
 
 #php artisan storage:link
 php artisan migrate:fresh
-php artisan passport:install
+php artisan jwt:secret -f

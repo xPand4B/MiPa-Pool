@@ -65,16 +65,5 @@ return [
         */
 
         'seeds' => 'Database'.DIRECTORY_SEPARATOR.'seeds',
-
-        /*
-        |--------------------------------------------------------------------------
-        | OAuth Key Location
-        |--------------------------------------------------------------------------
-        |
-        | This will define were oauth keys are being stored.
-        |
-        */
-
-        'oauth' => 'src'.DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Resources'.DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'oauth'
     ],
 ];
