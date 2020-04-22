@@ -2,29 +2,7 @@
 
 use MiPaPo\Core\Helper\BundleHelper;
 use MiPaPo\Core\Helper\CoreComponentHelper;
-use MiPaPo\Core\Components\Common\Http\Controller\Auth\LoginController;
-use MiPaPo\Core\Components\Common\Http\Controller\Auth\LogoutController;
-use MiPaPo\Core\Components\Common\Http\Controller\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Auth Routes
-|--------------------------------------------------------------------------
-*/
-Route::prefix('auth')->group(function() {
-    Route::post(
-        'register', [RegisterController::class, 'register']
-    )->name('register');
-
-    Route::post(
-        'login', [LoginController::class, 'login']
-    )->name('login');
-
-    Route::get(
-        'logout', [LogoutController::class, 'logout']
-    )->name('logout');
-});
 
 /*
 |--------------------------------------------------------------------------
