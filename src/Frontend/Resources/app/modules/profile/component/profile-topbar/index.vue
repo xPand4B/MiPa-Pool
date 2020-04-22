@@ -28,6 +28,7 @@
                     class="ma-2"
                     large
                     outlined
+                    @click="logout"
                 >Sign Out</v-btn>
             </v-card-actions>
         </template>
@@ -50,5 +51,12 @@
 
             SettingsComponentDarkmodeSwitch,
         },
+
+        methods: {
+            logout() {
+                this.$router.push('/login');
+                this.$store.dispatch('logoutUser');
+            }
+        }
     }
 </script>

@@ -54,8 +54,8 @@
 
         computed: {
             ...mapGetters({
-                email: 'getCurrentUserEmail',
-                fullname: 'getCurrentUserFullname'
+                email: 'getAuthUserEmail',
+                fullname: 'getAuthUserFullname'
             }),
         },
     }

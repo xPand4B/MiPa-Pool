@@ -6,7 +6,7 @@ import Vue from 'vue';
 import router from "./core/Router";
 import App from './core/App';
 // Plugins
-import store from './core/state';
+import store from './core/store';
 import vuetify from "./core/plugins/vuetify";
 import GlobalComponents from "./components/global";
 

@@ -40,7 +40,7 @@
         computed: {
             ...mapGetters({
                 isLoaded: 'userIsLoaded',
-                initials: 'getCurrentUserInitials'
+                initials: 'getAuthUserInitials'
             }),
         },
     }

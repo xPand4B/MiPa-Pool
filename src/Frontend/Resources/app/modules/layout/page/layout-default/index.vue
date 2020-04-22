@@ -79,7 +79,7 @@
 
         computed: {
             ...mapGetters({
-                darkmode: 'getCurrentUserDarkmode'
+                darkmode: 'getAuthUserDarkmode'
             }),
         },
     }

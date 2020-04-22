@@ -3,6 +3,8 @@
         app
         clipped-left
         elevate-on-scroll
+        color="grey darken-3"
+        dark
     >
         <v-app-bar-nav-icon
             @click.stop="sidebarVisibleToggle"
