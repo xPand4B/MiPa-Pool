@@ -60,7 +60,7 @@
         ],
         "unit": [
             "rm -rf Core/Components/Sample",
-            "php vendor/bin/phpunit --colors=always --coverage-html ../build/coverage-report"
+            "php vendor/bin/phpunit --verbose --colors=always --coverage-text --coverage-html ../build/html-coverage"
         ]
     }
 }
