@@ -14,6 +14,29 @@ class UserResourceTest extends TestCase
 {
     use UserTestCaseTrait;
 
+    private function getInvokedMethod(string $method)
+    {
+        return self::invokeMethod(
+            UserResource::class, $method, [], new UserResource(null)
+        );
+    }
+
+    /** @test */
+    public function test_user_resource_has_table_set(): void
+    {
+        $method = $this->getInvokedMethod('getTable');
+
+        self::assertSame('users', $method);
+    }
+
+    /** @test */
+    public function test_user_resource_has_type_set(): void
+    {
+        $method = $this->getInvokedMethod('getType');
+
+        self::assertSame('user', $method);
+    }
+
     /** @test */
     public function test_user_resource_format(): void
     {

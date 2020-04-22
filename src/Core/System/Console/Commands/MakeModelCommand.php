@@ -34,10 +34,6 @@ class MakeModelCommand extends ModelMakeCommand
      */
     protected function getStub()
     {
-        if ($this->option('pivot')) {
-            return __DIR__.'/stubs/pivot.model.stub';
-        }
-
         return __DIR__ . '/stubs/model.stub';
     }
 
@@ -65,10 +61,6 @@ class MakeModelCommand extends ModelMakeCommand
     protected function createMigration()
     {
         $table = Str::snake(Str::pluralStudly(class_basename($this->argument('name'))));
-
-        if ($this->option('pivot')) {
-            $table = Str::singular($table);
-        }
 
         $this->call('make:migration', [
             'name' => "create_{$table}_table",

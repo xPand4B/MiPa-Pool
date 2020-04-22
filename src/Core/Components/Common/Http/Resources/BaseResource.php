@@ -129,16 +129,12 @@ abstract class BaseResource extends JsonResource
      */
     public function toArray($request)
     {
-        $attr = $this->getAttributes($request);
-        $attr = $this->filterQueryParams($attr);
-
-        $rel = $this->getRelations($request);
-
+        $type  = $this->getType();
+        $id    = $this->getId();
+        $attr  = $this->getAttributes($request);
+        $attr  = $this->filterQueryParams($attr);
+        $rel   = $this->getRelations($request);
         $links = $this->getLinks($request);
-
-        $type = $this->getType();
-
-        $id = $this->getId();
 
         return [
             'type' => $type,

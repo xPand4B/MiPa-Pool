@@ -5,7 +5,6 @@ use MiPaPo\Core\Helper\CoreComponentHelper;
 use MiPaPo\Core\Components\Common\Http\Controller\Auth\LoginController;
 use MiPaPo\Core\Components\Common\Http\Controller\Auth\LogoutController;
 use MiPaPo\Core\Components\Common\Http\Controller\Auth\RegisterController;
-use MiPaPo\Core\CoreBundle;
 use Illuminate\Support\Facades\Route;
 
 /*

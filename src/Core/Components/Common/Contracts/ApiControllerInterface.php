@@ -43,9 +43,9 @@ interface ApiControllerInterface
      * @param Request $request
      * @param string $id
      *
-     * @return JsonResource
+     * @return bool|JsonResponse|JsonResource
      */
-    public function update(Request $request, string $id): JsonResource;
+    public function update(Request $request, string $id);
 
     /**
      * Remove the specified resource from storage.

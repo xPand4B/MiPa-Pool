@@ -31,7 +31,7 @@ class MakeModelCommandTest extends TestCase
         $this->makeModel();
 
         $model = CoreComponentHelper::getFilesByDirectory(
-            'Database'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Model.php'
+            'Database/'.$this->sampleComponentName.'Model.php'
         );
 
         self::assertTrue(file_exists($model[0]));

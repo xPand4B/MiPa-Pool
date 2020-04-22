@@ -96,12 +96,14 @@ class ErrorResourceTest extends TestCase
     public function test_class_can_handle_single_error(): void
     {
         $errorResource = (new ErrorResource())
-            ->setStatusCode(400)
-            ->setId('1337')
+            ->setId('1')
             ->setLinks('https://xpand4b.de')
+            ->setStatusCode(400)
+            ->setCode('1337')
             ->setTitle('This is a sample error message')
             ->setDetail('Only occurs while testing the ErrorResource class.')
-            ->setSource('/mipapo/core/phpunit/ErrorResourceTest', null)
+            ->setSource('/mipapo/core/phpunit/ErrorResourceTest', 'Sample')
+            ->setMeta(['message' => 'Some meta information.'])
             ->getError();
 
         self::assertJson($errorResource->getContent());
@@ -109,17 +111,22 @@ class ErrorResourceTest extends TestCase
         self::assertSame(json_encode([
             'errors' => [
                 [
-                    'id' => '1337',
+                    'id' => '1',
                     'links' => [
                         'about' => 'https://xpand4b.de'
                     ],
                     'status' => 400,
+                    'code' => '1337',
                     'title' => 'This is a sample error message',
                     'detail' => 'Only occurs while testing the ErrorResource class.',
                     'source' => [
-                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest'
+                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest',
+                        'parameter' => 'Sample',
                     ],
-                ]
+                    'meta' => [
+                        'message' => 'Some meta information.',
+                    ],
+                ],
             ],
             'jsonapi' => [
                 'version' => CoreBundle::API_VERSION
@@ -143,29 +150,39 @@ class ErrorResourceTest extends TestCase
         self::assertSame(json_encode([
             'errors' => [
                 [
-                    'id' => '1337',
+                    'id' => '1',
                     'links' => [
                         'about' => 'https://xpand4b.de'
                     ],
                     'status' => 401,
+                    'code' => '1337',
                     'title' => 'This is a sample error message',
                     'detail' => 'Only occurs while testing the ErrorResource class.',
                     'source' => [
-                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest'
+                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest',
+                        'parameter' => 'Sample',
+                    ],
+                    'meta' => [
+                        'message' => 'Some meta information.',
                     ],
                 ],
                 [
-                    'id' => '1337',
+                    'id' => '1',
                     'links' => [
                         'about' => 'https://xpand4b.de'
                     ],
                     'status' => 401,
+                    'code' => '1337',
                     'title' => 'This is a sample error message',
                     'detail' => 'Only occurs while testing the ErrorResource class.',
                     'source' => [
-                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest'
+                        'pointer' => '/mipapo/core/phpunit/ErrorResourceTest',
+                        'parameter' => 'Sample',
                     ],
-                ]
+                    'meta' => [
+                        'message' => 'Some meta information.',
+                    ],
+                ],
             ],
             'jsonapi' => [
                 'version' => CoreBundle::API_VERSION
@@ -181,15 +198,17 @@ class ErrorResourceTest extends TestCase
     private function getSampleError(): array
     {
         return [
-            '1337',
+            '1',
             'https://xpand4b.de',
             401,
-            null,
+            '1337',
             'This is a sample error message',
             'Only occurs while testing the ErrorResource class.',
             '/mipapo/core/phpunit/ErrorResourceTest',
-            null,
-            null
+            'Sample',
+            [
+                'message' => 'Some meta information.'
+            ]
         ];
     }
 }

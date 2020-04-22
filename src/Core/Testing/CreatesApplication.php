@@ -2,8 +2,8 @@
 
 namespace MiPaPo\Core\Testing;
 
-use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
+use MiPaPo\Core\System\Console\Kernel;
 
 trait CreatesApplication
 {

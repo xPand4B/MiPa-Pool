@@ -44,8 +44,8 @@ class UserApiController extends MiPaPoApiController
         return [
             'username' => $request->get('username'),
             'firstname' => $request->get('firstname'),
-            'initials' => $initials,
             'lastname' => $request->get('lastname'),
+            'initials' => $initials,
             'email' => $request->get('email'),
             'avatar' => $request->get('avatar'),
             'birthday' => $request->get('birthday'),
