@@ -21,6 +21,6 @@ class UserFactoryTest extends TestCase
 
         $countAfter = User::all()->count();
 
-        self::assertSame($countAfter, $countBefore + 1);
+        self::assertSame($countAfter, $countBefore + 2);
     }
 }

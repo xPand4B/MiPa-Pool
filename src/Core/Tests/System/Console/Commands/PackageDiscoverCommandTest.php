@@ -10,9 +10,7 @@ use MiPaPo\Core\Testing\TestCase;
  */
 class PackageDiscoverCommandTest extends TestCase
 {
-    /**
-     * @covers PackageDiscoverCommand::VENDOR_PATH
-     */
+    /** @test */
     public function test_command_has_correct_vendor_path(): void
     {
         self::assertSame(

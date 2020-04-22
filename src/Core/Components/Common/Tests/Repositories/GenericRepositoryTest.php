@@ -109,16 +109,18 @@ class GenericRepositoryTest extends TestCase
                 'self' => 'http://localhost/api/v1/users/'.(string) $user->id,
                 'related' => null
             ]
-        ], $response[0]);
+        ], $response[1]);
     }
 
     /** @test */
     public function test_class_can_get_all_entities_with_pagination(): void
     {
-        $user = $this->createUser(2, [
+        $this->createUser(1, [
             'locale' => config('app.locale'),
             'darkmode' => (boolean) false
         ]);
+
+        $user = User::all();
 
         $user1 = $user[0];
         $user2 = $user[1];

@@ -15,7 +15,7 @@ class JwtBaseController extends Controller
     /**
      * @array
      */
-    const CREDENTIALS = [
+    const LOGIN_CREDENTIALS = [
         'email',
         'password'
     ];
@@ -49,7 +49,7 @@ class JwtBaseController extends Controller
         $hasErrors = false;
         $errors = new ErrorResource();
 
-        foreach (self::CREDENTIALS as $credential) {
+        foreach (self::LOGIN_CREDENTIALS as $credential) {
             if (! $request->has($credential)) {
                 $hasErrors = true;
 
@@ -71,7 +71,7 @@ class JwtBaseController extends Controller
             return $errors->getErrorCollection();
         }
 
-        return $request->only(self::CREDENTIALS);
+        return $request->only(self::LOGIN_CREDENTIALS);
     }
 
     /**

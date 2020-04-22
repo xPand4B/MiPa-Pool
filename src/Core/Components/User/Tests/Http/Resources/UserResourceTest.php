@@ -40,7 +40,7 @@ class UserResourceTest extends TestCase
     /** @test */
     public function test_user_resource_format(): void
     {
-        $this->createUser(2);
+        $this->createUser(1);
         $users = User::all();
 
         $collection = UserResource::collection($users)->resolve();
