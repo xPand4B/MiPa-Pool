@@ -151,14 +151,12 @@ abstract class MiPaPoApiController extends Controller implements ApiControllerIn
      * @param Request $request
      * @param string $id
      *
-     * @return JsonResponse
+     * @return JsonResource
      */
-    public function destroy(Request $request, string $id): JsonResponse
+    public function destroy(Request $request, string $id): JsonResource
     {
-        $model = $this->repository->getById(
+        return $this->repository->delete(
             $request, $id
         );
-
-        return response()->json();
     }
 }

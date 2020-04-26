@@ -17,7 +17,6 @@ I: rm -rf src/vendor
 
 # Core
 I: rm src/Core/src/Resources/storage/logs/*.log
-I: rm src/Core/src/Resources/storage/oauth/*.key
 
 #Frontend
 I: rm -rf src/Frontend/Resources/app/node_modules

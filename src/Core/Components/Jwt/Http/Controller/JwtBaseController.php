@@ -5,10 +5,12 @@ namespace MiPaPo\Core\Components\Jwt\Http\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use MiPaPo\Core\Components\Common\Http\Resources\ErrorResource;
+use MiPaPo\Core\Components\Common\Http\Resources\TokenResource;
 use MiPaPo\Core\Components\Common\Repositories\GenericRepository;
 use MiPaPo\Core\Components\User\Database\User;
 use MiPaPo\Core\Components\User\Http\Resources\UserResource;
 use MiPaPo\Core\Controller\Controller;
+use MiPaPo\Core\CoreBundle;
 
 class JwtBaseController extends Controller
 {
@@ -23,7 +25,7 @@ class JwtBaseController extends Controller
     /**
      * @var GenericRepository
      */
-    protected $repo;
+    protected $userRepository;
 
     /**
      * Create a new JwtBaseController instance.
@@ -32,9 +34,11 @@ class JwtBaseController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', [
+            'except' => [ 'login' ]
+        ]);
 
-        $this->repo = (new GenericRepository(UserResource::class, User::class));
+        $this->userRepository = (new GenericRepository(UserResource::class, User::class));
     }
 
     /**
@@ -58,9 +62,9 @@ class JwtBaseController extends Controller
                     null,
                     401,
                     null,
-                    'Invalid Request',
+                    'Invalid credentials',
                     'The '.$credential.' field is required.',
-                    '/data/attributes/'.$credential,
+                    '/auth/credentials/'.$credential,
                     null,
                     null
                 );
@@ -68,7 +72,9 @@ class JwtBaseController extends Controller
         }
 
         if ($hasErrors) {
-            return $errors->getErrorCollection();
+            return $errors
+                ->setStatusCode(401)
+                ->getErrorCollection();
         }
 
         return $request->only(self::LOGIN_CREDENTIALS);
@@ -79,14 +85,12 @@ class JwtBaseController extends Controller
      *
      * @param  string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * config('jwt.ttl'),
-        ]);
+        return TokenResource::GenerateResponse(
+            $token, auth()->factory()->getTTL() * config('jwt.ttl')
+        );
     }
 }

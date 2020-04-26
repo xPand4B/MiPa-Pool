@@ -23,4 +23,13 @@ Route::prefix('auth')->group(function()
     Route::get(
         'me', [MeController::class, 'me']
     )->name('auth.me');
+
+    Route::patch(
+        'me', [MeController::class, 'update']
+    )->name('auth.me.update');
+
+    Route::get(
+        'refresh', [MeController::class, 'refresh']
+    )->name('auth.refresh');
+
 });

@@ -29,14 +29,12 @@ class LoginController extends JwtBaseController
         if (! $token) {
             return (new ErrorResource())
                 ->setStatusCode(401)
-                ->setTitle('')
-                ->setDetail('')
-                ->setSource('', '')
+                ->setTitle('Invalid credentials')
+                ->setDetail('There is no user matching these credentials.')
+                ->setSource('/auth', null)
                 ->getError();
         }
 
         return $this->respondWithToken($token);
     }
-
-
 }

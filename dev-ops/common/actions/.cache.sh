@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-I: rm src/Core/System/Bootstrap/cache/*.php
-
 I: rm src/.phpunit.result.cache
-I: find src/Core/src/Resources/storage/* -type f -name '*.php' -delete
+
+I: rm -r src/Core/Resources/storage/framework/cache/data/*
+I: rm -r src/Core/Resources/storage/framework/views/*.php
+I: rm -r src/Core/Resources/storage/framework/views/*.php
+I: rm -r src/Core/Resources/storage/logs/*.log
+
+I: rm -r src/Core/System/Bootstrap/cache/*.php

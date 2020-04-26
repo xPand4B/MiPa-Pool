@@ -2,6 +2,7 @@
 
 namespace MiPaPo\Core\System\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use MiPaPo\Core\Components\Common\Http\Resources\ErrorResource;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -70,5 +71,27 @@ class Handler extends ExceptionHandler
         }
 
         return parent::render($request, $exception);
+    }
+
+    /**
+     * Convert an authentication exception into a response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        $unauthenticatedResponse = (new ErrorResource())
+            ->setTitle('Authentication error')
+            ->setDetail('You are not authenticated.')
+            ->setSource('/auth', null)
+            ->setStatusCode(401)
+            ->getError();
+
+        return $request->expectsJson()
+            ? $unauthenticatedResponse
+            : redirect()->guest($exception->redirectTo() ?? route('auth.login'));
     }
 }
