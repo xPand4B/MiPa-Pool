@@ -54,8 +54,7 @@
 
         methods: {
             logout() {
-                this.$router.push('/login');
-                this.$store.dispatch('logoutUser');
+                this.$store.dispatch('logout');
             }
         }
     }

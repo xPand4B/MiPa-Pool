@@ -6,7 +6,7 @@ export default new RouteCollection([
         layout: 'auth',
         children: [
             {
-                path: '/',
+                path: '',
                 module: 'auth.login',
             }
         ]

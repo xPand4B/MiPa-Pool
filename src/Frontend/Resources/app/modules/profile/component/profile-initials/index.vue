@@ -6,7 +6,7 @@
         <span
             v-if="isLoaded"
             :class="['white--text', initialsClass]"
-        >{{ initials }}</span>
+        >{{ user.initials }}</span>
 
         <span
             v-else
@@ -40,7 +40,7 @@
         computed: {
             ...mapGetters({
                 isLoaded: 'userIsLoaded',
-                initials: 'getAuthUserInitials'
+                user: 'getAuthUserAttributes'
             }),
         },
     }

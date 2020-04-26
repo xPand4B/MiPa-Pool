@@ -83,14 +83,11 @@
 
         methods: {
             submit() {
-                axios.post('api/v1/auth/login', {
-                    email: this.form.email,
-                    password: this.form.password
-                }).then(response => {
-                    this.$store.dispatch('setToken', response.data.access_token);
-                }).then(() => {
-                    this.$router.push({ name: 'order.index' });
-                });
+                if (!this.valid) {
+                    return;
+                }
+
+                this.$store.dispatch('login', this.form);
             },
         },
     }
