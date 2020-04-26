@@ -17,16 +17,20 @@ class LoginController extends JwtBaseController
      */
     public function login(Request $request)
     {
+        // TODO: GH-40 - Add event here
+
         $credentials = $this->getCredentials($request);
 
         // credentials are invalid
         if ($credentials instanceof JsonResponse) {
+            // TODO: GH-40 - Add event here
             return $credentials;
         }
 
         $token = auth('api')->attempt($credentials);
 
         if (! $token) {
+            // TODO: GH-40 - Add event here
             return (new ErrorResource())
                 ->setStatusCode(401)
                 ->setTitle('Invalid credentials')
@@ -35,6 +39,10 @@ class LoginController extends JwtBaseController
                 ->getError();
         }
 
-        return $this->respondWithToken($token);
+        $response = $this->respondWithToken($token);
+
+        // TODO: GH-40 - Add event here
+
+        return $response;
     }
 }

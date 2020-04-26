@@ -17,11 +17,18 @@ class LogoutController extends JwtBaseController
      */
     public function logout(Request $request)
     {
+        // TODO: GH-40 - Add event here
+
         auth()->logout(true);
 
-        // TODO: Refactor to core resource
-        return MessageResource::GenerateResponse(
+        // TODO: GH-40 - Add event here
+
+        $response = MessageResource::GenerateResponse(
             'Successfully logged out.'
         );
+
+        // TODO: Refactor to core resource
+
+        return $response;
     }
 }

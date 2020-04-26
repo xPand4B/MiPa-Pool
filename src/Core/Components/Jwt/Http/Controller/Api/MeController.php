@@ -17,11 +17,17 @@ class MeController extends JwtBaseController
      */
     public function me(Request $request)
     {
+        // TODO: GH-40 - Add event here
+
         $user = $request->user();
 
-        return $this->userRepository->getById(
+        $response =  $this->userRepository->getById(
             $request, $user->id
         );
+
+        // TODO: GH-40 - Add event here
+
+        return $response;
     }
 
     /**
@@ -32,9 +38,15 @@ class MeController extends JwtBaseController
      */
     public function refresh(Request $request)
     {
+        // TODO: GH-40 - Add event here
+
         $newToken = auth()->refresh(true, true);
 
-        return $this->respondWithToken($newToken);
+        $response = $this->respondWithToken($newToken);
+
+        // TODO: GH-40 - Add event here
+
+        return $response;
     }
 
     /**
@@ -47,10 +59,16 @@ class MeController extends JwtBaseController
      */
     public function update(Request $request)
     {
+        // TODO: GH-40 - Add event here
+
         $user = $request->user();
 
-        return $this->userRepository->update(
+        $response = $this->userRepository->update(
             $request, $user
         );
+
+        // TODO: GH-40 - Add event here
+
+        return $response;
     }
 }
