@@ -16,13 +16,8 @@
     ],
     "scripts": {
         "dev": "npm run dev --prefix src/Frontend/Resources",
-        "development": "npm run dev --prefix src/Frontend/Resources",
         "watch": "npm run watch --prefix src/Frontend/Resources",
-        "watch-poll": "npm run watch-poll --prefix src/Frontend/Resources",
-        "hot": "npm run hot --prefix src/Frontend/Resources",
         "prod": "npm run prod --prefix src/Frontend/Resources",
-        "production": "npm run prod --prefix src/Frontend/Resources",
-
         "unit": "npm run unit --prefix src/Frontend/Resources"
     }
 }
