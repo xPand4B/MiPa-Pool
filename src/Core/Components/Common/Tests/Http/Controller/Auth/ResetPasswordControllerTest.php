@@ -7,7 +7,7 @@ use MiPaPo\Core\Testing\TestCase;
 /**
  * @group CommonCoreComponent
  */
-class ResetPasswordController extends TestCase
+class ResetPasswordControllerTest extends TestCase
 {
     // TODO: Add tests
 }

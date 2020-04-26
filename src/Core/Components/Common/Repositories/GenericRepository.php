@@ -188,11 +188,11 @@ class GenericRepository implements RepositoryInterface
      * Get the specified resource.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function getById(Request $request, $id): JsonResource
+    public function getById(Request $request, string $id): JsonResource
     {
         return $this->getResource(
             $this->model::findOrFail($id), $request
@@ -249,11 +249,11 @@ class GenericRepository implements RepositoryInterface
      * Delete the specified resource.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function delete(Request $request, $id): JsonResource
+    public function delete(Request $request, string $id): JsonResource
     {
         // TODO: Add delete method + validation
     }
@@ -262,11 +262,11 @@ class GenericRepository implements RepositoryInterface
      * Soft-delete the specified resource.
      *
      * @param Request $request
-     * @param $id
+     * @param string $id
      *
      * @return JsonResource
      */
-    public function deleteSoft(Request $request, $id): JsonResource
+    public function deleteSoft(Request $request, string $id): JsonResource
     {
         // TODO: Add soft delete method + validation
     }

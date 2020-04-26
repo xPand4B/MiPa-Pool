@@ -31,7 +31,7 @@ class MakeTestCommandTest extends TestCase
         $this->makeTest();
 
         $test = CoreComponentHelper::getFilesByDirectory(
-            'Tests'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Test.php'
+            'Tests/'.$this->sampleComponentName.'Test.php'
         );
 
         self::assertTrue(file_exists($test[0]));

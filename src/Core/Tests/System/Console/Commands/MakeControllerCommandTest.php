@@ -31,15 +31,64 @@ class MakeControllerCommandTest extends TestCase
         $this->makeController();
 
         $controller = CoreComponentHelper::getFilesByDirectory(
-            'Http'.DIRECTORY_SEPARATOR.'Controller'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Controller.php'
+            'Http/Controller/'.$this->sampleComponentName.'Controller.php'
         );
 
         $test = CoreComponentHelper::getFilesByDirectory(
-            'Tests'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Controller'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'ControllerTest.php'
+            'Tests/Http/Controller/'.$this->sampleComponentName.'ControllerTest.php'
         );
 
         self::assertTrue(file_exists($controller[0]));
         self::assertTrue(file_exists($test[0]));
+
+        $this->deleteSampleComponent();
+    }
+
+    /** @test */
+    public function test_controller_can_be_made_with_different_options(): void
+    {
+        $options = [
+            'parent' => 'Components\\Common\\Http\\Controller\\Api\\MiPaPoApiController',
+            'model' => 'Components\\User\\Database\\User',
+            'invokable' => null,
+            'resource' => null,
+        ];
+
+        foreach ($options as $option => $value) {
+            $this->makeControllerWithOption($option, $value);
+
+            $controller = CoreComponentHelper::getFilesByDirectory(
+                'Http/Controller/'.$this->sampleComponentName.'Controller.php'
+            );
+
+            $test = CoreComponentHelper::getFilesByDirectory(
+                'Tests/Http/Controller/'.$this->sampleComponentName.'ControllerTest.php'
+            );
+
+            self::assertTrue(file_exists($controller[0]));
+            self::assertTrue(file_exists($test[0]));
+
+            $this->deleteSampleComponent();
+        }
+
+        $this->artisan('make:controller', [
+            'name' => $this->getSampleControllerName(),
+            'component' => $this->sampleComponentName,
+            '--resource' => 'default',
+            '--api' => 'default',
+        ]);
+
+        $controller = CoreComponentHelper::getFilesByDirectory(
+            'Http/Controller/'.$this->sampleComponentName.'Controller.php'
+        );
+
+        $test = CoreComponentHelper::getFilesByDirectory(
+            'Tests/Http/Controller/'.$this->sampleComponentName.'ControllerTest.php'
+        );
+
+        self::assertTrue(file_exists($controller[0]));
+        self::assertTrue(file_exists($test[0]));
+
 
         $this->deleteSampleComponent();
     }
@@ -52,6 +101,25 @@ class MakeControllerCommandTest extends TestCase
         $this->artisan('make:controller', [
             'name' => $this->getSampleControllerName(),
             'component' => $this->sampleComponentName
+        ]);
+    }
+
+    /**
+     * Runs the make:controller command.
+     *
+     * @param string $option
+     * @param string $value
+     */
+    private function makeControllerWithOption(string $option, $value): void
+    {
+        if ($value === null) {
+            $value = 'default';
+        }
+
+        $this->artisan('make:controller', [
+            'name' => $this->getSampleControllerName(),
+            'component' => $this->sampleComponentName,
+            '--'.$option => $value
         ]);
     }
 

@@ -47,9 +47,7 @@ class BaseResourceTest extends TestCase
     /** @test */
     public function test_trait_has_getter_for_id(): void
     {
-        self::assertTrue($this->class->hasMethod('getId'));
-
-        $method = $this->class->getMethod('getId');
+        $method = self::getMethod(BaseResource::class, 'getId');
 
         self::assertTrue($method->isProtected());
         self::assertTrue($method->hasReturnType());
@@ -58,9 +56,7 @@ class BaseResourceTest extends TestCase
     /** @test */
     public function test_trait_has_getter_for_links(): void
     {
-        self::assertTrue($this->class->hasMethod('getLinks'));
-
-        $method = $this->class->getMethod('getLinks');
+        $method = self::getMethod(BaseResource::class, 'getId');
 
         self::assertTrue($method->isProtected());
         self::assertTrue($method->hasReturnType());

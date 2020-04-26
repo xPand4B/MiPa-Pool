@@ -31,11 +31,11 @@ class MakeFactoryCommandTest extends TestCase
         $this->makeFactory();
 
         $factory = CoreComponentHelper::getFilesByDirectory(
-            'Database'.DIRECTORY_SEPARATOR.'factories'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'Factory.php'
+            'Database/factories/'.$this->sampleComponentName.'Factory.php'
         );
 
         $test = CoreComponentHelper::getFilesByDirectory(
-            'Tests'.DIRECTORY_SEPARATOR.'Database'.DIRECTORY_SEPARATOR.'factories'.DIRECTORY_SEPARATOR.$this->sampleComponentName.'FactoryTest.php'
+            'Tests/Database/factories/'.$this->sampleComponentName.'FactoryTest.php'
         );
 
         self::assertTrue(file_exists($factory[0]));

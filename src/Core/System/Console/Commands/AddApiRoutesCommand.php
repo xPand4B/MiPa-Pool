@@ -47,18 +47,6 @@ class AddApiRoutesCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     *
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
-    {
-        return $rootNamespace.'\Components\\'.$this->component.'\\Routes';
-    }
-
-    /**
      * Build the class with the given name.
      *
      * @param  string  $name
