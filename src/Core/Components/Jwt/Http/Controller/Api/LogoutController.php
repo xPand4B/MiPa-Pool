@@ -2,10 +2,10 @@
 
 namespace MiPaPo\Core\Components\Jwt\Http\Controller\Api;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use MiPaPo\Core\Components\Common\Http\Resources\MessageResource;
 use MiPaPo\Core\Components\Jwt\Http\Controller\JwtBaseController;
-use MiPaPo\Core\CoreBundle;
 
 class LogoutController extends JwtBaseController
 {
@@ -13,7 +13,7 @@ class LogoutController extends JwtBaseController
      * Logout user and invalidate token.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout(Request $request)
     {
@@ -23,7 +23,7 @@ class LogoutController extends JwtBaseController
 
         // TODO: GH-40 - Add event here
 
-        $response = MessageResource::GenerateResponse(
+        $response = response()->message(
             'Successfully logged out.'
         );
 

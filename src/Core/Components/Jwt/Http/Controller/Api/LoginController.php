@@ -10,6 +10,14 @@ use MiPaPo\Core\Components\Jwt\Http\Controller\JwtBaseController;
 class LoginController extends JwtBaseController
 {
     /**
+     * @var array
+     */
+    const LOGIN_CREDENTIALS = [
+        'email',
+        'password'
+    ];
+
+    /**
      * Get a JWT via given credentials.
      *
      * @param Request $request
@@ -19,9 +27,9 @@ class LoginController extends JwtBaseController
     {
         // TODO: GH-40 - Add event here
 
-        $credentials = $this->getCredentials($request);
+        $credentials = $this->getCredentials($request, self::LOGIN_CREDENTIALS);
 
-        // credentials are invalid
+        // Credentials are invalid
         if ($credentials instanceof JsonResponse) {
             // TODO: GH-40 - Add event here
             return $credentials;
@@ -39,7 +47,7 @@ class LoginController extends JwtBaseController
                 ->getError();
         }
 
-        $response = $this->respondWithToken($token);
+        $response = response()->token($token);
 
         // TODO: GH-40 - Add event here
 

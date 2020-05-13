@@ -5,23 +5,13 @@ namespace MiPaPo\Core\Components\Jwt\Http\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use MiPaPo\Core\Components\Common\Http\Resources\ErrorResource;
-use MiPaPo\Core\Components\Common\Http\Resources\TokenResource;
 use MiPaPo\Core\Components\Common\Repositories\GenericRepository;
 use MiPaPo\Core\Components\User\Database\User;
 use MiPaPo\Core\Components\User\Http\Resources\UserResource;
 use MiPaPo\Core\Controller\Controller;
-use MiPaPo\Core\CoreBundle;
 
 class JwtBaseController extends Controller
 {
-    /**
-     * @array
-     */
-    const LOGIN_CREDENTIALS = [
-        'email',
-        'password'
-    ];
-
     /**
      * @var GenericRepository
      */
@@ -34,10 +24,6 @@ class JwtBaseController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', [
-            'except' => [ 'login' ]
-        ]);
-
         $this->userRepository = (new GenericRepository(UserResource::class, User::class));
     }
 
@@ -46,14 +32,15 @@ class JwtBaseController extends Controller
      * If credentials are missing an error will be generated.
      *
      * @param Request $request
+     * @param array $credentialSet
      * @return array|JsonResponse
      */
-    protected function getCredentials(Request $request)
+    protected function getCredentials(Request $request, array $credentialSet)
     {
         $hasErrors = false;
         $errors = new ErrorResource();
 
-        foreach (self::LOGIN_CREDENTIALS as $credential) {
+        foreach ($credentialSet as $credential) {
             if (! $request->has($credential)) {
                 $hasErrors = true;
 
@@ -77,20 +64,6 @@ class JwtBaseController extends Controller
                 ->getErrorCollection();
         }
 
-        return $request->only(self::LOGIN_CREDENTIALS);
-    }
-
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return JsonResponse
-     */
-    protected function respondWithToken($token)
-    {
-        return TokenResource::GenerateResponse(
-            $token, auth()->factory()->getTTL() * config('jwt.ttl')
-        );
+        return $request->only($credentialSet);
     }
 }

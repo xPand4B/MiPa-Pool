@@ -102,14 +102,17 @@ class LoginControllerTest extends TestCase
         ]);
         $responseData = json_decode($response->getContent(), true);
 
+        $accessToken = $responseData['data']['attributes']['access_token'];
+        $expiresIn = $responseData['data']['attributes']['expires_in'];
+
         self::assertSame(200, $response->getStatusCode());
         self::assertSame([
             'data' => [
                 'type' => 'token',
                 'attributes' => [
-                    'access_token' => $responseData['data']['attributes']['access_token'],
+                    'access_token' => $accessToken,
                     'token_type' => 'bearer',
-                    'expires_in' => $responseData['data']['attributes']['expires_in'],
+                    'expires_in' => $expiresIn,
                     'status' => 200,
                 ]
             ],

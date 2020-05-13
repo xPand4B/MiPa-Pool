@@ -42,7 +42,7 @@ class MeController extends JwtBaseController
 
         $newToken = auth()->refresh(true, true);
 
-        $response = $this->respondWithToken($newToken);
+        $response = response()->token($newToken);
 
         // TODO: GH-40 - Add event here
 

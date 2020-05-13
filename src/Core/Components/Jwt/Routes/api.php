@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use MiPaPo\Core\Components\Jwt\Http\Controller\Api\LoginController;
 use MiPaPo\Core\Components\Jwt\Http\Controller\Api\LogoutController;
 use MiPaPo\Core\Components\Jwt\Http\Controller\Api\MeController;
+use MiPaPo\Core\Components\Jwt\Http\Controller\Api\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +17,26 @@ Route::prefix('auth')->group(function()
         'login', [LoginController::class, 'login']
     )->name('auth.login');
 
-    Route::get(
-        'logout', [LogoutController::class, 'logout']
-    )->name('auth.logout');
+    Route::post(
+        'register', [RegisterController::class, 'register']
+    )->name('auth.register');
 
-    Route::get(
-        'me', [MeController::class, 'me']
-    )->name('auth.me');
+    Route::middleware([ 'auth:api' ])->group(function()
+    {
+        Route::get(
+            'logout', [LogoutController::class, 'logout']
+        )->name('auth.logout');
 
-    Route::patch(
-        'me', [MeController::class, 'update']
-    )->name('auth.me.update');
+        Route::get(
+            'me', [MeController::class, 'me']
+        )->name('auth.me');
 
-    Route::get(
-        'refresh', [MeController::class, 'refresh']
-    )->name('auth.refresh');
+        Route::patch(
+            'me', [MeController::class, 'update']
+        )->name('auth.me.update');
 
+        Route::get(
+            'refresh', [MeController::class, 'refresh']
+        )->name('auth.refresh');
+    });
 });

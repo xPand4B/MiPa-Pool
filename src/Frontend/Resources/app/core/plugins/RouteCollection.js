@@ -24,7 +24,7 @@ export default class RouteCollection {
             this.resolveLayout(item);
             this.resolveModule(item);
             this.resolveChildren(item);
-            // this.addAuthMiddleware(item);
+            this.addAuthMiddleware(item);
         });
 
         this.routeCollection = routes;

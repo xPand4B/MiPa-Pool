@@ -21,6 +21,21 @@ class User extends Authenticatable implements JWTSubject
     const TABLE_NAME = 'users';
 
     /**
+     * @var array
+     */
+    const VALIDATION_RULES = [
+        'username'  => 'required|min:3|max:255|alpha_num|unique:users',
+        'firstname' => 'required|min:1|max:255|alpha',
+        'lastname'  => 'required|min:1|max:255|alpha',
+        'email'     => 'required|max:255|email|unique:users',
+        'avatar'    => 'nullable',
+        'locale'    => 'nullable',
+        'darkmode'  => 'boolean',
+        'birthday'  => 'nullable|date',
+        'password'  => 'required|min:5|max:255|confirmed',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
