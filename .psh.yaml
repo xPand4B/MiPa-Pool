@@ -54,6 +54,8 @@ const:
   PUSHER_APP_SECRET:
   PUSHER_APP_CLUSTER: "eu"
 
+  JWT_TTL: 1440
+
 environments:
   dev:
     templates:

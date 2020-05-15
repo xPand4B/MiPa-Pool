@@ -14,14 +14,14 @@
         <v-col cols="12" class="my-0 py-0">
             <v-row justify="center">
                 <div class="headline">
-                    {{ fullname }}
+                    {{ user.firstname }} {{ user.lastname }}
                 </div>
             </v-row>
         </v-col>
         <v-col cols="12" class="mt-0 pt-0">
             <v-row justify="center">
                 <div class="subtitle-1 grey--text">
-                    {{ email }}
+                    {{ user.email }}
                 </div>
             </v-row>
         </v-col>
@@ -54,8 +54,7 @@
 
         computed: {
             ...mapGetters({
-                email: 'getCurrentUserEmail',
-                fullname: 'getCurrentUserFullname'
+                user: 'getAuthUserAttributes'
             }),
         },
     }

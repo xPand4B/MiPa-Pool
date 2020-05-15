@@ -53,7 +53,7 @@ interface ApiControllerInterface
      * @param Request $request
      * @param string $id
      *
-     * @return JsonResponse
+     * @return JsonResource
      */
-    public function destroy(Request $request, string $id): JsonResponse;
+    public function destroy(Request $request, string $id): JsonResource;
 }

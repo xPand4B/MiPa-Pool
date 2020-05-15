@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 | API Auth Routes
 |--------------------------------------------------------------------------
 */
-//Route::middleware(['auth:api', 'verified'])->group(function()
-//{
+Route::middleware([ 'auth:api' ])->group(function()
+{
     $namePrefix = 'user';
 
     Route::get(
@@ -31,4 +31,4 @@ use Illuminate\Support\Facades\Route;
     Route::delete(
         'users/{user}', [UserApiController::class, 'destroy']
     )->name($namePrefix.'.destroy');
-//});
+});

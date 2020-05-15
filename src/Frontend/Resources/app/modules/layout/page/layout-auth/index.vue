@@ -30,10 +30,11 @@
     html{
         overflow: hidden;
     }
-    .authBackground{
-        background-image: url(https://source.unsplash.com/1280x720/daily?programming);
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
+    /* TODO: Cache daily image as asset - automated job */
+    /*.authBackground{*/
+    /*    background-image: url(https://source.unsplash.com/1280x720/daily?programming);*/
+    /*    background-size: cover;*/
+    /*    background-position: center center;*/
+    /*    background-repeat: no-repeat;*/
+    /*}*/
 </style>

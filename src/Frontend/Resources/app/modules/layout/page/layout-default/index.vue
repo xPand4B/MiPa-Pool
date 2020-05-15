@@ -16,12 +16,11 @@
             </v-container>
         </v-content>
 
-        <layout-component-footer/>
+<!--        <layout-component-footer/>-->
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
     import {
         LayoutComponentTopbar,
         LayoutComponentSidebar,
@@ -35,14 +34,6 @@
             LayoutComponentTopbar,
             LayoutComponentSidebar,
             LayoutComponentFooter,
-        },
-
-        beforeCreate() {
-            // TODO: Get darkmode from cookie/local storage?
-            // this.$vuetify.theme.dark = this.darkmode;
-            this.$store.dispatch('fetchUser').then(() => {
-                this.$vuetify.theme.dark = this.darkmode;
-            });
         },
 
         data: () => ({
@@ -76,11 +67,5 @@
                 title: 'MiPa-Pool',
             },
         }),
-
-        computed: {
-            ...mapGetters({
-                darkmode: 'getCurrentUserDarkmode'
-            }),
-        },
     }
 </script>

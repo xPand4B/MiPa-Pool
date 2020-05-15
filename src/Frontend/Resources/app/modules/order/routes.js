@@ -1,4 +1,5 @@
 import RouteCollection from "@plugins/RouteCollection";
+import AuthMiddleware from "../../middleware/auth";
 
 export default new RouteCollection([
     {
@@ -12,11 +13,14 @@ export default new RouteCollection([
             {
                 path: '/',
                 module: 'order.index',
+                // meta: {
+                //     middleware: AuthMiddleware,
+                // },
             },
             // {
             //     path: '/',
             //     module: 'order.update',
             // },
-        ]
+        ],
     }
 ]);

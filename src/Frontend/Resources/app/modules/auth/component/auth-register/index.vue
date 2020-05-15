@@ -12,7 +12,6 @@
                     :rules="[rules.required]"
                     prepend-icon="far fa-user"
                     type="text"
-                    selected
                     required
             />
 
@@ -129,11 +128,11 @@
                     );
                 },
                 length: value => {
-                    const minLength = 8;
+                    const minLength = 5;
                     const maxLength = 255;
                     return (
                         (value.length >= minLength && value.length <= maxLength) ||
-                        'Field must be between 8 and 255 characters'
+                        `Field must be between ${minLength} and ${maxLength} characters`
                     );
                 },
             },

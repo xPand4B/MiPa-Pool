@@ -1,3 +1,5 @@
+import AuthMiddleware from '../../middleware/auth';
+
 export default class RouteCollection {
 
     /**
@@ -22,6 +24,7 @@ export default class RouteCollection {
             this.resolveLayout(item);
             this.resolveModule(item);
             this.resolveChildren(item);
+            this.addAuthMiddleware(item);
         });
 
         this.routeCollection = routes;
@@ -91,6 +94,32 @@ export default class RouteCollection {
         if (children.length !== 0) {
             this.resolveRoutes(children);
         }
+
+        return item;
+    }
+
+    /**
+     * Add the auth middleware to all routes.
+     *
+     * @param item
+     * @returns {*[]}
+     */
+    addAuthMiddleware(item = []) {
+        const {
+            name
+        } = item;
+
+        if (! name) {
+            return item;
+        }
+
+        if (name.includes('auth')) {
+            return item;
+        }
+
+        item.meta = {
+            middleware: AuthMiddleware
+        };
 
         return item;
     }

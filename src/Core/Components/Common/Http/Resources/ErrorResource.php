@@ -201,6 +201,8 @@ class ErrorResource
      * @param string|null $sourcePointer
      * @param string|null $sourceParameter
      * @param array|null $meta
+     *
+     * @return ErrorResource
      */
     public function addError(
         $id = null,
@@ -212,7 +214,7 @@ class ErrorResource
         string $sourcePointer = null,
         string $sourceParameter = null,
         array $meta = null
-    ): void
+    ): self
     {
         $error = [];
 
@@ -253,6 +255,8 @@ class ErrorResource
         }
 
         array_push($this->errorCollection, $error);
+
+        return $this;
     }
 
     /**

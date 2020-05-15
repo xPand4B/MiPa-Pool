@@ -166,6 +166,7 @@ return [
          * Application Service Providers...
          */
         MiPaPo\Core\System\Providers\AppServiceProvider::class,
+        MiPaPo\Core\System\Providers\MacroServiceProvider::class,
         MiPaPo\Core\System\Providers\DatabaseServiceProvider::class,
         MiPaPo\Core\System\Providers\AuthServiceProvider::class,
         // MiPaPo\Core\System\Providers\BroadcastServiceProvider::class,
@@ -176,7 +177,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Passport\PassportServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*

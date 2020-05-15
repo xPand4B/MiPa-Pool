@@ -12,7 +12,6 @@
                     :rules="[rules.email, rules.length, rules.required]"
                     prepend-icon="far fa-envelope"
                     type="email"
-                    selected
                     required
             />
 
@@ -57,8 +56,8 @@
         data: () => ({
             valid: false,
             form: {
-                email: '',
-                password: '',
+                email: 'xpand.4beatz@gmail.com',
+                password: 'secret',
                 remember: false
             },
             passwordVisible: false,
@@ -76,7 +75,7 @@
                     const maxLength = 255;
                     return (
                         (value.length >= minLength && value.length <= maxLength) ||
-                        'Field must be between 5 and 255 characters'
+                        `Field must be between ${minLength} and ${maxLength} characters`
                     );
                 }
             },
@@ -84,7 +83,11 @@
 
         methods: {
             submit() {
-                console.log('Submit')
+                if (!this.valid) {
+                    return;
+                }
+
+                this.$store.dispatch('login', this.form);
             },
         },
     }
