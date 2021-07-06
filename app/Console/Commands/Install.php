@@ -16,8 +16,9 @@ class Install extends Command
         $mode = $this->option('dev') ? 'dev' : 'prod';
 
         $commands = [
+            'cp .env.example .env',
             'php artisan key:generate --ansi',
-            'php artisan migrate:fresh',
+            'php artisan migrate:fresh --force',
             'php artisan storage:link',
             'npm install',
             "npm run $mode"
