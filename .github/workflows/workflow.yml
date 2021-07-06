@@ -25,7 +25,7 @@ jobs:
         env:
             DB_CONNECTION: sqlite
             DB_DATABASE: database/database.sqlite
-        run: composer install && php artisan install
+        run: composer install && touch database/database.sqlite && php artisan install
 
   phpunit:
     name: "testing - phpunit"
@@ -40,6 +40,6 @@ jobs:
         env:
             DB_CONNECTION: sqlite
             DB_DATABASE: database/database.sqlite
-        run: composer install && php artisan install
+        run: composer install && touch database/database.sqlite && php artisan install
       - name: Run PHPUnit
         run: composer test
