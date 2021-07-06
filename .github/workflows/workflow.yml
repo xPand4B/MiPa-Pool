@@ -22,7 +22,7 @@ jobs:
         with:
           php-version: '7.4'
       - name: Install Application
-        run: composer install && composer install-prod
+        run: composer install && php artisan install
 
   phpunit:
     name: "testing - phpunit"
@@ -34,6 +34,6 @@ jobs:
           php-version: '7.4'
           tools: phpunit
       - name: Install Application
-        run: composer install && composer install-prod
+        run: composer install && php artisan install
       - name: Run PHPUnit
         run: composer test
