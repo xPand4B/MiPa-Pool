@@ -1,23 +1,28 @@
 {
-    "homepage": "https://github.com/xPand4B/MiPa-Pool",
-    "authors": [
-        {
-            "name": "Eric Heinzl",
-            "email": "xpand.4beatz@gmail.com",
-            "url": "https://xpand4b.de",
-            "role": "Lead-Developer"
-        },
-        {
-            "name": "Stuart Lux",
-            "email": "stulux98@gmx.de",
-            "url": "https://yunarito.de",
-            "role": "Frontend-Developer"
-        }
-    ],
+    "private": true,
+    "author": {
+        "name": "Eric Heinzl",
+        "email": "xpand.4beatz@gmail.com",
+        "url": "https://xpand4b.de"
+    },
     "scripts": {
-        "dev": "npm run dev --prefix src/Frontend/Resources",
-        "watch": "npm run watch --prefix src/Frontend/Resources",
-        "prod": "npm run prod --prefix src/Frontend/Resources",
-        "unit": "npm run unit --prefix src/Frontend/Resources"
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.3.1",
+        "@tailwindcss/typography": "^0.4.0",
+        "alpinejs": "^3.0.6",
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "postcss-import": "^14.0.1",
+        "tailwindcss": "^2.2.2"
     }
 }

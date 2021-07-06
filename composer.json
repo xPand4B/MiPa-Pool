@@ -1,32 +1,87 @@
 {
     "name": "xpand4b/mipa-pool",
-    "type": "project",
-    "version": "2.0.0",
+    "version": "2.0",
+    "description": "A small application to manage lunch orders.",
+    "keywords": [
+        "framework",
+        "laravel",
+        "jetstream",
+        "fortify",
+        "livewire",
+        "ordering",
+        "food",
+        "menus",
+        "MiPa-Pool"
+    ],
     "license": "MIT",
-    "homepage": "https://github.com/xPand4B/MiPa-Pool",
+    "type": "project",
     "authors": [
         {
             "name": "Eric Heinzl",
             "email": "xpand.4beatz@gmail.com",
             "homepage": "https://xpand4b.de",
-            "role": "Lead-Developer"
-        },
-        {
-            "name": "Stuart Lux",
-            "email": "stulux98@gmx.de",
-            "homepage": "https://yunarito.de",
-            "role": "Frontend-Developer"
+            "role": "Developer"
         }
     ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/framework": "^8.40",
+        "laravel/jetstream": "^2.3",
+        "laravel/sanctum": "^2.6",
+        "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.5",
+        "symfony/process": "^5.3"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
+        "brianium/paratest": "^6.3",
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3",
+        "wulfheart/pretty_routes": "^0.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "scripts": {
         "post-autoload-dump": [
-            "composer install -d ./src --no-interaction --optimize-autoloader --no-suggest"
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "unit": [
-            "composer unit -d ./src"
-        ]
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "test": "@php artisan test --parallel"
     },
-  "require": {
-    "ext-json": "*"
-  }
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -3,22 +3,6 @@
 
 define('LARAVEL_START', microtime(true));
 
-if (! function_exists('replace_directory_separator')) {
-    /**
-     * Replaces slash/backslash with directory separator.
-     *
-     * @param string $path
-     * @return string
-     */
-    function replace_directory_separator(string $path): string
-    {
-        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
-        $path = str_replace('\\', DIRECTORY_SEPARATOR, $path);
-
-        return $path;
-    }
-}
-
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -27,13 +11,13 @@ if (! function_exists('replace_directory_separator')) {
 | Composer provides a convenient, automatically generated class loader
 | for our application. We just need to utilize it! We'll require it
 | into the script here so that we do not have to worry about the
-| loading of any our classes "manually". Feels great to relax.
+| loading of any of our classes manually. It's great to relax.
 |
 */
 
-require replace_directory_separator(__DIR__.'/src/vendor/autoload.php');
+require __DIR__.'/vendor/autoload.php';
 
-$app = require_once replace_directory_separator(__DIR__.'/src/Core/System/Bootstrap/app.php');
+$app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------

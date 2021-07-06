@@ -6,39 +6,37 @@ Eine Webanwendung, um Essensbestellungen in der Mittagspause zu verwalten und ko
 - **License**: MIT License
 - **Github Repository**: <https://github.com/xPand4B/MiPa-Pool>
 - **Issue Tracker**: <https://github.com/xPand4B/MiPa-Pool/issues>
-- **Documentation**: <https://github.com/xPand4B/MiPa-Pool/tree/master/documentation>
 
-# Table of Content
-- [Versioning](#versioning)
+## Table of Content
 - [How to install](#how-to-install)
-    - [Settings](#settings)
-    - [Console Commands](#console-commands)
+- [Testing](#testing)
+- [Versioning](#versioning)
 
-# Versioning
+## How to install
+The installation process is very simple and only contains **three steps**:
+1. Copy the `.env.example` file to `.env` and enter your credentials _(like database and mail stuff)_.
+2. Run this commands:
+    ```bash
+    php artisan install {--dev}
+    ```
+3. Have Fun!
+
+That's it, congratulation! \(^-^)/
+
+## Testing
+```bash
+composer test
+#or
+php artisan test
+```
+
+## Versioning
 The MiPaPo follows the [Semantic Versioning 2.0.0](https://semver.org/).
 1. MAJOR version when you make incompatible API changes,
 2. MINOR version when you add functionality in a backwards-compatible manner, and
 3. PATCH version when you make backwards-compatible bug fixes.
 
-Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format. 
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-# How to install
-## Settings
-To setup the application you need a file named `.psh.yaml.override` in your **root directory**.
-After you have that go inside the `.psh.yaml`, copy all settings you wanna change and paste them inside the `.psh.yaml.override`.
-
-**IMPORTANT:** You need to keep the original hierarchy!
-
-(e.x. you wanna override a const, there has to be a `const:` at the beginning.)
-
-**Example, if you want to override the database settings _(.psh.yaml.override)_:**
-```yaml
-const:
-  DB_DATABASE: "MiPa-Pool"
-  DB_USERNAME: "some-user"
-  DB_PASSWORD: "some-password"
-```
-
-## Console commands
-All available console commands _(Production and Development)_ can be found by typing `./psh.phar`.
-To install you just type `./psh.phar install`.
+## License
+The MIT License (MIT). Please see the included [License File](LICENSE.md) for more information.
