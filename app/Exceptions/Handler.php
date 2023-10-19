@@ -2,73 +2,29 @@
 
 namespace App\Exceptions;
 
-use App\Components\Common\Http\Resources\ErrorResource;
-use App\Components\Common\MiPaPo;
-use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of the exception types that are not reported.
+     * The list of the inputs that are never flashed to the session on validation exceptions.
      *
-     * @var array
-     */
-    protected $dontReport = [
-        //
-    ];
-
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
+     * @var array<int, string>
      */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
 
     /**
-     * Report or log an exception.
-     *
-     * @param Exception $exception
-     * @return void
-     * @throws Exception
+     * Register the exception handling callbacks for the application.
      */
-    public function report(Exception $exception)
+    public function register(): void
     {
-        parent::report($exception);
-    }
-
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param Request $request
-     * @param Exception $exception
-     * @return JsonResponse|Response
-     * @throws Exception
-     */
-    public function render($request, Exception $exception)
-    {
-        if ($exception instanceof ModelNotFoundException) {
-            $parameter = explode('/', $request->fullUrl());
-            $parameter = $parameter[sizeof($parameter) - 1];
-
-            $model = explode('\\', $exception->getModel());
-            $model = mb_strtolower($model[sizeof($model) - 1]);
-
-            return (new ErrorResource())
-                ->setSource('/database/models/'.$model, $parameter)
-                ->setDetail("Entry for '".$model."' not found.")
-                ->setStatusCode(404)
-                ->getError();
-        }
-
-        return parent::render($request, $exception);
+        $this->reportable(function (Throwable $e) {
+            //
+        });
     }
 }

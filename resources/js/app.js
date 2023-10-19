@@ -1,31 +1,23 @@
 import './bootstrap';
-import 'es6-promise/auto';
+import '../css/app.css';
 
-import Vue from 'vue';
-import Vuex from 'vuex';
-import VueRouter from "vue-router";
-import routes from "./src/routes/routes";
-import App from './src/App';
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/vue3';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
-// configure router
-const router = new VueRouter({
-    mode: 'hash',
-    routes,
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+
+createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
+    setup({ el, App, props, plugin }) {
+        return createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .use(ZiggyVue, Ziggy)
+            .mount(el);
+    },
+    progress: {
+        color: '#4B5563',
+    },
 });
-
-// Plugins
-import store from './src/store';
-import vuetify from "./src/plugins/vuetify";
-import GlobalComponents from "./src/globalComponents";
-
-Vue.use(Vuex);
-Vue.use(VueRouter);
-Vue.use(GlobalComponents);
-
-const vm = new Vue({
-    el: '#app',
-    components: { App },
-    router,
-    store,
-    vuetify,
-}).$mount('#app');
